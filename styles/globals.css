@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+@font-face {
+  font-family: "Dalek";
+  src: url("../public/assets/font/Dalek.ttf");
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  min-width: 345px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+.heroSlider ul {
+  position: absolute;
+  bottom: 1em;
+}
+
+.heroSlider ul li {
+  border: 1px solid orange;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.heroSlider ul li button {
+  background: transparent !important;
+  color: transparent !important;
+}
+
+.heroSlider ul li button::before {
+  font-size: 7px;
+  color: gray;
+  position: absolute;
+  top: 0;
+  left: -0.5px;
+  margin: auto;
+}
+
+.heroSlider ul .slick-active button::before {
+  color: orange !important;
+}
+
+.slick-arrow::before {
+  color: orange !important;
+  font-size: 30px !important;
+  margin: -10px;
+}
+
+.slick-arrow:hover::before {
+  color: #000 !important;
+}
+
+@media screen and (min-width: 1420px) {
+  .product__card {
+    width: 300px;
+  }
+
+  .product__card img {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 1181px) and (max-width: 1419px) {
+  .product__card {
+    width: 250px;
+  }
+
+  .product__card img {
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 1081px) and (max-width: 1180px) {
+  .product__card {
+    width: 300px;
+  }
+
+  .product__card img {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 961px) and (max-width: 1080px) {
+  .product__card {
+    width: 250px;
+  }
+
+  .product__card img {
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 871px) and (max-width: 960px) {
+  .product__card {
+    width: 230px;
+  }
+
+  .product__card img {
+    height: 230px;
+  }
+}
+
+@media screen and (min-width: 707px) and (max-width: 870px) {
+  .product__card {
+    width: 200px;
+  }
+
+  .product__card img {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 707px) {
+  .product__card {
+    width: 250px;
+  }
+
+  .product__card img {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .product__card {
+    width: 95%;
+    margin: 1rem auto;
+  }
+
+  .product__card img {
+    width: 100%;
+    //height: 200px;
+  }
+}
+

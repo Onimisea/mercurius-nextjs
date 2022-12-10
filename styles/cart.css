@@ -1,0 +1,78 @@
+.cart__table {
+  border-collapse: collapse;
+}
+
+.cart__table thead {
+  border-bottom: 2px solid black;
+}
+
+.cart__table thead tr {
+}
+
+.cart__table thead tr th {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: black;
+  padding: 1rem;
+  vertical-align: middle;
+  text-align: left;
+  /* background-color: green; */
+}
+
+.cart__table tbody tr {
+  border-bottom: 1px solid gray;
+}
+
+.cart__table tbody tr td {
+  font-size: 17px;
+  letter-spacing: 0.4px;
+  color: black;
+  padding: 3rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.cart__product__name__th {
+}
+
+.cart__product__price__th {
+}
+
+.cart__product__qty__th {
+}
+
+.cart__product__subtotal__th {
+}
+
+.cart__product__name__td {
+}
+
+.cart__product__price__td {
+}
+
+.cart__product__qty__td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart__product__qty__td > .cart__qty__btn {
+  background-color: black;
+  color: white;
+  font-size: 21px;
+  border-radius: 3px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart__product__qty__td > .cart__qty {
+  font-size: 18px;
+  margin: 0 10px;
+}
+
+.cart__product__subtotal__td {
+}

@@ -1,0 +1,29 @@
+import React from "react";
+import Image from "next/image";
+
+const CategoryBanner = ({ catData }) => {
+  console.log(catData);
+  return (
+    <section className="w-full min-w-[320px] h-[100%] max-h-[400px] grid place-items-center overflow-hidden z-10 relative">
+      {/* <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-90"></section> */}
+
+      {/* <Image
+        src={catData.bg}
+        alt=""
+        width={0}
+        height={0}
+        className="w-full h-[100%] max-h-[400px] object-cover object-center"
+      /> */}
+
+      <section className="text-white absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
+        <h1 className="text-4xl uppercase font-poppins font-bold tracking-wider">
+          {catData.name}
+        </h1>
+        <p className="my-5 tracking-wide text-lg">{catData.desc}</p>
+        <span className="text-primary">{`#mercurius${catData.name}`}</span>
+      </section>
+    </section>
+  );
+};
+
+export default CategoryBanner;
