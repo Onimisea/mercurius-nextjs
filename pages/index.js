@@ -1,59 +1,64 @@
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import Image from "next/image";
 import { useEffect } from "react";
 import { AllProducts, Flashsales, HeroBanner } from "../components";
 import { useAppContext } from "../context/AppContext";
+import { Icon } from "@iconify/react";
+
+// Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed urna sed nibh aliquet volutpat consectetur vitae magna. Sed tempor vestibulum velit vitae euismod. Nunc placerat risus nec ipsum finibus, vitae pellentesque lacus iaculis. Ut laoreet mollis nunc. Sed diam velit, tempus sit amet est vitae, dapibus tincidunt nibh. Donec congue tincidunt lectus quis luctus. Vivamus non suscipit ligula. Nullam lacinia tellus ut diam bibendum, ac fermentum lacus tincidunt. Maecenas tincidunt faucibus nisi, eget viverra libero blandit vitae. Cras eu nisi magna. Donec efficitur maximus mauris, sit amet molestie urna sagittis vitae. Donec non orci vitae tellus porta efficitur eget in dolor. Proin tincidunt vestibulum enim ut finibus. Ut vitae turpis nec est malesuada bibendum. Sed ac arcu dapibus, volutpat lacus et, fringilla tellus. Pellentesque eu laoreet nisl.
 
 export default function Home({
   session,
   categories,
-  product,
+  products,
   flashsale_timer,
 }) {
   const {
-    flashsaleProducts,
-    isLoggedIn,
-    setIsLoggedIn,
-    setCategory,
-    products,
-    setProducts,
-    flashsaleTimer,
-    setFlashsaleTimer,
+    // flashsaleProducts,
+    // isLoggedIn,
+    // setIsLoggedIn,
+    // setCategory,
+    // products,
+    // setProducts,
+    // flashsaleTimer,
+    // setFlashsaleTimer,
     flashsaleTimerSwitch,
     setFlashsaleTimerSwitch,
   } = useAppContext();
 
   useEffect(() => {
-    if (categories) {
+    if (categories.length !== 0) {
+      console.log(categories);
       window.localStorage.setItem("CategoryData", JSON.stringify(categories));
-      setCategory(JSON.parse(window.localStorage.getItem("CategoryData")));
+      // setCategory(JSON.parse(window.localStorage.getItem("CategoryData")));
     }
 
-    if (product) {
+    if (products.length !== 0) {
+      console.log(products);
       window.localStorage.setItem("ProductsData", JSON.stringify(product));
-      setProducts(JSON.parse(window.localStorage.getItem("ProductsData")));
+      // setProducts(JSON.parse(window.localStorage.getItem("ProductsData")));
     }
 
-    if (flashsale_timer) {
+    if (flashsale_timer.length !== 0) {
+      console.log(flashsale_timer);
       const activeFlashsaleDatetime = flashsale_timer[0].when;
 
       const activeFlashsaleDate = new Date(activeFlashsaleDatetime).getTime();
 
-      window.localStorage.setItem(
-        "FlashsaleTimeMilliseconds",
-        activeFlashsaleDate
-      );
+      // window.localStorage.setItem(
+      //   "FlashsaleTimeMilliseconds",
+      //   activeFlashsaleDate
+      // );
 
-      setFlashsaleTimer(
-        window.localStorage.getItem("FlashsaleTimeMilliseconds")
-      );
+      // setFlashsaleTimer(
+      //   window.localStorage.getItem("FlashsaleTimeMilliseconds")
+      // );
 
-      if (Date.now() > activeFlashsaleDate) {
-        setFlashsaleTimerSwitch(false);
-      } else {
-        setFlashsaleTimerSwitch(true);
-      }
+      // if (Date.now() > activeFlashsaleDate) {
+      //   setFlashsaleTimerSwitch(false);
+      // } else {
+      //   setFlashsaleTimerSwitch(true);
+      // }
     }
   }, []);
 
@@ -62,7 +67,7 @@ export default function Home({
       <Head>
         <title>Mercurius | Best Thrift Store in Nigeria</title>
       </Head>
-
+      <Icon icon="mdi-light:home" />
       <section className="z-10">
         <HeroBanner />
       </section>
@@ -83,27 +88,25 @@ export default function Home({
 export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
 
-  const categories = await fetch("http://localhost:8000/api/inventory/c/").then(
-    (res) => res.json()
-  );
+  const categories = await fetch(
+    "https://mercurius-api-production.up.railway.app//api/inventory/c/"
+  ).then((res) => res.json());
 
-  const product = await fetch("http://localhost:8000/api/inventory/").then(
-    (res) => res.json()
-  );
+  const products = await fetch(
+    "https://mercurius-api-production.up.railway.app//api/inventory/"
+  ).then((res) => res.json());
 
   const flashsale_timer = await fetch(
-    "http://localhost:8000/api/inventory/f/"
+    "https://mercurius-api-production.up.railway.app//api/inventory/f/"
   ).then((res) => res.json());
 
   return {
     props: {
       session,
       categories,
-      product,
+      products,
       flashsale_timer,
     },
   };
 };
-
-
 
