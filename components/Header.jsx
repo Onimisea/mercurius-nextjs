@@ -35,7 +35,7 @@ const Header = () => {
     session ? console.log(session.user) : console.log("None");
 
     const categories = fetch(
-      "https://mercurius-api-production.up.railway.app//api/inventory/c/"
+      "https://mercurius-api-production.up.railway.app/api/inventory/c/"
     )
       .then((res) => res.json())
       .then((catData) => setCategoriesData(catData));
@@ -43,9 +43,9 @@ const Header = () => {
     userInfo = window.localStorage.getItem("UserData")
       ? JSON.parse(window.localStorage.getItem("UserData"))
       : null;
-  }, []);
 
-  console.log(bgUrl(categoriesData[0].category_image))
+    console.log(bgUrl(categoriesData[0].category_image));
+  }, []);
 
   const handleSignOut = () => {
     window.localStorage.removeItem("UserData");
