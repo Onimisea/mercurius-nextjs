@@ -45,7 +45,7 @@ const Header = () => {
       : null;
   }, []);
 
-  console.log(categoriesData)
+  console.log(bgUrl(categoriesData[0].category_image))
 
   const handleSignOut = () => {
     window.localStorage.removeItem("UserData");
