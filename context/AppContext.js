@@ -30,8 +30,6 @@ export const AppProvider = ({ children }) => {
   const [flashsaleTimer, setFlashsaleTimer] = useState([]);
   const [flashsaleTimerSwitch, setFlashsaleTimerSwitch] = useState(false);
 
-  const [userInfo, setUserInfo] = useState({});
-
   const numbersWithCommas = (numbers) => {
     return numbers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ");
   };
@@ -162,10 +160,6 @@ export const AppProvider = ({ children }) => {
       (product) => product.flashsale > 0
     );
 
-    const userInfoFromLS = JSON.parse(window.localStorage.getItem("UserData"));
-
-    setUserInfo(userInfoFromLS);
-
     return () => {
       setFlashsaleProducts(flashsaleProductsFilter);
     };
@@ -266,13 +260,8 @@ export const AppProvider = ({ children }) => {
         paymentPropsIs,
         showPassword,
         setShowPassword,
-        userInfo,
-        setUserInfo,
         avatarMenuOpen,
         setAvatarMenuOpen,
-        userInfo,
-        category,
-        setCategory,
         products,
         setProducts,
         flashsaleTimer,

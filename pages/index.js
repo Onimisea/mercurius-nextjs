@@ -9,7 +9,6 @@ import { Icon } from "@iconify/react";
 
 export default function Home({
   session,
-  categories,
   products,
   flashsale_timer,
 }) {
@@ -27,15 +26,11 @@ export default function Home({
   } = useAppContext();
 
   useEffect(() => {
-    if (categories.length !== 0) {
-      console.log(categories);
-      window.localStorage.setItem("CategoryData", JSON.stringify(categories));
-      // setCategory(JSON.parse(window.localStorage.getItem("CategoryData")));
-    }
+    
 
     if (products.length !== 0) {
       console.log(products);
-      window.localStorage.setItem("ProductsData", JSON.stringify(product));
+      window.localStorage.setItem("ProductsData", JSON.stringify(products));
       // setProducts(JSON.parse(window.localStorage.getItem("ProductsData")));
     }
 
@@ -67,7 +62,9 @@ export default function Home({
       <Head>
         <title>Mercurius | Best Thrift Store in Nigeria</title>
       </Head>
-      <Icon icon="mdi-light:home" />
+
+      {/* <Icon icon="mdi-light:home" color="black" inline={true} /> */}
+      
       <section className="z-10">
         <HeroBanner />
       </section>
@@ -88,22 +85,18 @@ export default function Home({
 export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
 
-  const categories = await fetch(
-    "https://mercurius-api-production.up.railway.app//api/inventory/c/"
-  ).then((res) => res.json());
-
+  
   const products = await fetch(
-    "https://mercurius-api-production.up.railway.app//api/inventory/"
+    "https://mercurius-api-production.up.railway.app/api/inventory/"
   ).then((res) => res.json());
 
   const flashsale_timer = await fetch(
-    "https://mercurius-api-production.up.railway.app//api/inventory/f/"
+    "https://mercurius-api-production.up.railway.app/api/inventory/f/"
   ).then((res) => res.json());
 
   return {
     props: {
       session,
-      categories,
       products,
       flashsale_timer,
     },

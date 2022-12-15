@@ -5,28 +5,24 @@ import Image from "next/image";
 import { useAppContext } from "../context/AppContext";
 import Link from "next/link";
 import loginImage from "../public/assets/page-imgs/login_image.jpg";
+import glassImg from "../public/assets/page-imgs/auth_bg.png";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsEnvelopeFill, BsEye, BsEyeSlashFill } from "react-icons/bs";
 import toast from "react-hot-toast";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { getSession, useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 
 const Login = () => {
   const router = useRouter();
 
   const {
-    // cartState: { cart },
     showPassword,
     setShowPassword,
-    userInfo,
-    setUserInfo,
   } = useAppContext();
 
   const {
     register,
     handleSubmit,
-    watch,
-    control,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -51,12 +47,13 @@ const Login = () => {
         };
 
         const user = fetch(
-          "http://localhost:8000/api/users/verify/",
+          "https://mercurius-api-production.up.railway.app/api/users/verify/",
           options
-        ).then((res) => res.json()).then((userData) => {
-          window.localStorage.setItem("UserData", JSON.stringify(userData))
-          setUserInfo(JSON.parse(window.localStorage.getItem("UserData")))
-        });
+        )
+          .then((res) => res.json())
+          .then((userData) => {
+            window.localStorage.setItem("UserData", JSON.stringify(userData));
+          });
 
         toast.success("Login Successful");
         router.push(url);
@@ -67,7 +64,7 @@ const Login = () => {
   };
 
   const handleGoogleSignIn = async () => {
-    signIn("google", { callbackUrl: "http://localhost:3000" });
+    signIn("google", { callbackUrl: "/" });
   };
 
   return (
@@ -254,12 +251,19 @@ const Login = () => {
           />
 
           <section className="absolute top-0 right-0 w-full h-full flex items-end justify-center">
-            <section className="bg-gray-300 opacity-80 w-[70%] rounded-lg border-4 border-gary-500 relative mb-16 p-1">
-              <section className="bg-white opacity-80 rounded-lg p-8 border-2 border-white">
-                <h3 className="font-semibold text-2xl mb-3 tracking-wide text-primary">
+            <section className="w-[80%] h-[200px] relative mb-16 rounded-xl">
+              <Image
+                src={glassImg}
+                alt=""
+                width={0}
+                height={0}
+                className="w-full h-full object-cover rounded-xl"
+              />
+              <section className="absolute top-0 right-0 w-full h-full p-4 grid items-center">
+                <h3 className="font-semibold text-2xl text-white">
                   The best wares
                 </h3>
-                <p className="text-md text-gray-900 tracking-wide">
+                <p className="text-md text-white">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
@@ -273,3 +277,20 @@ const Login = () => {
 };
 
 export default Login;
+
+export const getServerSideProps = async ({ req }) => {
+  const session = await getSession({ req });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+};

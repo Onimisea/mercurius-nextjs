@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useAppContext } from "../context/AppContext";
 import Link from "next/link";
 import registerImage from "../public/assets/page-imgs/register_image.jpg";
+import glassImg from "../public/assets/page-imgs/auth_bg.png";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import {
   BsEnvelopeFill,
@@ -14,14 +15,10 @@ import {
 } from "react-icons/bs";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
+import { getSession, signIn, useSession } from "next-auth/react";
 
 const Register = () => {
-  const {
-    // userState: { userInfo },
-    userStateDispatch,
-    showPassword,
-    setShowPassword,
-  } = useAppContext();
+  const { showPassword, setShowPassword } = useAppContext();
 
   const router = useRouter();
 
@@ -40,6 +37,8 @@ const Register = () => {
     },
   });
 
+  let userInfo = {};
+
   const onSubmit = async (data) => {
     if (data.password === data.confirm_password) {
       try {
@@ -49,7 +48,10 @@ const Register = () => {
           body: JSON.stringify(data),
         };
 
-        await fetch("http://localhost:8000/api/users/register/", options)
+        await fetch(
+          "https://mercurius-api-production.up.railway.app/api/users/register/",
+          options
+        )
           .then((res) => res.json())
           .then((resData) => {
             if (resData.errors) {
@@ -79,10 +81,16 @@ const Register = () => {
   };
 
   useEffect(() => {
-    if (userInfo) {
-      router.push("/");
+    if (typeof window !== "undefined" || typeof window !== null) {
+      if (window.localStorage.getItem("UserData")) {
+        userInfo = JSON.parse(window.localStorage.getItem("wishlist"));
+      }
     }
-  }, [router]);
+  }, []);
+
+  const handleGoogleSignIn = async () => {
+    signIn("google", { callbackUrl: "/" });
+  };
 
   return (
     <>
@@ -91,8 +99,8 @@ const Register = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="w-[85%] mx-auto max-w-screen-xl flex flex-col lg:flex-row items-center justify-center font-poppins my-12 bg-black">
-        <section className="w-full lg:w-[50%] px-4 py-6 sm:p-8 md:p-12 md2:px-6 md2:py-10 md3:p-12 text-white grid place-items-center">
+      <section className="w-[85%] mx-auto max-w-screen-xl flex flex-col md2:flex-row items-center justify-center font-poppins my-12 bg-black">
+        <section className="w-full md2:w-[50%] px-4 py-6 sm:p-8 md:p-12 md2:px-6 md2:py-10 md3:p-12 text-white grid place-items-center">
           <section className="w-[90%] ">
             <h3 className="text-2xl font-semibold">Create Account</h3>
             <p className="mt-2 mb-10">
@@ -390,9 +398,12 @@ const Register = () => {
               </form>
             </section>
 
-            <button className="bg-white text-black rounded-md px-6 py-3 flex items-center justify-center w-full cursor-pointer hover:bg-primary hover:text-white duration-300 mt-4">
+            <button
+              className="bg-white text-black rounded-md px-6 py-3 flex items-center justify-center w-full cursor-pointer hover:bg-primary hover:text-white duration-300 mt-4"
+              onClick={handleGoogleSignIn}
+            >
               <AiFillGoogleCircle className="mr-3" />{" "}
-              <span>Sign Up with Google</span>
+              <span>Sign In with Google</span>
             </button>
             <p className="mt-10 text-center">
               Already have an account?{" "}
@@ -403,7 +414,7 @@ const Register = () => {
           </section>
         </section>
 
-        <section className="w-full h-full lg:w-[50%] relative hidden lg:flex">
+        <section className="w-full h-full md2:w-[50%] relative hidden md2:flex">
           <Image
             src={registerImage}
             alt="Mercurius Register"
@@ -413,12 +424,19 @@ const Register = () => {
           />
 
           <section className="absolute top-0 right-0 w-full h-full flex items-end justify-center">
-            <section className="bg-gray-300 opacity-80 w-[70%] rounded-lg border-4 border-gary-500 relative mb-20 p-1">
-              <section className="bg-white opacity-80 rounded-lg p-8 border-2 border-white">
-                <h3 className="font-semibold text-2xl mb-3 tracking-wide text-primary">
+            <section className="w-[80%] h-[200px] relative mb-16 rounded-xl">
+              <Image
+                src={glassImg}
+                alt=""
+                width={0}
+                height={0}
+                className="w-full h-full object-cover rounded-xl"
+              />
+              <section className="absolute top-0 right-0 w-full h-full p-4 grid items-center">
+                <h3 className="font-semibold text-2xl text-white">
                   The best wares
                 </h3>
-                <p className="text-md text-gray-900 tracking-wide">
+                <p className="text-md text-white">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
@@ -432,3 +450,20 @@ const Register = () => {
 };
 
 export default Register;
+
+export const getServerSideProps = async ({ req }) => {
+  const session = await getSession({ req });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+};

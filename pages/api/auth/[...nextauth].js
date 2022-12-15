@@ -26,7 +26,7 @@ export default NextAuth({
 
         // Add logic here to look up the user from the credentials supplied
         let user = await fetch(
-          "http://localhost:8000/api/users/verify/",
+          "https://mercurius-api-production.up.railway.app/api/users/verify/",
           options
         ).then((res) => res.json());
 
@@ -34,7 +34,7 @@ export default NextAuth({
           // Any object returned will be saved in `user` property of the JWT
 
           const loginUser = await fetch(
-            "http://localhost:8000/api/users/login/",
+            "https://mercurius-api-production.up.railway.app/api/users/login/",
             options
           ).then((res) => res.json());
 
