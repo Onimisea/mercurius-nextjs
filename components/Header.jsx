@@ -44,7 +44,6 @@ const Header = () => {
       ? JSON.parse(window.localStorage.getItem("UserData"))
       : null;
 
-    console.log(bgUrl(categoriesData[0].category_image));
   }, []);
 
   const handleSignOut = () => {
