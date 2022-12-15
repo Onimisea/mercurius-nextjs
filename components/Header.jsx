@@ -45,6 +45,8 @@ const Header = () => {
       : null;
   }, []);
 
+  console.log(categoriesData)
+
   const handleSignOut = () => {
     window.localStorage.removeItem("UserData");
     window.localStorage.removeItem("UserData");
