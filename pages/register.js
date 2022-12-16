@@ -6,6 +6,7 @@ import { useAppContext } from "../context/AppContext";
 import Link from "next/link";
 import registerImage from "../public/assets/page-imgs/register_image.jpg";
 import glassImg from "../public/assets/page-imgs/auth_bg.png";
+import loginImage from "../public/assets/page-imgs/login_image.jpg";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import {
   BsEnvelopeFill,
