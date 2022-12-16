@@ -403,7 +403,7 @@ const Register = () => {
               onClick={handleGoogleSignIn}
             >
               <AiFillGoogleCircle className="mr-3" />{" "}
-              <span>Sign In with Google</span>
+              <span>Login with Google</span>
             </button>
             <p className="mt-10 text-center">
               Already have an account?{" "}
