@@ -21,6 +21,8 @@ const Header = () => {
 
   const { data: session } = useSession();
 
+  
+
   let userInfo = null;
 
   const [categoriesData, setCategoriesData] = useState([]);
@@ -32,6 +34,8 @@ const Header = () => {
     if (session && session.user) {
       window.localStorage.setItem("UserData", JSON.stringify(session.user));
     }
+
+    console.log(session);
 
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
