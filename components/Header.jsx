@@ -21,6 +21,10 @@ const Header = () => {
 
   const { data: session } = useSession();
 
+  if (session && session.user) {
+    window.localStorage.setItem("UserData", JSON.stringify(session.user));
+  }
+
   
 
   let userInfo = null;
@@ -47,7 +51,7 @@ const Header = () => {
   }, []);
 
 
-  if(session) {console.log(session.user)}
+  if(userInfo) {console.log(userInfo)}
 
   const handleGoogleLogOut = () => {
     window.localStorage.removeItem("UserData");
