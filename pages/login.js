@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import Head from "next/head";
 import Image from "next/image";
@@ -31,7 +31,7 @@ const Login = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data)
+    console.log(data);
     // const status = signIn("credentials", {
     //   redirect: false,
     //   email: data.email,
@@ -63,6 +63,10 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     signIn("google", { callbackUrl: "/" });
   };
+
+  if (session && session.user) {
+    window.localStorage.setItem("UserData", JSON.stringify(session.user));
+  }
 
   return (
     <>
@@ -276,7 +280,6 @@ const Login = () => {
 export default Login;
 
 export const getServerSideProps = async ({ req }) => {
-
   // if (userInfo) {
   //   return {
   //     redirect: {
@@ -287,6 +290,6 @@ export const getServerSideProps = async ({ req }) => {
   // }
 
   return {
-    props: {  },
+    props: {},
   };
 };

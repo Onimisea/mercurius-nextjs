@@ -35,8 +35,6 @@ const Header = () => {
       window.localStorage.setItem("UserData", JSON.stringify(session.user));
     }
 
-    console.log(session);
-
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
     )
