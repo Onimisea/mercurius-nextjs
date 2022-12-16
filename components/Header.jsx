@@ -7,7 +7,7 @@ import { HiUser } from "react-icons/hi";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { useAppContext } from "../context/AppContext";
 import Avatar from "./Avatar";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import toast from "react-hot-toast";
 
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
     setAvatarMenuOpen,
   } = useAppContext();
 
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
   let userInfo = null;
 
@@ -29,7 +29,7 @@ const Header = () => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    // if (userInfo) {
+    // if (session && session.user) {
     //   window.localStorage.setItem("UserData", JSON.stringify(session.user));
     // }
 
@@ -44,11 +44,10 @@ const Header = () => {
       : null;
   }, []);
 
-  const handleSignOut = () => {
-    // window.localStorage.removeItem("UserData");
-    // window.localStorage.removeItem("UserData");
-    // toast.success("Signed Out Successfully");
-    // signOut({ callbackUrl: "/login" });
+  const handleGoogleLogOut = () => {
+    window.localStorage.removeItem("UserData");
+    toast.success("Signed Out Successfully");
+    signOut({ callbackUrl: "/login" });
   };
 
   return (
