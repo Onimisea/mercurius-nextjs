@@ -25,7 +25,7 @@ const Header = () => {
     console.log(session.user);
   }
 
-  let userInfo = null;
+  // let userInfo = null;
 
   const [categoriesData, setCategoriesData] = useState([]);
   const [submenuName, setSubmenuName] = useState("");
@@ -33,9 +33,9 @@ const Header = () => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    // if (userInfo) {
-    //   window.localStorage.setItem("UserData", JSON.stringify(session.user));
-    // }
+    if (session && session.user) {
+      window.localStorage.setItem("UserData", JSON.stringify(session.user));
+    }
 
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
@@ -48,11 +48,10 @@ const Header = () => {
       : null;
   }, []);
 
-  const handleSignOut = () => {
-    // window.localStorage.removeItem("UserData");
-    // window.localStorage.removeItem("UserData");
-    // toast.success("Signed Out Successfully");
-    // signOut({ callbackUrl: "/login" });
+  const handleGoogleLogOut = () => {
+    window.localStorage.removeItem("UserData");
+    toast.success("Signed Out Successfully");
+    signOut({ callbackUrl: "/login" });
   };
 
   return (
@@ -145,7 +144,7 @@ const Header = () => {
           className="block z-20 w-fit group cursor-pointer"
           onClick={() => setAvatarMenuOpen(!avatarMenuOpen)}
         >
-          {userInfo ? (
+          {session.user ? (
             <Avatar
               src=""
               alt=""
@@ -164,15 +163,8 @@ const Header = () => {
               avatarMenuOpen ? "block" : "hidden"
             }`}
           >
-            {userInfo ? (
+            {session ? (
               <>
-                {userInfo ? (
-                  <p className="block px-8 py-2 rounded-md hover:bg-slate-100 hover:text-primary border-b-2">
-                    {userInfo.fullname}
-                  </p>
-                ) : (
-                  <p></p>
-                )}
                 <Link
                   href=""
                   className="block px-8 py-2 rounded-md hover:bg-slate-100 hover:text-primary"
