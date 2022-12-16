@@ -417,17 +417,8 @@ const Register = () => {
 
         <section className="w-full h-full md2:w-[50%] relative hidden md2:flex">
           <Image
-            src={registerImage}
-            alt="Mercurius Register"
-            width={0}
-            height={0}
-            className="w-full h-full object-cover"
-          />
-          <Image
             src={loginImage}
             alt="Mercurius Login"
-            width={0}
-            height={0}
             className="w-full h-[750px] object-cover"
           />
 
@@ -436,8 +427,6 @@ const Register = () => {
               <Image
                 src={glassImg}
                 alt=""
-                width={0}
-                height={0}
                 className="w-full h-full object-cover rounded-xl"
               />
               <section className="absolute top-0 right-0 w-full h-full p-4 grid items-center">
