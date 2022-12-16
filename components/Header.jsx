@@ -44,6 +44,8 @@ const Header = () => {
       : null;
   }, []);
 
+  console.log(userInfo);
+
   const handleGoogleLogOut = () => {
     window.localStorage.removeItem("UserData");
     toast.success("Signed Out Successfully");
