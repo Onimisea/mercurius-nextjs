@@ -9,6 +9,7 @@ import glassImg from "../public/assets/page-imgs/auth_bg.png";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsEnvelopeFill, BsEye, BsEyeSlashFill } from "react-icons/bs";
 import toast from "react-hot-toast";
+import { signIn } from "next-auth/react";
 // import { getSession, useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 
@@ -59,9 +60,8 @@ const Login = () => {
     // });
   };
 
-  const handleGoogleSignIn = async () => {
-    console.log("Login data");
-    // signIn("google", { callbackUrl: "/" });
+  const handleGoogleLogin = async () => {
+    signIn("google", { callbackUrl: "/" });
   };
 
   return (
@@ -222,7 +222,7 @@ const Login = () => {
 
               <button
                 className="bg-white text-black rounded-md px-6 py-3 flex items-center justify-center w-full cursor-pointer hover:bg-primary hover:text-white duration-300 mt-4"
-                onClick={handleGoogleSignIn}
+                onClick={handleGoogleLogin}
               >
                 <AiFillGoogleCircle className="mr-3" />{" "}
                 <span>Login with Google</span>
@@ -276,18 +276,17 @@ const Login = () => {
 export default Login;
 
 export const getServerSideProps = async ({ req }) => {
-  const session = await getSession({ req });
 
-  if (session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
+  // if (userInfo) {
+  //   return {
+  //     redirect: {
+  //       destination: "/",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   return {
-    props: { session },
+    props: {  },
   };
 };

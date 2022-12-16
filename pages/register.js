@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useAppContext } from "../context/AppContext";
 import Link from "next/link";
 import glassImg from "../public/assets/page-imgs/auth_bg.png";
-// import registerImage from "../public/assets/page-imgs/female.jpg";
+import registerImage from "../public/assets/page-imgs/registerImage.jpg";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import {
   BsEnvelopeFill,
@@ -449,18 +449,17 @@ const Register = () => {
 export default Register;
 
 export const getServerSideProps = async ({ req }) => {
-  const session = await getSession({ req });
-
-  if (session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
+  
+  // if (session) {
+  //   return {
+  //     redirect: {
+  //       destination: "/",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   return {
-    props: { session },
+    props: {  },
   };
 };

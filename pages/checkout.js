@@ -4,7 +4,6 @@ import { useAppContext } from "../context/AppContext";
 import Link from "next/link";
 import { PaystackButton } from "react-paystack";
 import toast from "react-hot-toast";
-import { getSession, useSession, signOut } from "next-auth/react";
 
 const Checkout = ({ userStatus }) => {
   const {
@@ -21,12 +20,10 @@ const Checkout = ({ userStatus }) => {
     paymentPropsIs,
   } = useAppContext();
 
-  const { data: session } = useSession();
-
+  let userInfo
 
   const handleSignOut = () => {
-    window.localStorage.removeItem("UserData");
-    signOut({ callbackUrl: "/register" });
+    // window.localStorage.removeItem("UserData");
   };
 
   const shippingCost = cart.length * 100;
@@ -269,36 +266,35 @@ const Checkout = ({ userStatus }) => {
 export default Checkout;
 
 export const getServerSideProps = async ({ req }) => {
-  const session = await getSession({ req });
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  }
+  // if (!session) {
+  //   return {
+  //     redirect: {
+  //       destination: "/login",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   let userStatus = {};
 
-  if (session.user) {
-    await fetch(
-      "https://mercurius-api-production.up.railway.app/api/users/verify/",
-      {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(session.user),
-      }
-    )
-      .then((res) => res.json())
-      .then((userStatusRes) => {
-        userStatus = userStatusRes;
-        return userStatus;
-      });
-  }
+  // if (session.user) {
+  //   await fetch(
+  //     "https://mercurius-api-production.up.railway.app/api/users/verify/",
+  //     {
+  //       method: "POST",
+  //       headers: { "Content-type": "application/json" },
+  //       body: JSON.stringify(session.user),
+  //     }
+  //   )
+  //     .then((res) => res.json())
+  //     .then((userStatusRes) => {
+  //       userStatus = userStatusRes;
+  //       return userStatus;
+  //     });
+  // }
 
   return {
-    props: { session, userStatus },
+    props: { userStatus },
   };
 };

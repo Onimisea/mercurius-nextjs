@@ -7,10 +7,8 @@ import { HiUser } from "react-icons/hi";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { useAppContext } from "../context/AppContext";
 import Avatar from "./Avatar";
+import { useSession, signIn, signOut } from "next-auth/react";
 import toast from "react-hot-toast";
-
-import { getSession, useSession, signOut } from "next-auth/react";
-import Image from "next/image";
 
 const Header = () => {
   const {
@@ -22,17 +20,18 @@ const Header = () => {
   } = useAppContext();
 
   const { data: session } = useSession();
+
   let userInfo = null;
+
   const [categoriesData, setCategoriesData] = useState([]);
   const [submenuName, setSubmenuName] = useState("");
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    if (session) {
-      window.localStorage.setItem("UserData", JSON.stringify(session.user));
-    }
-    session ? console.log(session.user) : console.log("None");
+    // if (userInfo) {
+    //   window.localStorage.setItem("UserData", JSON.stringify(session.user));
+    // }
 
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
@@ -46,10 +45,10 @@ const Header = () => {
   }, []);
 
   const handleSignOut = () => {
-    window.localStorage.removeItem("UserData");
-    window.localStorage.removeItem("UserData");
-    toast.success("Signed Out Successfully");
-    signOut({ callbackUrl: "/login" });
+    // window.localStorage.removeItem("UserData");
+    // window.localStorage.removeItem("UserData");
+    // toast.success("Signed Out Successfully");
+    // signOut({ callbackUrl: "/login" });
   };
 
   return (
@@ -142,10 +141,10 @@ const Header = () => {
           className="block z-20 w-fit group cursor-pointer"
           onClick={() => setAvatarMenuOpen(!avatarMenuOpen)}
         >
-          {session ? (
+          {userInfo ? (
             <Avatar
-              src={session.user.image}
-              alt={session.user.name}
+              src=""
+              alt=""
               isHeader={true}
               className="hover:text-primary"
             />
@@ -161,7 +160,7 @@ const Header = () => {
               avatarMenuOpen ? "block" : "hidden"
             }`}
           >
-            {session ? (
+            {userInfo ? (
               <>
                 {userInfo ? (
                   <p className="block px-8 py-2 rounded-md hover:bg-slate-100 hover:text-primary border-b-2">
@@ -205,7 +204,7 @@ const Header = () => {
                 <button
                   type="button"
                   className="bg-primary font-bold text-white rounded-md cursor-pointer px-6 py-2 outline-none hover:bg-black duration-300 w-full"
-                  onClick={handleSignOut}
+                  onClick={handleGoogleLogOut}
                 >
                   Log Out
                 </button>
@@ -271,8 +270,8 @@ const Header = () => {
         )}
       </span>
 
-      {/* Mobile Menu */}
 
+      {/* Mobile Menu */}
       <aside
         className={`z-20 md3:hidden bg-white shadow-xl absolute w-[320px] h-full top-20 ${
           isSidebarOpen ? "left-0" : "left-[-200%]"

@@ -1,4 +1,4 @@
-import { getSession } from "next-auth/react";
+
 import Head from "next/head";
 import { useEffect } from "react";
 import { AllProducts, Flashsales, HeroBanner } from "../components";
@@ -7,11 +7,7 @@ import { Icon } from "@iconify/react";
 
 // Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed urna sed nibh aliquet volutpat consectetur vitae magna. Sed tempor vestibulum velit vitae euismod. Nunc placerat risus nec ipsum finibus, vitae pellentesque lacus iaculis. Ut laoreet mollis nunc. Sed diam velit, tempus sit amet est vitae, dapibus tincidunt nibh. Donec congue tincidunt lectus quis luctus. Vivamus non suscipit ligula. Nullam lacinia tellus ut diam bibendum, ac fermentum lacus tincidunt. Maecenas tincidunt faucibus nisi, eget viverra libero blandit vitae. Cras eu nisi magna. Donec efficitur maximus mauris, sit amet molestie urna sagittis vitae. Donec non orci vitae tellus porta efficitur eget in dolor. Proin tincidunt vestibulum enim ut finibus. Ut vitae turpis nec est malesuada bibendum. Sed ac arcu dapibus, volutpat lacus et, fringilla tellus. Pellentesque eu laoreet nisl.
 
-export default function Home({
-  session,
-  products,
-  flashsale_timer,
-}) {
+export default function Home({ products, flashsale_timer }) {
   const {
     // flashsaleProducts,
     // isLoggedIn,
@@ -26,8 +22,6 @@ export default function Home({
   } = useAppContext();
 
   useEffect(() => {
-    
-
     if (products.length !== 0) {
       console.log(products);
       window.localStorage.setItem("ProductsData", JSON.stringify(products));
@@ -64,7 +58,7 @@ export default function Home({
       </Head>
 
       {/* <Icon icon="mdi-light:home" color="black" inline={true} /> */}
-      
+
       <section className="z-10">
         <HeroBanner />
       </section>
@@ -83,9 +77,6 @@ export default function Home({
 }
 
 export const getServerSideProps = async ({ req }) => {
-  const session = await getSession({ req });
-
-  
   const products = await fetch(
     "https://mercurius-api-production.up.railway.app/api/inventory/"
   ).then((res) => res.json());
@@ -96,7 +87,6 @@ export const getServerSideProps = async ({ req }) => {
 
   return {
     props: {
-      session,
       products,
       flashsale_timer,
     },
