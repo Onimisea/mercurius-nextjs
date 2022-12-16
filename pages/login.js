@@ -9,7 +9,7 @@ import glassImg from "../public/assets/page-imgs/auth_bg.png";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsEnvelopeFill, BsEye, BsEyeSlashFill } from "react-icons/bs";
 import toast from "react-hot-toast";
-import { getSession, useSession, signIn, signOut } from "next-auth/react";
+// import { getSession, useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 
 const Login = () => {
@@ -33,38 +33,38 @@ const Login = () => {
   });
 
   const onSubmit = (data) => {
-    const status = signIn("credentials", {
-      redirect: false,
-      email: data.email,
-      password: data.password,
-      callbackUrl: "/",
-    }).then(({ ok, url }) => {
-      if (ok) {
-        const options = {
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-          body: JSON.stringify(data),
-        };
+    // const status = signIn("credentials", {
+    //   redirect: false,
+    //   email: data.email,
+    //   password: data.password,
+    //   callbackUrl: "/",
+    // }).then(({ ok, url }) => {
+    //   if (ok) {
+    //     const options = {
+    //       method: "POST",
+    //       headers: { "Content-type": "application/json" },
+    //       body: JSON.stringify(data),
+    //     };
 
-        const user = fetch(
-          "https://mercurius-api-production.up.railway.app/api/users/verify/",
-          options
-        )
-          .then((res) => res.json())
-          .then((userData) => {
-            window.localStorage.setItem("UserData", JSON.stringify(userData));
-          });
+    //     const user = fetch(
+    //       "https://mercurius-api-production.up.railway.app/api/users/verify/",
+    //       options
+    //     )
+    //       .then((res) => res.json())
+    //       .then((userData) => {
+    //         window.localStorage.setItem("UserData", JSON.stringify(userData));
+    //       });
 
-        toast.success("Login Successful");
-        router.push(url);
-      } else {
-        toast.error("Invalid email or password");
-      }
-    });
+    //     toast.success("Login Successful");
+    //     router.push(url);
+    //   } else {
+    //     toast.error("Invalid email or password");
+    //   }
+    // });
   };
 
   const handleGoogleSignIn = async () => {
-    signIn("google", { callbackUrl: "/" });
+    // signIn("google", { callbackUrl: "/" });
   };
 
   return (
