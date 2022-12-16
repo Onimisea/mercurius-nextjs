@@ -30,6 +30,7 @@ const Login = () => {
   });
 
   const onSubmit = (data) => {
+    console.log(data)
     // const status = signIn("credentials", {
     //   redirect: false,
     //   email: data.email,
