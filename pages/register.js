@@ -15,7 +15,7 @@ import {
 } from "react-icons/bs";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
-import { getSession, signIn, useSession } from "next-auth/react";
+// import { getSession, signIn, useSession } from "next-auth/react";
 
 const Register = () => {
   const { showPassword, setShowPassword } = useAppContext();
@@ -89,7 +89,8 @@ const Register = () => {
   }, []);
 
   const handleGoogleSignIn = async () => {
-    signIn("google", { callbackUrl: "/" });
+    console.log("registration data");
+    // signIn("google", { callbackUrl: "/" });
   };
 
   return (

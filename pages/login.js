@@ -15,10 +15,7 @@ import { useRouter } from "next/router";
 const Login = () => {
   const router = useRouter();
 
-  const {
-    showPassword,
-    setShowPassword,
-  } = useAppContext();
+  const { showPassword, setShowPassword } = useAppContext();
 
   const {
     register,
@@ -45,7 +42,6 @@ const Login = () => {
     //       headers: { "Content-type": "application/json" },
     //       body: JSON.stringify(data),
     //     };
-
     //     const user = fetch(
     //       "https://mercurius-api-production.up.railway.app/api/users/verify/",
     //       options
@@ -54,7 +50,6 @@ const Login = () => {
     //       .then((userData) => {
     //         window.localStorage.setItem("UserData", JSON.stringify(userData));
     //       });
-
     //     toast.success("Login Successful");
     //     router.push(url);
     //   } else {
@@ -64,6 +59,7 @@ const Login = () => {
   };
 
   const handleGoogleSignIn = async () => {
+    console.log("Login data");
     // signIn("google", { callbackUrl: "/" });
   };
 
