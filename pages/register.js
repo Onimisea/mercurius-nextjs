@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useAppContext } from "../context/AppContext";
 import Link from "next/link";
 import glassImg from "../public/assets/page-imgs/auth_bg.png";
-import registerImage from "../public/assets/page-imgs/register_image.jpg";
+import registerImage from "../public/assets/page-imgs/auth_bg.png";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import {
   BsEnvelopeFill,
