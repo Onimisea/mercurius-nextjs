@@ -44,7 +44,8 @@ const Header = () => {
       : null;
   }, []);
 
-  console.log(userInfo);
+
+  if(session) {console.log(session.user)}
 
   const handleGoogleLogOut = () => {
     window.localStorage.removeItem("UserData");
