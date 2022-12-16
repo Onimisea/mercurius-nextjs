@@ -415,13 +415,13 @@ const Register = () => {
         </section>
 
         <section className="w-full h-full md2:w-[50%] relative hidden md2:flex">
-          <Image
+          {/* <Image
             src={registerImage}
             alt="Mercurius Register"
             width={0}
             height={0}
             className="w-full h-full object-cover"
-          />
+          /> */}
 
           <section className="absolute top-0 right-0 w-full h-full flex items-end justify-center">
             <section className="w-[80%] h-[200px] relative mb-16 rounded-xl">
