@@ -83,7 +83,7 @@ const Header = () => {
                     <section className="flex items-center justify-around space-x-5">
                       <section className="w-[35%] h-[250px] relative">
                         <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-60"></section>
-                        <Image
+                        <img
                           src={bgUrl(categoryData.category_image)}
                           alt={bgUrl(categoryData.category_image)}
                           width={0}
