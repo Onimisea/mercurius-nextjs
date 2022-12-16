@@ -417,7 +417,7 @@ const Register = () => {
 
         <section className="w-full h-full md2:w-[50%] relative hidden md2:flex">
           <Image
-            src={registerImage}
+            src={loginImage}
             alt="Mercurius Login"
             className="w-full h-[750px] object-cover"
           />
