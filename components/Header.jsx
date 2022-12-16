@@ -48,7 +48,7 @@ const Header = () => {
       : null;
   }, []);
 
-  const handleGoogleLogOut = () => {
+  const handleSignOut = () => {
     window.localStorage.removeItem("UserData");
     toast.success("Signed Out Successfully");
     signOut({ callbackUrl: "/login" });
@@ -165,6 +165,13 @@ const Header = () => {
           >
             {session ? (
               <>
+                {session ? (
+                  <p className="block px-8 py-2 rounded-md hover:bg-slate-100 hover:text-primary border-b-2">
+                    {userInfo.name}
+                  </p>
+                ) : (
+                  <p></p>
+                )}
                 <Link
                   href=""
                   className="block px-8 py-2 rounded-md hover:bg-slate-100 hover:text-primary"

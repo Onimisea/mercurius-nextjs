@@ -23,7 +23,6 @@ const Checkout = ({ userStatus }) => {
 
   const { data: session } = useSession();
 
-
   const handleSignOut = () => {
     window.localStorage.removeItem("UserData");
     signOut({ callbackUrl: "/register" });
@@ -52,9 +51,14 @@ const Checkout = ({ userStatus }) => {
 
       {userStatus.error ? (
         <section className="w-full p-12 grid place-items-center">
-          <h4 className="text-xl text-primary">Please, complete your Account registration using your Google email!</h4>
+          <h4 className="text-xl text-primary">
+            Please, complete your Account registration using your Google email!
+          </h4>
           <Link href="/register">
-            <button className="bg-black rounded-md mt-5 px-5 py-3 text-white hover:bg-primary cursor-pointer w-fit" onClick={handleSignOut}>
+            <button
+              className="bg-black rounded-md mt-5 px-5 py-3 text-white hover:bg-primary cursor-pointer w-fit"
+              onClick={handleSignOut}
+            >
               Register
             </button>
           </Link>
