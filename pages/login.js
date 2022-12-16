@@ -242,7 +242,7 @@ const Login = () => {
         </section>
 
         <section className="w-full md2:h-[750px] md2:w-[50%] relative hidden md2:flex">
-          <Image
+          <img
             src={loginImage}
             alt="Mercurius Login"
             width={0}
@@ -252,7 +252,7 @@ const Login = () => {
 
           <section className="absolute top-0 right-0 w-full h-full flex items-end justify-center">
             <section className="w-[80%] h-[200px] relative mb-16 rounded-xl">
-              <Image
+              <img
                 src={glassImg}
                 alt=""
                 width={0}

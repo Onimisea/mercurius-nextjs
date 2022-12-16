@@ -43,7 +43,6 @@ const Header = () => {
     userInfo = window.localStorage.getItem("UserData")
       ? JSON.parse(window.localStorage.getItem("UserData"))
       : null;
-
   }, []);
 
   const handleSignOut = () => {
@@ -85,7 +84,7 @@ const Header = () => {
                         <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-60"></section>
                         <img
                           src={bgUrl(categoryData.category_image)}
-                          alt={bgUrl(categoryData.category_image)}
+                          alt={bgUrl(categoryData.name)}
                           width={0}
                           height={0}
                           className="w-full h-[100%] max-h-[250px] object-fill"
