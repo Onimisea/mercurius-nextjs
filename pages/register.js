@@ -422,6 +422,13 @@ const Register = () => {
             height={0}
             className="w-full h-full object-cover"
           />
+          <Image
+            src={loginImage}
+            alt="Mercurius Login"
+            width={0}
+            height={0}
+            className="w-full h-[750px] object-cover"
+          />
 
           <section className="absolute top-0 right-0 w-full h-full flex items-end justify-center">
             <section className="w-[80%] h-[200px] relative mb-16 rounded-xl">
