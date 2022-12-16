@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useAppContext } from "../context/AppContext";
 import Link from "next/link";
 import glassImg from "../public/assets/page-imgs/auth_bg.png";
-import registerImage from "../public/assets/page-imgs/registerImage.jpg";
+import registerImage from "../public/assets/page-imgs/female.jpg";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import {
   BsEnvelopeFill,
@@ -418,7 +418,7 @@ const Register = () => {
           <Image
             src={registerImage}
             alt="Mercurius Login"
-            className="w-full h-[750px] object-cover"
+            className="w-full h-full object-cover"
           />
 
           <section className="absolute top-0 right-0 w-full h-full flex items-end justify-center">
