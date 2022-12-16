@@ -219,7 +219,7 @@ const Login = () => {
                   type="submit"
                   className="bg-primary text-white rounded-md px-6 py-3 flex items-center justify-center w-full cursor-pointer hover:bg-white hover:text-black duration-300"
                 >
-                  <span>Sign In</span>
+                  <span>Log In</span>
                 </button>
               </form>
 
@@ -228,7 +228,7 @@ const Login = () => {
                 onClick={handleGoogleSignIn}
               >
                 <AiFillGoogleCircle className="mr-3" />{" "}
-                <span>Sign In with Google</span>
+                <span>Login with Google</span>
               </button>
             </section>
 
