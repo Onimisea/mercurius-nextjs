@@ -9,7 +9,7 @@ import glassImg from "../public/assets/page-imgs/auth_bg.png";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsEnvelopeFill, BsEye, BsEyeSlashFill } from "react-icons/bs";
 import toast from "react-hot-toast";
-import { signIn } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 // import { getSession, useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 

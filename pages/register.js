@@ -15,7 +15,7 @@ import {
 } from "react-icons/bs";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
-// import { getSession, signIn, useSession } from "next-auth/react";
+import { getSession, signIn, useSession } from "next-auth/react";
 
 const Register = () => {
   const { showPassword, setShowPassword } = useAppContext();
@@ -88,9 +88,8 @@ const Register = () => {
     }
   }, []);
 
-  const handleGoogleSignIn = async () => {
-    console.log("registration data");
-    // signIn("google", { callbackUrl: "/" });
+  const handleGoogleLogin = async () => {
+    signIn("google", { callbackUrl: "/" });
   };
 
   return (
@@ -401,7 +400,7 @@ const Register = () => {
 
             <button
               className="bg-white text-black rounded-md px-6 py-3 flex items-center justify-center w-full cursor-pointer hover:bg-primary hover:text-white duration-300 mt-4"
-              onClick={handleGoogleSignIn}
+              onClick={handleGoogleLogin}
             >
               <AiFillGoogleCircle className="mr-3" />{" "}
               <span>Login with Google</span>
