@@ -21,6 +21,10 @@ const Header = () => {
 
   const { data: session } = useSession();
 
+  if (session && session.user) {
+    console.log(session.user);
+  }
+
   let userInfo = null;
 
   const [categoriesData, setCategoriesData] = useState([]);
@@ -269,7 +273,6 @@ const Header = () => {
           />
         )}
       </span>
-
 
       {/* Mobile Menu */}
       <aside
