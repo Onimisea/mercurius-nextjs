@@ -19,13 +19,9 @@ const Header = () => {
     setAvatarMenuOpen,
   } = useAppContext();
 
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
 
-  if (session && session.user) {
-    console.log(session.user);
-  }
-
-  // let userInfo = null;
+  let userInfo = null;
 
   const [categoriesData, setCategoriesData] = useState([]);
   const [submenuName, setSubmenuName] = useState("");
@@ -33,9 +29,9 @@ const Header = () => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    if (session && session.user) {
-      window.localStorage.setItem("UserData", JSON.stringify(session.user));
-    }
+    // if (userInfo) {
+    //   window.localStorage.setItem("UserData", JSON.stringify(session.user));
+    // }
 
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
@@ -49,9 +45,10 @@ const Header = () => {
   }, []);
 
   const handleSignOut = () => {
-    window.localStorage.removeItem("UserData");
-    toast.success("Signed Out Successfully");
-    signOut({ callbackUrl: "/login" });
+    // window.localStorage.removeItem("UserData");
+    // window.localStorage.removeItem("UserData");
+    // toast.success("Signed Out Successfully");
+    // signOut({ callbackUrl: "/login" });
   };
 
   return (
@@ -144,7 +141,7 @@ const Header = () => {
           className="block z-20 w-fit group cursor-pointer"
           onClick={() => setAvatarMenuOpen(!avatarMenuOpen)}
         >
-          {session.user ? (
+          {userInfo ? (
             <Avatar
               src=""
               alt=""
@@ -163,11 +160,11 @@ const Header = () => {
               avatarMenuOpen ? "block" : "hidden"
             }`}
           >
-            {session ? (
+            {userInfo ? (
               <>
-                {session ? (
+                {userInfo ? (
                   <p className="block px-8 py-2 rounded-md hover:bg-slate-100 hover:text-primary border-b-2">
-                    {userInfo.name}
+                    {userInfo.fullname}
                   </p>
                 ) : (
                   <p></p>
