@@ -25,8 +25,6 @@ const Header = () => {
     window.localStorage.setItem("UserData", JSON.stringify(session.user));
   }
 
-  
-
   let userInfo = null;
 
   const [categoriesData, setCategoriesData] = useState([]);
@@ -45,13 +43,16 @@ const Header = () => {
       .then((res) => res.json())
       .then((catData) => setCategoriesData(catData));
 
-    userInfo = window.localStorage.getItem("UserData")
-      ? JSON.parse(window.localStorage.getItem("UserData"))
-      : null;
+    if (window.localStorage.getItem("UserData")) {
+      userInfo = JSON.parse(window.localStorage.getItem("UserData"));
+    } else {
+      userInfo = null;
+    }
   }, []);
 
-
-  if(userInfo) {console.log(userInfo)}
+  if (userInfo) {
+    console.log(userInfo);
+  }
 
   const handleGoogleLogOut = () => {
     window.localStorage.removeItem("UserData");
