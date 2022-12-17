@@ -47,9 +47,9 @@ const Header = () => {
       userInfo = JSON.parse(window.localStorage.getItem("UserData"));
     }
 
-    console.log("User is very logged in, very much!", userInfo);
   }, []);
-
+  
+  console.log("User is very logged in, very much!", userInfo);
 
   const handleGoogleLogOut = () => {
     window.localStorage.removeItem("UserData");
