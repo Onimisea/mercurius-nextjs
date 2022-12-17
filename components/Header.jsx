@@ -43,11 +43,10 @@ const Header = () => {
       .then((res) => res.json())
       .then((catData) => setCategoriesData(catData));
 
-    if (session && session.user && window.localStorage.getItem("UserData")) {
+    if (window.localStorage.getItem("UserData")) {
       userInfo = JSON.parse(window.localStorage.getItem("UserData"));
-    } else {
-      userInfo = null;
     }
+
     console.log("User is very logged in, very much!", userInfo);
   }, []);
 
