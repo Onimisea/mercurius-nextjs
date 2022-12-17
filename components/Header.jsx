@@ -21,11 +21,11 @@ const Header = () => {
 
   const { data: session } = useSession();
 
+  const [userInfo, setUserInfo] = useState({})
+
   if (session && session.user) {
     window.localStorage.setItem("UserData", JSON.stringify(session.user));
   }
-
-  let userInfo = null;
 
   const [categoriesData, setCategoriesData] = useState([]);
   const [submenuName, setSubmenuName] = useState("");
@@ -43,8 +43,8 @@ const Header = () => {
       .then((res) => res.json())
       .then((catData) => setCategoriesData(catData));
 
-    if (window.localStorage.getItem("UserData")) {
-      userInfo = JSON.parse(window.localStorage.getItem("UserData"));
+    if (session && session.user && window.localStorage.getItem("UserData")) {
+      setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
     }
 
   }, []);
