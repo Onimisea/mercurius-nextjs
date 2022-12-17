@@ -43,18 +43,14 @@ const Header = () => {
       .then((res) => res.json())
       .then((catData) => setCategoriesData(catData));
 
-    if (window.localStorage.getItem("UserData")) {
+    if (session && session.user && window.localStorage.getItem("UserData")) {
       userInfo = JSON.parse(window.localStorage.getItem("UserData"));
     } else {
       userInfo = null;
     }
-
-    console.log(userInfo)
   }, []);
 
-  if (session && session.user) {
-    console.log("User is logged in");
-  }
+  console.log("User is very logged in, very much!", userInfo);
 
   const handleGoogleLogOut = () => {
     window.localStorage.removeItem("UserData");
