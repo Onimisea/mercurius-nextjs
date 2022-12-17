@@ -48,10 +48,12 @@ const Header = () => {
     } else {
       userInfo = null;
     }
+
+    console.log(userInfo)
   }, []);
 
-  if (userInfo) {
-    console.log(userInfo);
+  if (session && session.user) {
+    console.log("User is logged in");
   }
 
   const handleGoogleLogOut = () => {
