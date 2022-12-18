@@ -21,7 +21,7 @@ const Header = () => {
 
   const { data: session } = useSession();
 
-  const [userInfo, setUserInfo] = useState({})
+  const [userInfo, setUserInfo] = useState(null)
 
   if (session && session.user) {
     window.localStorage.setItem("UserData", JSON.stringify(session.user));
