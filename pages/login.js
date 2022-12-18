@@ -63,11 +63,14 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     signIn("google", { callbackUrl: "/" });
-    window.localStorage.setItem("UserData", JSON.stringify(session.user));
+    setTimeout(() => {
+      if (session && session.user) {
+        window.localStorage.setItem("UserData", JSON.stringify(session.user));
+      }
+    }, 500);
   };
-
-  if (session && session.user) {
-  }
+  
+  
 
   return (
     <>
