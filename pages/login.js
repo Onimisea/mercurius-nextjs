@@ -33,33 +33,32 @@ const Login = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-    // const status = signIn("credentials", {
-    //   redirect: false,
-    //   email: data.email,
-    //   password: data.password,
-    //   callbackUrl: "/",
-    // }).then(({ ok, url }) => {
-    //   if (ok) {
-    //     const options = {
-    //       method: "POST",
-    //       headers: { "Content-type": "application/json" },
-    //       body: JSON.stringify(data),
-    //     };
-    //     const user = fetch(
-    //       "https://mercurius-api-production.up.railway.app/api/users/verify/",
-    //       options
-    //     )
-    //       .then((res) => res.json())
-    //       .then((userData) => {
-    //         window.localStorage.setItem("UserData", JSON.stringify(userData));
-    //       });
-    //     toast.success("Login Successful");
-    //     router.push(url);
-    //   } else {
-    //     toast.error("Invalid email or password");
-    //   }
-    // });
+    const status = signIn("credentials", {
+      redirect: false,
+      email: data.email,
+      password: data.password,
+      callbackUrl: "/",
+    }).then(({ ok, url }) => {
+      if (ok) {
+        const options = {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(data),
+        };
+        const user = fetch(
+          "https://mercurius-api-production.up.railway.app/api/users/verify/",
+          options
+        )
+          .then((res) => res.json())
+          .then((userData) => {
+            window.localStorage.setItem("UserData", JSON.stringify(userData));
+          });
+        toast.success("Login Successful");
+        router.push(url);
+      } else {
+        toast.error("Invalid email or password");
+      }
+    });
   };
 
   const handleGoogleLogin = async () => {

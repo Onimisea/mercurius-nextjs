@@ -32,15 +32,13 @@ const Header = () => {
     if (window.localStorage.getItem("UserData")) {
       setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
     }
-    
+
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
     )
       .then((res) => res.json())
       .then((catData) => setCategoriesData(catData));
   }, []);
-  
-  console.log("User is very logged in, very much!", userInfo);
 
   const handleGoogleLogOut = () => {
     window.localStorage.removeItem("UserData");
