@@ -26,11 +26,11 @@ export default function Home({ products, flashsale_timer }) {
 
   useEffect(() => {
     if (!window.localStorage.getItem("UserData")) {
-      if (session.user) {
+      if (session && session.user) {
         window.localStorage.setItem("UserData", JSON.stringify(session.user));
       }
     }
-    
+
     if (products.length !== 0) {
       console.log(products);
       window.localStorage.setItem("ProductsData", JSON.stringify(products));
