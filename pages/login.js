@@ -62,10 +62,6 @@ const Login = ({}) => {
 
   const handleGoogleLogin = async () => {
     signIn('google');
-
-    if (session) {
-      window.localStorage.setItem("UserData", JSON.stringify(session.user));
-    }
   };
 
   return (
