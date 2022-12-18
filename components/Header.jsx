@@ -19,6 +19,8 @@ const Header = () => {
     setAvatarMenuOpen,
   } = useAppContext();
 
+  const { data: session } = useSession();
+
   const [userInfo, setUserInfo] = useState(null)
 
   const [categoriesData, setCategoriesData] = useState([]);
@@ -26,10 +28,14 @@ const Header = () => {
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
+if (session && session.user) {
+  setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
+}
+
   useEffect(() => {
-    if (window.localStorage.getItem("UserData")) {
-      setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
-    }
+    // if (window.localStorage.getItem("UserData")) {
+      // setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
+    // }
 
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
