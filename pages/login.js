@@ -10,10 +10,9 @@ import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsEnvelopeFill, BsEye, BsEyeSlashFill } from "react-icons/bs";
 import toast from "react-hot-toast";
 import { getSession, useSession, signIn } from "next-auth/react";
-// import { getSession, useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 
-const Login = () => {
+const Login = ({}) => {
   const router = useRouter();
 
   const { data: session } = useSession();
@@ -277,16 +276,18 @@ const Login = () => {
 export default Login;
 
 export const getServerSideProps = async ({ req }) => {
-  // if (userInfo) {
-  //   return {
-  //     redirect: {
-  //       destination: "/",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
+  const session = await getSession({ req });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   return {
-    props: {},
+    props: { session },
   };
 };
