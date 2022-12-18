@@ -25,6 +25,7 @@ export default function Home({ products, flashsale_timer }) {
   const { data: session } = useSession();
 
   if (session && session.user) {
+    console.log(session.user);
     window.localStorage.setItem("UserData", JSON.stringify(session.user));
   }
 
