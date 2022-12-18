@@ -22,7 +22,7 @@ export default function Home({ products, flashsale_timer }) {
     setFlashsaleTimerSwitch,
   } = useAppContext();
 
-  const { data: session } = getSession();
+  const { data: session } = useSession();
 
   useEffect(() => {
     if (session && session.user) {
