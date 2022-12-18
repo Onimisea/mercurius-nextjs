@@ -21,17 +21,15 @@ const Header = () => {
 
   const [userInfo, setUserInfo] = useState(null)
 
-  if (window.localStorage.getItem("UserData")) {
-    setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
-  }
-
   const [categoriesData, setCategoriesData] = useState([]);
   const [submenuName, setSubmenuName] = useState("");
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    
+    if (window.localStorage.getItem("UserData")) {
+      setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
+    }
 
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
