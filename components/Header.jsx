@@ -43,7 +43,7 @@ const Header = () => {
       .then((res) => res.json())
       .then((catData) => setCategoriesData(catData));
 
-    if (session && session.user && window.localStorage.getItem("UserData")) {
+    if (window.localStorage.getItem("UserData")) {
       setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
     }
 
