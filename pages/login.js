@@ -64,10 +64,10 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     signIn("google", { callbackUrl: "/" });
+    window.localStorage.setItem("UserData", JSON.stringify(session.user));
   };
 
   if (session && session.user) {
-    window.localStorage.setItem("UserData", JSON.stringify(session.user));
   }
 
   return (

@@ -33,10 +33,6 @@ const Header = () => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    if (session && session.user) {
-      window.localStorage.setItem("UserData", JSON.stringify(session.user));
-    }
-
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
     )
