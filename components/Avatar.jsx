@@ -10,9 +10,8 @@ const Avatar = ({ src, alt, isHeader }) => {
   useEffect(() => {
     let userInitialsOld = "";
 
-    if (session && session.user) {
-      // const rawUserData = JSON.parse(window.localStorage.getItem("UserData"));
-      const rawUserData = session.user;
+    if (window.localStorage.getItem("UserData")) {
+      const rawUserData = JSON.parse(window.localStorage.getItem("UserData"));
 
       let username = "";
 
