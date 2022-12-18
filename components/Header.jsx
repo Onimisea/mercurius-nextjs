@@ -23,26 +23,21 @@ const Header = () => {
 
   const [userInfo, setUserInfo] = useState(null)
 
-  if (session && session.user) {
-    window.localStorage.setItem("UserData", JSON.stringify(session.user));
-  }
-
   const [categoriesData, setCategoriesData] = useState([]);
   const [submenuName, setSubmenuName] = useState("");
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
+    if (window.localStorage.getItem("UserData")) {
+      setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
+    }
+    
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
     )
       .then((res) => res.json())
       .then((catData) => setCategoriesData(catData));
-
-    if (window.localStorage.getItem("UserData")) {
-      setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
-    }
-
   }, []);
   
   console.log("User is very logged in, very much!", userInfo);
