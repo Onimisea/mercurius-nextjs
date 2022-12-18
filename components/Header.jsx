@@ -21,16 +21,16 @@ const Header = () => {
 
   const { data: session } = useSession();
 
-  const [userInfo, setUserInfo] = useState(null)
+  // const [userInfo, setUserInfo] = useState(null)
 
   const [categoriesData, setCategoriesData] = useState([]);
   const [submenuName, setSubmenuName] = useState("");
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-if (session && session.user) {
-  setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
-}
+// if (session && session.user) {
+//   setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
+// }
 
   useEffect(() => {
     // if (window.localStorage.getItem("UserData")) {
@@ -44,7 +44,7 @@ if (session && session.user) {
       .then((catData) => setCategoriesData(catData));
   }, []);
 
-  const handleGoogleLogOut = () => {
+  const handleLogOut = () => {
     window.localStorage.removeItem("UserData");
     toast.success("Signed Out Successfully");
     signOut({ callbackUrl: "/login" });
@@ -140,7 +140,7 @@ if (session && session.user) {
           className="block z-20 w-fit group cursor-pointer"
           onClick={() => setAvatarMenuOpen(!avatarMenuOpen)}
         >
-          {userInfo ? (
+          {session ? (
             <Avatar
               src=""
               alt=""
@@ -159,9 +159,9 @@ if (session && session.user) {
               avatarMenuOpen ? "block" : "hidden"
             }`}
           >
-            {userInfo ? (
+            {session ? (
               <>
-                {userInfo ? (
+                {session.user ? (
                   <p className="block px-8 py-2 rounded-md hover:bg-slate-100 hover:text-primary border-b-2">
                     {userInfo.fullname}
                   </p>
@@ -203,7 +203,7 @@ if (session && session.user) {
                 <button
                   type="button"
                   className="bg-primary font-bold text-white rounded-md cursor-pointer px-6 py-2 outline-none hover:bg-black duration-300 w-full"
-                  onClick={handleGoogleLogOut}
+                  onClick={handleLogOut}
                 >
                   Log Out
                 </button>
