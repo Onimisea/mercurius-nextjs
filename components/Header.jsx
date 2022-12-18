@@ -163,7 +163,7 @@ const Header = () => {
               <>
                 {session.user ? (
                   <p className="block px-8 py-2 rounded-md hover:bg-slate-100 hover:text-primary border-b-2">
-                    {session.user.fullname}
+                    {}
                   </p>
                 ) : (
                   <p></p>
