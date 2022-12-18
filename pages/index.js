@@ -24,13 +24,13 @@ export default function Home({ products, flashsale_timer }) {
 
   const { data: session } = useSession();
 
-  if (!window.localStorage.getItem("UserData")) {
-    if (session.user) {
-      window.localStorage.setItem("UserData", JSON.stringify(session.user));
-    }
-  }
-
   useEffect(() => {
+    if (!window.localStorage.getItem("UserData")) {
+      if (session.user) {
+        window.localStorage.setItem("UserData", JSON.stringify(session.user));
+      }
+    }
+    
     if (products.length !== 0) {
       console.log(products);
       window.localStorage.setItem("ProductsData", JSON.stringify(products));
@@ -101,4 +101,5 @@ export const getServerSideProps = async ({ req }) => {
     },
   };
 };
+
 
