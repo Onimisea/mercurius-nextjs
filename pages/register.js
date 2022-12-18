@@ -448,17 +448,18 @@ const Register = () => {
 export default Register;
 
 export const getServerSideProps = async ({ req }) => {
-  
-  // if (session) {
-  //   return {
-  //     redirect: {
-  //       destination: "/",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
+  const session = await getSession({ req });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   return {
-    props: {  },
+    props: { session },
   };
 };

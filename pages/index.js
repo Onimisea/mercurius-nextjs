@@ -22,12 +22,6 @@ export default function Home({ products, flashsale_timer }) {
     setFlashsaleTimerSwitch,
   } = useAppContext();
 
-  const { data: session } = useSession();
-
-  if (session) {
-    window.localStorage.setItem("UserData", JSON.stringify(session.user));
-  }
-
   useEffect(() => {
     if (products.length !== 0) {
       console.log(products);

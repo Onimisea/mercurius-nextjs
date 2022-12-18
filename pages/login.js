@@ -9,11 +9,17 @@ import glassImg from "../public/assets/page-imgs/auth_bg.png";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsEnvelopeFill, BsEye, BsEyeSlashFill } from "react-icons/bs";
 import toast from "react-hot-toast";
-import { getSession, signIn } from "next-auth/react";
+import { getSession, useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
 const Login = ({}) => {
   const router = useRouter();
+
+  const { data: session } = useSession();
+
+  if (session) {
+    window.localStorage.setItem("UserData", JSON.stringify(session.user));
+  }
 
   const { showPassword, setShowPassword } = useAppContext();
 
