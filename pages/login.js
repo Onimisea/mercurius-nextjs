@@ -17,6 +17,8 @@ const Login = ({}) => {
 
   const { showPassword, setShowPassword } = useAppContext();
 
+  const session = useSession();
+
   const {
     register,
     handleSubmit,
@@ -59,7 +61,11 @@ const Login = ({}) => {
   };
 
   const handleGoogleLogin = async () => {
-    signIn("google", { callbackUrl: "/" });
+    signIn();
+
+    if (session && session.user) {
+      window.localStorage.setItem("UserData", JSON.stringify(session.user));
+    }
   };
 
   return (
