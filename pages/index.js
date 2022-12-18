@@ -25,10 +25,12 @@ export default function Home({ products, flashsale_timer }) {
   const { data: session } = getSession();
 
   useEffect(() => {
-    if (session && session.user) {
-      console.log(session.user)
-      window.localStorage.setItem("UserData", JSON.stringify(session.user));
-    }
+    // if (session && session.user) {
+    //   console.log(session.user)
+    //   window.localStorage.setItem("UserData", JSON.stringify(session.user));
+    // }
+
+    console.log(session);
 
     if (products.length !== 0) {
       console.log(products);

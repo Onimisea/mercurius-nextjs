@@ -63,8 +63,6 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     signIn("google", { callbackUrl: "/" });
-
-    window.localStorage.setItem("UserData", JSON.stringify(session.user));
   };
 
   return (
