@@ -15,12 +15,6 @@ import { useRouter } from "next/router";
 const Login = ({}) => {
   const router = useRouter();
 
-  const { data: session } = useSession();
-
-  if (session) {
-    window.localStorage.setItem("UserData", JSON.stringify(session.user));
-  }
-
   const { showPassword, setShowPassword } = useAppContext();
 
   const {
