@@ -281,18 +281,18 @@ const Login = ({}) => {
 export default Login;
 
 export const getServerSideProps = async ({ req }) => {
-  const session = await getSession({ req });
+  // const session = await getSession({ req });
 
-  if (session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
+  // if (session) {
+  //   return {
+  //     redirect: {
+  //       destination: "/",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
-  return {
-    props: { session },
-  };
+  // return {
+  //   props: { session },
+  // };
 };
