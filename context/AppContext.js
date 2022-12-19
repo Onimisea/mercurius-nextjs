@@ -30,6 +30,8 @@ export const AppProvider = ({ children }) => {
   const [flashsaleTimer, setFlashsaleTimer] = useState([]);
   const [flashsaleTimerSwitch, setFlashsaleTimerSwitch] = useState(false);
 
+  const [userInfo, setUserInfo] = useState(null);
+
   const numbersWithCommas = (numbers) => {
     return numbers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ");
   };
@@ -271,6 +273,8 @@ export const AppProvider = ({ children }) => {
         salesTax,
         setSalesTax,
         numbersWithCommas,
+        userInfo,
+        setUserInfo,
       }}
     >
       {children}

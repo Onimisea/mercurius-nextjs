@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 const Login = ({}) => {
   const router = useRouter();
 
-  const { showPassword, setShowPassword } = useAppContext();
+  const { showPassword, setShowPassword, setUserInfo } = useAppContext();
 
   const session = useSession();
 
@@ -51,6 +51,7 @@ const Login = ({}) => {
           .then((res) => res.json())
           .then((userData) => {
             window.localStorage.setItem("UserData", JSON.stringify(userData));
+            setUserInfo(userData);
           });
         toast.success("Login Successful");
         router.push(url);
@@ -61,7 +62,7 @@ const Login = ({}) => {
   };
 
   const handleGoogleLogin = async () => {
-    signIn('google');
+    signIn("google");
   };
 
   return (
