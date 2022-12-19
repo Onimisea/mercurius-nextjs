@@ -61,7 +61,7 @@ const Login = ({}) => {
   };
 
   const handleGoogleLogin = async () => {
-    signIn("google");
+    signIn("google", { callbackUrl: "/" });
   };
 
   useEffect(() => {
