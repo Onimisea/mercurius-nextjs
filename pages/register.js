@@ -18,7 +18,7 @@ import toast from "react-hot-toast";
 import { getSession, signIn, useSession } from "next-auth/react";
 
 const Register = () => {
-  const { showPassword, setShowPassword } = useAppContext();
+  const { showPassword, setShowPassword, userInfo } = useAppContext();
 
   const router = useRouter();
 
@@ -36,8 +36,6 @@ const Register = () => {
       confirm_password: "",
     },
   });
-
-  let userInfo = {};
 
   const onSubmit = async (data) => {
     if (data.password === data.confirm_password) {
@@ -82,8 +80,8 @@ const Register = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined" || typeof window !== null) {
-      if (window.localStorage.getItem("UserData")) {
-        userInfo = JSON.parse(window.localStorage.getItem("wishlist"));
+      if (userInfo) {
+        router.push("/")
       }
     }
   }, []);

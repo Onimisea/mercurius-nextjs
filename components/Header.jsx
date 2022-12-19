@@ -17,9 +17,14 @@ const Header = () => {
     appState: { cart },
     avatarMenuOpen,
     setAvatarMenuOpen,
+    userInfo,
   } = useAppContext();
 
   const { data: session } = useSession();
+
+  if (userInfo) {
+    console.log(userInfo);
+  }
 
   // const [userInfo, setUserInfo] = useState(null)
 
@@ -28,13 +33,13 @@ const Header = () => {
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-// if (session && session.user) {
-//   setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
-// }
+  // if (session && session.user) {
+  //   setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
+  // }
 
   useEffect(() => {
     // if (window.localStorage.getItem("UserData")) {
-      // setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
+    // setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
     // }
 
     const categories = fetch(
