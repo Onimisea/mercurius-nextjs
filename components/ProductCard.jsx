@@ -78,7 +78,7 @@ const ProductCard = ({ product }) => {
       <img
         src={fiUrl}
         alt={product.name}
-        className="w-full h-[300px] sm2:w-[250px] sm2:h-[250px] object-cover sm2:object-contain duration-300"
+        className="w-full h-[300px] sm2:w-[250px] sm2:h-[250px] object-cover md:object-contain duration-300"
       />
       <h4 className="product__name mt-6 mb-4 text-md group-hover:text-primary w-full h-[50px] overflow-hidden px-4">
         {product.name}
