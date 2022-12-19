@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { FaCaretDown } from "react-icons/fa";
-import { useSession } from "next-auth/react";
+import { useAppContext } from "../context/AppContext";
 
 const Avatar = ({ src, alt, isHeader }) => {
   const [userInitials, setUserInitials] = useState("");
 
-  const { data: session } = useSession();
+  const { userInfo } = useAppContext();
 
   useEffect(() => {
     let userInitialsOld = "";
 
-    if (window.localStorage.getItem("UserData")) {
-      const rawUserData = JSON.parse(window.localStorage.getItem("UserData"));
+    if (userInfo) {
+      const rawUserData = userInfo;
 
       let username = "";
 

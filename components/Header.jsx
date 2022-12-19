@@ -22,25 +22,14 @@ const Header = () => {
 
   const { data: session } = useSession();
 
-  if (userInfo) {
-    console.log(userInfo);
-  }
-
-  // const [userInfo, setUserInfo] = useState(null)
 
   const [categoriesData, setCategoriesData] = useState([]);
   const [submenuName, setSubmenuName] = useState("");
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  // if (session && session.user) {
-  //   setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
-  // }
 
   useEffect(() => {
-    // if (window.localStorage.getItem("UserData")) {
-    // setUserInfo(JSON.parse(window.localStorage.getItem("UserData")));
-    // }
 
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
@@ -145,7 +134,7 @@ const Header = () => {
           className="block z-20 w-fit group cursor-pointer"
           onClick={() => setAvatarMenuOpen(!avatarMenuOpen)}
         >
-          {session ? (
+          {userInfo ? (
             <Avatar
               src=""
               alt=""
@@ -164,7 +153,7 @@ const Header = () => {
               avatarMenuOpen ? "block" : "hidden"
             }`}
           >
-            {session ? (
+            {userInfo ? (
               <>
                 <Link
                   href=""
@@ -200,7 +189,7 @@ const Header = () => {
 
                 <button
                   type="button"
-                  className="bg-primary font-bold text-white rounded-md cursor-pointer px-6 py-2 outline-none hover:bg-black duration-300 w-full"
+                  className="bg-primary font-bold text-white rounded-md cursor-pointer px-6 py-2 mt-6 outline-none hover:bg-black duration-300 w-full"
                   onClick={handleLogOut}
                 >
                   Log Out
