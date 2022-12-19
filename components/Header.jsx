@@ -7,7 +7,7 @@ import { HiUser } from "react-icons/hi";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { useAppContext } from "../context/AppContext";
 import Avatar from "./Avatar";
-import { useSession, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import toast from "react-hot-toast";
 
 const Header = () => {
@@ -17,11 +17,8 @@ const Header = () => {
     appState: { cart },
     avatarMenuOpen,
     setAvatarMenuOpen,
-    userInfo,
+    userInfo, setUserInfo,
   } = useAppContext();
-
-  const { data: session } = useSession();
-
 
   const [categoriesData, setCategoriesData] = useState([]);
   const [submenuName, setSubmenuName] = useState("");
@@ -40,6 +37,7 @@ const Header = () => {
 
   const handleLogOut = () => {
     window.localStorage.removeItem("UserData");
+    setUserInfo(null)
     toast.success("Signed Out Successfully");
     signOut({ callbackUrl: "/login" });
   };
@@ -189,7 +187,7 @@ const Header = () => {
 
                 <button
                   type="button"
-                  className="bg-primary font-bold text-white rounded-md cursor-pointer px-6 py-2 mt-6 outline-none hover:bg-black duration-300 w-full"
+                  className="bg-primary font-bold text-white rounded-md cursor-pointer px-6 py-2 mt-8 outline-none hover:bg-black duration-300 w-full"
                   onClick={handleLogOut}
                 >
                   Log Out

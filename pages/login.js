@@ -9,7 +9,7 @@ import glassImg from "../public/assets/page-imgs/auth_bg.png";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsEnvelopeFill, BsEye, BsEyeSlashFill } from "react-icons/bs";
 import toast from "react-hot-toast";
-import { getSession, signIn } from "next-auth/react";
+import { getSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 
 const Login = ({}) => {
@@ -67,7 +67,10 @@ const Login = ({}) => {
   useEffect(() => {
     if (typeof window !== "undefined" || typeof window !== null) {
       if (userInfo) {
-        router.push("/");
+        window.localStorage.removeItem("UserData");
+        setUserInfo(null);
+        toast.success("Signed Out Successfully");
+        signOut({ callbackUrl: "/login" });
       }
     }
   }, []);
@@ -287,6 +290,7 @@ export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
 
   if (session) {
+    signOut();
     return {
       redirect: {
         destination: "/",
