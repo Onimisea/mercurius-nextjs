@@ -26,7 +26,7 @@ export default function Home({ products, flashsale_timer }) {
 
   if (session && session.user && session.user.name) {
     console.log(session.user);
-    window.localStorage.setItem("UserData", JSON.stringify(userData));
+    window.localStorage.setItem("UserData", JSON.stringify(session.user));
     setUserInfo(session.user)
   }
 
@@ -101,6 +101,7 @@ export const getServerSideProps = async ({ req }) => {
     },
   };
 };
+
 
 
 
