@@ -64,16 +64,10 @@ const Login = ({}) => {
     signIn("google");
   };
 
-  const handleLogOut = () => {
-    window.localStorage.removeItem("UserData");
-    setUserInfo(null);
-    toast.success("Signed Out Successfully");
-    signOut();
-  };
 
   useEffect(() => {
     if (typeof window !== "undefined" || typeof window !== null) {
-      if (userInfo) handleLogOut();
+      
     }
   }, []);
 
