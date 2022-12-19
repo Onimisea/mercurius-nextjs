@@ -33,7 +33,7 @@ export default function Home({ products, flashsale_timer }) {
     if (products.length !== 0) {
       console.log(products);
       window.localStorage.setItem("ProductsData", JSON.stringify(products));
-      // setProducts(JSON.parse(window.localStorage.getItem("ProductsData")));
+      setProducts(JSON.parse(window.localStorage.getItem("ProductsData")));
     }
 
     if (flashsale_timer.length !== 0) {
