@@ -9,15 +9,14 @@ import glassImg from "../public/assets/page-imgs/auth_bg.png";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsEnvelopeFill, BsEye, BsEyeSlashFill } from "react-icons/bs";
 import toast from "react-hot-toast";
-import { getSession, useSession, signIn } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
 const Login = ({}) => {
   const router = useRouter();
 
-  const { showPassword, setShowPassword, setUserInfo } = useAppContext();
-
-  const session = useSession();
+  const { showPassword, setShowPassword, userInfo, setUserInfo } =
+    useAppContext();
 
   const {
     register,
@@ -64,6 +63,14 @@ const Login = ({}) => {
   const handleGoogleLogin = async () => {
     signIn("google");
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined" || typeof window !== null) {
+      if (userInfo) {
+        router.push("/");
+      }
+    }
+  }, []);
 
   return (
     <>
