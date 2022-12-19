@@ -104,7 +104,7 @@ const AllProducts = () => {
         </section>
       )} */}
 
-      <section className="w-full space-y-4 sm2:space-y-0 mx-auto max-w-screen-xl flex flex-wrap items-center justify-center">
+      <section className="w-full space-y-6 space-x-6 sm2:space-y-4 sm2:space-x-4 mx-auto max-w-screen-xl flex flex-wrap items-center justify-center">
         {transformProducts().length > 0 ? (
           transformProducts().map((product) => (
             <ProductCard key={product.id} product={product} />
