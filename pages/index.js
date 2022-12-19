@@ -14,11 +14,9 @@ export default function Home({ products, flashsale_timer }) {
     // setCategory,
     // products,
     setProducts,
-    flashsaleTimer,
     setFlashsaleTimer,
     flashsaleTimerSwitch,
     setFlashsaleTimerSwitch,
-    userInfo,
     setUserInfo,
   } = useAppContext();
 
@@ -31,13 +29,11 @@ export default function Home({ products, flashsale_timer }) {
 
   useEffect(() => {
     if (products.length !== 0) {
-      console.log(products);
       window.localStorage.setItem("ProductsData", JSON.stringify(products));
       setProducts(JSON.parse(window.localStorage.getItem("ProductsData")));
     }
 
     if (flashsale_timer.length !== 0) {
-      console.log(flashsale_timer);
       const activeFlashsaleDatetime = flashsale_timer[0].when;
 
       const activeFlashsaleDate = new Date(activeFlashsaleDatetime).getTime();
