@@ -18,7 +18,8 @@ import toast from "react-hot-toast";
 import { getSession, signIn, signOut } from "next-auth/react";
 
 const Register = () => {
-  const { showPassword, setShowPassword, userInfo, setUserInfo } = useAppContext();
+  const { showPassword, setShowPassword, userInfo, setUserInfo } =
+    useAppContext();
 
   const router = useRouter();
 
@@ -84,7 +85,7 @@ const Register = () => {
         window.localStorage.removeItem("UserData");
         setUserInfo(null);
         toast.success("Signed Out Successfully");
-        signOut({ callbackUrl: "/login" });
+        signOut();
       }
     }
   }, []);
@@ -452,7 +453,7 @@ export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
 
   if (session) {
-    signOut()
+    signOut();
   }
 
   return {

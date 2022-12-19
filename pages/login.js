@@ -70,7 +70,7 @@ const Login = ({}) => {
         window.localStorage.removeItem("UserData");
         setUserInfo(null);
         toast.success("Signed Out Successfully");
-        signOut({ callbackUrl: "/login" });
+        signOut();
       }
     }
   }, []);
