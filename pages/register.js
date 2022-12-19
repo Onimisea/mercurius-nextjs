@@ -455,7 +455,7 @@ export const getServerSideProps = async ({ req }) => {
   //   };
   // }
 
-  // return {
-  //   props: { session },
-  // };
+  return {
+    props: {},
+  };
 };
