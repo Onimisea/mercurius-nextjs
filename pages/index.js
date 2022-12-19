@@ -13,9 +13,9 @@ export default function Home({ products, flashsale_timer }) {
     // flashsaleProducts,
     // setCategory,
     // products,
-    // setProducts,
-    // flashsaleTimer,
-    // setFlashsaleTimer,
+    setProducts,
+    flashsaleTimer,
+    setFlashsaleTimer,
     flashsaleTimerSwitch,
     setFlashsaleTimerSwitch,
     userInfo,
@@ -42,20 +42,20 @@ export default function Home({ products, flashsale_timer }) {
 
       const activeFlashsaleDate = new Date(activeFlashsaleDatetime).getTime();
 
-      // window.localStorage.setItem(
-      //   "FlashsaleTimeMilliseconds",
-      //   activeFlashsaleDate
-      // );
+      window.localStorage.setItem(
+        "FlashsaleTimeMilliseconds",
+        activeFlashsaleDate
+      );
 
-      // setFlashsaleTimer(
-      //   window.localStorage.getItem("FlashsaleTimeMilliseconds")
-      // );
+      setFlashsaleTimer(
+        window.localStorage.getItem("FlashsaleTimeMilliseconds")
+      );
 
-      // if (Date.now() > activeFlashsaleDate) {
-      //   setFlashsaleTimerSwitch(false);
-      // } else {
-      //   setFlashsaleTimerSwitch(true);
-      // }
+      if (Date.now() > activeFlashsaleDate) {
+        setFlashsaleTimerSwitch(false);
+      } else {
+        setFlashsaleTimerSwitch(true);
+      }
     }
   }, []);
 
