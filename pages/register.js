@@ -79,14 +79,16 @@ const Register = () => {
     }
   };
 
+  const handleLogOut = () => {
+    window.localStorage.removeItem("UserData");
+    setUserInfo(null);
+    toast.success("Signed Out Successfully");
+    signOut({ callbackUrl: "/login" });
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined" || typeof window !== null) {
-      if (userInfo) {
-        window.localStorage.removeItem("UserData");
-        setUserInfo(null);
-        toast.success("Signed Out Successfully");
-        signOut();
-      }
+      if (userInfo) handleLogOut();
     }
   }, []);
 
@@ -450,13 +452,9 @@ const Register = () => {
 export default Register;
 
 export const getServerSideProps = async ({ req }) => {
-  const session = await getSession({ req });
-
-  if (session) {
-    signOut();
-  }
+  
 
   return {
-    props: { session },
+    props: {  },
   };
 };
