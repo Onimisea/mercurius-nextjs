@@ -81,7 +81,6 @@ const Register = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined" || typeof window !== null) {
-      
     }
   }, []);
 
@@ -445,9 +444,18 @@ const Register = () => {
 export default Register;
 
 export const getServerSideProps = async ({ req }) => {
-  
+  const session = await getSession({ req });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   return {
-    props: {  },
+    props: { session },
   };
 };

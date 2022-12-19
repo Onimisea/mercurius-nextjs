@@ -19,12 +19,14 @@ const Checkout = ({ userStatus }) => {
     setTabbed,
     paymentPropsSts,
     paymentPropsIs,
+    userInfo, setUserInfo,
   } = useAppContext();
 
   const { data: session } = useSession();
 
   const handleSignOut = () => {
     window.localStorage.removeItem("UserData");
+    setUserInfo(null);
     // toast.success("Signed Out Successfully");
     signOut({ callbackUrl: "/register" });
   };

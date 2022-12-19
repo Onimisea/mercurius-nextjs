@@ -64,10 +64,8 @@ const Login = ({}) => {
     signIn("google");
   };
 
-
   useEffect(() => {
     if (typeof window !== "undefined" || typeof window !== null) {
-      
     }
   }, []);
 
@@ -283,19 +281,18 @@ const Login = ({}) => {
 export default Login;
 
 export const getServerSideProps = async ({ req }) => {
-  // const session = await getSession({ req });
+  const session = await getSession({ req });
 
-  // if (session) {
-  //   signOut();
-  //   return {
-  //     redirect: {
-  //       destination: "/",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   return {
-    props: {},
+    props: { session },
   };
 };
