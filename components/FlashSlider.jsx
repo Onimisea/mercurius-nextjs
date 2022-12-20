@@ -12,7 +12,7 @@ const FlashSlider = () => {
       </h1>
       <p className="text-md text-gray-300">Construction In Progress</p>
 
-      <section className="flex items-center justify-center overflow-x-hidden">
+      <section className="grid grid-col-1 sm3:grid-cols-2 md:grid-col-3">
         {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
