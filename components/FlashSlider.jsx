@@ -11,34 +11,34 @@ const FlashSlider = () => {
   const slideLeft = () => {
     const slider = document.getElementById("flashsaleSlider");
 
-    slider.scrollLeft = slider.scrollLeft + 260;
+    slider.scrollLeft = slider.scrollLeft - 260;
   };
 
   const slideRight = () => {
     const slider = document.getElementById("flashsaleSlider");
 
-    slider.scrollLeft = slider.scrollLeft - 260;
+    slider.scrollLeft = slider.scrollLeft + 260;
   };
 
   return (
-    <section className="w-full sm3:w-fit min-w-[275px] max-w-full mx-auto relative overflow-hidden">
+    <section className="w-full sm3:w-fit max-w-full mx-auto relative overflow-hidden">
       <section
         id="flashsaleSlider"
-        className="w-full max-w-full flex items-center justify-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500"
+        className="w-full sm3:w-fit max-w-full flex items-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500"
       >
         {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </section>
       <section
-        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white opacity-50 hover:opacity-100"
+        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white opacity-50 hover:opacity-100 z-50"
         onClick={slideLeft}
       >
         <FaChevronLeft size={20} />
       </section>
 
       <section
-        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white opacity-50 hover:opacity-100"
+        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white opacity-50 hover:opacity-100 z-50"
         onClick={slideRight}
       >
         <FaChevronRight size={20} />
