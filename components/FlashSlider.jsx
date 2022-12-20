@@ -21,10 +21,10 @@ const FlashSlider = () => {
   };
 
   return (
-    <section className="w-fit max-w-full mx-auto relative overflow-hidden">
+    <section className="w-full sm3:w-fit min-w-[275px] max-w-full mx-auto relative overflow-hidden">
       <section
         id="flashsaleSlider"
-        className="flex items-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500"
+        className="w-full max-w-full flex items-center justify-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500"
       >
         {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
