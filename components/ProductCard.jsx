@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
     fi[0].product_images.replace(/ /g, "%20");
 
   return (
-    <section className="bg-white m-4 p-0 shadow-md rounded-lg relative text-center cursor-pointer group w-[250px]">
+    <section className="bg-white m-4 pb-6 shadow-md rounded-lg relative text-center cursor-pointer group w-[250px]">
       {product.is_onFlashsale && (
         <span className="w-fit block absolute top-[15px] left-[15px] bg-primary text-white px-3 py-2 rounded-lg">
           -{product.flashsale}%
@@ -84,7 +84,7 @@ const ProductCard = ({ product }) => {
       <h4 className="product__name mt-6 mb-4 text-md group-hover:text-primary w-full px-4">
         {product.name}
       </h4>
-      <p className="product__price text-[18px] font-semibold mt-4 mb-4 px-4">
+      <p className="product__price text-[18px] font-semibold mt-4 px-4">
         ₦
         {product.is_onFlashsale
           ? numbersWithCommas(product.flashsale_price)
