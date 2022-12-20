@@ -9,8 +9,8 @@ const FlashSlider = () => {
   const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
-    <section className="w-full mx-auto p-6 bg-slate-200 grid place-items-center group relative">
-      <section className="flex items-center justify-center whitespace-nowrap overflow-x-scroll">
+    <section className="w-full mx-auto p-6 bg-slate-200 group relative overflow-hidden">
+      <section className="inline-block whitespace-nowrap overflow-x-scroll">
         {/* {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))} */}
