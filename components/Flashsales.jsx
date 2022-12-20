@@ -4,10 +4,9 @@ import FlashsaleSlider from "./FlashsaleSlider";
 import { useAppContext } from "../context/AppContext";
 import Timer from "./Timer";
 
-
 const Flashsales = () => {
   const { flashsaleTimerSwitch } = useAppContext();
-  
+
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl relative">
       <section className="flex items-center justify-center bg-black px-5 py-3 sm2:w-fit mx-auto md:px-7 md:py-4 font-bold">
@@ -18,11 +17,8 @@ const Flashsales = () => {
       </section>
 
       <section className="my-6 relative">
-        <h1 className="font-dalek text-xl text-primary">
-          New Slider for Flash Products
-        </h1>
         <p className="text-md text-gray-300">Construction In Progress</p>
-        
+
         <FlashSlider />
       </section>
     </section>
