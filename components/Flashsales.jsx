@@ -16,7 +16,7 @@ const Flashsales = () => {
         {flashsaleTimerSwitch && <Timer />}
       </section>
 
-      <section className="my-6 relative overflow-hidden">
+      <section className="my-6 relative overflow-x-scroll">
         <p className="text-md text-gray-300">Construction In Progress</p>
 
         <FlashSlider />
