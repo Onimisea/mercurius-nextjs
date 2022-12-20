@@ -18,6 +18,11 @@ const Flashsales = () => {
       </section>
 
       <section className="my-6 relative">
+        <h1 className="font-dalek text-xl text-primary">
+          New Slider for Flash Products
+        </h1>
+        <p className="text-md text-gray-300">Construction In Progress</p>
+        
         <FlashSlider />
       </section>
     </section>
