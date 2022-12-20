@@ -6,7 +6,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const FlashSlider = () => {
   const { flashsaleProducts } = useAppContext();
 
-  const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
     <section className="w-full mx-auto p-6 bg-slate-200 group relative overflow-hidden">
