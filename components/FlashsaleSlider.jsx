@@ -8,7 +8,7 @@ import Slider from "react-slick";
 const FlashsaleSlider = () => {
   const { products } = useAppContext();
 
-  const [flashsaleProducts, setFlashsaleProducts] = useState(null);
+  const [flashsaleProducts, setFlashsaleProducts] = useState([]);
 
   // flashsale > 0 && is_onFlashsale
 
