@@ -256,7 +256,7 @@ const Header = () => {
       <aside
         className={`z-20 md3:hidden bg-white shadow-xl absolute w-[320px] h-full top-20 ${
           isSidebarOpen ? "left-0" : "left-[-200%]"
-        }  py-5 overflow-y-auto duration-300 scrollbar scrollbar-track-gray-300 scrollbar-thumb-primary`}
+        }  py-5 overflow-y-auto duration-300 scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary`}
       >
         <ul className="block overflow-y-auto">
           <li className="my-1 pl-7 py-2 text-lg hover:bg-slate-100">
