@@ -86,12 +86,9 @@ const ProductCard = ({ product }) => {
       </h4>
       <p className="product__price text-[18px] font-semibold mt-4 mb-8 px-4">
         ₦
-        {
-          (product.is_onFlashsale
-            ? numbersWithCommas(product.flashsale_price)
-            : numbersWithCommas,
-        (product.price))
-        }
+        {product.is_onFlashsale
+          ? numbersWithCommas(product.flashsale_price)
+          : numbersWithCommas(product.price)}
       </p>
     </section>
   );
