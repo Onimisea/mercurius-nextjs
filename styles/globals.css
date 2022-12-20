@@ -18,6 +18,7 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   min-width: 345px;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -39,8 +40,6 @@ a {
     background: black;
   }
 }
-
-.scrollbar
 
 .heroSlider ul {
   position: absolute;
