@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { useAppContext } from "../context/AppContext";
 import "slick-carousel/slick/slick.css";
