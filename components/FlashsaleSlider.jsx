@@ -6,18 +6,12 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 const FlashsaleSlider = () => {
-  const { products } = useAppContext();
-
-  const [flashsaleProducts, setFlashsaleProducts] = useState([]);
+  const { flashsaleProducts } = useAppContext();
 
   // flashsale > 0 && is_onFlashsale
 
   useEffect(() => {
-    const fp = products.filter(
-      (product) => product.is_onFlashsale === true && product.flashsale > 0
-    );
-    setFlashsaleProducts(fp);
-    console.log(fp);
+    console.log(flashsaleProducts);
   }, []);
 
   const settings = {
@@ -80,7 +74,7 @@ const FlashsaleSlider = () => {
   };
 
   return (
-    <section className="w-full h-fit mx-auto">
+    <section className="w-full mx-auto">
       <Slider {...settings} className="">
         {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />

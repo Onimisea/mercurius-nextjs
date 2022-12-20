@@ -8,9 +8,14 @@ import { useSession } from "next-auth/react";
 
 // Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed urna sed nibh aliquet volutpat consectetur vitae magna. Sed tempor vestibulum velit vitae euismod. Nunc placerat risus nec ipsum finibus, vitae pellentesque lacus iaculis. Ut laoreet mollis nunc. Sed diam velit, tempus sit amet est vitae, dapibus tincidunt nibh. Donec congue tincidunt lectus quis luctus. Vivamus non suscipit ligula. Nullam lacinia tellus ut diam bibendum, ac fermentum lacus tincidunt. Maecenas tincidunt faucibus nisi, eget viverra libero blandit vitae. Cras eu nisi magna. Donec efficitur maximus mauris, sit amet molestie urna sagittis vitae. Donec non orci vitae tellus porta efficitur eget in dolor. Proin tincidunt vestibulum enim ut finibus. Ut vitae turpis nec est malesuada bibendum. Sed ac arcu dapibus, volutpat lacus et, fringilla tellus. Pellentesque eu laoreet nisl.
 
-export default function Home({ products, flashsale_timer }) {
+export default function Home({
+  products,
+  flashsale_timer,
+  flashsale_products,
+}) {
   const {
-    // flashsaleProducts,
+    flashsaleProducts,
+    setFlashsaleProducts,
     // setCategory,
     // products,
     setProducts,
@@ -24,13 +29,17 @@ export default function Home({ products, flashsale_timer }) {
 
   if (session && session.user && session.user.name) {
     window.localStorage.setItem("UserData", JSON.stringify(session.user));
-    setUserInfo(session.user)
+    setUserInfo(session.user);
   }
 
   useEffect(() => {
     if (products.length !== 0) {
       window.localStorage.setItem("ProductsData", JSON.stringify(products));
       setProducts(JSON.parse(window.localStorage.getItem("ProductsData")));
+    }
+
+    if (flashsale_products.length !== 0) {
+      setFlashsaleProducts(flashsale_products);
     }
 
     if (flashsale_timer.length !== 0) {
@@ -89,14 +98,16 @@ export const getServerSideProps = async ({ req }) => {
     "https://mercurius-api-production.up.railway.app/api/inventory/f/"
   ).then((res) => res.json());
 
+  const flashsale_products = await fetch(
+    "https://mercurius-api-production.up.railway.app/api/inventory/f/all/"
+  ).then((res) => res.json());
+
   return {
     props: {
       products,
       flashsale_timer,
+      flashsale_products,
     },
   };
 };
-
-
-
 
