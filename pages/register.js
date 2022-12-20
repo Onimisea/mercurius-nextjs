@@ -410,7 +410,7 @@ const Register = () => {
           </section>
         </section>
 
-        <section className="w-full h-full md2:w-[50%] relative hidden md2:flex">
+        <section className="w-full h-full md2:w-[50%] relative md2:flex">
           <Image
             src={registerImage}
             alt="Mercurius Login"

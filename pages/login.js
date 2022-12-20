@@ -52,7 +52,6 @@ const Login = ({}) => {
             window.localStorage.setItem("UserData", JSON.stringify(userData));
             setUserInfo(userData);
           });
-        toast.success("Login Successful");
         router.push(url);
       } else {
         toast.error("Invalid email or password");
@@ -243,7 +242,7 @@ const Login = ({}) => {
           </section>
         </section>
 
-        <section className="w-full md2:h-[750px] md2:w-[50%] relative hidden md2:flex">
+        <section className="w-full md2:h-[750px] md2:w-[50%] relative md2:flex">
           <Image
             src={loginImage}
             alt="Mercurius Login"
