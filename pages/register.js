@@ -95,7 +95,7 @@ const Register = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="w-[85%] mx-auto max-w-screen-xl flex flex-col md2:flex-row items-center justify-center font-poppins my-12 bg-black">
+      <section className="w-[85%] mx-auto max-w-screen-xl flex flex-col-reverse md2:flex-row items-center justify-center font-poppins my-12 bg-black">
         <section className="w-full md2:w-[50%] px-4 py-6 sm:p-8 md:p-12 md2:px-6 md2:py-10 md3:p-12 text-white grid place-items-center">
           <section className="w-[90%] ">
             <h3 className="text-2xl font-semibold">Create Account</h3>

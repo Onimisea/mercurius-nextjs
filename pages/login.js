@@ -74,7 +74,7 @@ const Login = ({}) => {
         <title>Mercurius | Login | Best Thrift Store in Nigeria</title>
       </Head>
 
-      <section className="w-[85%] mx-auto max-w-screen-xl flex flex-col md2:flex-row font-poppins my-12">
+      <section className="w-[85%] mx-auto max-w-screen-xl flex flex-col-reverse md2:flex-row font-poppins my-12">
         <section className="w-full md2:w-[50%] bg-black px-4 py-6 sm:p-8 md:p-12 md2:px-6 md2:py-10 md3:p-12 text-white grid place-items-center">
           <section className="w-[90%]">
             <h3 className="text-2xl font-semibold">Welcome back!</h3>

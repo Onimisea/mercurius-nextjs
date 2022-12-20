@@ -17,7 +17,8 @@ const Header = () => {
     appState: { cart },
     avatarMenuOpen,
     setAvatarMenuOpen,
-    userInfo, setUserInfo,
+    userInfo,
+    setUserInfo,
   } = useAppContext();
 
   const [categoriesData, setCategoriesData] = useState([]);
@@ -25,9 +26,7 @@ const Header = () => {
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-
   useEffect(() => {
-
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
     )
@@ -37,8 +36,7 @@ const Header = () => {
 
   const handleLogOut = () => {
     window.localStorage.removeItem("UserData");
-    setUserInfo(null)
-    toast.success("Signed Out Successfully");
+    setUserInfo(null);
     signOut({ callbackUrl: "/login" });
   };
 
