@@ -11,7 +11,6 @@ const FlashsaleSlider = () => {
   // flashsale > 0 && is_onFlashsale
 
   useEffect(() => {
-    console.log(flashsaleProducts);
   }, []);
 
   const settings = {
@@ -74,7 +73,7 @@ const FlashsaleSlider = () => {
   };
 
   return (
-    <section className="w-full mx-auto">
+    <section className="w-full h-[350px] mx-auto">
       <Slider {...settings} className="">
         {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
