@@ -10,7 +10,7 @@ const FlashSlider = () => {
 
   return (
     <section className="w-full mx-auto p-6 bg-slate-200 grid place-items-center group relative">
-      <section className="flex items-center justify-center whitespace-nowrap">
+      <section className="flex items-center justify-center whitespace-nowrap overflow-x-scroll">
         {/* {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))} */}
@@ -18,7 +18,7 @@ const FlashSlider = () => {
           return (
             <section
               key={index}
-              className="bg-[#f5f5f5] p-8 rounded-xl grid place-items-center text-xl"
+              className="bg-[#f5f5f5] p-8 rounded-xl grid place-items-center text-xl w-[250px] mx-4"
             >
               Slide {slide}
             </section>
