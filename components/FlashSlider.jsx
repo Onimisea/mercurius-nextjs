@@ -14,11 +14,11 @@ const FlashSlider = () => {
           <ProductCard key={product.id} product={product} />
         ))} */}
       </section>
-      <section className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white">
+      <section className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white opacity-50 group-hover:opacity-100">
         <FaChevronLeft size={20} />
       </section>
 
-      <section className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white">
+      <section className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white opacity-50 group-hover:opacity-100">
         <FaChevronRight size={20} />
       </section>
     </section>
