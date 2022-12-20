@@ -10,3 +10,4 @@ export { default as Flashsales } from "./Flashsales";
 export { default as Timer } from "./Timer";
 export { default as AllProducts } from "./AllProducts";
 export { default as CategoryBanner } from "./CategoryBanner";
+export { default as FlashSlider } from "./FlashSlider"

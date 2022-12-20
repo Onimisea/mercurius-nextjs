@@ -1,4 +1,5 @@
 import React from "react";
+import FlashSlider from "./FlashSlider";
 import FlashsaleSlider from "./FlashsaleSlider";
 import { useAppContext } from "../context/AppContext";
 import Timer from "./Timer";
@@ -17,7 +18,7 @@ const Flashsales = () => {
       </section>
 
       <section className="my-6 ">
-        <FlashsaleSlider />
+        <FlashSlider />
       </section>
     </section>
   );
