@@ -10,7 +10,7 @@ const FlashSlider = () => {
 
   return (
     <section className="w-full mx-auto p-6 bg-slate-200 group relative overflow-x-scroll">
-      <section className="inline-block whitespace-nowrap overflow-x-scroll">
+      <section className="flex items-center whitespace-nowrap overflow-x-scroll">
         {/* {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))} */}
