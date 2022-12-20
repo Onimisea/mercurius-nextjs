@@ -80,7 +80,7 @@ const FlashsaleSlider = () => {
   };
 
   return (
-    <section className="w-fit h-fit mx-auto">
+    <section className="w-full h-fit mx-auto">
       <Slider {...settings} className="">
         {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
