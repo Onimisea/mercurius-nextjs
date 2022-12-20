@@ -35,7 +35,7 @@ const AllProducts = () => {
   };
 
   return (
-    <section className="w-[85%] mx-auto max-w-screen-xl pt-16 pb-14 flex flex-col items-center">
+    <section className="w-[85%] mx-auto max-w-screen-xl mt-16 pt-16 pb-14 flex flex-col items-center">
       <h1 className="text-black sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-bold">
         All Products
       </h1>
@@ -104,7 +104,7 @@ const AllProducts = () => {
         </section>
       )} */}
 
-      <section className="w-full space-y-6 space-x-6 sm2:space-y-4 sm2:space-x-4 mx-auto max-w-screen-xl flex flex-wrap items-center justify-center">
+      <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center">
         {transformProducts().length > 0 ? (
           transformProducts().map((product) => (
             <ProductCard key={product.id} product={product} />
