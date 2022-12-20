@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
         </span>
       )}
 
-      <ul className="product__actions w-fit block absolute top-[100px] md:top-[150px] right-[15px] space-y-2">
+      <ul className="product__actions w-fit block absolute top-[100px] md:top-[120px] right-[15px] space-y-2">
         {cart.some((p) => p.id === product.id) ? (
           <li
             className="bg-black w-[50px] h-[50px] grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md shadow-md"
