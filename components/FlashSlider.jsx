@@ -21,24 +21,24 @@ const FlashSlider = () => {
   };
 
   return (
-    <section className="w-full mx-auto group relative overflow-hidden">
+    <section className="w-fit max-w-full mx-auto relative overflow-hidden">
       <section
         id="flashsaleSlider"
-        className="flex items-center whitespace-nowrap overflow-x-scroll scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scrollbar-none scroll-smooth duration-500"
+        className="flex items-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500"
       >
         {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </section>
       <section
-        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white opacity-50 group-hover:opacity-100"
+        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white opacity-50 hover:opacity-100"
         onClick={slideLeft}
       >
         <FaChevronLeft size={20} />
       </section>
 
       <section
-        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white opacity-50 group-hover:opacity-100"
+        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white opacity-50 hover:opacity-100"
         onClick={slideRight}
       >
         <FaChevronRight size={20} />
