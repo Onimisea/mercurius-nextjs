@@ -7,19 +7,19 @@ const FlashSlider = () => {
   const { flashsaleProducts } = useAppContext();
 
   return (
-    <section className="w-full mx-auto p-6 bg-slate-500 grid place-items-center group relative">
+    <section className="w-full mx-auto p-6 bg-slate-200 grid place-items-center group relative">
       <section className="flex items-center justify-center overflow-hidden">
         product
         {/* {flashsaleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))} */}
       </section>
-      <section className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 cursor-pointer">
-        <FaChevronLeft size={30} />
+      <section className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white">
+        <FaChevronLeft size={20} />
       </section>
 
-      <section className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 cursor-pointer">
-        <FaChevronRight size={30} />
+      <section className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white">
+        <FaChevronRight size={20} />
       </section>
     </section>
   );
