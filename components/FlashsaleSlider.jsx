@@ -8,11 +8,17 @@ import Slider from "react-slick";
 const FlashsaleSlider = () => {
   const { products } = useAppContext();
 
+  const [flashsaleProducts, setFlashsaleProducts] = useState(null);
+
   // flashsale > 0 && is_onFlashsale
 
-  const flashsaleProducts = products.filter(
-    (product) => product.is_onFlashsale === true && product.flashsale > 0
-  );
+  useEffect(() => {
+    const fp = products.filter(
+      (product) => product.is_onFlashsale === true && product.flashsale > 0
+    );
+    setFlashsaleProducts(fp);
+    console.log(fp);
+  }, []);
 
   const settings = {
     dots: false,
