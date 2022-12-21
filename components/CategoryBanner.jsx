@@ -15,19 +15,23 @@ const CategoryBanner = ({ catData }) => {
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  useEffect(() => {
-    if (router.isReady) {
-      if (catData) {
-        // setcatImg();
-        // const catBg = bgUrl(catData.category_image);
-        // console.log(catBg);
-        console.log(catData);
-      }
-    }
-  }, []);
+  
+    console.log(catData);
 
-  console.log(catData);
-  console.log(catData.category_image);
+    console.log(bgUrl(catData.category_image));
+
+    // useEffect(() => {
+  //   if (router.isReady) {
+  //     if (catData) {
+  //       // setcatImg();
+  //       // const catBg = bgUrl(catData.category_image);
+  //       // console.log(catBg);
+  //       console.log(catData);
+  //     }
+  //   }
+  // }, []);
+
+  
 
   return (
     <section className="w-full min-w-[320px] h-[100%] max-h-[400px] grid place-items-center overflow-hidden z-10 relative">
