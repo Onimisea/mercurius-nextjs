@@ -23,7 +23,10 @@ const CategoryBanner = ({ catData }) => {
   const catBg = catData.category_image;
 
   console.log(catBg);
-
+  
+  if(catBg) {
+    console.log(bgUrl(catBg))
+  }
 
   return (
     <section className="w-full min-w-[320px] h-[100%] max-h-[400px] grid place-items-center overflow-hidden z-10 relative">
