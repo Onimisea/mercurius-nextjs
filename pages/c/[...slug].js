@@ -38,7 +38,7 @@ export default function CategoryPage({}) {
       //   console.log(subcat);
       // }
     }
-  }, []);
+  }, [router.query]);
 
   console.log(catBg);
 
@@ -49,7 +49,7 @@ export default function CategoryPage({}) {
       </Head>
 
       <section className="w-full min-w-full h-fit max-h-fit grid place-items-center overflow-hidden z-20 relative">
-        <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-90"></section>
+        <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-70"></section>
 
         <img
           src={catBg}
