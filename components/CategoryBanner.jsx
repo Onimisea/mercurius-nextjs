@@ -14,11 +14,11 @@ const CategoryBanner = ({ catData }) => {
 
   useEffect(() => {
     if (catData) {
-      setcatImg(catData.category_image);
+      // setcatImg();
       console.log(catData);
       // const catBg = bgUrl(catData.category_image);
       // console.log(catBg);
-      console.log(catImg);
+      console.log(catData.category_image);
     }
   }, []);
   
