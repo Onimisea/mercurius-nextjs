@@ -13,13 +13,22 @@ const CategoryBanner = ({ catData }) => {
   // console.log(subcatData);
 
   function bgUrl(imgUrl) {
-    return "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
+    return (
+      "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20")
+    );
   }
 
-
-  console.log(catData);
+  // console.log(catData);
 
   const catBg = catData.category_image;
+
+  // console.log(catBg);
+
+  useEffect(() => {
+    if (router.isReady) {
+      console.log(catBg);
+    }
+  }, []);
 
   // console.log(bgUrl(catBg));
 
