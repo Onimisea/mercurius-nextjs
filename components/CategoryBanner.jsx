@@ -2,18 +2,18 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const CategoryBanner = ({ catData }) => {
-  console.log(catData);
-
   const [catImg, setcatImg] = useState("");
   // console.log(subcatData);
 
+  const bgUrl = (imgUrl) =>
+    "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
+
   useEffect(() => {
     if (catData) {
-      const bgUrl = (imgUrl) =>
-        "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
+      console.log(catData);
 
-      const catBg = bgUrl(catData.category_image);
-      console.log(catBg);
+      // const catBg = bgUrl(catData.category_image);
+      // console.log(catBg);
     }
   }, []);
 
