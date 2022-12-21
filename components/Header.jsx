@@ -17,8 +17,7 @@ const Header = () => {
     appState: { cart },
     avatarMenuOpen,
     setAvatarMenuOpen,
-    userInfo,
-    setUserInfo,
+    userInfo, setUserInfo,
   } = useAppContext();
 
   const [categoriesData, setCategoriesData] = useState([]);
@@ -26,7 +25,9 @@ const Header = () => {
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
+
   useEffect(() => {
+
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
     )
@@ -36,7 +37,7 @@ const Header = () => {
 
   const handleLogOut = () => {
     window.localStorage.removeItem("UserData");
-    setUserInfo(null);
+    setUserInfo(null)
     signOut({ callbackUrl: "/login" });
   };
 
@@ -254,9 +255,9 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <aside
-        className={`z-50 md3:hidden bg-white shadow-xl absolute w-[320px] h-full top-20 ${
+        className={`z-20 md3:hidden bg-white shadow-xl absolute w-[320px] h-full top-20 ${
           isSidebarOpen ? "left-0" : "left-[-200%]"
-        }  py-5 overflow-y-auto duration-300 scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary`}
+        }  py-5 overflow-y-auto duration-300 scrollbar scrollbar-track-gray-300 scrollbar-thumb-primary`}
       >
         <ul className="block overflow-y-auto">
           <li className="my-1 pl-7 py-2 text-lg hover:bg-slate-100">

@@ -31,14 +31,14 @@ const FlashSlider = () => {
         ))}
       </section>
       <section
-        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white"
+        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white z-50"
         onClick={slideLeft}
       >
         <FaChevronLeft size={20} />
       </section>
 
       <section
-        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white"
+        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-0 text-2xl rounded-full p-2 cursor-pointer bg-primary text-white z-50"
         onClick={slideRight}
       >
         <FaChevronRight size={20} />
