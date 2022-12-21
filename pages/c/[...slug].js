@@ -25,6 +25,9 @@ export default function CategoryPage({}) {
         .then((res) => res.json())
         .then((catData) => {
           const cat = catData.filter((category) => category.slug === router.query.slug[0])
+
+          console.log(cat)
+          setCatData(cat)
         });
 
       console.log(router.query);
