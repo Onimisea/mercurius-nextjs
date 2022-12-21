@@ -27,7 +27,7 @@ const AllProducts = () => {
 
     if (searchQuery) {
       filteredProducts = filteredProducts.filter((product) =>
-        product.title.toLowerCase().includes(searchQuery)
+        product.name.toLowerCase().includes(searchQuery)
       );
     }
 
@@ -40,9 +40,9 @@ const AllProducts = () => {
         All Products
       </h1>
 
-      <section className="flex flex-row items-center justify-center flex-wrap m-2">
+      <section className="flex flex-row items-center justify-center flex-wrap mt-6">
         <section
-          className="bg-white w-fit text-center p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
+          className="bg-white w-fit text-center m-2 p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
           onClick={(e) => {
             productFilterDispatch({
               type: "FILTER_BY_CATEGORY",
@@ -56,7 +56,7 @@ const AllProducts = () => {
         {products.map((product) => (
           <section
             key={product.id}
-            className="bg-white w-fit text-center p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
+            className="bg-white w-fit text-center m-2 p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
             onClick={(e) => {
               productFilterDispatch({
                 type: "FILTER_BY_CATEGORY",
