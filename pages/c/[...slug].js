@@ -23,7 +23,9 @@ export default function CategoryPage({}) {
         "https://mercurius-api-production.up.railway.app/api/inventory/c/"
       )
         .then((res) => res.json())
-        .then((catData) => setCatData(catData));
+        .then((catData) => {
+          const cat = catData.filter((category) => category.slug === router.query.slug[0])
+        });
 
       console.log(router.query);
 
@@ -31,8 +33,8 @@ export default function CategoryPage({}) {
     }
   }, []);
   
-  console.log(catData);
-  
+  // console.log(catData);
+
   // const getCatData = () => {
   //   // const cat = JSON.parse(window.localStorage.getItem("CategoryData"));
   //   const ccd = categories.filter((category) => category.slug === router.query.slug);
