@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-const CategoryBanner = ({ catData, subcatData }) => {
+const CategoryBanner = ({ catData }) => {
   console.log(catData);
-  console.log(subcatData);
+  // console.log(subcatData);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");

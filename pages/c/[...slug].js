@@ -49,7 +49,7 @@ export default function CategoryPage({}) {
       </Head>
 
       <section className="">
-        <CategoryBanner catData={catObj} subcatData={subcatObj} />
+        <CategoryBanner catData={catObj} />
       </section>
     </section>
   );
