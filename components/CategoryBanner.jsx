@@ -12,14 +12,16 @@ const CategoryBanner = ({ catData }) => {
 
   // console.log(subcatData);
 
-  // const bgUrl = (imgUrl) =>
-  //   "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
+  function bgUrl(imgUrl) {
+    return "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
+  }
+
 
   console.log(catData);
 
   const catBg = catData.category_image;
 
-  console.log(catBg);
+  console.log(bgUrl(catBg));
 
   // console.log("https://res.cloudinary.com/dxhq8jlxf/" + catBg.replace(/ /g, "%20"));
 
