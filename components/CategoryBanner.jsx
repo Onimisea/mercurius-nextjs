@@ -9,7 +9,7 @@ const CategoryBanner = (props) => {
   //   "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    console.log(props);
+    // console.log(props);
     // if (catData) {
     //   console.log(catData);
 

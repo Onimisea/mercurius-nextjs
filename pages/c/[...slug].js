@@ -40,7 +40,8 @@ export default function CategoryPage({}) {
     }
   }, []);
 
-  console.log(router.query);
+  // console.log(router.query);
+  console.log(catObj);
 
   return (
     <section className="">
