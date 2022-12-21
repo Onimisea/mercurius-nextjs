@@ -34,9 +34,9 @@ export default function CategoryPage({}) {
       //   console.log()
       // });
 
-      for (let subcat of catObj.subcategories) {
-        console.log(subcat);
-      }
+      // for (let subcat of catObj.subcategories) {
+      //   console.log(subcat);
+      // }
     }
   }, []);
 
