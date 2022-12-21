@@ -5,7 +5,7 @@ const CategoryBanner = ({ catData }) => {
   const [catImg, setcatImg] = useState("");
   const [subcatObj, setSubcatObj] = useState({});
 
-  console.log(catData);
+  // console.log(catData);
 
   // console.log(subcatData);
 
@@ -13,12 +13,11 @@ const CategoryBanner = ({ catData }) => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    // console.log(props);
-    // if (catData) {
-    //   console.log(catData);
-    //   // const catBg = bgUrl(catData.category_image);
-    //   // console.log(catBg);
-    // }
+    if (catData) {
+      console.log(catData);
+      const catBg = bgUrl(catData.category_image);
+      console.log(catBg);
+    }
   }, []);
 
   return (
