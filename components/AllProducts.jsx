@@ -60,11 +60,11 @@ const AllProducts = () => {
             onClick={(e) => {
               productFilterDispatch({
                 type: "FILTER_BY_CATEGORY",
-                payload: product.product_type,
+                payload: product.product_type.name,
               });
             }}
           >
-            <p className="">{product.product_type}</p>
+            <p className="">{product.product_type.name}</p>
           </section>
         ))}
       </section>
@@ -77,7 +77,7 @@ const AllProducts = () => {
           >
             <input
               type="search"
-              className="bg-white py-2 pl-4 pr-7 sm:w-full rounded-md border-[0.1rem] outline-none border-gray-400 hover:border-primary focus:border-primary placeholder-gray-300 hover:placeholder-primary-300 text-sm md:py-4 md:w-[70%]"
+              className="bg-white py-2 px-4 sm:w-full rounded-md border-[0.1rem] outline-none border-gray-400 hover:border-primary focus:border-primary placeholder-gray-300 hover:placeholder-primary-300 text-sm md:py-4 md:w-[70%]"
               placeholder="Search for product"
               required
               onChange={(e) => {
