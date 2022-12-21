@@ -63,7 +63,9 @@ const HeroBannerItem = () => {
               <h1 className="text-4xl uppercase font-poppins font-bold tracking-wider">
                 {img.heading}
               </h1>
-              <p className="my-5 tracking-wide text-lg">{img.desc}</p>
+              <p className="my-5 tracking-wide text-lg px-6 text-center">
+                {img.desc}
+              </p>
               <span className="text-primary">{img.hashtag}</span>
             </section>
           </section>
