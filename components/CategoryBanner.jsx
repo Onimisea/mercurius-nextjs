@@ -6,11 +6,6 @@ const CategoryBanner = ({ catData }) => {
   const router = useRouter();
 
   const [catImg, setcatImg] = useState("");
-  const [subcatObj, setSubcatObj] = useState({});
-
-  // console.log(catData);
-
-  // console.log(subcatData);
 
   function bgUrl(imgUrl) {
     return (
@@ -18,27 +13,25 @@ const CategoryBanner = ({ catData }) => {
     );
   }
 
-  // console.log(catData);
-
   const catBg = catData.category_image;
 
-  console.log(catBg);
-  
   if(catBg) {
-    console.log(bgUrl(catBg))
+    setcatImg(bgUrl(catBg));
   }
+  
+  console.log(catImg);
 
   return (
-    <section className="w-full min-w-[320px] h-[100%] max-h-[400px] grid place-items-center overflow-hidden z-10 relative">
+    <section className="w-full min-w-full h-fit max-h-fit grid place-items-center overflow-hidden z-20 relative">
       {/* <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-90"></section> */}
 
-      {/* <Image
-        src={catBg}
-        alt=""
+      <Image
+        src={catImg}
+        alt={catData.name}
         width={0}
         height={0}
         className="w-full h-[100%] max-h-[400px] object-cover object-center"
-      /> */}
+      />
 
       {/* <section className="text-white absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
         <h1 className="text-4xl uppercase font-poppins font-bold tracking-wider">
