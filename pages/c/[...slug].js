@@ -11,6 +11,7 @@ export default function CategoryPage({}) {
   const { products } = useAppContext();
   const [catObj, setCatObj] = useState({});
   const [catBg, setCatBg] = useState("");
+  const [subcatObj, setSubcatObj] = useState({});
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -33,14 +34,12 @@ export default function CategoryPage({}) {
             (subcat) => subcat.slug === router.query.slug[1]
             );
 
-          // console.log(cat[0]);
-          console.log(cat[0].subcategories);
-          console.log(subcats[0]);
+          setSubcatObj(subcats[0])
         });
     }
   }, [router.query]);
 
-  // console.log(catBg);
+  console.log(subcatObj);
 
   return (
     <section className="">
