@@ -25,7 +25,7 @@ const CategoryBanner = ({ catData }) => {
     <section className="w-full min-w-full h-fit max-h-fit grid place-items-center overflow-hidden z-20 relative">
       {/* <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-90"></section> */}
 
-      <Image
+      <img
         src={catImg}
         alt=""
         width={0}
