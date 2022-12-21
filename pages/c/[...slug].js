@@ -38,8 +38,6 @@ export default function CategoryPage({}) {
     }
   }, []);
 
-  // console.log(catObj);
-
   return (
     <section className="">
       <Head>
