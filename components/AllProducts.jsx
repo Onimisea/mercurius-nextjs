@@ -36,7 +36,7 @@ const AllProducts = () => {
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl pt-16 pb-14 flex flex-col items-center">
-      <h1 className="text-black sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-bold">
+      <h1 className="text-black sm:text-lg md:text-2xl md2:text-3xl font-dalek font-bold">
         All Products
       </h1>
 

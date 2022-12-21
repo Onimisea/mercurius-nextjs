@@ -254,7 +254,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <aside
-        className={`z-20 md3:hidden bg-white shadow-xl absolute w-[320px] h-full top-20 ${
+        className={`z-50 md3:hidden bg-white shadow-xl absolute w-[320px] h-full top-20 ${
           isSidebarOpen ? "left-0" : "left-[-200%]"
         }  py-5 overflow-y-auto duration-300 scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary`}
       >
