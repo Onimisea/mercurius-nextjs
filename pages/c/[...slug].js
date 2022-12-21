@@ -51,13 +51,13 @@ export default function CategoryPage({}) {
       <section className="w-full min-w-full h-fit max-h-fit grid place-items-center overflow-hidden z-20 relative">
         {/* <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-90"></section> */}
 
-        {/* <img
-          src={catImg}
+        <Image
+          src={catBg}
           alt=""
           width={0}
           height={0}
           className="w-full h-[100%] max-h-[400px] object-cover object-center"
-        /> */}
+        />
       </section>
     </section>
   );
