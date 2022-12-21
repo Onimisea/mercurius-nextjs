@@ -28,6 +28,12 @@ export default function CategoryPage({}) {
 
           setCatObj(cat[0]);
           setCatBg(bgUrl(cat[0].category_image));
+
+          const subcats = cat[0].subcategories.filter(
+            (subcat) => subcat.slug === router.query.slug[1]
+          );
+
+          console.log(subcats[0]);
         });
 
       console.log(catObj);
@@ -50,7 +56,7 @@ export default function CategoryPage({}) {
         <title>Mercurius {catObj.name} | Best Thrift Store in Nigeria</title>
       </Head>
 
-      <section className="w-full min-w-full h-[400px] max-h-[400px] grid place-items-center overflow-hidden z-10 relative">
+      <section className="w-full min-w-full h-fit max-h-fit grid place-items-center overflow-hidden z-10 relative">
         <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-70 z-30"></section>
 
         <img
@@ -58,7 +64,7 @@ export default function CategoryPage({}) {
           alt=""
           width={0}
           height={0}
-          className="w-full h-[100%] max-h-[400px] object-cover object-center z-20"
+          className="w-full h-[100%] max-h-[100%] object-cover object-center z-20"
         />
 
         <section className="absolute top-0 left-0 w-full h-full z-40">
