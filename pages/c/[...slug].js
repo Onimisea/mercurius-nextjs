@@ -9,7 +9,7 @@ import { CategoryBanner } from "../../components";
 export default function CategoryPage({ categories, products }) {
   const router = useRouter();
 
-  const { flashsaleTimer, flashsaleProducts, isLoggedIn, setIsLoggedIn } =
+  const { flashsaleTimer, flashsaleProducts, products } =
     useAppContext();
 
   const [catObj, setCatObj] = useState({});
@@ -55,24 +55,14 @@ export default function CategoryPage({ categories, products }) {
 export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
 
-  const categories = await fetch("http://localhost:8000/api/inventory/c/").then(
-    (res) => res.json()
-  );
-
-  const products = await fetch("http://localhost:8000/api/inventory/").then(
-    (res) => res.json()
-  );
-
-  const flashsale_timer = await fetch(
-    "http://localhost:8000/api/inventory/f/"
+  const products = await fetch(
+    "https://mercurius-api-production.up.railway.app/api/inventory/"
   ).then((res) => res.json());
 
   return {
     props: {
       session,
-      categories,
       products,
-      flashsale_timer,
     },
   };
 };
