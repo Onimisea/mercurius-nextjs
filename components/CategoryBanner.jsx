@@ -3,6 +3,10 @@ import Image from "next/image";
 
 const CategoryBanner = (props) => {
   const [catImg, setcatImg] = useState("");
+  const [subcatObj, setSubcatObj] = useState({});
+
+  console.log(props);
+
   // console.log(subcatData);
 
   // const bgUrl = (imgUrl) =>
@@ -12,7 +16,6 @@ const CategoryBanner = (props) => {
     // console.log(props);
     // if (catData) {
     //   console.log(catData);
-
     //   // const catBg = bgUrl(catData.category_image);
     //   // console.log(catBg);
     // }
