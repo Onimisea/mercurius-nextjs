@@ -21,7 +21,7 @@ const CategoryBanner = ({ catData }) => {
 
   const catBg = catData.category_image;
 
-  console.log(bgUrl(catBg));
+  // console.log(bgUrl(catBg));
 
   // console.log("https://res.cloudinary.com/dxhq8jlxf/" + catBg.replace(/ /g, "%20"));
 
