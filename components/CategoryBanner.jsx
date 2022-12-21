@@ -23,11 +23,11 @@ const CategoryBanner = ({ catData }) => {
         // console.log(catBg);
         console.log(catData);
       }
-
-      console.log(catData);
-      console.log(catData.category_image);
     }
   }, []);
+
+  console.log(catData);
+  console.log(catData.category_image);
 
   return (
     <section className="w-full min-w-[320px] h-[100%] max-h-[400px] grid place-items-center overflow-hidden z-10 relative">
