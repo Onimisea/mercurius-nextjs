@@ -11,6 +11,7 @@ export default function CategoryPage({}) {
 
   const { products } = useAppContext();
 
+  const [catData, setCatData] = useState({});
   const [catObj, setCatObj] = useState({});
 
   const bgUrl = (imgUrl) =>
@@ -20,17 +21,18 @@ export default function CategoryPage({}) {
     if (router.isReady) {
       const categories = fetch(
         "https://mercurius-api-production.up.railway.app/api/inventory/c/"
-      ).then((res) => res.json());
-      // .then((catData) => setCategoriesData(catData));
-      
-      
-      console.log(router.query);
-      
-      console.log(categories);
+      )
+        .then((res) => res.json())
+        .then((catData) => setCatData(catData));
 
+      console.log(router.query);
+
+      // console.log(catData);
     }
   }, []);
-
+  
+  console.log(catData);
+  
   // const getCatData = () => {
   //   // const cat = JSON.parse(window.localStorage.getItem("CategoryData"));
   //   const ccd = categories.filter((category) => category.slug === router.query.slug);
