@@ -11,8 +11,10 @@ const CategoryBanner = ({ catData }) => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    const catBg = bgUrl(catData.category_image);
-    console.log(catBg);
+    if(catData) {
+      const catBg = bgUrl(catData.category_image);
+      console.log(catBg);
+    }
   }, []);
 
   return (
