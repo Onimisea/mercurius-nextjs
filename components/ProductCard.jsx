@@ -84,12 +84,24 @@ const ProductCard = ({ product }) => {
       <h4 className="product__name mt-6 mb-4 text-md group-hover:text-primary w-full px-4">
         {product.name}
       </h4>
-      <p className="product__price text-[18px] font-semibold mt-4 px-4">
-        ₦
-        {product.is_onFlashsale
-          ? numbersWithCommas(product.flashsale_price)
-          : numbersWithCommas(product.price)}
-      </p>
+
+      {product.is_onFlashsale ? (
+        <p className="product__price text-[18px] font-semibold mt-4 px-4">
+          <s>₦{numbersWithCommas(product.price)}</s>{" "}
+          {numbersWithCommas(product.flashsale_price)}
+        </p>
+      ) : (
+        <p className="product__price text-[18px] font-semibold mt-4 px-4">
+          ₦{numbersWithCommas(product.price)}
+        </p>
+      )}
+
+      {/* <p className="product__price text-[18px] font-semibold mt-4 px-4">
+        ₦ */}
+      {/* {product.is_onFlashsale
+          ? (numbersWithCommas(product.price) numbersWithCommas(product.flashsale_price))
+          : numbersWithCommas(product.price)} */}
+      {/* </p> */}
     </section>
   );
 };
