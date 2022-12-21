@@ -9,8 +9,8 @@ const CategoryBanner = ({ catData }) => {
 
   // console.log(subcatData);
 
-  // const bgUrl = (imgUrl) =>
-  //   "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
+  const bgUrl = (imgUrl) =>
+    "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
     // console.log(props);
