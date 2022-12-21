@@ -31,14 +31,12 @@ export default function CategoryPage({}) {
 
           const subcats = cat[0].subcategories.filter(
             (subcat) => subcat.slug === router.query.slug[1]
-          );
+            );
 
-          // console.log(subcats[0]);
-          console.log(cat[0]);
+          // console.log(cat[0]);
           console.log(cat[0].subcategories);
+          console.log(subcats[0]);
         });
-
-      console.log(catObj);
     }
   }, [router.query]);
 
