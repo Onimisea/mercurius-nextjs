@@ -38,7 +38,7 @@ export default function CategoryPage({}) {
           console.log(cat[0].subcategories);
         });
 
-      // console.log(catObj);
+      console.log(catObj);
     }
   }, [router.query]);
 
