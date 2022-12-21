@@ -15,14 +15,15 @@ const CategoryBanner = ({ catData }) => {
   // const bgUrl = (imgUrl) =>
   //   "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  
-    console.log(catData);
+  console.log(catData);
 
-    const catBg = catData.category_image;
+  const catBg = catData.category_image;
 
-    console.log("https://res.cloudinary.com/dxhq8jlxf/" + catBg.replace(/ /g, "%20"));
+  console.log(catBg);
 
-    // useEffect(() => {
+  // console.log("https://res.cloudinary.com/dxhq8jlxf/" + catBg.replace(/ /g, "%20"));
+
+  // useEffect(() => {
   //   if (router.isReady) {
   //     if (catData) {
   //       // setcatImg();
@@ -32,8 +33,6 @@ const CategoryBanner = ({ catData }) => {
   //     }
   //   }
   // }, []);
-
-  
 
   return (
     <section className="w-full min-w-[320px] h-[100%] max-h-[400px] grid place-items-center overflow-hidden z-10 relative">
