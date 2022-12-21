@@ -9,35 +9,41 @@ import { CategoryBanner } from "../../components";
 export default function CategoryPage({ categories, products }) {
   const router = useRouter();
 
-  const { products } =
-    useAppContext();
+  const { products } = useAppContext();
 
   const [catObj, setCatObj] = useState({});
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  const getCatData = () => {
-    // const cat = JSON.parse(window.localStorage.getItem("CategoryData"));
-    const ccd = categories.filter((category) => category.slug === router.query.slug);
-
-    console.log(ccd);
-    // console.log(router.query.slug);
-    const catExt = {
-      name: ccd[0].name,
-      desc: ccd[0].description,
-      slug: ccd[0].slug,
-      bg: bgUrl(ccd[0].category_image),
-    };
-
-    setCatObj(catExt);
-  };
-
   useEffect(() => {
-    if (router.isReady) getCatData();
-  }, [router.query, router.isReady]);
+    if (router.isReady) {
+      console.log(router);
+      console.log(router.query);
+    }
+  }, []);
 
-  console.log(catObj)
+  // const getCatData = () => {
+  //   // const cat = JSON.parse(window.localStorage.getItem("CategoryData"));
+  //   const ccd = categories.filter((category) => category.slug === router.query.slug);
+
+  //   console.log(ccd);
+  //   // console.log(router.query.slug);
+  //   const catExt = {
+  //     name: ccd[0].name,
+  //     desc: ccd[0].description,
+  //     slug: ccd[0].slug,
+  //     bg: bgUrl(ccd[0].category_image),
+  //   };
+
+  //   setCatObj(catExt);
+  // };
+
+  // useEffect(() => {
+  //   if (router.isReady) getCatData();
+  // }, [router.query, router.isReady]);
+
+  // console.log(catObj)
 
   return (
     <section className="">
@@ -45,8 +51,9 @@ export default function CategoryPage({ categories, products }) {
         <title>Mercurius | Best Thrift Store in Nigeria</title>
       </Head>
 
-      <section className="z-10">
-        <CategoryBanner catData={catObj} />
+      <section className="">
+        <h1>Category Page</h1>
+        {/* <CategoryBanner catData={catObj} /> */}
       </section>
     </section>
   );
