@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../../context/AppContext";
 import { CategoryBanner } from "../../components";
 
-export default function CategoryPage({ categories, products }) {
+export default function CategoryPage({  }) {
   const router = useRouter();
 
   const { products } = useAppContext();
