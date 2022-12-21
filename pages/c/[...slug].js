@@ -27,24 +27,21 @@ export default function CategoryPage({}) {
           );
 
           setCatObj(cat[0]);
+          setSubcatObj(cat[0]);
         });
-      
-        const subcategories = fetch(
-        "https://mercurius-api-production.up.railway.app/api/inventory/c/"
-      )
-        .then((res) => res.json())
-        .then((catData) => {
-          const subcat = catData.filter(
-            (subcategory) => subcategory.subcategories.slug === router.query.slug[1]
-          );
 
-          setSubcatObj(subcat[0]);
-        });
+      // const subcategories = catObj.subcategories.map(subcat => {
+      //   console.log()
+      // });
+
+      for (let subcat of catObj.subcategories) {
+        console.log(subcat);
+      }
     }
   }, []);
 
   console.log(router.query);
-  
+
   return (
     <section className="">
       <Head>
