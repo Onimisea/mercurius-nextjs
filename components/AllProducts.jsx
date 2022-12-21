@@ -16,11 +16,11 @@ const AllProducts = () => {
     if (byCategory) {
       if (byCategory === "all") {
         filteredProducts = filteredProducts.filter((product) =>
-          product.product_type.includes("")
+          product.product_type.name.includes("")
         );
       } else {
         filteredProducts = filteredProducts.filter((product) =>
-          product.product_type.includes(byCategory)
+          product.product_type.name.includes(byCategory)
         );
       }
     }
