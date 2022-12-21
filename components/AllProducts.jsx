@@ -92,18 +92,6 @@ const AllProducts = () => {
         </form>
       </section>
 
-      {/* {transformProducts().length > 0 ? (
-        transformProducts().map((product) => (
-          <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center">
-            <ProductCard product={product} />
-          </section>
-        ))
-      ) : (
-        <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center">
-          <h3 className="font-dalek text-xl mt-6">No Product Found</h3>
-        </section>
-      )} */}
-
       <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center">
         {transformProducts().length > 0 ? (
           transformProducts().map((product) => (

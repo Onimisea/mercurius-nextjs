@@ -87,7 +87,7 @@ const ProductCard = ({ product }) => {
 
       {product.is_onFlashsale ? (
         <p className="product__price text-[18px] font-semibold mt-4 px-4">
-          <s className="text-gray-500 text-[15px] mr-1">
+          <s className="text-gray-300 text-[15px] mr-1">
             ₦{numbersWithCommas(product.price)}
           </s>{" "}
           ₦{numbersWithCommas(product.flashsale_price)}
@@ -98,12 +98,6 @@ const ProductCard = ({ product }) => {
         </p>
       )}
 
-      {/* <p className="product__price text-[18px] font-semibold mt-4 px-4">
-        ₦ */}
-      {/* {product.is_onFlashsale
-          ? (numbersWithCommas(product.price) numbersWithCommas(product.flashsale_price))
-          : numbersWithCommas(product.price)} */}
-      {/* </p> */}
     </section>
   );
 };
