@@ -36,15 +36,7 @@ export default function CategoryPage({}) {
           console.log(subcats[0]);
         });
 
-      console.log(catObj);
-
-      // const subcategories = catObj.subcategories.map(subcat => {
-      //   console.log()
-      // });
-
-      // for (let subcat of catObj.subcategories) {
-      //   console.log(subcat);
-      // }
+      // console.log(catObj);
     }
   }, [router.query]);
 
