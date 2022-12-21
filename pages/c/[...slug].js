@@ -27,7 +27,7 @@ export default function CategoryPage({}) {
           );
 
           setCatObj(cat[0]);
-          setCatBg(cat[0].category_image);
+          setCatBg(bgUrl(cat[0].category_image));
         });
 
       // const subcategories = catObj.subcategories.map(subcat => {
