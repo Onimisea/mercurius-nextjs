@@ -27,7 +27,7 @@ const AllProducts = () => {
 
     if (searchQuery) {
       filteredProducts = filteredProducts.filter((product) =>
-        product.name.toLowerCase().includes(searchQuery)
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
