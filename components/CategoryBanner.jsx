@@ -28,7 +28,7 @@ const CategoryBanner = ({ catData }) => {
     if (router.isReady) {
       console.log(catBg);
     }
-  }, []);
+  }, [router.isReady]);
 
   // console.log(bgUrl(catBg));
 
