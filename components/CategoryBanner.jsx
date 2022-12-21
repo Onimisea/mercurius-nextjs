@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
-const CategoryBanner = (props) => {
+const CategoryBanner = ({ catData }) => {
   const [catImg, setcatImg] = useState("");
   const [subcatObj, setSubcatObj] = useState({});
 
-  console.log(props);
+  console.log(catData);
 
   // console.log(subcatData);
 
