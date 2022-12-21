@@ -9,7 +9,7 @@ import { CategoryBanner } from "../../components";
 export default function CategoryPage({ categories, products }) {
   const router = useRouter();
 
-  const { flashsaleTimer, flashsaleProducts, products } =
+  const { products } =
     useAppContext();
 
   const [catObj, setCatObj] = useState({});
@@ -53,7 +53,7 @@ export default function CategoryPage({ categories, products }) {
 }
 
 export const getServerSideProps = async ({ req }) => {
-  const session = await getSession({ req });
+  // const session = await getSession({ req });
 
   const products = await fetch(
     "https://mercurius-api-production.up.railway.app/api/inventory/"
@@ -61,7 +61,6 @@ export const getServerSideProps = async ({ req }) => {
 
   return {
     props: {
-      session,
       products,
     },
   };
