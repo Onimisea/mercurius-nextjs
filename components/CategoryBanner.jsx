@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
-const CategoryBanner = ({ catData }) => {
+const CategoryBanner = (props) => {
   const [catImg, setcatImg] = useState("");
   // console.log(subcatData);
 
@@ -9,12 +9,13 @@ const CategoryBanner = ({ catData }) => {
   //   "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    if (catData) {
-      console.log(catData);
+    console.log(props);
+    // if (catData) {
+    //   console.log(catData);
 
-      // const catBg = bgUrl(catData.category_image);
-      // console.log(catBg);
-    }
+    //   // const catBg = bgUrl(catData.category_image);
+    //   // console.log(catBg);
+    // }
   }, []);
 
   return (
