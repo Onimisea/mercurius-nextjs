@@ -44,7 +44,7 @@ export default function CategoryPage({}) {
   return (
     <section className="">
       <Head>
-        <title>Mercurius {catObj.name} | Best Thrift Store in Nigeria</title>
+        <title>Mercurius {subcatObj.name} | Best Thrift Store in Nigeria</title>
       </Head>
 
       <section className="w-full min-w-full h-fit max-h-fit grid place-items-center overflow-hidden z-10 relative">
@@ -59,8 +59,10 @@ export default function CategoryPage({}) {
         />
 
         <section className="absolute top-0 left-0 w-full h-full z-40">
-          <h1 className=""></h1>
-          <p className=""></p>
+          <h1 className="text-white sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-bold">
+            {subcatObj.name}
+          </h1>
+          <p className="text-white sm:text-lg">{subcatObj.description}</p>
         </section>
       </section>
     </section>
