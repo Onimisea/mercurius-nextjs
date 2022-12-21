@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../../context/AppContext";
 import { CategoryBanner } from "../../components";
 
-export default function CategoryPage({  }) {
+export default function CategoryPage({}) {
   const router = useRouter();
 
   const { products } = useAppContext();
@@ -18,8 +18,16 @@ export default function CategoryPage({  }) {
 
   useEffect(() => {
     if (router.isReady) {
-      console.log(router);
+      const categories = fetch(
+        "https://mercurius-api-production.up.railway.app/api/inventory/c/"
+      ).then((res) => res.json());
+      // .then((catData) => setCategoriesData(catData));
+      
+      
       console.log(router.query);
+      
+      console.log(categories);
+
     }
   }, []);
 

@@ -17,7 +17,8 @@ const Header = () => {
     appState: { cart },
     avatarMenuOpen,
     setAvatarMenuOpen,
-    userInfo, setUserInfo,
+    userInfo,
+    setUserInfo,
   } = useAppContext();
 
   const [categoriesData, setCategoriesData] = useState([]);
@@ -25,9 +26,7 @@ const Header = () => {
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-
   useEffect(() => {
-
     const categories = fetch(
       "https://mercurius-api-production.up.railway.app/api/inventory/c/"
     )
@@ -37,7 +36,7 @@ const Header = () => {
 
   const handleLogOut = () => {
     window.localStorage.removeItem("UserData");
-    setUserInfo(null)
+    setUserInfo(null);
     signOut({ callbackUrl: "/login" });
   };
 
@@ -262,7 +261,9 @@ const Header = () => {
         <ul className="block overflow-y-auto">
           <li className="my-1 pl-7 py-2 text-lg hover:bg-slate-100">
             <section className="text-lg hover:text-primary cursor-pointer hover:border-b-2 hover:border-primary duration-300">
-              <Link href="/">Home</Link>
+              <Link href="/" onClick={() => setIsSidebarOpen(false)}>
+                Home
+              </Link>
             </section>
           </li>
 
@@ -314,6 +315,7 @@ const Header = () => {
                                   <Link
                                     href={`/c/${categoryData.slug}/${subcat.slug}/${lsubcat.slug}`}
                                     className="hover:border-b-2 hover:border-primary duration-300"
+                                    onClick={() => setIsSidebarOpen(false)}
                                   >
                                     {lsubcat.name}
                                   </Link>
