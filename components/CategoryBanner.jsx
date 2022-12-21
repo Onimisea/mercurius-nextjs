@@ -15,13 +15,13 @@ const CategoryBanner = ({ catData }) => {
   useEffect(() => {
     if (catData) {
       setcatImg(catData.category_image);
-      // console.log(catData);
+      console.log(catData);
       // const catBg = bgUrl(catData.category_image);
       // console.log(catBg);
+      console.log(catImg);
     }
   }, []);
   
-  console.log(catImg);
 
   return (
     <section className="w-full min-w-[320px] h-[100%] max-h-[400px] grid place-items-center overflow-hidden z-10 relative">
