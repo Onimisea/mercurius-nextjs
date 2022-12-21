@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const CategoryBanner = ({ catData }) => {
   console.log(catData);
+
+  const [catImg, setcatImg] = useState("");
   // console.log(subcatData);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  const catBg = bgUrl(catData.category_image);
-  console.log(catBg);
+  useEffect(() => {
+    const catBg = bgUrl(catData.category_image);
+    console.log(catBg);
+  }, []);
 
   return (
     <section className="w-full min-w-[320px] h-[100%] max-h-[400px] grid place-items-center overflow-hidden z-10 relative">
