@@ -82,7 +82,7 @@ export default function Home({
         </section>
       )}
 
-      <section className="mt-3 mb-3 bg-[#fafafa]">
+      <section className="mt-3 mb-3 bg-[#fcfcfc]">
         <AllProducts />
       </section>
     </section>

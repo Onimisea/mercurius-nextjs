@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
     fi[0].product_images.replace(/ /g, "%20");
 
   return (
-    <section className="bg-white m-4 pb-6 shadow-md rounded-lg relative text-center cursor-pointer group w-[250px]">
+    <section className="bg-white m-4 pb-6 shadow-sm rounded-md relative text-center cursor-pointer group w-[250px] min-w-[250px]">
       {product.is_onFlashsale && (
         <span className="w-fit block absolute top-[15px] left-[15px] bg-primary text-white px-3 py-2 rounded-lg">
           -{product.flashsale}%
@@ -79,7 +79,7 @@ const ProductCard = ({ product }) => {
       <img
         src={fiUrl}
         alt={product.name}
-        className="w-[250px] h-[250px] object-cover duration-300"
+        className="w-[250px] h-[250px] min-w-[250px] min-h-[250px] object-cover duration-300"
       />
       <h4 className="product__name mt-6 mb-4 text-md group-hover:text-primary w-full px-4">
         {product.name}
@@ -87,8 +87,10 @@ const ProductCard = ({ product }) => {
 
       {product.is_onFlashsale ? (
         <p className="product__price text-[18px] font-semibold mt-4 px-4">
-          <s className="text-gray-300 text-[14px] mr-2">₦{numbersWithCommas(product.price)}</s>{" "}
-          {numbersWithCommas(product.flashsale_price)}
+          <s className="text-gray-500 text-[15px] mr-1">
+            ₦{numbersWithCommas(product.price)}
+          </s>{" "}
+          ₦{numbersWithCommas(product.flashsale_price)}
         </p>
       ) : (
         <p className="product__price text-[18px] font-semibold mt-4 px-4">
