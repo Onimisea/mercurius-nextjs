@@ -34,6 +34,7 @@ export default function CategoryPage({}) {
           );
 
           // console.log(subcats[0]);
+          console.log(cat[0]);
           console.log(cat[0].subcategories);
         });
 
@@ -57,7 +58,7 @@ export default function CategoryPage({}) {
           alt=""
           width={0}
           height={0}
-          className="w-full h-[100%] max-h-[100%] object-cover object-center z-20"
+          className="w-full h-fit max-h-fit object-cover object-center z-20"
         />
 
         <section className="absolute top-0 left-0 w-full h-full z-40">
