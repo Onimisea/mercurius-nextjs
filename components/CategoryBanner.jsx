@@ -26,8 +26,8 @@ const CategoryBanner = ({ catData }) => {
       {/* <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-90"></section> */}
 
       <Image
-        src=""
-        alt={catData.name}
+        src={catImg}
+        alt=""
         width={0}
         height={0}
         className="w-full h-[100%] max-h-[400px] object-cover object-center"
