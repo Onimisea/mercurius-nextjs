@@ -22,28 +22,8 @@ const CategoryBanner = ({ catData }) => {
 
   const catBg = catData.category_image;
 
-  // console.log(catBg);
+  console.log(catBg);
 
-  useEffect(() => {
-    if (router.isReady) {
-      console.log(catBg);
-    }
-  }, [router.isReady]);
-
-  // console.log(bgUrl(catBg));
-
-  // console.log("https://res.cloudinary.com/dxhq8jlxf/" + catBg.replace(/ /g, "%20"));
-
-  // useEffect(() => {
-  //   if (router.isReady) {
-  //     if (catData) {
-  //       // setcatImg();
-  //       // const catBg = bgUrl(catData.category_image);
-  //       // console.log(catBg);
-  //       console.log(catData);
-  //     }
-  //   }
-  // }, []);
 
   return (
     <section className="w-full min-w-[320px] h-[100%] max-h-[400px] grid place-items-center overflow-hidden z-10 relative">
