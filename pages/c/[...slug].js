@@ -58,11 +58,11 @@ export default function CategoryPage({}) {
           className="w-full h-fit max-h-fit object-cover object-center z-20"
         />
 
-        <section className="absolute top-0 left-0 w-full h-full z-40">
-          <h1 className="text-white sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-bold">
+        <section className="absolute top-0 left-0 w-full h-full grid place-items-center text-center px-4 z-40">
+          <h1 className="text-white sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-semibold">
             {subcatObj.name}
           </h1>
-          <p className="text-white sm:text-lg">{subcatObj.description}</p>
+          <p className="text-white">{subcatObj.description}</p>
         </section>
       </section>
     </section>
