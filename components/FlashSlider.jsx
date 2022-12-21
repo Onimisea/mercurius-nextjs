@@ -11,13 +11,13 @@ const FlashSlider = () => {
   const slideLeft = () => {
     const slider = document.getElementById("flashsaleSlider");
 
-    slider.scrollLeft = slider.scrollLeft - 260;
+    slider.scrollLeft = slider.scrollLeft - 270;
   };
 
   const slideRight = () => {
     const slider = document.getElementById("flashsaleSlider");
 
-    slider.scrollLeft = slider.scrollLeft + 260;
+    slider.scrollLeft = slider.scrollLeft + 270;
   };
 
   return (

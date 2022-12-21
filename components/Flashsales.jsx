@@ -17,7 +17,7 @@ const Flashsales = () => {
       </section>
 
       <section className="grid place-items-center my-6 mx-auto relative overflow-hidden">
-        <p className="text-md text-red-500 mb-6 text-center font-bold">Construction In Progress</p>
+        {/* <p className="text-md text-red-500 mb-6 text-center font-bold">Construction In Progress</p> */}
 
         <FlashSlider />
       </section>

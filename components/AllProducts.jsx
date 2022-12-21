@@ -35,14 +35,14 @@ const AllProducts = () => {
   };
 
   return (
-    <section className="w-[85%] mx-auto max-w-screen-xl mt-16 pt-16 pb-14 flex flex-col items-center">
+    <section className="w-[85%] mx-auto max-w-screen-xl pt-16 pb-14 flex flex-col items-center">
       <h1 className="text-black sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-bold">
         All Products
       </h1>
 
-      <section className=" flex mt-6 flex-col sm:flex-row space-y-2 items-center justify-center flex-wrap sm:space-x-6">
+      <section className="flex flex-row items-center justify-center flex-wrap m-2">
         <section
-          className="bg-white w-full sm:w-fit text-center p-2 rounded-lg shadow-md cursor-pointer hover:border-[1px] border-primary"
+          className="bg-white w-fit text-center p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
           onClick={(e) => {
             productFilterDispatch({
               type: "FILTER_BY_CATEGORY",
@@ -56,7 +56,7 @@ const AllProducts = () => {
         {products.map((product) => (
           <section
             key={product.id}
-            className="bg-white w-full sm:w-fit text-center p-2 rounded-lg shadow-md cursor-pointer hover:border-[1px] border-primary"
+            className="bg-white w-fit text-center p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
             onClick={(e) => {
               productFilterDispatch({
                 type: "FILTER_BY_CATEGORY",
@@ -87,7 +87,7 @@ const AllProducts = () => {
                 });
               }}
             />
-            <GoSettings className="filter__icon z-20 -ml-6 hover:text-primary focus:text-primary cursor-pointer" />
+            {/* <GoSettings className="filter__icon z-20 -ml-6 hover:text-primary focus:text-primary cursor-pointer" /> */}
           </label>
         </form>
       </section>
