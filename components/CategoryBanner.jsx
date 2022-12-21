@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const CategoryBanner = ({ catData }) => {
+  const router = useRouter();
+
   const [catImg, setcatImg] = useState("");
   const [subcatObj, setSubcatObj] = useState({});
 
@@ -13,15 +16,17 @@ const CategoryBanner = ({ catData }) => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    if (catData) {
-      // setcatImg();
-      // const catBg = bgUrl(catData.category_image);
-      // console.log(catBg);
+    if (router.isReady) {
+      if (catData) {
+        // setcatImg();
+        // const catBg = bgUrl(catData.category_image);
+        // console.log(catBg);
+        console.log(catData);
+      }
+
       console.log(catData);
+      console.log(catData.category_image);
     }
-    
-    console.log(catData);
-    console.log(catData.category_image);
   }, []);
 
   return (
