@@ -54,13 +54,13 @@ export default function CategoryPage({}) {
           // setCatObj(cat[0]);
           // setCatBg(bgUrl(cat[0].category_image));
 
-          // console.log(prodSubFilt);
+          console.log(prodSubFilt);
 
-          const prodLowerSubFilt = prodSubFilt[0].lowersubcategories.filter(
-            (lowersubcat) => lowersubcat.slug === router.query.slug[2]
-          );
+          // const prodLowerSubFilt = prodSubFilt[0].lowersubcategories.filter(
+          //   (lowersubcat) => lowersubcat.slug === router.query.slug[2]
+          // );
 
-          console.log(prodLowerSubFilt);
+          // console.log(prodLowerSubFilt);
 
           // setSubcatObj(subcats[0]);
         });
