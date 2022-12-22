@@ -134,8 +134,8 @@ export default function CategoryPage({}) {
         </section>
       </section>
 
-      <section className="w-full flex items-center justify-center md:justify-end max-w-screen-xl my-6">
-        <form className="w-[70%] sm3:w-[50%] md:w-[30%]">
+      <section className="w-[85%] mx-auto flex items-center justify-center md:justify-end max-w-screen-xl my-6">
+        <form className="w-[70%] sm3:w-[50%] md:w-[30%] mx-6">
           <label
             htmlFor="search__input"
             className="flex items-center justify-center"
