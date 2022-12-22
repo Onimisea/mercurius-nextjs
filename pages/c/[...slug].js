@@ -115,7 +115,7 @@ export default function CategoryPage({}) {
         <title>Mercurius {subcatObj.name} | Best Thrift Store in Nigeria</title>
       </Head>
 
-      <section className="w-full min-w-full h-fit max-h-fit grid place-items-center overflow-hidden z-10 relative">
+      <section className="w-full min-w-full h-[300px] max-h-[300px] grid place-items-center overflow-hidden z-10 relative">
         <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-80 z-30"></section>
 
         <img
@@ -123,7 +123,7 @@ export default function CategoryPage({}) {
           alt=""
           width={0}
           height={0}
-          className="w-full h-fit max-h-fit object-cover object-center z-20"
+          className="w-full h-[100%] max-h-[100%] object-cover object-center z-20"
         />
 
         <section className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center px-4 z-40">
@@ -134,7 +134,7 @@ export default function CategoryPage({}) {
         </section>
       </section>
 
-      <section className="w-[85%] mx-auto max-w-screen-xl mt-10 mb-5">
+      <section className="w-[80%] sm3:w-[50%] md:w-[30%] flex items-center justify-end max-w-screen-xl mx-5">
         <form className="w-full">
           <label
             htmlFor="search__input"
@@ -142,7 +142,7 @@ export default function CategoryPage({}) {
           >
             <input
               type="search"
-              className="bg-white py-2 px-4 sm:w-full rounded-md border-[0.1rem] outline-none border-gray-400 hover:border-primary focus:border-primary placeholder-gray-300 hover:placeholder-primary-300 text-sm md:py-4 md:w-[70%]"
+              className="bg-white py-2 px-4 w-full border-2 outline-none border-gray-400 hover:border-primary focus:border-primary placeholder-gray-300 hover:placeholder-primary-300 text-sm md:py-4"
               placeholder="Search for product"
               required
               onChange={(e) => {
@@ -156,7 +156,7 @@ export default function CategoryPage({}) {
         </form>
       </section>
 
-      <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center">
+      <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center mb-6">
         {transformProducts().length > 0 ? (
           transformProducts().map((product) => (
             <ProductCard key={product.id} product={product} />
