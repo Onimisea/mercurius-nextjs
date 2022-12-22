@@ -47,14 +47,10 @@ export default function CategoryPage({}) {
       )
         .then((res) => res.json())
         .then((prodData) => {
-          const prodSubFilt = prodData.map(
-            (prod) => {
-              return prod.subcategory.lowersubcategories;
-            }
+          
+          const prodSubFilt = prodData.filter(
+            (prod) => prod.subcategory.slug === router.query.slug[1]
           );
-          // const prodSubFilt = prodData.filter(
-          //   (prod) => prod.subcategory.slug === router.query.slug[1]
-          // );
 
           // const prodSubFilt2 =
           //   prodSubFilt.subcategory.lowersubcategories.filter(
