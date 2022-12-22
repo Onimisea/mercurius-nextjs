@@ -51,8 +51,12 @@ export default function CategoryPage({}) {
             (prod) => prod.subcategory.slug === router.query.slug[1]
           );
 
-          const prodSubFilt2 = prodSubFilt.map((prodSubcatFilt) => {
-            return prodSubcatFilt;
+          const prodSubFilt2 = prodSubFilt.map((prod) => {
+            const psf3 = prod.subcategory.lowersubcategories.filter(
+              (psf3prods) => psf3prods.slug === router.query.slug[2]
+            );
+
+            return psf3;
           });
 
           // const prodSubFilt2 =
