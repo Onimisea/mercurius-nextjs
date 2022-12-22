@@ -178,7 +178,7 @@ export default function CategoryPage( {}) {
         </section>
         
         <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center mb-6">
-            <h1 className="text-white sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-semibold">
+            <h1 className="text-black sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-semibold">
             List of lower subcategories for this category
           </h1>
         </section>
