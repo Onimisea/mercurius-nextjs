@@ -51,6 +51,8 @@ export default function CategoryPage({}) {
             (prod) => prod.subcategory.slug === router.query.slug[1]
           );
 
+          console.log(prodSubFilt);
+
           // const prodSubFilt2 = prodSubFilt.map((prod) => {
           //   const psf3 = prod.subcategory.lowersubcategories.filter(
           //     (psf3prods) => psf3prods.slug === router.query.slug[2]
@@ -64,7 +66,7 @@ export default function CategoryPage({}) {
           //     (prodSub) => prodSub.slug === router.query.slug[2]
           //   );
 
-          console.log(prodSubFilt);
+          
           // console.log(prodSubFilt2);
 
           // const prodLowerSubFilt = prodSubFilt[0].lowersubcategories.filter(
@@ -74,7 +76,7 @@ export default function CategoryPage({}) {
           // console.log(prodLowerSubFilt);
 
           // setSubcatObj(subcats[0]);
-        });
+        // });
     }
   }, [router.query]);
 
