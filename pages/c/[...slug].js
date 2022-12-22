@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import ProductCard from "./ProductCard";
+import ProductCard from "../../components/ProductCard";
 import { useRouter } from "next/router";
 import { useAppContext } from "../../context/AppContext";
 import { CategoryBanner } from "../../components";
