@@ -54,7 +54,7 @@ export default function CategoryPage({}) {
           // setCatObj(cat[0]);
           // setCatBg(bgUrl(cat[0].category_image));
 
-          console.log(prodSubFilt);
+          // console.log(prodSubFilt);
 
           const prodLowerSubFilt = prodSubFilt[0].lowersubcategories.filter(
             (lowersubcat) => lowersubcat.slug === router.query.slug[2]
@@ -67,7 +67,7 @@ export default function CategoryPage({}) {
     }
   }, [router.query]);
 
-  console.log(subcatObj);
+  // console.log(subcatObj);
 
   const transformProducts = () => {
     let filteredProducts = products;
