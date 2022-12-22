@@ -1,116 +1,135 @@
-import React, { useState, useEffect } from "react";
-import { getSession } from "next-auth/react";
+import React, {
+    useState,
+    useEffect
+} from "react";
+import {
+    getSession
+} from "next-auth/react";
 import Head from "next/head";
 import ProductCard from "../../components/ProductCard";
-import { useRouter } from "next/router";
-import { useAppContext } from "../../context/AppContext";
-import { CategoryBanner } from "../../components";
+import {
+    useRouter
+} from "next/router";
+import {
+    useAppContext
+} from "../../context/AppContext";
+import {
+    CategoryBanner
+} from "../../components";
 
-export default function CategoryPage({}) {
-  const router = useRouter();
-  const {
-    productFilter: { byCategory, searchQuery },
-    productFilterDispatch,
-  } = useAppContext();
+export default function CategoryPage( {}) {
+    const router = useRouter();
+    const {
+        productFilter: {
+            byCategory,
+            searchQuery
+        },
+        productFilterDispatch,
+    } = useAppContext();
 
-  const [products, setProducts] = useState({});
-  const [catObj, setCatObj] = useState({});
-  const [catBg, setCatBg] = useState("");
-  const [subcatObj, setSubcatObj] = useState({});
+    const [products,
+        setProducts] = useState({});
+    const [catObj,
+        setCatObj] = useState({});
+    const [catBg,
+        setCatBg] = useState("");
+    const [subcatObj,
+        setSubcatObj] = useState({});
 
-  const bgUrl = (imgUrl) =>
+    const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  useEffect(() => {
-    if (router.isReady) {
-      const categories = fetch(
-        "https://mercurius-api-production.up.railway.app/api/inventory/c/"
-      )
-        .then((res) => res.json())
-        .then((catData) => {
-          const cat = catData.filter(
-            (category) => category.slug === router.query.slug[0]
-          );
+    useEffect(() => {
+        if (router.isReady) {
+            const categories = fetch(
+                "https://mercurius-api-production.up.railway.app/api/inventory/c/"
+            )
+            .then((res) => res.json())
+            .then((catData) => {
+                const cat = catData.filter(
+                    (category) => category.slug === router.query.slug[0]
+                );
 
-          setCatObj(cat[0]);
-          setCatBg(bgUrl(cat[0].category_image));
+                setCatObj(cat[0]);
+                setCatBg(bgUrl(cat[0].category_image));
 
-          const subcats = cat[0].subcategories.filter(
-            (subcat) => subcat.slug === router.query.slug[1]
-          );
+                const subcats = cat[0].subcategories.filter(
+                    (subcat) => subcat.slug === router.query.slug[1]
+                );
 
-          setSubcatObj(subcats[0]);
-        });
+                setSubcatObj(subcats[0]);
+            });
 
-      const products = fetch(
-        "https://mercurius-api-production.up.railway.app/api/inventory/"
-      )
-        .then((res) => res.json())
-        .then((prodData) => {
-          const prodSubFilt = prodData.filter(
-            (prod) => prod.subcategory.slug === router.query.slug[1]
-          );
+            const products = fetch(
+                "https://mercurius-api-production.up.railway.app/api/inventory/"
+            )
+            .then((res) => res.json())
+            .then((prodData) => {
+                const prodSubFilt = prodData.filter(
+                    (prod) => prod.subcategory.slug === router.query.slug[1]
+                );
 
-          setProducts(prodSubFilt);
+                setProducts(prodSubFilt);
 
-          // console.log(prodSubFilt);
+                // console.log(prodSubFilt);
 
-          // const prodSubFilt2 = prodSubFilt.map((prod) => {
-          //   const psf3 = prod.subcategory.lowersubcategories.filter(
-          //     (psf3prods) => psf3prods.slug === router.query.slug[2]
-          //   );
+                // const prodSubFilt2 = prodSubFilt.map((prod) => {
+                //   const psf3 = prod.subcategory.lowersubcategories.filter(
+                //     (psf3prods) => psf3prods.slug === router.query.slug[2]
+                //   );
 
-          //   return psf3;
-        });
+                //   return psf3;
+            });
 
-      // const prodSubFilt2 =
-      //   prodSubFilt.subcategory.lowersubcategories.filter(
-      //     (prodSub) => prodSub.slug === router.query.slug[2]
-      //   );
+            // const prodSubFilt2 =
+            //   prodSubFilt.subcategory.lowersubcategories.filter(
+            //     (prodSub) => prodSub.slug === router.query.slug[2]
+            //   );
 
-      // console.log(prodSubFilt2);
+            // console.log(prodSubFilt2);
 
-      // const prodLowerSubFilt = prodSubFilt[0].lowersubcategories.filter(
-      //   (lowersubcat) => lowersubcat.slug === router.query.slug[2]
-      // );
+            // const prodLowerSubFilt = prodSubFilt[0].lowersubcategories.filter(
+            //   (lowersubcat) => lowersubcat.slug === router.query.slug[2]
+            // );
 
-      // console.log(prodLowerSubFilt);
+            // console.log(prodLowerSubFilt);
 
-      // setSubcatObj(subcats[0]);
-      // });
-    }
-  }, [router.query]);
+            // setSubcatObj(subcats[0]);
+            // });
+        }
+    },
+        [router.query]);
 
-  // console.log(subcatObj);
+    // console.log(subcatObj);
 
-  console.log(products);
+    console.log(products);
 
-  const transformProducts = () => {
-    let filteredProducts = products;
+    const transformProducts = () => {
+        let filteredProducts = products;
 
-    if (byCategory) {
-      if (byCategory === "all") {
-        filteredProducts = filteredProducts.filter((product) =>
-          product.product_type.name.includes("")
-        );
-      } else {
-        filteredProducts = filteredProducts.filter((product) =>
-          product.product_type.name.includes(byCategory)
-        );
-      }
-    }
+        if (byCategory) {
+            if (byCategory === "all") {
+                filteredProducts = filteredProducts.filter((product) =>
+                    product.product_type.name.includes("")
+                );
+            } else {
+                filteredProducts = filteredProducts.filter((product) =>
+                    product.product_type.name.includes(byCategory)
+                );
+            }
+        }
 
-    if (searchQuery) {
-      filteredProducts = filteredProducts.filter((product) =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
+        if (searchQuery) {
+            filteredProducts = filteredProducts.filter((product) =>
+                product.name.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+        }
 
-    return filteredProducts;
-  };
+        return filteredProducts;
+    };
 
-  return (
-    <section className="">
+    return (
+        <section className="">
       <Head>
         <title>Mercurius {subcatObj.name} | Best Thrift Store in Nigeria</title>
       </Head>
@@ -119,95 +138,105 @@ export default function CategoryPage({}) {
         <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-80 z-30"></section>
 
         <img
-          src={catBg}
-          alt=""
-          width={0}
-          height={0}
-          className="w-full h-[100%] max-h-[100%] object-cover object-center z-20"
-        />
+            src={catBg}
+            alt=""
+            width={0}
+            height={0}
+            className="w-full h-[100%] max-h-[100%] object-cover object-center z-20"
+            />
 
         <section className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center px-4 z-40">
           <h1 className="text-white sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-semibold">
             {subcatObj.name}
           </h1>
-          <p className="text-white text-sm mt-2">{subcatObj.description}</p>
+          <p className="text-white text-sm mt-2">
+                {subcatObj.description}
+            </p>
+            </section>
         </section>
-      </section>
 
       <section className="w-[85%] mx-auto flex items-center justify-center md:justify-end max-w-screen-xl my-6">
-        <form className="w-[70%] sm3:w-[50%] md:w-[30%] mx-6">
+        <form className="w-[70%] sm3:w-[55%] md:w-[40%] mx-6">
           <label
-            htmlFor="search__input"
-            className="flex items-center justify-center"
-          >
+                htmlFor="search__input"
+                className="flex items-center justify-center"
+                >
             <input
-              type="search"
-              className="bg-white py-2 px-4 w-full border-2 outline-none border-black hover:border-primary focus:border-primary placeholder-gray-500 hover:placeholder-primary text-sm md:py-4"
-              placeholder="Search for product"
-              required
-              onChange={(e) => {
-                productFilterDispatch({
-                  type: "FILTER_BY_SEARCH",
-                  payload: e.target.value,
-                });
-              }}
-            />
+                type="search"
+                className="bg-white py-2 px-4 w-full border-2 outline-none border-black hover:border-primary focus:border-primary placeholder-gray-500 hover:placeholder-primary text-sm md:py-4"
+                placeholder="Search for product"
+                required
+                onChange={(e) => {
+                    productFilterDispatch({
+                        type: "FILTER_BY_SEARCH",
+                        payload: e.target.value,
+                    });
+                }}
+                />
           </label>
-        </form>
-      </section>
+            </form>
+        </section>
+        
+        <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center mb-6">
+            <h1 className="text-white sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-semibold">
+            List of lower subcategories for this category
+          </h1>
+        </section>
 
       <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center mb-6">
         {transformProducts().length > 0 ? (
-          transformProducts().map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))
-        ) : (
-          <h3>No Product Found</h3>
-        )}
-      </section>
-    </section>
+                transformProducts().map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))
+            ): (
+                <h3>No Product Found</h3>
+            )}
+        </section>
+        </section>
 
-    // <section className="flex flex-row items-center justify-center flex-wrap mt-6">
-    //   <section
-    //     className="bg-white w-fit text-center m-2 p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
-    //     onClick={(e) => {
-    //       productFilterDispatch({
-    //         type: "FILTER_BY_CATEGORY",
-    //         payload: "all",
-    //       });
-    //     }}
-    //   >
-    //     <p>All</p>
-    //   </section>
+        // <section className="flex flex-row items-center justify-center flex-wrap mt-6">
+        //   <section
+        //     className="bg-white w-fit text-center m-2 p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
+        //     onClick={(e) => {
+        //       productFilterDispatch({
+        //         type: "FILTER_BY_CATEGORY",
+        //         payload: "all",
+        //       });
+        //     }}
+        //   >
+        //     <p>All</p>
+        //   </section>
 
-    //   {products.map((product) => (
-    //     <section
-    //       key={product.id}
-    //       className="bg-white w-fit text-center m-2 p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
-    //       onClick={(e) => {
-    //         productFilterDispatch({
-    //           type: "FILTER_BY_CATEGORY",
-    //           payload: product.product_type.name,
-    //         });
-    //       }}
-    //     >
-    //       <p className="">{product.product_type.name}</p>
-    //     </section>
-    //   ))}
-    // </section>
-  );
+        //   {products.map((product) => (
+        //     <section
+        //       key={product.id}
+        //       className="bg-white w-fit text-center m-2 p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
+        //       onClick={(e) => {
+        //         productFilterDispatch({
+        //           type: "FILTER_BY_CATEGORY",
+        //           payload: product.product_type.name,
+        //         });
+        //       }}
+        //     >
+        //       <p className="">{product.product_type.name}</p>
+        //     </section>
+        //   ))}
+        // </section>
+    );
 }
 
-export const getServerSideProps = async ({ req }) => {
-  // const session = await getSession({ req });
+    export const getServerSideProps = async ({
+        req
+    }) => {
+        // const session = await getSession({ req });
 
-  const products = await fetch(
-    "https://mercurius-api-production.up.railway.app/api/inventory/"
-  ).then((res) => res.json());
+        const products = await fetch(
+            "https://mercurius-api-production.up.railway.app/api/inventory/"
+        ).then((res) => res.json());
 
-  return {
-    props: {
-      products,
-    },
-  };
-};
+        return {
+            props: {
+                products,
+            },
+        };
+    };
