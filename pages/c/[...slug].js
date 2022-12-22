@@ -49,7 +49,7 @@ export default function CategoryPage({}) {
         .then((prodData) => {
           const prodSubFilt = prodData.map(
             (prod) => {
-              return prod;
+              return prod.subcategory.lowersubcategories;
             }
           );
           // const prodSubFilt = prodData.filter(
