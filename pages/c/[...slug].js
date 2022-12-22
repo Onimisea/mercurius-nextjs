@@ -51,12 +51,10 @@ export default function CategoryPage({}) {
             (prod) => prod.subcategory.slug === router.query.slug[1]
           );
 
-          const prodSubFilt2 = prodData.map((prod) => {
-            return prod.subcategory.lowersubcategories;
-          });
-
-          // setCatObj(cat[0]);
-          // setCatBg(bgUrl(cat[0].category_image));
+          const prodSubFilt2 =
+            prodSubFilt.subcategory.lowersubcategories.filter(
+              (prodSub) => prodSub.slug === router.query.slug[2]
+            );
 
           console.log(prodSubFilt);
           console.log(prodSubFilt2);
