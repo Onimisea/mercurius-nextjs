@@ -134,7 +134,7 @@ export default function CategoryPage({}) {
         </section>
       </section>
 
-      <section className="w-[80%] sm3:w-[50%] md:w-[30%] flex items-center justify-end max-w-screen-xl mx-5">
+      <section className="w-[80%] sm3:w-[50%] md:w-[30%] flex items-center justify-center md:justify-end max-w-screen-xl">
         <form className="w-full">
           <label
             htmlFor="search__input"
@@ -142,7 +142,7 @@ export default function CategoryPage({}) {
           >
             <input
               type="search"
-              className="bg-white py-2 px-4 w-full border-2 outline-none border-gray-400 hover:border-primary focus:border-primary placeholder-gray-300 hover:placeholder-primary-300 text-sm md:py-4"
+              className="bg-white py-2 px-4 w-full border-4 outline-none border-black hover:border-primary focus:border-primary placeholder-gray-500 hover:placeholder-primary text-sm md:py-4"
               placeholder="Search for product"
               required
               onChange={(e) => {
