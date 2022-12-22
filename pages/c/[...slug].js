@@ -51,7 +51,9 @@ export default function CategoryPage({}) {
             (prod) => prod.subcategory.slug === router.query.slug[1]
           );
 
-          console.log(prodSubFilt);
+          setProducts(prodSubFilt);
+
+          // console.log(prodSubFilt);
 
           // const prodSubFilt2 = prodSubFilt.map((prod) => {
           //   const psf3 = prod.subcategory.lowersubcategories.filter(
@@ -59,28 +61,29 @@ export default function CategoryPage({}) {
           //   );
 
           //   return psf3;
-          });
+        });
 
-          // const prodSubFilt2 =
-          //   prodSubFilt.subcategory.lowersubcategories.filter(
-          //     (prodSub) => prodSub.slug === router.query.slug[2]
-          //   );
+      // const prodSubFilt2 =
+      //   prodSubFilt.subcategory.lowersubcategories.filter(
+      //     (prodSub) => prodSub.slug === router.query.slug[2]
+      //   );
 
-          
-          // console.log(prodSubFilt2);
+      // console.log(prodSubFilt2);
 
-          // const prodLowerSubFilt = prodSubFilt[0].lowersubcategories.filter(
-          //   (lowersubcat) => lowersubcat.slug === router.query.slug[2]
-          // );
+      // const prodLowerSubFilt = prodSubFilt[0].lowersubcategories.filter(
+      //   (lowersubcat) => lowersubcat.slug === router.query.slug[2]
+      // );
 
-          // console.log(prodLowerSubFilt);
+      // console.log(prodLowerSubFilt);
 
-          // setSubcatObj(subcats[0]);
-        // });
+      // setSubcatObj(subcats[0]);
+      // });
     }
   }, [router.query]);
 
   // console.log(subcatObj);
+
+  console.log(products);
 
   const transformProducts = () => {
     let filteredProducts = products;
