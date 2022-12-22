@@ -51,12 +51,12 @@ export default function CategoryPage({}) {
             (prod) => prod.subcategory.slug === router.query.slug[1]
           );
 
-          const prodSubFilt2 = prodSubFilt.map((prod) => {
-            const psf3 = prod.subcategory.lowersubcategories.filter(
-              (psf3prods) => psf3prods.slug === router.query.slug[2]
-            );
+          // const prodSubFilt2 = prodSubFilt.map((prod) => {
+          //   const psf3 = prod.subcategory.lowersubcategories.filter(
+          //     (psf3prods) => psf3prods.slug === router.query.slug[2]
+          //   );
 
-            return psf3;
+          //   return psf3;
           });
 
           // const prodSubFilt2 =
@@ -65,7 +65,7 @@ export default function CategoryPage({}) {
           //   );
 
           console.log(prodSubFilt);
-          console.log(prodSubFilt2);
+          // console.log(prodSubFilt2);
 
           // const prodLowerSubFilt = prodSubFilt[0].lowersubcategories.filter(
           //   (lowersubcat) => lowersubcat.slug === router.query.slug[2]
