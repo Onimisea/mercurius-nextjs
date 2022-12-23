@@ -157,7 +157,7 @@ export default function CategoryPage({}) {
                   key={lowersub.id}
                   className={`${
                     lowersub.slug === router.query.slug[2]
-                      ? "flex items-center justify-center bg-black text-white m-2 p-3 w-fit border-2 outline-none border-black hover:bg-primary hover:border-primary hover:text-white text-md font-dalek cursor-pointer duration-300"
+                      ? "flex items-center justify-center bg-black text-white m-2 p-3 w-fit border-2 outline-none border-black hover:bg-primary hover:border-primary hover:text-black text-md font-dalek cursor-pointer duration-300"
                       : "flex items-center justify-center bg-white text-black m-2 p-3 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300"
                   }`}
                 >
