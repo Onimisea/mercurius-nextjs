@@ -55,12 +55,15 @@ export default function CategoryPage({}) {
 
           // console.log(prodSubFilt);
 
-          // const prodSubFilt2 = prodSubFilt.map((prod) => {
-          //   const psf3 = prod.subcategory.lowersubcategories.filter(
-          //     (psf3prods) => psf3prods.slug === router.query.slug[2]
-          //   );
+          const prodSubFilt2 = prodSubFilt.map((prod) => {
+            const psf3 = prod.subcategory.lowersubcategories.filter(
+              (psf3prods) => psf3prods.slug === router.query.slug[2]
+            );
 
-          //   return psf3;
+            return psf3;
+          });
+
+          console.log(prodSubFilt2);
         });
 
       // const prodSubFilt2 =
@@ -83,7 +86,7 @@ export default function CategoryPage({}) {
 
   // console.log(subcatObj);
 
-  console.log(products);
+  //   console.log(products);
 
   const transformProducts = () => {
     let filteredProducts = products;
@@ -115,7 +118,7 @@ export default function CategoryPage({}) {
         <title>Mercurius {subcatObj.name} | Best Thrift Store in Nigeria</title>
       </Head>
 
-      <section className="w-full min-w-full h-[300px] max-h-[300px] grid place-items-center overflow-hidden z-10 relative">
+      <section className="w-full min-w-full h-[350px] max-h-[350px] grid place-items-center overflow-hidden z-10 relative">
         <section className="bg-black absolute top-0 left-0 w-full h-[100%] opacity-80 z-30"></section>
 
         <img
