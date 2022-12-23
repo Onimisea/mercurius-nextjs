@@ -122,7 +122,7 @@ export default function CategoryPage({}) {
           <h1 className="text-white sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-semibold">
             {subcatObj.name}
           </h1>
-          <p className="text-white text-sm mt-2">{subcatObj.description}</p>
+          <p className="text-white text-sm mt-4">{subcatObj.description}</p>
         </section>
       </section>
 
@@ -153,13 +153,12 @@ export default function CategoryPage({}) {
           allLowerSub.map((lowersub) => (
             <section
               key={lowersub.id}
-              className="bg-white text-black py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md md:py-2 font-dalek cursor-pointer duration-300"
+              className="bg-white text-black m-4 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md md:py-2 font-dalek cursor-pointer duration-300"
             >
               {lowersub.name}
             </section>
           ))}
 
-        {/* {allLowerSub && <p>{allLowerSub.length}</p>} */}
       </section>
 
       <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center mb-6">
