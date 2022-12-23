@@ -152,10 +152,7 @@ export default function CategoryPage({}) {
       <section className="w-[85%] mx-auto max-w-screen-xl m-6 flex flex-row items-center justify-center flex-wrap">
         {allLowerSub &&
           allLowerSub.map((lowersub) => {
-            console.log(router.query.slug);
-            // if (lowersub.slug === router.query.slug[2]) {
-            //   console.log(lowersub);
-            // }
+            console.log(products);
 
             return (
               <Link
@@ -173,15 +170,6 @@ export default function CategoryPage({}) {
                 </section>
               </Link>
             );
-
-            // return (
-            //   <section
-            //     key={lowersub.id}
-            //     className="bg-white text-black m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300"
-            //   >
-            //     {lowersub.name}
-            //   </section>
-            // );
           })}
       </section>
 
