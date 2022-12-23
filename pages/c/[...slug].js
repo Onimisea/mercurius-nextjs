@@ -153,7 +153,7 @@ export default function CategoryPage({}) {
           allLowerSub.map((lowersub) => (
             <section
               key={lowersub.id}
-              className="bg-white text-black m-4 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md md:py-2 font-dalek cursor-pointer duration-300"
+              className="bg-white text-black m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300"
             >
               {lowersub.name}
             </section>
