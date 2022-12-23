@@ -55,15 +55,24 @@ export default function CategoryPage({}) {
 
           // console.log(prodSubFilt);
 
-          const prodSubFilt2 = prodSubFilt.map((prod) => {
-            const psf3 = prod.subcategory.lowersubcategories.filter(
-              (psf3prods) => psf3prods.slug === router.query.slug[2]
+          const currLowerSub = prodSubFilt.map((prod) => {
+            const cls = prod.subcategory.lowersubcategories.filter(
+              (clscat) => clscat.slug === router.query.slug[2]
             );
 
-            return psf3;
+            return cls;
           });
 
-          console.log(prodSubFilt2);
+          const allLowerSub = prodSubFilt.map((prod) => {
+            // const allls = .filter(
+            //   (psf3prods) => psf3prods.slug === router.query.slug[2]
+            // );
+
+            return prod.subcategory.lowersubcategories;
+          });
+
+          console.log("Current lower subcategory:", currLowerSub);
+          console.log("All lower subcategories:", allLowerSub);
         });
 
       // const prodSubFilt2 =
