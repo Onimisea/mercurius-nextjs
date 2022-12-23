@@ -145,7 +145,7 @@ const Header = () => {
           )}
 
           <section
-            className={`text-[16px] z-50 bg-white border-[1px] p-2 space-y-0 absolute top-[55px] rounded-md w-fit hidden group-hover:block`}
+            className={`text-[16px] z-50 bg-white p-2 space-y-0 absolute top-[55px] rounded-md w-fit hidden group-hover:block`}
             // ${
             //   avatarMenuOpen ? "block" : "hidden"
             // }
