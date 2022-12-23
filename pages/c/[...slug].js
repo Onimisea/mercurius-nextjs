@@ -45,6 +45,16 @@ export default function CategoryPage({}) {
           setSubcatObj(subcats[0]);
         });
 
+      const currLowerSub = subcatObj.lowersubcategories.filter(
+        (clscat) => clscat.slug === router.query.slug[2]
+      );
+
+      setCurrLowerSub(currLowerSub[0]);
+
+      const allLowerSub = subcatObj.lowersubcategories;
+
+      setAllLowerSub(allLowerSub[0]);
+
       const products = fetch(
         "https://mercurius-api-production.up.railway.app/api/inventory/"
       )
@@ -55,30 +65,14 @@ export default function CategoryPage({}) {
           );
 
           setProducts(prodSubFilt);
-
-          const currLowerSub = prodSubFilt.map((prod) => {
-            const cls = prod.subcategory.lowersubcategories.filter(
-              (clscat) => clscat.slug === router.query.slug[2]
-            );
-
-            return cls;
-          });
-
-          setCurrLowerSub(currLowerSub[0][0]);
-
-          const allLowerSub = prodSubFilt.map((prod) => {
-            return prod.subcategory.lowersubcategories;
-          });
-
-          setAllLowerSub(allLowerSub[0]);
         });
     }
   }, [router.query]);
 
-  console.log(subcatObj)
+  console.log(subcatObj);
 
-    console.log("Current lower subcategory:", currLowerSub);
-    console.log("All lower subcategories:", allLowerSub);
+  console.log("Current lower subcategory:", currLowerSub);
+  console.log("All lower subcategories:", allLowerSub);
 
   const transformProducts = () => {
     let filteredProducts = products;
