@@ -127,7 +127,7 @@ export default function CategoryPage({}) {
       </section>
 
       <section className="w-[85%] mx-auto flex items-center justify-center md:justify-end max-w-screen-xl my-6">
-        <form className="w-[70%] sm3:w-[55%] md:w-[40%] md2:w-[30%]">
+        <form className="w-[100%] sm3:w-[70%] md:w-[50%] md2:w-[30%]">
           <label
             htmlFor="search__input"
             className="flex items-center justify-center"
@@ -156,11 +156,8 @@ export default function CategoryPage({}) {
                 key={lowersub.id}
                 className={
                   lowersub.slug === router.query.slug[2]
-                    ? `bg-white text-black m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300 ${
-                        lowersub.slug === router.query.slug[2] &&
-                        "bg-black text-white hover:bg-primary"
-                      }`
-                    : `bg-white text-black m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300`
+                    ? "bg-white text-black m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300"
+                    : "bg-white text-black m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300"
                 }
               >
                 {lowersub.name}
