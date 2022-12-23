@@ -74,8 +74,8 @@ export default function CategoryPage({}) {
     }
   }, [router.query]);
 
-//   console.log("Current lower subcategory:", currLowerSub);
-//   console.log("All lower subcategories:", allLowerSub);
+  //   console.log("Current lower subcategory:", currLowerSub);
+  //   console.log("All lower subcategories:", allLowerSub);
 
   const transformProducts = () => {
     let filteredProducts = products;
@@ -151,20 +151,26 @@ export default function CategoryPage({}) {
       <section className="w-[85%] mx-auto max-w-screen-xl m-6 flex flex-row items-center justify-center flex-wrap">
         {allLowerSub &&
           allLowerSub.map((lowersub) => {
+            console.log(router.query.slug);
             if (lowersub.slug === router.query.slug[2]) {
               console.log(lowersub);
 
               return (
-                <section
-                  key={lowersub.id}
-                  className={`${
-                    lowersub.slug === router.query.slug[2]
-                      ? "bg-black text-white m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-primary hover:text-white text-md font-dalek cursor-pointer duration-300"
-                      : "bg-white text-black m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300"
-                  }`}
+                <Link
+                  href=""
+                  //   href={`/c/${categoryData.slug}/${subcat.slug}/${lsubcat.slug}`}
                 >
-                  {lowersub.name}
-                </section>
+                  <section
+                    key={lowersub.id}
+                    className={`${
+                      lowersub.slug === router.query.slug[2]
+                        ? "bg-black text-white m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-primary hover:text-white text-md font-dalek cursor-pointer duration-300"
+                        : "bg-white text-black m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300"
+                    }`}
+                  >
+                    {lowersub.name}
+                  </section>
+                </Link>
               );
             }
 
