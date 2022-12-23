@@ -45,15 +45,15 @@ export default function CategoryPage({}) {
           setSubcatObj(subcats[0]);
         });
 
-      const currLowerSub = subcatObj.lowersubcategories.filter(
+      const currLowerSub = subcats[0].lowersubcategories.filter(
         (clscat) => clscat.slug === router.query.slug[2]
       );
 
       setCurrLowerSub(currLowerSub[0]);
 
-      const allLowerSub = subcatObj.lowersubcategories;
+      const allLowerSub = subcats[0].lowersubcategories;
 
-      setAllLowerSub(allLowerSub[0]);
+      setAllLowerSub(allLowerSub);
 
       const products = fetch(
         "https://mercurius-api-production.up.railway.app/api/inventory/"
