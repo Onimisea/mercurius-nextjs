@@ -17,6 +17,8 @@ export default function CategoryPage({}) {
   const [catObj, setCatObj] = useState({});
   const [catBg, setCatBg] = useState("");
   const [subcatObj, setSubcatObj] = useState({});
+  const [allLowerSub, setAllLowerSub] = useState({});
+  const [currLowerSub, setCurrLowerSub] = useState({});
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -53,8 +55,6 @@ export default function CategoryPage({}) {
 
           setProducts(prodSubFilt);
 
-          // console.log(prodSubFilt);
-
           const currLowerSub = prodSubFilt.map((prod) => {
             const cls = prod.subcategory.lowersubcategories.filter(
               (clscat) => clscat.slug === router.query.slug[2]
@@ -63,39 +63,19 @@ export default function CategoryPage({}) {
             return cls;
           });
 
-          const allLowerSub = prodSubFilt.map((prod) => {
-            // const allls = .filter(
-            //   (psf3prods) => psf3prods.slug === router.query.slug[2]
-            // );
+          setCurrLowerSub(currLowerSub);
 
+          const allLowerSub = prodSubFilt.map((prod) => {
             return prod.subcategory.lowersubcategories;
           });
 
-          console.log("Current lower subcategory:", currLowerSub);
-          console.log("All lower subcategories:", allLowerSub);
+          setAllLowerSub(allLowerSub);
         });
-
-      // const prodSubFilt2 =
-      //   prodSubFilt.subcategory.lowersubcategories.filter(
-      //     (prodSub) => prodSub.slug === router.query.slug[2]
-      //   );
-
-      // console.log(prodSubFilt2);
-
-      // const prodLowerSubFilt = prodSubFilt[0].lowersubcategories.filter(
-      //   (lowersubcat) => lowersubcat.slug === router.query.slug[2]
-      // );
-
-      // console.log(prodLowerSubFilt);
-
-      // setSubcatObj(subcats[0]);
-      // });
     }
   }, [router.query]);
 
-  // console.log(subcatObj);
-
-  //   console.log(products);
+  console.log("Current lower subcategory:", currLowerSub);
+  console.log("All lower subcategories:", allLowerSub);
 
   const transformProducts = () => {
     let filteredProducts = products;
