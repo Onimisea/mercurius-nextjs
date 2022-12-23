@@ -128,7 +128,7 @@ const Header = () => {
       <section className="header__icons space-x-6 text-xl flex items-center justify-center">
         <span
           className="block z-20 w-fit group cursor-pointer"
-          onClick={() => setAvatarMenuOpen(!avatarMenuOpen)}
+          // onClick={() => setAvatarMenuOpen(!avatarMenuOpen)}
         >
           {userInfo ? (
             <Avatar
@@ -140,14 +140,15 @@ const Header = () => {
           ) : (
             <section className="flex items-center justify-center">
               <HiUser className="cursor-pointer hover:text-primary hover:scale-125 duration:300 mr-1" />
-              <FaCaretDown size={20} />
+              <FaCaretDown size={13} />
             </section>
           )}
 
           <section
-            className={`text-[16px] z-50 bg-white border-[1px] p-2 space-y-0 absolute top-[85px] rounded-md w-fit ${
-              avatarMenuOpen ? "block" : "hidden"
-            }`}
+            className={`text-[16px] z-50 bg-white border-[1px] p-2 space-y-0 absolute top-[85px] rounded-md w-fit hidden group-hover:block`}
+            // ${
+            //   avatarMenuOpen ? "block" : "hidden"
+            // }
           >
             {userInfo ? (
               <>
