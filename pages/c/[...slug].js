@@ -148,10 +148,15 @@ export default function CategoryPage({}) {
         </form>
       </section>
 
-      <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center mb-6">
-        <h1 className="text-black sm:text-lg md:text-2xl md2:text-3xl lg:text-4xl font-dalek font-semibold">
-          List of lower subcategories for this category
-        </h1>
+      <section className="w-[85%] mx-auto max-w-screen-xl m-6 flex flex-row items-center justify-center flex-wrap">
+        {allLowerSub.map((lowersub) => (
+          <section
+            key={lowersub.id}
+            className="bg-white text-black py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md md:py-2 font-dalek"
+          >
+            {lowersub.name}
+          </section>
+        ))}
       </section>
 
       <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center mb-6">
