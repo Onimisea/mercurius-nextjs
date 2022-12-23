@@ -161,7 +161,15 @@ export default function CategoryPage({}) {
                       : "bg-white text-black m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300"
                   }`}
                 >
-                  {lowersub.name}
+                  <img
+                    src={bgUrl(lowersub.lowersubcategory_icon)}
+                    alt={lowersub.name}
+                    width={30}
+                    height={30}
+                    className="w-[30px] h-[30px] object-contain object-center z-20"
+                  />
+
+                  <span className="">{lowersub.name}</span>
                 </section>
               </Link>
             );
