@@ -67,10 +67,10 @@ export default function CategoryPage({}) {
     }
   }, [router.query]);
 
-  console.log(subcatObj);
+  // console.log(subcatObj);
 
   console.log("Current lower subcategory:", currLowerSub);
-  console.log("All lower subcategories:", allLowerSub);
+  // console.log("All lower subcategories:", allLowerSub);
 
   const transformProducts = () => {
     let filteredProducts = products;
