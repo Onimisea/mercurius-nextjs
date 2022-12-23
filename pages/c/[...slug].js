@@ -63,7 +63,7 @@ export default function CategoryPage({}) {
             return cls;
           });
 
-          setCurrLowerSub(currLowerSub[0]);
+          setCurrLowerSub(currLowerSub[0][0]);
 
           const allLowerSub = prodSubFilt.map((prod) => {
             return prod.subcategory.lowersubcategories;
@@ -159,7 +159,7 @@ export default function CategoryPage({}) {
             </section>
           ))} */}
 
-          {/* Lower Subcategories */}
+        {allLowerSub && <p>{allLowerSub.length}</p>}
       </section>
 
       <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center mb-6">
