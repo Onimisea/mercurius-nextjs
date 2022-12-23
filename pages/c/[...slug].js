@@ -156,7 +156,7 @@ export default function CategoryPage({}) {
             // if (lowersub.slug === router.query.slug[2]) {
             //   console.log(lowersub);
             // }
-            
+
             return (
               <Link
                 href={`/c/${router.query.slug[0]}/${router.query.slug[1]}/${lowersub.slug}`}
@@ -165,7 +165,7 @@ export default function CategoryPage({}) {
                   key={lowersub.id}
                   className={`${
                     lowersub.slug === router.query.slug[2]
-                      ? "bg-black text-white m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-primary hover:text-white text-md font-dalek cursor-pointer duration-300"
+                      ? "bg-black text-white m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-primary hover:border-primary hover:text-white text-md font-dalek cursor-pointer duration-300"
                       : "bg-white text-black m-2 py-1 px-2 w-fit border-2 outline-none border-black hover:bg-black hover:text-white text-md font-dalek cursor-pointer duration-300"
                   }`}
                 >
