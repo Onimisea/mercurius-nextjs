@@ -75,8 +75,10 @@ export default function CategoryPage({}) {
     }
   }, [router.query]);
 
-  //   console.log("Current lower subcategory:", currLowerSub);
-  //   console.log("All lower subcategories:", allLowerSub);
+  console.log(subcatObj)
+
+    console.log("Current lower subcategory:", currLowerSub);
+    console.log("All lower subcategories:", allLowerSub);
 
   const transformProducts = () => {
     let filteredProducts = products;
@@ -152,7 +154,8 @@ export default function CategoryPage({}) {
       <section className="w-[85%] mx-auto max-w-screen-xl m-6 flex flex-row items-center justify-center flex-wrap">
         {allLowerSub &&
           allLowerSub.map((lowersub) => {
-            console.log(products);
+            // const filtProd = products.filter((prod) => )
+            // console.log(products);
 
             return (
               <Link
