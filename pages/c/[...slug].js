@@ -17,8 +17,8 @@ export default function CategoryPage({}) {
   const [catObj, setCatObj] = useState({});
   const [catBg, setCatBg] = useState("");
   const [subcatObj, setSubcatObj] = useState({});
-  const [allLowerSub, setAllLowerSub] = useState({});
-  const [currLowerSub, setCurrLowerSub] = useState({});
+  const [allLowerSub, setAllLowerSub] = useState(null);
+  const [currLowerSub, setCurrLowerSub] = useState(null);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -149,7 +149,7 @@ export default function CategoryPage({}) {
       </section>
 
       <section className="w-[85%] mx-auto max-w-screen-xl m-6 flex flex-row items-center justify-center flex-wrap">
-        {allLowerSub &&
+        {/* {allLowerSub &&
           allLowerSub.map((lowersub) => (
             <section
               key={lowersub.id}
@@ -157,7 +157,7 @@ export default function CategoryPage({}) {
             >
               {lowersub.name}
             </section>
-          ))}
+          ))} */}
 
           {/* Lower Subcategories */}
       </section>
