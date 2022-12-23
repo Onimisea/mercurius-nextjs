@@ -75,7 +75,7 @@ const Header = () => {
                           alt={bgUrl(categoryData.name)}
                           width={0}
                           height={0}
-                          className="w-full h-[100%] max-h-[250px] object-fill"
+                          className="w-[100%] h-[250px] max-h-[250px] object-fill"
                         />
                         <section className="absolute top-0 left-0 w-full h-[100%] grid place-items-center">
                           <h3 className="text-xl text-white font-bold text-center">
