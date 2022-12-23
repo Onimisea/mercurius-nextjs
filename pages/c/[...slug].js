@@ -149,7 +149,7 @@ export default function CategoryPage({}) {
       </section>
 
       <section className="w-[85%] mx-auto max-w-screen-xl m-6 flex flex-row items-center justify-center flex-wrap">
-        {allLowerSub &&
+        {/* {allLowerSub &&
           allLowerSub.map((lowersub) => (
             <section
               key={lowersub.id}
@@ -157,7 +157,9 @@ export default function CategoryPage({}) {
             >
               {lowersub.name}
             </section>
-          ))}
+          ))} */}
+
+          Lower Subcategories
       </section>
 
       <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center mb-6">
