@@ -47,39 +47,28 @@ const ProductPage = ({ products }) => {
       if (currProd[0]) {
         const pis = currProd[0].product_images;
 
-        const pis2 = pis.map((pi) => {
-          return {
-            id: pi.id,
-            name: pi.product,
-            url: bgUrl(pi.product_images),
-          };
-        });
+        // return (
+        //   <img
+        //     src={bgUrl(pi.product_images)}
+        //     alt={pi.product}
+        //     width={0}
+        //     height={0}
+        //     className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
+        //   />
+        // );
 
-        console.log(pis)
-
-          // return (
-          //   <img
-          //     src={bgUrl(pi.product_images)}
-          //     alt={pi.product}
-          //     width={0}
-          //     height={0}
-          //     className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
-          //   />
-          // );
-        
-
-        setProductDIs(pis2);
+        setProductDIs(pis);
       }
 
       // productDIs.map((pi) => {
       //   return (
-      //     <img
-      //       src={bgUrl(pi.product_images)}
-      //       alt={pi.product}
-      //       width={0}
-      //       height={0}
-      //       className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
-      //     />
+      // <img
+      //   src={bgUrl(pi.product_images)}
+      //   alt={pi.product}
+      //   width={0}
+      //   height={0}
+      //   className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
+      // />
       //   );
       // });
     }
@@ -111,7 +100,17 @@ const ProductPage = ({ products }) => {
             </section>
 
             <section className="w-full h-[150px] flex items-center justify-between">
-              {/* {productDIs} */}
+              {productDIs &&
+                productDIs.map((pi, i) => (
+                  <img
+                    key={i}
+                    src={bgUrl(pi.product_images)}
+                    alt={pi.product}
+                    width={0}
+                    height={0}
+                    className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
+                  />
+                ))}
             </section>
           </section>
 
