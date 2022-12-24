@@ -34,20 +34,18 @@ const ProductPage = ({ products }) => {
   if (products) {
     const currProd = products.filter((prod) => prod.slug === router.query.slug);
     setCurrProduct(currProd[0]);
+  }
 
-    if (currProd) {
-      const currProdDI = currProd[0].product_images.filter(
-        (img) => img.is_feature === true
-      );
-      setCurrProductDI(bgUrl(currProdDI[0].product_images));
-      // setCurrProductDI(currProdDI[0]);
-    }
+  if (currProduct) {
+    const currProdDI = currProduct.product_images.filter(
+      (img) => img.is_feature === true
+    );
+    setCurrProductDI(bgUrl(currProdDI[0].product_images));
+    // setCurrProductDI(currProdDI[0]);
+  }
 
-    if (currProd[0]) {
-      const pis = currProd[0].product_images;
-
-      setProductDIs(pis);
-    }
+  if (currProduct.product_images) {
+    setProductDIs(currProduct.product_images);
   }
 
   console.log(currProduct);
@@ -75,9 +73,7 @@ const ProductPage = ({ products }) => {
               />
             </section>
 
-            <section className="w-full h-[150px] flex items-center justify-between">
-              
-            </section>
+            <section className="w-full h-[150px] flex items-center justify-between"></section>
           </section>
 
           <section className="w-[48%]">
