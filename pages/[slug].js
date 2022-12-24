@@ -93,7 +93,6 @@ const ProductPage = ({ products }) => {
           <section className="w-[48%] flex flex-col items-center justify-center">
             <section className="w-full h-[500px]">
               <img
-                // src={bgUrl(lowersub.lowersubcategory_icon)}
                 src={currProductDI}
                 alt={currProduct.name}
                 width={0}
@@ -103,8 +102,7 @@ const ProductPage = ({ products }) => {
             </section>
 
             <section className="w-full h-[150px] flex items-center justify-between">
-              {/* {} */}
-              image
+              {productDIs}
             </section>
           </section>
 
