@@ -47,16 +47,6 @@ const ProductPage = ({ products }) => {
       if (currProd[0]) {
         const pis = currProd[0].product_images;
 
-        // return (
-        //   <img
-        //     src={bgUrl(pi.product_images)}
-        //     alt={pi.product}
-        //     width={0}
-        //     height={0}
-        //     className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
-        //   />
-        // );
-
         setProductDIs(pis);
       }
 
@@ -74,7 +64,7 @@ const ProductPage = ({ products }) => {
     }
   }, []);
 
-  // console.log(currProduct);
+  console.log(currProduct);
   // console.log(currProductDI);
   console.log(productDIs);
 
@@ -100,21 +90,11 @@ const ProductPage = ({ products }) => {
             </section>
 
             <section className="w-full h-[150px] flex items-center justify-between">
-              {productDIs &&
-                productDIs.map((pi, i) => (
-                  <img
-                    key={i}
-                    src={bgUrl(pi.product_images)}
-                    alt={pi.product}
-                    width={0}
-                    height={0}
-                    className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
-                  />
-                ))}
+              {productDIs[0]}
             </section>
           </section>
 
-          <section className="w-[48%] bg-red-500">
+          <section className="w-[48%]">
             <h1 className="text-black sm:text-2xl md:text-3xl md2:text-4xl font-dalek font-semibold">
               Product Details
             </h1>
