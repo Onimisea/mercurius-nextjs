@@ -29,13 +29,10 @@ const ProductPage = () => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    console.log(products);
-    console.log(router.query.slug);
-
     const currProd = products.filter((prod) => prod.slug === router.query.slug);
 
     setCurrProduct(currProd);
-  }, [router.query]);
+  }, [router.isReady]);
 
   console.log(currProduct);
 
@@ -46,21 +43,21 @@ const ProductPage = () => {
       </Head>
 
       <section className="w-full mx-auto max-w-screen-xl grid place-items-center my-6 bg-white">
-        <section className="">
-          <section className="">
+        <section className="w-full mx-auto max-w-screen-xl flex items-center justify-between mt-6">
+          <section className="w-[48%] bg-red-400">
             <h1 className="text-black sm:text-2xl md:text-3xl md2:text-4xl font-dalek font-semibold">
               Product Images
             </h1>
           </section>
 
-          <section className="">
+          <section className="w-[48%] bg-red-500">
             <h1 className="text-black sm:text-2xl md:text-3xl md2:text-4xl font-dalek font-semibold">
               Product Details
             </h1>
           </section>
         </section>
 
-        <section className="">
+        <section className="w-full mx-auto max-w-screen-xl grid place-items-center mt-6">
           <h1 className="text-black sm:text-2xl md:text-3xl md2:text-4xl font-dalek font-semibold">
             You Might Also Like
           </h1>
