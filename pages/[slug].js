@@ -50,9 +50,9 @@ const ProductPage = ({ products }) => {
     }
   }, []);
 
-  console.log(currProduct);
+  // console.log(currProduct);
   // console.log(currProductDI);
-  console.log(productDIs);
+  // console.log(productDIs);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
