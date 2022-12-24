@@ -30,20 +30,17 @@ const ProductPage = ({ products }) => {
 
   useEffect(() => {
     const currProd = products.filter((prod) => prod.slug === router.query.slug);
-    setCurrProduct(currProd);
+    setCurrProduct(currProd[0]);
 
-    // const currProdDI = currProd.product_images.filter(
-    //   (img) => img.is_feature === true
-    // );
+    const currProdDI = currProd.product_images.filter(
+      (img) => img.is_feature === true
+    );
 
-    console.log(currProd);
-    // console.log(currProdDI);
-
-    // setCurrProductDI(bgUrl(currProdDI[0]))
+    setCurrProductDI(bgUrl(currProdDI[0]));
   }, [router.isReady]);
 
   console.log(currProduct);
-  // console.log(currProductDI);
+  console.log(currProductDI);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
