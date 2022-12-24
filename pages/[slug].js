@@ -30,10 +30,13 @@ const ProductPage = () => {
 
   useEffect(() => {
     console.log(products)
-  }, [router.isReady]);
+    console.log(router.query)
+    // const currProd = products.filter((prod) => prod.slug === router.query.slug)
+
+  }, [router.query]);
 
   return (
-    <section className="w-[85%] mx-auto max-w-screen-xl bg-red-500">
+    <section className="w-[85%] mx-auto max-w-screen-xl">
       <Head>
         <title>Mercurius | Best Thrift Store in Nigeria</title>
       </Head>
