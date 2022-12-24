@@ -71,7 +71,7 @@ const ProductPage = ({ products }) => {
             </section>
 
             <section className="w-full h-[150px] flex items-center justify-between">
-              {currProduct.product_images.map((pi) => (
+              {/* {currProduct.product_images.map((pi) => (
                 <img
                   src={bgUrl(pi.product_images)}
                   // src={currProductDI}
@@ -80,7 +80,7 @@ const ProductPage = ({ products }) => {
                   height={0}
                   className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
                 />
-              ))}
+              ))} */}
             </section>
           </section>
 
