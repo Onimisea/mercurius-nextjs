@@ -32,14 +32,15 @@ const ProductPage = ({ products }) => {
     const currProd = products.filter((prod) => prod.slug === router.query.slug);
     setCurrProduct(currProd);
 
-    const currProdDI = currProd.product_images.filter(
-      (img) => img.is_feature === true
-    );
+    // const currProdDI = currProd.product_images.filter(
+    //   (img) => img.is_feature === true
+    // );
 
-    console.log(currProdDI);
+    console.log(currProd);
+    // console.log(currProdDI);
 
     // setCurrProductDI(bgUrl(currProdDI[0]))
-  }, [router.isReady, router.query]);
+  }, [router.isReady]);
 
   console.log(currProduct);
   // console.log(currProductDI);
