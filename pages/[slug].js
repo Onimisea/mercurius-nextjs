@@ -29,15 +29,20 @@ const ProductPage = ({ products }) => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    const currProd = products.filter((prod) => prod.slug === router.query.slug);
-    setCurrProduct(currProd[0]);
+    if (products) {
+      const currProd = products.filter(
+        (prod) => prod.slug === router.query.slug
+      );
+      setCurrProduct(currProd[0]);
 
-    const currProdDI = currProd.product_images.filter(
-      (img) => img.is_feature === true
-    );
-
-    setCurrProductDI(bgUrl(currProdDI[0]));
-  }, [router.isReady]);
+      if (currProd) {
+        const currProdDI = currProd[0].product_images.filter(
+          (img) => img.is_feature === true
+        );
+        setCurrProductDI(bgUrl(currProdDI[0]));
+      }
+    }
+  }, []);
 
   console.log(currProduct);
   console.log(currProductDI);
