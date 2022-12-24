@@ -58,10 +58,30 @@ const ProductPage = ({ products }) => {
 
       <section className="w-full mx-auto max-w-screen-xl grid place-items-center my-6 bg-white">
         <section className="w-full mx-auto max-w-screen-xl flex items-center justify-between mt-6">
-          <section className="w-[48%] bg-red-400">
-            <h1 className="text-black sm:text-2xl md:text-3xl md2:text-4xl font-dalek font-semibold">
-              Product Images
-            </h1>
+          <section className="w-[48%] flex flex-col items-center justify-center">
+            <section className="w-full h-fit">
+              <img
+                // src={bgUrl(lowersub.lowersubcategory_icon)}
+                src={currProductDI}
+                alt={currProduct.name}
+                width={0}
+                height={0}
+                className="w-full h-[full] object-cover object-center z-20"
+              />
+            </section>
+
+            <section className="w-full h-[150px] flex items-center justify-between">
+              {currProduct.product_images.map((pi) => (
+                <img
+                  src={bgUrl(pi.product_images)}
+                  // src={currProductDI}
+                  alt={pi.product}
+                  width={0}
+                  height={0}
+                  className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
+                />
+              ))}
+            </section>
           </section>
 
           <section className="w-[48%] bg-red-500">
