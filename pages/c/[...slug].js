@@ -66,9 +66,9 @@ export default function CategoryPage({}) {
             (product) => product.lowersubcategory.slug === router.query.slug[2]
           );
 
-          console.log(lsp);
+          // console.log(lsp);
 
-          setProducts(prodSubFilt);
+          setProducts(lsp);
         });
     }
   }, [router.query]);
