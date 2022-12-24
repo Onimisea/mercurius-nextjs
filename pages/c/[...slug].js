@@ -62,33 +62,16 @@ export default function CategoryPage({}) {
             (prod) => prod.subcategory.slug === router.query.slug[1]
           );
 
+          const lsp = prodSubFilt.filter(
+            (product) => product.lowersubcategory.slug === router.query.slug[2]
+          );
+
+          console.log(lsp);
+
           setProducts(prodSubFilt);
         });
     }
   }, [router.query]);
-
-  // console.log(subcatObj);
-
-  console.log("Current lower subcategory:", currLowerSub);
-  // console.log("All lower subcategories:", allLowerSub);
-
-  const filterByCurrLowerSub = () => {
-    let filtProducts = products;
-
-    if (currLowerSub) {
-      if (currLowerSub.slug === router.query.slug[2]) {
-        filtProducts = filtProducts.filter((product) =>
-          product.lowersubcategory.slug.includes(currLowerSub.slug)
-        );
-      } else {
-        filtProducts = filtProducts.filter((product) =>
-          product.lowersubcategory.slug.includes("")
-        );
-      }
-    }
-
-    setProducts(filtProducts);
-  };
 
   const transformProducts = () => {
     let filteredProducts = products;
@@ -166,10 +149,7 @@ export default function CategoryPage({}) {
           allLowerSub.map((lowersub) => {
             return (
               <Link
-                href=""
-                // href={`/c/${router.query.slug[0]}/${router.query.slug[1]}/${lowersub.slug}`}
-                onClick={(e) => filterByCurrLowerSub()
-                }
+                href={`/c/${router.query.slug[0]}/${router.query.slug[1]}/${lowersub.slug}`}
               >
                 <section
                   key={lowersub.id}
