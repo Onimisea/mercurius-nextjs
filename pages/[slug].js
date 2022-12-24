@@ -35,27 +35,27 @@ const ProductPage = ({ products }) => {
         (prod) => prod.slug === router.query.slug
       );
       setCurrProduct(currProd[0]);
+
+      if (currProd[0]) {
+        const currProdDI = currProd[0].product_images.filter(
+          (img) => img.is_feature === true
+        );
+        setCurrProductDI(bgUrl(currProdDI));
+
+        if (currProd[0].product_images) {
+          setProductDIs(currProd[0].product_images);
+        }
+      }
     }
 
-    // if (currProduct) {
-    //   const currProdDI = currProduct.product_images.filter(
-    //     (img) => img.is_feature === true
-    //   );
-    //   setCurrProductDI(bgUrl(currProdDI[0].product_images));
-    //   // setCurrProductDI(currProdDI[0]);
-    // }
+    
 
-    // if (currProduct.product_images) {
-    //   setProductDIs(currProduct.product_images);
-    // }
+    
   }, [router.query]);
-
-  
-  
 
   console.log(currProduct);
   // console.log(currProductDI);
-  // console.log(productDIs);
+  console.log(productDIs);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
