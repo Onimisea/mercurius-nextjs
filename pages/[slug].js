@@ -19,8 +19,10 @@ const ProductPage = () => {
         <title>Mercurius | Best Thrift Store in Nigeria</title>
       </Head>
 
-      <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center mb-6">
-        <h1>Single Product Page</h1>
+      <section className="w-full mx-auto max-w-screen-xl flex flex-wrap items-center justify-center my-6">
+        <h1 className="text-black sm:text-2xl md:text-3xl md2:text-4xl lg:text-5xl font-dalek font-semibold">
+          Single Product Page
+        </h1>
       </section>
     </section>
   );
