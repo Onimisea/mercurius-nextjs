@@ -23,24 +23,28 @@ const ProductPage = ({ products }) => {
   } = useAppContext();
 
   const [currProduct, setCurrProduct] = useState({});
+  const [currProductDI, setCurrProductDI] = useState({});
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    console.log(products);
-
     const currProd = products.filter((prod) => prod.slug === router.query.slug);
-
     setCurrProduct(currProd);
+
+    const currProdDI = currProd.product_images.filter((img) => img.is_feature === true)
+
+    setCurrProductDI(bgUrl(currProdDI[0]))
+
   }, [router.isReady, router.query]);
 
   console.log(currProduct);
+  console.log(currProductDI);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
       <Head>
-        <title>Mercurius | Best Thrift Store in Nigeria</title>
+        <title>Mercurius {currProduct.name} | Best Thrift Store in Nigeria</title>
       </Head>
 
       <section className="w-full mx-auto max-w-screen-xl grid place-items-center my-6 bg-white">
