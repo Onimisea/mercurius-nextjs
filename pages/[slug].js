@@ -3,10 +3,9 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../context/AppContext";
 import Head from "next/head";
 
-const ProductPage = () => {
+const ProductPage = ({ products }) => {
   const router = useRouter();
   const {
-    products,
     appState: { cart, wishlist },
     appStateDispatch,
     addToCart,
@@ -29,8 +28,8 @@ const ProductPage = () => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    console.log(products)
-    
+    console.log(products);
+
     const currProd = products.filter((prod) => prod.slug === router.query.slug);
 
     setCurrProduct(currProd);
@@ -70,3 +69,15 @@ const ProductPage = () => {
 };
 
 export default ProductPage;
+
+export const getServerSideProps = async ({ req }) => {
+  const products = await fetch(
+    "https://mercurius-api-production.up.railway.app/api/inventory/"
+  ).then((res) => res.json());
+
+  return {
+    props: {
+      products,
+    },
+  };
+};
