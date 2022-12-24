@@ -48,16 +48,25 @@ const ProductPage = ({ products }) => {
         const pis = currProd[0].product_images;
 
         const pis2 = pis.map((pi) => {
-          return (
-            <img
-              src={bgUrl(pi.product_images)}
-              alt={pi.product}
-              width={0}
-              height={0}
-              className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
-            />
-          );
+          return {
+            id: pi.id,
+            name: pi.product,
+            url: bgUrl(pi.product_images),
+          };
         });
+
+        console.log(pis2)
+
+          // return (
+          //   <img
+          //     src={bgUrl(pi.product_images)}
+          //     alt={pi.product}
+          //     width={0}
+          //     height={0}
+          //     className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
+          //   />
+          // );
+        
 
         setProductDIs(pis2);
       }
@@ -102,7 +111,7 @@ const ProductPage = ({ products }) => {
             </section>
 
             <section className="w-full h-[150px] flex items-center justify-between">
-              {productDIs}
+              {/* {productDIs} */}
             </section>
           </section>
 
