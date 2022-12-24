@@ -55,7 +55,7 @@ const ProductPage = ({ products }) => {
           };
         });
 
-        console.log(pis2)
+        console.log(pis)
 
           // return (
           //   <img
