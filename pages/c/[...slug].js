@@ -72,6 +72,24 @@ export default function CategoryPage({}) {
   console.log("Current lower subcategory:", currLowerSub);
   // console.log("All lower subcategories:", allLowerSub);
 
+  const filterByCurrLowerSub = () => {
+    let filtProducts = products;
+
+    if (currLowerSub) {
+      if (currLowerSub.slug === router.query.slug[2]) {
+        filtProducts = filtProducts.filter((product) =>
+          product.lowersubcategory.slug.includes(currLowerSub.slug)
+        );
+      } else {
+        filtProducts = filtProducts.filter((product) =>
+          product.lowersubcategory.slug.includes("")
+        );
+      }
+    }
+
+    setProducts(filtProducts);
+  };
+
   const transformProducts = () => {
     let filteredProducts = products;
 
@@ -146,12 +164,12 @@ export default function CategoryPage({}) {
       <section className="w-[85%] mx-auto max-w-screen-xl m-6 flex flex-row items-center justify-center flex-wrap">
         {allLowerSub &&
           allLowerSub.map((lowersub) => {
-            // const filtProd = products.filter((prod) => )
-            // console.log(products);
-
             return (
               <Link
-                href={`/c/${router.query.slug[0]}/${router.query.slug[1]}/${lowersub.slug}`}
+                href=""
+                // href={`/c/${router.query.slug[0]}/${router.query.slug[1]}/${lowersub.slug}`}
+                onClick={(e) => filterByCurrLowerSub()
+                }
               >
                 <section
                   key={lowersub.id}
