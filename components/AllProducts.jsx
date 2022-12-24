@@ -8,7 +8,15 @@ const AllProducts = () => {
     products,
     productFilter: { byCategory, searchQuery },
     productFilterDispatch,
+    productTypes,
   } = useAppContext();
+
+  const filterByType = (type) => {
+      productFilterDispatch({
+        type: "FILTER_BY_CATEGORY",
+        payload: type,
+      });
+  }
 
   const transformProducts = () => {
     let filteredProducts = products;
@@ -53,18 +61,13 @@ const AllProducts = () => {
           <p>All</p>
         </section>
 
-        {products.map((product) => (
+        {productTypes.map((pt) => (
           <section
-            key={product.id}
+            key={pt.id}
             className="bg-white w-fit text-center m-2 p-2 rounded-md shadow-md cursor-pointer hover:border-[1px] border-primary"
-            onClick={(e) => {
-              productFilterDispatch({
-                type: "FILTER_BY_CATEGORY",
-                payload: product.product_type.name,
-              });
-            }}
+            onClick={(e) => filterByType(pt.name)}
           >
-            <p className="">{product.product_type.name}</p>
+            <p className="">{pt.name}</p>
           </section>
         ))}
       </section>

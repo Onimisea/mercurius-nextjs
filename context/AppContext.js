@@ -25,7 +25,7 @@ export const AppProvider = ({ children }) => {
   });
 
   const [avatarMenuOpen, setAvatarMenuOpen] = useState(false);
-  const [category, setCategory] = useState([]);
+  const [productTypes, setProductTypes] = useState([]);
   const [products, setProducts] = useState([]);
   const [flashsaleTimer, setFlashsaleTimer] = useState([]);
   const [flashsaleTimerSwitch, setFlashsaleTimerSwitch] = useState(false);
@@ -275,6 +275,8 @@ export const AppProvider = ({ children }) => {
         numbersWithCommas,
         userInfo,
         setUserInfo,
+        productTypes,
+        setProductTypes,
       }}
     >
       {children}
