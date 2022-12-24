@@ -24,6 +24,7 @@ const ProductPage = ({ products }) => {
 
   const [currProduct, setCurrProduct] = useState({});
   const [currProductDI, setCurrProductDI] = useState({});
+  const [productDIs, setProductDIs] = useState({});
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -42,11 +43,16 @@ const ProductPage = ({ products }) => {
         setCurrProductDI(bgUrl(currProdDI[0].product_images));
         // setCurrProductDI(currProdDI[0]);
       }
+
+      if (currProd[0]) {
+        setProductDIs(currProd[0].product_images)
+      }
     }
   }, []);
 
   console.log(currProduct);
-  console.log(currProductDI);
+  // console.log(currProductDI);
+  console.log(productDIs);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -59,14 +65,14 @@ const ProductPage = ({ products }) => {
       <section className="w-full mx-auto max-w-screen-xl grid place-items-center my-6 bg-white">
         <section className="w-full mx-auto max-w-screen-xl flex items-center justify-between mt-6">
           <section className="w-[48%] flex flex-col items-center justify-center">
-            <section className="w-full h-fit">
+            <section className="w-full h-[500px]">
               <img
                 // src={bgUrl(lowersub.lowersubcategory_icon)}
                 src={currProductDI}
                 alt={currProduct.name}
                 width={0}
                 height={0}
-                className="w-full h-[full] object-cover object-center z-20"
+                className="w-full h-[500px] max-h-[500px] object-cover object-center z-20"
               />
             </section>
 
