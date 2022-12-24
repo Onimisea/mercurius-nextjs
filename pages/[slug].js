@@ -77,25 +77,17 @@ const ProductPage = ({ products }) => {
             </section>
 
             <section className="w-full h-[150px] flex items-center justify-between">
-              {productDIs &&
-                productDIs.map((pi) => {
-                  console.log(pi);
-
-                  // return (<h1>{pi.product}</h1>)
-
-                  // return (
-                  //   <img
-                  //     src={bgUrl(pi.product_images)}
-                  //     // src={currProductDI}
-                  //     alt={pi.product}
-                  //     width={0}
-                  //     height={0}
-                  //     className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
-                  //   />
-                  // );
-                })}
-
-              {/* {productDIs && console.log(productDIs)} */}
+              {productDIs.map((pi) => {
+                return (
+                  <img
+                    src={bgUrl(pi.product_images)}
+                    alt={pi.product}
+                    width={0}
+                    height={0}
+                    className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
+                  />
+                );
+              })}
             </section>
           </section>
 
