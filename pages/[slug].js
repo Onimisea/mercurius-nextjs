@@ -29,24 +29,28 @@ const ProductPage = ({ products }) => {
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (products) {
+      const currProd = products.filter(
+        (prod) => prod.slug === router.query.slug
+      );
+      setCurrProduct(currProd[0]);
+    }
 
-  if (products) {
-    const currProd = products.filter((prod) => prod.slug === router.query.slug);
-    setCurrProduct(currProd[0]);
-  }
+    if (currProduct) {
+      const currProdDI = currProduct.product_images.filter(
+        (img) => img.is_feature === true
+      );
+      setCurrProductDI(bgUrl(currProdDI[0].product_images));
+      // setCurrProductDI(currProdDI[0]);
+    }
 
-  if (currProduct) {
-    const currProdDI = currProduct.product_images.filter(
-      (img) => img.is_feature === true
-    );
-    setCurrProductDI(bgUrl(currProdDI[0].product_images));
-    // setCurrProductDI(currProdDI[0]);
-  }
+    if (currProduct.product_images) {
+      setProductDIs(currProduct.product_images);
+    }
+  }, [router.isReady, router.query]);
 
-  if (currProduct.product_images) {
-    setProductDIs(currProduct.product_images);
-  }
+  
 
   console.log(currProduct);
   // console.log(currProductDI);
