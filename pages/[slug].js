@@ -76,7 +76,7 @@ const ProductPage = ({ products }) => {
             </section>
 
             <section className="w-full h-[150px] flex items-center justify-between">
-              {productDIs}
+              
             </section>
           </section>
 
