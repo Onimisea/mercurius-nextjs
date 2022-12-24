@@ -39,7 +39,8 @@ const ProductPage = ({ products }) => {
         const currProdDI = currProd[0].product_images.filter(
           (img) => img.is_feature === true
         );
-        setCurrProductDI(bgUrl(currProdDI[0]));
+        // setCurrProductDI(bgUrl(currProdDI[0]));
+        setCurrProductDI(currProdDI[0]);
       }
     }
   }, []);
