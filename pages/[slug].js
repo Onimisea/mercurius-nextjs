@@ -45,7 +45,21 @@ const ProductPage = ({ products }) => {
       }
 
       if (currProd[0]) {
-        setProductDIs(currProd[0].product_images);
+        const pis = currProd[0].product_images;
+
+        const pis2 = pis.map((pi) => {
+          return (
+            <img
+              src={bgUrl(pi.product_images)}
+              alt={pi.product}
+              width={0}
+              height={0}
+              className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
+            />
+          );
+        });
+
+        setProductDIs(pis2);
       }
 
       // productDIs.map((pi) => {
@@ -64,7 +78,7 @@ const ProductPage = ({ products }) => {
 
   // console.log(currProduct);
   // console.log(currProductDI);
-  // console.log(productDIs);
+  console.log(productDIs);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
