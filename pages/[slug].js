@@ -81,7 +81,7 @@ const ProductPage = ({ products }) => {
                 productDIs.map((pi) => {
                   console.log(pi);
 
-                  return (<h1>{pi.product}</h1>)
+                  // return (<h1>{pi.product}</h1>)
 
                   // return (
                   //   <img
