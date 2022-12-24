@@ -29,40 +29,26 @@ const ProductPage = ({ products }) => {
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  useEffect(() => {
-    if (products) {
-      const currProd = products.filter(
-        (prod) => prod.slug === router.query.slug
+  useEffect(() => {}, []);
+
+  if (products) {
+    const currProd = products.filter((prod) => prod.slug === router.query.slug);
+    setCurrProduct(currProd[0]);
+
+    if (currProd) {
+      const currProdDI = currProd[0].product_images.filter(
+        (img) => img.is_feature === true
       );
-      setCurrProduct(currProd[0]);
-
-      if (currProd) {
-        const currProdDI = currProd[0].product_images.filter(
-          (img) => img.is_feature === true
-        );
-        setCurrProductDI(bgUrl(currProdDI[0].product_images));
-        // setCurrProductDI(currProdDI[0]);
-      }
-
-      if (currProd[0]) {
-        const pis = currProd[0].product_images;
-
-        setProductDIs(pis);
-      }
-
-      // productDIs.map((pi) => {
-      //   return (
-      // <img
-      //   src={bgUrl(pi.product_images)}
-      //   alt={pi.product}
-      //   width={0}
-      //   height={0}
-      //   className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
-      // />
-      //   );
-      // });
+      setCurrProductDI(bgUrl(currProdDI[0].product_images));
+      // setCurrProductDI(currProdDI[0]);
     }
-  }, []);
+
+    if (currProd[0]) {
+      const pis = currProd[0].product_images;
+
+      setProductDIs(pis);
+    }
+  }
 
   console.log(currProduct);
   // console.log(currProductDI);
