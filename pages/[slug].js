@@ -77,7 +77,7 @@ const ProductPage = ({ products }) => {
             </section>
 
             <section className="w-full h-[150px] flex items-center justify-between">
-              {productDIs &&
+              {/* {productDIs &&
                 productDIs.map((pi) => {
                   console.log(pi);
 
@@ -91,7 +91,9 @@ const ProductPage = ({ products }) => {
                       className="w-[150px] h-[150px] object-cover object-center z-20 mx-2"
                     />
                   );
-                })}
+                })} */}
+
+              {productDIs && console.log(productDIs)}
             </section>
           </section>
 
