@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "../context/AppContext";
 
 const ProductPage = () => {
   const router = useRouter();
