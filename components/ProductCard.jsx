@@ -21,11 +21,16 @@ const ProductCard = ({ product }) => {
   // const fi = product.product_images?.filter((image) => image.is_feature == true);
   let fi = phImg;
 
+  
+
+  useEffect(() => {
   if (product.product_images) {
     fi = product.product_images?.filter((image) => image.is_feature == true);
   } else {
     fi = phImg;
-  }
+  }  
+  }, [])
+  
 
   const fiUrl =
     "https://res.cloudinary.com/dxhq8jlxf/" +
