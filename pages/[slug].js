@@ -51,7 +51,7 @@ const ProductPage = ({ products }) => {
     }
   }, []);
 
-  // console.log(currProduct);
+  console.log(currProduct);
   // console.log(currProductDI);
   // console.log(productDIs);
 
@@ -105,6 +105,7 @@ const ProductPage = ({ products }) => {
 export default ProductPage;
 
 export const getServerSideProps = async ({ req }) => {
+  console.log(req.route)
 
   const products = await fetch(
     "https://mercurius-api-production.up.railway.app/api/inventory/"
