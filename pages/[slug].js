@@ -6,7 +6,7 @@ import { MdClose } from "react-icons/md";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 
-const ProductPage = ({ producta, productImages, pdi }) => {
+const ProductPage = ({ product, productImages, pdi }) => {
   const router = useRouter();
 
   const {
@@ -28,22 +28,19 @@ const ProductPage = ({ producta, productImages, pdi }) => {
 
   const [productDI, setProductDI] = useState(pdi);
 
-  const [product, setProduct] = useState(producta);
-  const [newProduct, setNewProduct] = useState(producta);
+  // const [product, setProduct] = useState(producta);
+  // const [newProduct, setNewProduct] = useState(producta);
 
-  setNewProduct((oldProduct) => ({
-    ...oldProduct,
-    qty: 1,
-  }));
+  // setNewProduct((oldProduct) => ());
 
-  console.log(newProduct);
+  // console.log(newProduct);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {}, []);
 
-  // console.log(product);
+  console.log(product);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -210,6 +207,11 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const producta = await productArr[0];
 
+  const product = {
+    ...producta,
+    qty: 1,
+  };
+
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
@@ -226,7 +228,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   return {
     props: {
-      producta,
+      product,
       productImages,
       pdi,
     },
