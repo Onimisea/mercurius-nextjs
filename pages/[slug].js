@@ -6,6 +6,7 @@ import { MdClose } from "react-icons/md";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import toast from "react-hot-toast";
 import ProductCard from "../components/ProductCard";
+import phImg from "../public/favicon.png";
 
 const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
   const router = useRouter();
@@ -69,7 +70,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
           <section className="w-[48%] flex flex-col items-center justify-center space-y-6">
             <section className="w-full h-[500px]">
               <img
-                src={productDI.product_image}
+                src={productDI.product_image ? productDI.product_image : phImg}
                 alt={productDI.product}
                 width={0}
                 height={0}
@@ -78,17 +79,29 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             </section>
 
             <section className="w-full h-[120px] flex items-center justify-start whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500 overflow-y-hidden space-x-4">
-              {productImages?.map((pi) => (
+              {productImages ? (
+                productImages?.map((pi) => (
+                  <section className="w-[100px] h-[100px]" onMouseEnter="">
+                    <img
+                      src={pi.product_image}
+                      alt={pi.product}
+                      width={0}
+                      height={0}
+                      className="w-[100px] h-[100px] object-cover object-center z-20"
+                    />
+                  </section>
+                ))
+              ) : (
                 <section className="w-[100px] h-[100px]" onMouseEnter="">
                   <img
-                    src={pi.product_image}
+                    src={phImg}
                     alt={pi.product}
                     width={0}
                     height={0}
                     className="w-[100px] h-[100px] object-cover object-center z-20"
                   />
                 </section>
-              ))}
+              )}
             </section>
           </section>
 
@@ -254,16 +267,35 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  const productImages = await producta.product_images.map((pi) => ({
-    product: pi.product,
-    product_image: bgUrl(pi.product_images),
-    alt_text: pi.alt_text,
-    is_featured: pi.is_feature,
-  }));
+  // const productImages = await producta.product_images.map((pi) => ({
+  //   product: pi.product,
+  //   product_image: bgUrl(pi.product_images),
+  //   alt_text: pi.alt_text,
+  //   is_featured: pi.is_feature,
+  // }));
+
+  let productImages = null;
+  if (producta.product_images) {
+    productImages = await producta.product_images.map((pi) => ({
+      product: pi.product,
+      product_image: bgUrl(pi.product_images),
+      alt_text: pi.alt_text,
+      is_featured: pi.is_feature,
+    }));
+  } else {
+    productImages = null;
+  }
 
   const pdiArr = await productImages.filter((pi) => pi.is_featured === true);
 
-  const pdi = await pdiArr[0];
+  // const pdi = await pdiArr[0];
+  let pdi = null;
+
+  if (pdiArr.length > 0) {
+    pdi = await pdiArr[0];
+  } else {
+    pdi = null;
+  }
 
   const relatedProductsSlug = producta.lowersubcategory.slug;
 
