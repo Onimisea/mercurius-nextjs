@@ -56,7 +56,7 @@ const ProductPage = ({ product, productImages }) => {
     <section className="w-[85%] mx-auto max-w-screen-xl">
       <Head>
         <title>
-          Mercurius {currProduct.name} | Best Thrift Store in Nigeria
+          Mercurius {product.name} | Best Thrift Store in Nigeria
         </title>
       </Head>
 
