@@ -23,31 +23,14 @@ const ProductPage = ({ product, productImages }) => {
     decreaseQty,
   } = useAppContext();
 
-  // const [currProduct, setCurrProduct] = useState({});
-  // const [currProductDI, setCurrProductDI] = useState({});
-  // const [productIs, setProductIs] = useState(product.product_images);
+  const [productDI, setProductDI] = useState(null);
+  const pdi = productImages.filter((pi) => pi.is_featured === true);
+  setProductDI(pdi[0]);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  useEffect(() => {
-    // if (products) {
-    //   const currProd = products.filter(
-    //     (prod) => prod.slug === router.query.slug
-    //   );
-    //   setCurrProduct(currProd[0]);
-    // if (currProduct) {
-    // console.log(currProduct);
-    // const currProdDI = currProduct.product_images.filter(
-    //   (img) => img.is_feature === true
-    // );
-    // setCurrProductDI(bgUrl(currProdDI[0]));
-    //   if (currProd[0].product_images) {
-    //     setProductDIs(currProd[0].product_images);
-    //   }
-    // }
-    // }
-  }, []);
+  useEffect(() => {}, []);
 
   console.log(product);
   console.log(productImages);
@@ -55,18 +38,17 @@ const ProductPage = ({ product, productImages }) => {
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
       <Head>
-        <title>
-          Mercurius {product.name} | Best Thrift Store in Nigeria
-        </title>
+        <title>Mercurius {product.name} | Best Thrift Store in Nigeria</title>
       </Head>
 
       <section className="w-full mx-auto max-w-screen-xl grid place-items-center my-6 bg-white">
         <section className="w-full mx-auto max-w-screen-xl flex items-center justify-between mt-6">
           <section className="w-[48%] flex flex-col items-center justify-center">
             <section className="w-full h-[500px]">
+              {}
               <img
-                src=""
-                alt=""
+                src={productDI.product_image}
+                alt={productDI.product}
                 width={0}
                 height={0}
                 className="w-full h-[500px] max-h-[500px] object-cover object-center z-20"
@@ -77,15 +59,15 @@ const ProductPage = ({ product, productImages }) => {
           </section>
 
           <section className="w-[48%]">
-            {/* <section className="text-black sm:text-2xl md:text-3xl font-semibold">
-              {currProduct.name}
+            <section className="text-black sm:text-2xl md:text-3xl font-semibold">
+              {product.name}
             </section>
             <section className="mt-1 sm2:mt-2 font-semibold text-lg">
-              ₦{numbersWithCommas(currProduct.price)}
+              ₦{numbersWithCommas(product.price)}
             </section>
             <section className="mt-1 sm2:mt-2 text-md">
-              {currProduct.description}
-            </section> */}
+              {product.description}
+            </section>
           </section>
         </section>
 
