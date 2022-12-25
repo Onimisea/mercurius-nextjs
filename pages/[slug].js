@@ -49,7 +49,7 @@ const ProductPage = ({ products }) => {
         //   }
       }
     }
-  }, [router.query]);
+  }, []);
 
   // console.log(currProduct);
   // console.log(currProductDI);
@@ -105,7 +105,6 @@ const ProductPage = ({ products }) => {
 export default ProductPage;
 
 export const getServerSideProps = async ({ req }) => {
-  console.log(req.route)
 
   const products = await fetch(
     "https://mercurius-api-production.up.railway.app/api/inventory/"
