@@ -186,13 +186,13 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             You Might Also Like
           </h1>
 
-          <section className="bg-orange-500 mt-8 mb-6">
+          <section className="w-[80%] bg-orange-500 mt-8 mb-6 grid place-items-center ">
             {relatedProducts.length > 0 ? (
               relatedProducts?.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))
             ) : (
-              <h3 className="text-black sm2:text-2xl">
+              <h3 className="text-black sm2:text-xl">
                 No Related Products Found
               </h3>
             )}
