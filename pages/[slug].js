@@ -105,15 +105,22 @@ const ProductPage = ({ products }) => {
 export default ProductPage;
 
 export const getStaticPaths = async () => {
-  const productsUrl = await fetch(
+  const products = await fetch(
     "https://mercurius-api-production.up.railway.app/api/inventory/"
-  )
-    .then((res) => res.json())
-    .then((prodData) => {
-      prodData.map((prod) => prod.slug);
-    });
+  ).then((res) => res.json());
 
-  console.log(productsUrl);
+  const paths = products.map((product) => ({
+    params: {
+      slug: product.slug,
+    },
+  }));
+
+  console.log(paths);
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
 };
 
 export const getStaticProps = async ({ params: { slug } }) => {
