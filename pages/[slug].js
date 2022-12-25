@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../context/AppContext";
 import Head from "next/head";
 import { MdClose } from "react-icons/md";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 
 const ProductPage = ({ product, productImages, pdi }) => {
@@ -80,27 +80,29 @@ const ProductPage = ({ product, productImages, pdi }) => {
               {product.description}
             </section>
 
-            <section className="flex items-center justify-start space-x-4">
+            <section className="flex items-center justify-start space-x-6 mt-2">
               <section
-                className="bg-black w-[30px] h-[30px] grid place-items-center text-white rounded-sm cursor-pointer hover:bg-primary duration-300"
+                className="bg-white text-black md2:text-lg border-2 border-black w-[30px] h-[30px] md:w-[40px] md:h-[40px] md2:w-[50px] md2:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary duration-300"
                 onClick={() => increaseQty(product.id)}
               >
                 +
               </section>
-              <section>{product.qty}</section>
+              <section className="text-black md2:text-lg">
+                {product.qty}
+              </section>
               <section
-                className="bg-black w-[30px] h-[30px] grid place-items-center text-white rounded-sm cursor-pointer hover:bg-primary duration-300"
+                className="bg-white text-black md2:text-lg border-2 border-black w-[30px] h-[30px] md:w-[40px] md:h-[40px] md2:w-[50px] md2:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary duration-300"
                 onClick={() => decreaseQty(product.id)}
               >
                 -
               </section>
             </section>
 
-            <section className="">
-              <ul className="block space-y-2">
+            <section className="mt-6">
+              <ul className="block space-y-4">
                 {cart.some((p) => p.id === product.id) ? (
                   <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-sm"
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-4"
                     onClick={() => {
                       removeFromCart(product);
                       toast.error(`${product.name} removed from cart`);
@@ -113,7 +115,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
                   </li>
                 ) : (
                   <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-sm"
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-4"
                     onClick={() => {
                       addToCart(product);
                       toast.success(`${product.name} added to cart`);
@@ -128,7 +130,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
 
                 {wishlist.some((w) => w.id === product.id) ? (
                   <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-sm"
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-4"
                     onClick={() => {
                       removeFromWishlist(product);
                       toast.error(`${product.name} removed from favourite`);
@@ -141,14 +143,14 @@ const ProductPage = ({ product, productImages, pdi }) => {
                   </li>
                 ) : (
                   <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-sm"
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-4"
                     onClick={() => {
                       addToWishlist(product);
                       toast.success(`${product.name} added to favourite`);
                     }}
                   >
                     <section className="flex items-center justify-center px-4 py-2 space-x-2">
-                      <FiHeart size={20} className="" />
+                      <FaHeart size={20} className="" />
                       <p className="text-md">Add to Cart</p>
                     </section>
                   </li>
