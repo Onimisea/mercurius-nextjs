@@ -25,7 +25,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
 
   const [productDI, setProductDI] = useState(pdi);
 
-  console.log(productDI)
+  console.log(productDI);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -45,7 +45,6 @@ const ProductPage = ({ product, productImages, pdi }) => {
         <section className="w-full mx-auto max-w-screen-xl flex items-start justify-between mt-6">
           <section className="w-[48%] flex flex-col items-center justify-center">
             <section className="w-full h-[500px]">
-              {}
               <img
                 src={productDI.product_image}
                 alt={productDI.product}
@@ -55,17 +54,29 @@ const ProductPage = ({ product, productImages, pdi }) => {
               />
             </section>
 
-            <section className="w-full h-[150px] flex items-center justify-between"></section>
+            <section className="w-full h-[150px] flex items-center justify-between">
+              {productImages.map((pi) => (
+                <section className="w-[150px] h-[150px]">
+                  <img
+                    src={pi.product_image}
+                    alt={pi.product}
+                    width={0}
+                    height={0}
+                    className="w-[150px] h-[150px] object-cover object-center z-20"
+                  />
+                </section>
+              ))}
+            </section>
           </section>
 
-          <section className="w-[48%]">
+          <section className="w-[48%] py-6">
             <section className="text-black sm3:text-2xl md:text-3xl">
               {product.name}
             </section>
-            <section className="mt-1 sm2:mt-2 font-semibold sm3:text-lg md:text-xl">
+            <section className="mt-2 sm3:mt-4 font-semibold sm3:text-lg md:text-xl">
               ₦{numbersWithCommas(product.price)}
             </section>
-            <section className="mt-1 sm2:mt-2 text-md">
+            <section className="my-3 sm3:my-5 text-md">
               {product.description}
             </section>
           </section>
@@ -121,7 +132,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
   }));
 
   const pdiArr = productImages.filter((pi) => pi.is_featured === true);
-  const pdi = pdiArr[0]
+  const pdi = pdiArr[0];
 
   return {
     props: {
