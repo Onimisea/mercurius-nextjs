@@ -42,7 +42,7 @@ const ProductPage = ({ products }) => {
         const currProdDI = currProduct.product_images.filter(
           (img) => img.is_feature === true
         );
-        setCurrProductDI(bgUrl(currProdDI));
+        setCurrProductDI(bgUrl(currProdDI[0]));
 
         //   if (currProd[0].product_images) {
         //     setProductDIs(currProd[0].product_images);
