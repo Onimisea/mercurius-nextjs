@@ -3,10 +3,8 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../context/AppContext";
 import Head from "next/head";
 
-const ProductPage = ({ product, slug }) => {
+const ProductPage = ({ product, productImages }) => {
   const router = useRouter();
-
-  console.log(slug);
 
   const {
     appState: { cart, wishlist },
@@ -25,9 +23,9 @@ const ProductPage = ({ product, slug }) => {
     decreaseQty,
   } = useAppContext();
 
-  const [currProduct, setCurrProduct] = useState({});
-  const [currProductDI, setCurrProductDI] = useState({});
-  const [productIs, setProductIs] = useState(product.product_images);
+  // const [currProduct, setCurrProduct] = useState({});
+  // const [currProductDI, setCurrProductDI] = useState({});
+  // const [productIs, setProductIs] = useState(product.product_images);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -52,8 +50,7 @@ const ProductPage = ({ product, slug }) => {
   }, []);
 
   console.log(product);
-  // console.log(currProductDI);
-  console.log(productIs);
+  console.log(productImages);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -131,10 +128,20 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const productArr = products.filter((product) => product.slug === slug);
   const product = productArr[0];
 
+  const bgUrl = (imgUrl) =>
+    "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
+
+  const productImages = product.product_images.map((pi) => ({
+    product: pi.product,
+    product_image: bgUrl(pi.product_images),
+    alt_text: pi.alt_text,
+    is_featured: pi.is_feature,
+  }));
+
   return {
     props: {
       product,
-      slug,
+      productImages,
     },
   };
 };
