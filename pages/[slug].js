@@ -138,8 +138,8 @@ export const getStaticProps = async ({ params: { slug } }) => {
   return {
     props: {
       product,
-      productImages: {},
-      pdi: {},
+      productImages,
+      pdi,
     },
   };
 };
