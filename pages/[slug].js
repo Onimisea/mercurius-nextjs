@@ -119,6 +119,8 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const product = await productArr[0];
 
+  console.log(product)
+
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
@@ -136,8 +138,8 @@ export const getStaticProps = async ({ params: { slug } }) => {
   return {
     props: {
       product,
-      productImages,
-      pdi,
+      productImages: {},
+      pdi: {},
     },
   };
 };
