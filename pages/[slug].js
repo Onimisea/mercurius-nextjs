@@ -38,11 +38,20 @@ const ProductPage = ({ productb, productImages, pdi }) => {
       qty: item.qty + 1,
     }));
 
-  const decreQty = (item) =>
-    setProduct((item) => ({
-      ...item,
-      qty: item.qty - 1,
-    }));
+  const decreQty = (item) => {
+    if (item.qty > 1) {
+      setProduct((item) => ({
+        ...item,
+        qty: item.qty - 1,
+      }));
+    } else {
+      setProduct((item) => ({
+        ...item,
+        qty: item.qty,
+      }));
+    }
+  }
+    
 
   // useEffect(() => {
   //   if (productb) {
