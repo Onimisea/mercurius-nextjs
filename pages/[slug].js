@@ -39,10 +39,10 @@ const ProductPage = ({ products }) => {
 
       if (currProduct) {
         console.log(currProduct);
-        const currProdDI = currProduct.product_images.filter(
-          (img) => img.is_feature === true
-        );
-        setCurrProductDI(bgUrl(currProdDI[0]));
+        // const currProdDI = currProduct.product_images.filter(
+        //   (img) => img.is_feature === true
+        // );
+        // setCurrProductDI(bgUrl(currProdDI[0]));
 
         //   if (currProd[0].product_images) {
         //     setProductDIs(currProd[0].product_images);
@@ -105,7 +105,7 @@ const ProductPage = ({ products }) => {
 export default ProductPage;
 
 export const getServerSideProps = async ({ req }) => {
-  console.log(req.query)
+  console.log(req.referrer)
 
   const products = await fetch(
     "https://mercurius-api-production.up.railway.app/api/inventory/"
