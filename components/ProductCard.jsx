@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
   } = useAppContext();
 
   // const fi = product.product_images?.filter((image) => image.is_feature == true);
-  let fi = null;
+  let fi = phImg;
 
   if (product.product_images) {
     fi = product.product_images?.filter((image) => image.is_feature == true);
