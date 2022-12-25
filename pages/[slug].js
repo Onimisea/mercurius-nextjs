@@ -26,6 +26,7 @@ const ProductPage = ({ product, productImages }) => {
   const [productDI, setProductDI] = useState(null);
   const pdi = productImages.filter((pi) => pi.is_featured === true);
   setProductDI(pdi[0]);
+  console.log(productDI)
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -47,7 +48,7 @@ const ProductPage = ({ product, productImages }) => {
             <section className="w-full h-[500px]">
               {}
               <img
-                src={productDI.product_image}
+                src=""
                 alt={productDI.product}
                 width={0}
                 height={0}
