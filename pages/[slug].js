@@ -27,16 +27,26 @@ const ProductPage = ({ productb, productImages, pdi }) => {
   } = useAppContext();
 
   const [productDI, setProductDI] = useState(pdi);
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState(productb);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
+  
+  const increQty = (item) => setProduct((item) => ({
+    ...item,
+    qty: qty + 1,
+  }))
+  
+  const decreQty = (item) => setProduct((item) => ({
+    ...item,
+    qty: qty - 1,
+  }))
 
-  useEffect(() => {
-    if (productb) {
-      setProduct(productb);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (productb) {
+  //     setProduct(productb);
+  //   }
+  // }, []);
   
   // useEffect(() => {
   //   if (productb) {
@@ -94,7 +104,7 @@ const ProductPage = ({ productb, productImages, pdi }) => {
             <section className="flex items-center justify-start space-x-6 mt-2">
               <section
                 className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
-                onClick={() => increaseQty(product.id)}
+                onClick={() => increQty(product)}
               >
                 +
               </section>
@@ -103,7 +113,7 @@ const ProductPage = ({ productb, productImages, pdi }) => {
               </section>
               <section
                 className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
-                onClick={() => decreaseQty(product.id)}
+                onClick={() => decreQty(product)}
               >
                 -
               </section>
