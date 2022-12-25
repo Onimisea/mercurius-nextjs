@@ -65,8 +65,8 @@ const ProductPage = ({ product, productImages }) => {
           <section className="w-[48%] flex flex-col items-center justify-center">
             <section className="w-full h-[500px]">
               <img
-                src={currProductDI}
-                alt={currProduct.name}
+                src=""
+                alt=""
                 width={0}
                 height={0}
                 className="w-full h-[500px] max-h-[500px] object-cover object-center z-20"
