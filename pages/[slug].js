@@ -107,16 +107,16 @@ const ProductPage = ({ productb, productImages, pdi }) => {
                   {p.name}
                 </section>
                 <section className="mt-2 sm3:mt-4 font-semibold sm3:text-lg md:text-xl">
-                  ₦{numbersWithCommas(p.price)}
+                  ₦{numbersWithCommas(product.price)}
                 </section>
                 <section className="my-3 sm3:my-5 text-md">
-                  {p.description}
+                  {product.description}
                 </section>
 
                 <section className="flex items-center justify-start space-x-6 mt-2">
                   <section
                     className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
-                    onClick={() => increQty(p)}
+                    onClick={() => increQty(product)}
                   >
                     +
                   </section>
@@ -125,7 +125,7 @@ const ProductPage = ({ productb, productImages, pdi }) => {
                   </section>
                   <section
                     className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
-                    onClick={() => decreQty(p)}
+                    onClick={() => decreQty(product)}
                   >
                     -
                   </section>
