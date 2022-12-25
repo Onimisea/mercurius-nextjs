@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
     numbersWithCommas,
   } = useAppContext();
 
-  const fi = product.product_images.filter((image) => image.is_feature == true);
+  const fi = product.product_images?.filter((image) => image.is_feature == true);
 
   const fiUrl =
     "https://res.cloudinary.com/dxhq8jlxf/" +
