@@ -267,35 +267,16 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  // const productImages = await producta.product_images.map((pi) => ({
-  //   product: pi.product,
-  //   product_image: bgUrl(pi.product_images),
-  //   alt_text: pi.alt_text,
-  //   is_featured: pi.is_feature,
-  // }));
-
-  let productImages = null;
-  if (producta.product_images) {
-    productImages = await producta.product_images.map((pi) => ({
-      product: pi.product,
-      product_image: bgUrl(pi.product_images),
-      alt_text: pi.alt_text,
-      is_featured: pi.is_feature,
-    }));
-  } else {
-    productImages = null;
-  }
+  const productImages = await producta.product_images.map((pi) => ({
+    product: pi.product,
+    product_image: bgUrl(pi.product_images),
+    alt_text: pi.alt_text,
+    is_featured: pi.is_feature,
+  }));
 
   const pdiArr = await productImages.filter((pi) => pi.is_featured === true);
 
-  // const pdi = await pdiArr[0];
-  let pdi = null;
-
-  if (pdiArr.length > 0) {
-    pdi = await pdiArr[0];
-  } else {
-    pdi = null;
-  }
+  const pdi = await pdiArr[0];
 
   const relatedProductsSlug = producta.lowersubcategory.slug;
 
