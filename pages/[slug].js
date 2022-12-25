@@ -6,7 +6,7 @@ import { MdClose } from "react-icons/md";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 
-const ProductPage = ({ product, productImages, pdi }) => {
+const ProductPage = ({ productb, productImages, pdi }) => {
   const router = useRouter();
 
   const {
@@ -27,18 +27,22 @@ const ProductPage = ({ product, productImages, pdi }) => {
   } = useAppContext();
 
   const [productDI, setProductDI] = useState(pdi);
-
-  // const [product, setProduct] = useState(producta);
-  // const [newProduct, setNewProduct] = useState(producta);
-
-  // setNewProduct((oldProduct) => ());
-
-  // console.log(newProduct);
+  const [product, setProduct] = useState(null);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (productb) {
+      setProduct(productb);
+    }
+  }, []);
+  
+  // useEffect(() => {
+  //   if (productb) {
+  //     setProduct(productb);
+  //   }
+  // }, [product]);
 
   console.log(product);
 
@@ -207,7 +211,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const producta = await productArr[0];
 
-  const product = {
+  const productb = {
     ...producta,
     qty: 1,
   };
@@ -228,7 +232,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   return {
     props: {
-      product,
+      productb,
       productImages,
       pdi,
     },
