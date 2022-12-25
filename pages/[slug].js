@@ -25,15 +25,12 @@ const ProductPage = ({ product, productImages, pdi }) => {
 
   const [productDI, setProductDI] = useState(pdi);
 
-  console.log(productDI);
-
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {}, []);
 
   console.log(product);
-  console.log(productImages);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -118,21 +115,23 @@ export const getStaticProps = async ({ params: { slug } }) => {
     "https://mercurius-api-production.up.railway.app/api/inventory/"
   ).then((res) => res.json());
 
-  const productArr = products.filter((product) => product.slug === slug);
-  const product = productArr[0];
+  const productArr = await products.filter((product) => product.slug === slug);
+
+  const product = await productArr[0];
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  const productImages = product.product_images.map((pi) => ({
+  const productImages = await product.product_images.map((pi) => ({
     product: pi.product,
     product_image: bgUrl(pi.product_images),
     alt_text: pi.alt_text,
     is_featured: pi.is_feature,
   }));
 
-  const pdiArr = productImages.filter((pi) => pi.is_featured === true);
-  const pdi = pdiArr[0];
+  const pdiArr = await productImages.filter((pi) => pi.is_featured === true);
+
+  const pdi = await pdiArr[0];
 
   return {
     props: {
