@@ -94,8 +94,21 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             <section className="text-black sm3:text-2xl md:text-3xl">
               {product.name}
             </section>
-            <section className="mt-2 sm3:mt-4 font-semibold sm3:text-lg md:text-xl">
-              ₦{numbersWithCommas(product.price)}
+            <section className="mt-2 sm3:mt-4 ">
+              {product.is_onFlashsale ? (
+                <p className="">
+                  <s className="text-gray-400 text-md sm3:text-lg mr-[6px]">
+                    ₦{numbersWithCommas(product.price)}
+                  </s>{" "}
+                  <span className="text-black text-md font-semibold sm3:text-lg md:text-xl">
+                    ₦{numbersWithCommas(product.flashsale_price)}
+                  </span>
+                </p>
+              ) : (
+                <p className="text-black text-md font-semibold sm3:text-lg md:text-xl">
+                  ₦{numbersWithCommas(product.price)}
+                </p>
+              )}
             </section>
             <section className="my-3 sm3:my-5 text-md">
               {product.description}
