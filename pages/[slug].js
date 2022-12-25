@@ -104,6 +104,18 @@ const ProductPage = ({ products }) => {
 
 export default ProductPage;
 
+export const getStaticPaths = async () => {
+  const productsUrl = await fetch(
+    "https://mercurius-api-production.up.railway.app/api/inventory/"
+  )
+    .then((res) => res.json())
+    .then((prodData) => {
+      prodData.map((prod) => prod.slug);
+    });
+
+  console.log(productsUrl);
+};
+
 export const getStaticProps = async ({ params: { slug } }) => {
   console.log(slug);
 
