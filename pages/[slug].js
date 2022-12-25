@@ -194,19 +194,19 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
           </section>
         </section>
 
-        <section className="w-full mx-auto max-w-screen-xl grid place-items-center mt-16 bg-red-400">
+        <section className="w-full mx-auto max-w-screen-xl grid place-items-center mt-16">
           <h1 className="text-black sm2:text-2xl md:text-3xl font-dalek font-semibold">
             You Might Also Like
           </h1>
 
-          <section className="w-[80%] bg-orange-500 mt-8 mb-6 grid place-items-center ">
+          <section className="w-[80%] bg-orange-200 mt-8 mb-6 grid place-items-center ">
             {relatedProducts.length > 0 ? (
               relatedProducts?.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))
             ) : (
               <h3 className="text-black sm2:text-xl">
-                No Related Products Found
+                No Related Products
               </h3>
             )}
           </section>
