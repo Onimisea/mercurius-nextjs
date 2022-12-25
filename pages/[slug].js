@@ -120,6 +120,7 @@ export const getStaticPaths = async () => {
   });
 
   console.log(paths.params);
+  console.log(products);
 
   return {
     paths,
