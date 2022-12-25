@@ -5,7 +5,7 @@ import { FaHeart } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useAppContext } from "../context/AppContext";
 import Link from "next/link";
-import phImg from "../public/favicon.png"
+import phImg from "../public/favicon.png";
 
 const ProductCard = ({ product }) => {
   const {
@@ -18,7 +18,12 @@ const ProductCard = ({ product }) => {
     numbersWithCommas,
   } = useAppContext();
 
-  const fi = product.product_images?.filter((image) => image.is_feature == true);
+  // const fi = product.product_images?.filter((image) => image.is_feature == true);
+  let fi = "";
+
+  if (product.product_images) {
+    fi = product.product_images?.filter((image) => image.is_feature == true);
+  }
 
   const fiUrl =
     "https://res.cloudinary.com/dxhq8jlxf/" +
