@@ -6,7 +6,7 @@ import { MdClose } from "react-icons/md";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import toast from "react-hot-toast";
 
-const ProductPage = ({ productb, productImages, pdi }) => {
+const ProductPage = ({ productb, productImages, pdi, relatedProductsArr }) => {
   const router = useRouter();
 
   const {
@@ -53,6 +53,7 @@ const ProductPage = ({ productb, productImages, pdi }) => {
   };
 
   console.log(product);
+  console.log(relatedProductsArr);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -238,11 +239,18 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const pdi = await pdiArr[0];
 
+  const relatedProductsSlug = producta.lowersubcategory.slug;
+
+  const relatedProductsArr = await products.filter(
+    (product) => product.lowersubcategory.slug === relatedProductsSlug
+  );
+
   return {
     props: {
       productb,
       productImages,
       pdi,
+      relatedProductsArr,
     },
   };
 };
