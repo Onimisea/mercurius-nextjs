@@ -54,15 +54,15 @@ const ProductPage = ({ product, productImages, pdi }) => {
               />
             </section>
 
-            <section className="w-full h-[150px] flex items-center justify-start overflow-x-scroll">
+            <section className="w-full h-[120px] flex items-center justify-start whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500 overflow-y-hidden space-x-4">
               {productImages.map((pi) => (
-                <section className="w-[150px] h-[150px] space-x-4">
+                <section className="w-[100px] h-[100px]">
                   <img
                     src={pi.product_image}
                     alt={pi.product}
                     width={0}
                     height={0}
-                    className="w-[150px] h-[150px] object-cover object-center z-20"
+                    className="w-[100px] h-[100px] object-cover object-center z-20"
                   />
                 </section>
               ))}
@@ -82,7 +82,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
 
             <section className="flex items-center justify-start space-x-6 mt-2">
               <section
-                className="bg-white text-black md2:text-lg border-2 border-black w-[30px] h-[30px] md:w-[40px] md:h-[40px] md2:w-[50px] md2:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary duration-300"
+                className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
                 onClick={() => increaseQty(product.id)}
               >
                 +
@@ -91,7 +91,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
                 {product.qty}
               </section>
               <section
-                className="bg-white text-black md2:text-lg border-2 border-black w-[30px] h-[30px] md:w-[40px] md:h-[40px] md2:w-[50px] md2:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary duration-300"
+                className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
                 onClick={() => decreaseQty(product.id)}
               >
                 -
@@ -102,7 +102,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
               <ul className="block space-y-4">
                 {cart.some((p) => p.id === product.id) ? (
                   <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-4"
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
                     onClick={() => {
                       removeFromCart(product);
                       toast.error(`${product.name} removed from cart`);
@@ -115,7 +115,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
                   </li>
                 ) : (
                   <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-4"
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
                     onClick={() => {
                       addToCart(product);
                       toast.success(`${product.name} added to cart`);
@@ -130,7 +130,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
 
                 {wishlist.some((w) => w.id === product.id) ? (
                   <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-4"
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
                     onClick={() => {
                       removeFromWishlist(product);
                       toast.error(`${product.name} removed from favourite`);
@@ -143,15 +143,15 @@ const ProductPage = ({ product, productImages, pdi }) => {
                   </li>
                 ) : (
                   <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-4"
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
                     onClick={() => {
                       addToWishlist(product);
                       toast.success(`${product.name} added to favourite`);
                     }}
                   >
-                    <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                    <section className="flex items-center justify-center px-2 py-2 space-x-2">
                       <FaHeart size={20} className="" />
-                      <p className="text-md">Add to Cart</p>
+                      <p className="text-md">Add to Favourite</p>
                     </section>
                   </li>
                 )}
