@@ -5,7 +5,6 @@ import { FaHeart } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useAppContext } from "../context/AppContext";
 import Link from "next/link";
-import phImg from "../public/favicon.png";
 
 const ProductCard = ({ product }) => {
   const {
@@ -18,19 +17,7 @@ const ProductCard = ({ product }) => {
     numbersWithCommas,
   } = useAppContext();
 
-  // const fi = product.product_images?.filter((image) => image.is_feature == true);
-  let fi = phImg;
-
-  
-
-  useEffect(() => {
-  if (product.product_images) {
-    fi = product.product_images?.filter((image) => image.is_feature == true);
-  } else {
-    fi = phImg;
-  }  
-  }, [])
-  
+  const fi = product.product_images.filter((image) => image.is_feature == true);
 
   const fiUrl =
     "https://res.cloudinary.com/dxhq8jlxf/" +
@@ -38,7 +25,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <Link href={product.slug}>
-      <section className="bg-white m-4 pb-6 shadow-md rounded-md relative text-center cursor-pointer group w-[250px] min-w-[250px]">
+      <section className="bg-white m-4 pb-6 shadow-sm rounded-md relative text-center cursor-pointer group w-[250px] min-w-[250px]">
         {product.is_onFlashsale && (
           <span className="w-fit block absolute top-[15px] left-[15px] bg-primary text-white px-3 py-2 rounded-lg">
             -{product.flashsale}%
@@ -92,7 +79,7 @@ const ProductCard = ({ product }) => {
         </ul>
 
         <img
-          src={fiUrl ? fiUrl : phImg}
+          src={fiUrl}
           alt={product.name}
           className="w-[250px] h-[250px] min-w-[250px] min-h-[250px] object-cover duration-300"
         />
