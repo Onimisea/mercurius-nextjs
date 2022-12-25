@@ -5,8 +5,9 @@ import Head from "next/head";
 import { MdClose } from "react-icons/md";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import toast from "react-hot-toast";
+import ProductCard from "../components/ProductCard";
 
-const ProductPage = ({ productb, productImages, pdi, relatedProductsArr }) => {
+const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
   const router = useRouter();
 
   const {
@@ -53,7 +54,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProductsArr }) => {
   };
 
   console.log(product);
-  console.log(relatedProductsArr);
+  console.log(relatedProducts);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -180,10 +181,22 @@ const ProductPage = ({ productb, productImages, pdi, relatedProductsArr }) => {
           </section>
         </section>
 
-        <section className="w-full mx-auto max-w-screen-xl grid place-items-center mt-16">
-          <h1 className="text-black sm:text-2xl md:text-3xl font-dalek font-semibold">
+        <section className="w-full mx-auto max-w-screen-xl grid place-items-center mt-16 bg-red-400">
+          <h1 className="text-black sm2:text-2xl md:text-3xl font-dalek font-semibold">
             You Might Also Like
           </h1>
+
+          <section className="bg-orange-500 mt-8 mb-6">
+            {relatedProducts.length > 0 ? (
+              relatedProducts?.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            ) : (
+              <h3 className="text-black sm2:text-2xl">
+                No Related Products Found
+              </h3>
+            )}
+          </section>
         </section>
       </section>
     </section>
@@ -245,12 +258,16 @@ export const getStaticProps = async ({ params: { slug } }) => {
     (product) => product.lowersubcategory.slug === relatedProductsSlug
   );
 
+  const relatedProducts = await relatedProductsArr.filter(
+    (product) => product.id !== productb.id
+  );
+
   return {
     props: {
       productb,
       productImages,
       pdi,
-      relatedProductsArr,
+      relatedProducts,
     },
   };
 };
