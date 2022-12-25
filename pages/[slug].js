@@ -53,8 +53,14 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
     }
   };
 
-  console.log(product);
-  console.log(relatedProducts);
+  useEffect(() => {
+    if (productb) {
+      setProduct(productb);
+    }
+
+    console.log(product);
+    console.log(relatedProducts);
+  }, [router.query]);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -205,9 +211,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
                 <ProductCard key={product.id} product={product} />
               ))
             ) : (
-              <h3 className="text-black sm2:text-xl">
-                No Related Products
-              </h3>
+              <h3 className="text-black sm2:text-xl">No Related Products</h3>
             )}
           </section>
         </section>
