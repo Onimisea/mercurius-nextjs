@@ -3,8 +3,10 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../context/AppContext";
 import Head from "next/head";
 
-const ProductPage = ({ products }) => {
+const ProductPage = ({ products, params }) => {
   const router = useRouter();
+
+  console.log(params);
 
   const {
     appState: { cart, wishlist },
@@ -110,8 +112,6 @@ export const getStaticPaths = async () => {
   ).then((res) => res.json());
 
   const paths = products.map((product) => {
-    console.log(product);
-
     return {
       params: {
         slug: product.slug,
@@ -119,17 +119,14 @@ export const getStaticPaths = async () => {
     };
   });
 
-  console.log(paths.params);
-  console.log(products);
-
   return {
     paths,
     fallback: "blocking",
   };
 };
 
-export const getStaticProps = async ({ params: { slug } }) => {
-  console.log(slug);
+export const getStaticProps = async ({ params }) => {
+  console.log(params);
 
   const products = await fetch(
     "https://mercurius-api-production.up.railway.app/api/inventory/"
@@ -138,6 +135,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
   return {
     props: {
       products,
+      params,
     },
   };
 };
