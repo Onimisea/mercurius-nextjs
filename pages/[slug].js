@@ -24,9 +24,9 @@ const ProductPage = ({ product, productImages }) => {
   } = useAppContext();
 
   const [productDI, setProductDI] = useState(null);
-  const pdi = productImages.filter((pi) => pi.is_featured === true);
-  setProductDI(pdi[0]);
-  console.log(productDI)
+  // const pdi = productImages.filter((pi) => pi.is_featured === true);
+  // setProductDI(pdi[0]);
+  // console.log(productDI)
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
