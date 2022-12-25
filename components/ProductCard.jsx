@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
   if (product.product_images) {
     fi = product.product_images?.filter((image) => image.is_feature == true);
   } else {
-    fi = null;
+    fi = phImg;
   }
 
   const fiUrl =
