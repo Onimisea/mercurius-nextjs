@@ -109,13 +109,17 @@ export const getStaticPaths = async () => {
     "https://mercurius-api-production.up.railway.app/api/inventory/"
   ).then((res) => res.json());
 
-  const paths = products.map((product) => ({
-    params: {
-      slug: product.slug,
-    },
-  }));
+  const paths = products.map((product) => {
+    console.log(product);
 
-  console.log(paths.params.slug);
+    return {
+      params: {
+        slug: product.slug,
+      },
+    };
+  });
+
+  console.log(paths.params);
 
   return {
     paths,
