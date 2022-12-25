@@ -104,8 +104,8 @@ const ProductPage = ({ products }) => {
 
 export default ProductPage;
 
-export const getServerSideProps = async ({ req }) => {
-  console.log(req.route)
+export const getStaticProps = async ({ params: { slug } }) => {
+  console.log(slug);
 
   const products = await fetch(
     "https://mercurius-api-production.up.railway.app/api/inventory/"
