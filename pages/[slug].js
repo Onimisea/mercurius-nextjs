@@ -56,7 +56,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
 
             <section className="w-full h-[150px] flex items-center justify-start overflow-x-scroll">
               {productImages.map((pi) => (
-                <section className="w-[150px] h-[150px] space-x-4">
+                <section className="w-[150px] h-[150px] mx-2">
                   <img
                     src={pi.product_image}
                     alt={pi.product}
