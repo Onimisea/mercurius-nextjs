@@ -79,7 +79,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
           </section>
         </section>
 
-        <section className="w-full mx-auto max-w-screen-xl grid place-items-center bg-red-600 mt-10">
+        <section className="w-full mx-auto max-w-screen-xl grid place-items-center mt-16">
           <h1 className="text-black sm:text-2xl md:text-3xl font-dalek font-semibold">
             You Might Also Like
           </h1>
