@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useAppContext } from "../context/AppContext";
 import Head from "next/head";
+import { MdClose } from "react-icons/md";
+import { FaShoppingCart } from "react-icons/fa";
+import { FiHeart } from "react-icons/fi";
 
 const ProductPage = ({ product, productImages, pdi }) => {
   const router = useRouter();
@@ -53,7 +56,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
 
             <section className="w-full h-[150px] flex items-center justify-start overflow-x-scroll">
               {productImages.map((pi) => (
-                <section className="w-[150px] h-[150px] mx-2">
+                <section className="w-[150px] h-[150px] space-x-4">
                   <img
                     src={pi.product_image}
                     alt={pi.product}
@@ -75,6 +78,82 @@ const ProductPage = ({ product, productImages, pdi }) => {
             </section>
             <section className="my-3 sm3:my-5 text-md">
               {product.description}
+            </section>
+
+            <section className="flex items-center justify-start space-x-4">
+              <section
+                className="bg-black w-[30px] h-[30px] grid place-items-center text-white rounded-sm cursor-pointer hover:bg-primary duration-300"
+                onClick={() => increaseQty(product.id)}
+              >
+                +
+              </section>
+              <section>{item.qty}</section>
+              <section
+                className="bg-black w-[30px] h-[30px] grid place-items-center text-white rounded-sm cursor-pointer hover:bg-primary duration-300"
+                onClick={() => decreaseQty(product.id)}
+              >
+                -
+              </section>
+            </section>
+
+            <section className="">
+              <ul className="block space-y-2">
+                {cart.some((p) => p.id === product.id) ? (
+                  <li
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-sm"
+                    onClick={() => {
+                      removeFromCart(product);
+                      toast.error(`${product.name} removed from cart`);
+                    }}
+                  >
+                    <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                      <MdClose size={20} className="" />
+                      <p className="text-md">Remove from Cart</p>
+                    </section>
+                  </li>
+                ) : (
+                  <li
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-sm"
+                    onClick={() => {
+                      addToCart(product);
+                      toast.success(`${product.name} added to cart`);
+                    }}
+                  >
+                    <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                      <FaShoppingCart size={20} className="" />
+                      <p className="text-md">Add to Cart</p>
+                    </section>
+                  </li>
+                )}
+
+                {wishlist.some((w) => w.id === product.id) ? (
+                  <li
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-sm"
+                    onClick={() => {
+                      removeFromWishlist(product);
+                      toast.error(`${product.name} removed from favourite`);
+                    }}
+                  >
+                    <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                      <MdClose size={20} className="" />
+                      <p className="text-md">Remove from Favourite</p>
+                    </section>
+                  </li>
+                ) : (
+                  <li
+                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-sm"
+                    onClick={() => {
+                      addToWishlist(product);
+                      toast.success(`${product.name} added to favourite`);
+                    }}
+                  >
+                    <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                      <FiHeart size={20} className="" />
+                      <p className="text-md">Add to Cart</p>
+                    </section>
+                  </li>
+                )}
+              </ul>
             </section>
           </section>
         </section>
@@ -119,7 +198,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const product = await productArr[0];
 
-  console.log(product)
+  console.log(product);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
