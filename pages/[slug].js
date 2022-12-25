@@ -42,13 +42,13 @@ const ProductPage = ({ product, productImages, pdi }) => {
       </Head>
 
       <section className="w-full mx-auto max-w-screen-xl grid place-items-center my-6 bg-white">
-        <section className="w-full mx-auto max-w-screen-xl flex items-center justify-between mt-6">
+        <section className="w-full mx-auto max-w-screen-xl flex items-start justify-between mt-6">
           <section className="w-[48%] flex flex-col items-center justify-center">
             <section className="w-full h-[500px]">
               {}
               <img
-                src=""
-                alt=""
+                src={productDI.product_image}
+                alt={productDI.product}
                 width={0}
                 height={0}
                 className="w-full h-[500px] max-h-[500px] object-cover object-center z-20"
@@ -59,10 +59,10 @@ const ProductPage = ({ product, productImages, pdi }) => {
           </section>
 
           <section className="w-[48%]">
-            <section className="text-black sm:text-2xl md:text-3xl font-semibold">
+            <section className="text-black sm3:text-2xl md:text-3xl">
               {product.name}
             </section>
-            <section className="mt-1 sm2:mt-2 font-semibold text-lg">
+            <section className="mt-1 sm2:mt-2 font-semibold sm3:text-lg md:text-xl">
               ₦{numbersWithCommas(product.price)}
             </section>
             <section className="mt-1 sm2:mt-2 text-md">
@@ -120,7 +120,8 @@ export const getStaticProps = async ({ params: { slug } }) => {
     is_featured: pi.is_feature,
   }));
 
-  const pdi = productImages.filter((pi) => pi.is_featured === true);
+  const pdiArr = productImages.filter((pi) => pi.is_featured === true);
+  const pdi = pdiArr[0]
 
   return {
     props: {
