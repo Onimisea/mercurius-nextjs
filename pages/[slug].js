@@ -87,7 +87,7 @@ const ProductPage = ({ product, productImages, pdi }) => {
               >
                 +
               </section>
-              <section>{item.qty}</section>
+              <section>{product.qty}</section>
               <section
                 className="bg-black w-[30px] h-[30px] grid place-items-center text-white rounded-sm cursor-pointer hover:bg-primary duration-300"
                 onClick={() => decreaseQty(product.id)}
