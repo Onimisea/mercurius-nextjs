@@ -49,7 +49,7 @@ const ProductPage = ({ product, productImages }) => {
               {}
               <img
                 src=""
-                alt={productDI.product}
+                alt=""
                 width={0}
                 height={0}
                 className="w-full h-[500px] max-h-[500px] object-cover object-center z-20"
