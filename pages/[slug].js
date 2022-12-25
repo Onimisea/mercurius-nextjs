@@ -6,7 +6,7 @@ import { MdClose } from "react-icons/md";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 
-const ProductPage = ({ product, productImages, pdi }) => {
+const ProductPage = ({ producta, productImages, pdi }) => {
   const router = useRouter();
 
   const {
@@ -28,12 +28,22 @@ const ProductPage = ({ product, productImages, pdi }) => {
 
   const [productDI, setProductDI] = useState(pdi);
 
+  const [product, setProduct] = useState(producta);
+  const [newProduct, setNewProduct] = useState(producta);
+
+  setNewProduct((oldProduct) => ({
+    ...oldProduct,
+    qty: 1,
+  }));
+
+  console.log(newProduct);
+
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {}, []);
 
-  console.log(product);
+  // console.log(product);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -198,14 +208,12 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const productArr = await products.filter((product) => product.slug === slug);
 
-  const product = await productArr[0];
-
-  console.log(product);
+  const producta = await productArr[0];
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
-  const productImages = await product.product_images.map((pi) => ({
+  const productImages = await producta.product_images.map((pi) => ({
     product: pi.product,
     product_image: bgUrl(pi.product_images),
     alt_text: pi.alt_text,
@@ -218,7 +226,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   return {
     props: {
-      product,
+      producta,
       productImages,
       pdi,
     },
