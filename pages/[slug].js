@@ -80,7 +80,7 @@ const ProductPage = ({ products }) => {
           </section>
 
           <section className="w-[48%]">
-            <section className="text-black sm:text-2xl md:text-3xl font-semibold">
+            {/* <section className="text-black sm:text-2xl md:text-3xl font-semibold">
               {currProduct.name}
             </section>
             <section className="mt-1 sm2:mt-2 font-semibold text-lg">
@@ -88,7 +88,7 @@ const ProductPage = ({ products }) => {
             </section>
             <section className="mt-1 sm2:mt-2 text-md">
               {currProduct.description}
-            </section>
+            </section> */}
           </section>
         </section>
 
