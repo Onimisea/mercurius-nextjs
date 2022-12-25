@@ -105,7 +105,7 @@ const ProductPage = ({ products }) => {
 export default ProductPage;
 
 export const getServerSideProps = async ({ req }) => {
-  console.log(req)
+  console.log(req.referer)
 
   const products = await fetch(
     "https://mercurius-api-production.up.railway.app/api/inventory/"
