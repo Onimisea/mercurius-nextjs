@@ -1,12 +1,19 @@
 export const appReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      console.log(action.payload);
-      return {
-        ...state,
-        cart: [...state.cart, { ...action.payload, qty: 1 }],
-      };
-      h;
+      console.log(action.payload.qty);
+
+      if (action.payload.qty > 1) {
+        return {
+          ...state,
+          cart: [...state.cart, { ...action.payload, qty: action.payload.qty }],
+        };
+      } else {
+        return {
+          ...state,
+          cart: [...state.cart, { ...action.payload, qty: 1 }],
+        };
+      }
 
     case "REMOVE_FROM_CART":
       let newCart = state.cart.filter((c) => c.id !== action.payload.id);
