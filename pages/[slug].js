@@ -39,10 +39,10 @@ const ProductPage = ({ products }) => {
 
       if (currProduct) {
         console.log(currProduct);
-        // const currProdDI = currProd[0].product_images.filter(
-        //   (img) => img.is_feature === true
-        // );
-        // setCurrProductDI(bgUrl(currProdDI));
+        const currProdDI = currProduct.product_images.filter(
+          (img) => img.is_feature === true
+        );
+        setCurrProductDI(bgUrl(currProdDI));
 
         //   if (currProd[0].product_images) {
         //     setProductDIs(currProd[0].product_images);
@@ -80,9 +80,15 @@ const ProductPage = ({ products }) => {
           </section>
 
           <section className="w-[48%]">
-            <h1 className="text-black sm:text-2xl md:text-3xl md2:text-4xl font-dalek font-semibold">
-              Product Details
-            </h1>
+            <section className="text-black sm:text-2xl md:text-3xl font-semibold">
+              {currProduct.name}
+            </section>
+            <section className="mt-1 sm2:mt-2 font-semibold text-lg">
+              ₦{numbersWithCommas(currProduct.price)}
+            </section>
+            <section className="mt-1 sm2:mt-2 text-md">
+              {currProduct.description}
+            </section>
           </section>
         </section>
 
@@ -99,7 +105,6 @@ const ProductPage = ({ products }) => {
 export default ProductPage;
 
 export const getServerSideProps = async ({ req }) => {
-  console.log(req);
 
   const products = await fetch(
     "https://mercurius-api-production.up.railway.app/api/inventory/"
