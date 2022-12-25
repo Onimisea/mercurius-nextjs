@@ -50,8 +50,7 @@ const ProductPage = ({ productb, productImages, pdi }) => {
         qty: item.qty,
       }));
     }
-  }
-    
+  };
 
   // useEffect(() => {
   //   if (productb) {
@@ -102,93 +101,187 @@ const ProductPage = ({ productb, productImages, pdi }) => {
           </section>
 
           <section className="w-[48%] py-6">
-            <section className="text-black sm3:text-2xl md:text-3xl">
-              {product.name}
-            </section>
-            <section className="mt-2 sm3:mt-4 font-semibold sm3:text-lg md:text-xl">
-              ₦{numbersWithCommas(product.price)}
-            </section>
-            <section className="my-3 sm3:my-5 text-md">
-              {product.description}
-            </section>
+            {cart.some((p) => p.id === product.id) ? (
+              <section className="">
+                <section className="text-black sm3:text-2xl md:text-3xl">
+                  {p.name}
+                </section>
+                <section className="mt-2 sm3:mt-4 font-semibold sm3:text-lg md:text-xl">
+                  ₦{numbersWithCommas(p.price)}
+                </section>
+                <section className="my-3 sm3:my-5 text-md">
+                  {p.description}
+                </section>
 
-            <section className="flex items-center justify-start space-x-6 mt-2">
-              <section
-                className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
-                onClick={() => increQty(product)}
-              >
-                +
-              </section>
-              <section className="text-black md2:text-lg">
-                {product.qty}
-              </section>
-              <section
-                className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
-                onClick={() => decreQty(product)}
-              >
-                -
-              </section>
-            </section>
+                <section className="flex items-center justify-start space-x-6 mt-2">
+                  <section
+                    className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
+                    onClick={() => increQty(p)}
+                  >
+                    +
+                  </section>
+                  <section className="text-black md2:text-lg">
+                    {p.qty}
+                  </section>
+                  <section
+                    className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
+                    onClick={() => decreQty(p)}
+                  >
+                    -
+                  </section>
+                </section>
 
-            <section className="mt-6">
-              <ul className="block space-y-4">
-                {cart.some((p) => p.id === product.id) ? (
-                  <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
-                    onClick={() => {
-                      removeFromCart(product);
-                      toast.error(`${product.name} removed from cart`);
-                    }}
-                  >
-                    <section className="flex items-center justify-center px-4 py-2 space-x-2">
-                      <MdClose size={20} className="" />
-                      <p className="text-md">Remove from Cart</p>
-                    </section>
-                  </li>
-                ) : (
-                  <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
-                    onClick={() => {
-                      addToCart(product);
-                      toast.success(`${product.name} added to cart`);
-                    }}
-                  >
-                    <section className="flex items-center justify-center px-4 py-2 space-x-2">
-                      <FaShoppingCart size={20} className="" />
-                      <p className="text-md">Add to Cart</p>
-                    </section>
-                  </li>
-                )}
+                <section className="mt-6">
+                  <ul className="block space-y-4">
+                    {cart.some((p) => p.id === product.id) ? (
+                      <li
+                        className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
+                        onClick={() => {
+                          removeFromCart(product);
+                          toast.error(`${product.name} removed from cart`);
+                        }}
+                      >
+                        <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                          <MdClose size={20} className="" />
+                          <p className="text-md">Remove from Cart</p>
+                        </section>
+                      </li>
+                    ) : (
+                      <li
+                        className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
+                        onClick={() => {
+                          addToCart(product);
+                          toast.success(`${product.name} added to cart`);
+                        }}
+                      >
+                        <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                          <FaShoppingCart size={20} className="" />
+                          <p className="text-md">Add to Cart</p>
+                        </section>
+                      </li>
+                    )}
 
-                {wishlist.some((w) => w.id === product.id) ? (
-                  <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
-                    onClick={() => {
-                      removeFromWishlist(product);
-                      toast.error(`${product.name} removed from favourite`);
-                    }}
+                    {wishlist.some((w) => w.id === product.id) ? (
+                      <li
+                        className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
+                        onClick={() => {
+                          removeFromWishlist(product);
+                          toast.error(`${product.name} removed from favourite`);
+                        }}
+                      >
+                        <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                          <MdClose size={20} className="" />
+                          <p className="text-md">Remove from Favourite</p>
+                        </section>
+                      </li>
+                    ) : (
+                      <li
+                        className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
+                        onClick={() => {
+                          addToWishlist(product);
+                          toast.success(`${product.name} added to favourite`);
+                        }}
+                      >
+                        <section className="flex items-center justify-center px-2 py-2 space-x-2">
+                          <FaHeart size={20} className="" />
+                          <p className="text-md">Add to Favourite</p>
+                        </section>
+                      </li>
+                    )}
+                  </ul>
+                </section>
+              </section>
+            ) : (
+              <section className="">
+                <section className="text-black sm3:text-2xl md:text-3xl">
+                  {product.name}
+                </section>
+                <section className="mt-2 sm3:mt-4 font-semibold sm3:text-lg md:text-xl">
+                  ₦{numbersWithCommas(product.price)}
+                </section>
+                <section className="my-3 sm3:my-5 text-md">
+                  {product.description}
+                </section>
+
+                <section className="flex items-center justify-start space-x-6 mt-2">
+                  <section
+                    className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
+                    onClick={() => increQty(product)}
                   >
-                    <section className="flex items-center justify-center px-4 py-2 space-x-2">
-                      <MdClose size={20} className="" />
-                      <p className="text-md">Remove from Favourite</p>
-                    </section>
-                  </li>
-                ) : (
-                  <li
-                    className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
-                    onClick={() => {
-                      addToWishlist(product);
-                      toast.success(`${product.name} added to favourite`);
-                    }}
+                    +
+                  </section>
+                  <section className="text-black md2:text-lg">
+                    {product.qty}
+                  </section>
+                  <section
+                    className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
+                    onClick={() => decreQty(product)}
                   >
-                    <section className="flex items-center justify-center px-2 py-2 space-x-2">
-                      <FaHeart size={20} className="" />
-                      <p className="text-md">Add to Favourite</p>
-                    </section>
-                  </li>
-                )}
-              </ul>
-            </section>
+                    -
+                  </section>
+                </section>
+
+                <section className="mt-6">
+                  <ul className="block space-y-4">
+                    {cart.some((p) => p.id === product.id) ? (
+                      <li
+                        className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
+                        onClick={() => {
+                          removeFromCart(product);
+                          toast.error(`${product.name} removed from cart`);
+                        }}
+                      >
+                        <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                          <MdClose size={20} className="" />
+                          <p className="text-md">Remove from Cart</p>
+                        </section>
+                      </li>
+                    ) : (
+                      <li
+                        className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
+                        onClick={() => {
+                          addToCart(product);
+                          toast.success(`${product.name} added to cart`);
+                        }}
+                      >
+                        <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                          <FaShoppingCart size={20} className="" />
+                          <p className="text-md">Add to Cart</p>
+                        </section>
+                      </li>
+                    )}
+
+                    {wishlist.some((w) => w.id === product.id) ? (
+                      <li
+                        className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
+                        onClick={() => {
+                          removeFromWishlist(product);
+                          toast.error(`${product.name} removed from favourite`);
+                        }}
+                      >
+                        <section className="flex items-center justify-center px-4 py-2 space-x-2">
+                          <MdClose size={20} className="" />
+                          <p className="text-md">Remove from Favourite</p>
+                        </section>
+                      </li>
+                    ) : (
+                      <li
+                        className="bg-black w-full h-fit grid place-items-center cursor-pointer text-white hover:bg-primary rounded-md p-2"
+                        onClick={() => {
+                          addToWishlist(product);
+                          toast.success(`${product.name} added to favourite`);
+                        }}
+                      >
+                        <section className="flex items-center justify-center px-2 py-2 space-x-2">
+                          <FaHeart size={20} className="" />
+                          <p className="text-md">Add to Favourite</p>
+                        </section>
+                      </li>
+                    )}
+                  </ul>
+                </section>
+              </section>
+            )}
           </section>
         </section>
 
