@@ -54,13 +54,8 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
   };
 
   useEffect(() => {
-    if (productb) {
-      setProduct(productb);
-    }
-
-    console.log(product);
-    console.log(relatedProducts);
-  }, [router.query]);
+    setProduct(productb);
+  }, [router.query.slug]);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
