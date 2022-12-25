@@ -5,6 +5,7 @@ import { FaHeart } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useAppContext } from "../context/AppContext";
 import Link from "next/link";
+import phImg from "../public/favicon.png"
 
 const ProductCard = ({ product }) => {
   const {
@@ -79,7 +80,7 @@ const ProductCard = ({ product }) => {
         </ul>
 
         <img
-          src={fiUrl ? fiUrl : ""}
+          src={fiUrl ? fiUrl : phImg}
           alt={product.name}
           className="w-[250px] h-[250px] min-w-[250px] min-h-[250px] object-cover duration-300"
         />
