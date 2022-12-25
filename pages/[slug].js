@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../context/AppContext";
 import Head from "next/head";
 
-const ProductPage = ({ product, productImages }) => {
+const ProductPage = ({ product, productImages, pdi }) => {
   const router = useRouter();
 
   const {
@@ -23,10 +23,9 @@ const ProductPage = ({ product, productImages }) => {
     decreaseQty,
   } = useAppContext();
 
-  const [productDI, setProductDI] = useState(null);
-  // const pdi = productImages.filter((pi) => pi.is_featured === true);
-  // setProductDI(pdi[0]);
-  // console.log(productDI)
+  const [productDI, setProductDI] = useState(pdi);
+
+  console.log(productDI)
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -60,7 +59,7 @@ const ProductPage = ({ product, productImages }) => {
           </section>
 
           <section className="w-[48%]">
-            {/* <section className="text-black sm:text-2xl md:text-3xl font-semibold">
+            <section className="text-black sm:text-2xl md:text-3xl font-semibold">
               {product.name}
             </section>
             <section className="mt-1 sm2:mt-2 font-semibold text-lg">
@@ -68,7 +67,7 @@ const ProductPage = ({ product, productImages }) => {
             </section>
             <section className="mt-1 sm2:mt-2 text-md">
               {product.description}
-            </section> */}
+            </section>
           </section>
         </section>
 
@@ -121,10 +120,13 @@ export const getStaticProps = async ({ params: { slug } }) => {
     is_featured: pi.is_feature,
   }));
 
+  const pdi = productImages.filter((pi) => pi.is_featured === true);
+
   return {
     props: {
       product,
       productImages,
+      pdi,
     },
   };
 };
