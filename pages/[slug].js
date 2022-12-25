@@ -31,23 +31,25 @@ const ProductPage = ({ productb, productImages, pdi }) => {
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
-  
-  const increQty = (item) => setProduct((item) => ({
-    ...item,
-    qty: qty + 1,
-  }))
-  
-  const decreQty = (item) => setProduct((item) => ({
-    ...item,
-    qty: qty - 1,
-  }))
+
+  const increQty = (item) =>
+    setProduct((item) => ({
+      ...item,
+      qty: item.qty + 1,
+    }));
+
+  const decreQty = (item) =>
+    setProduct((item) => ({
+      ...item,
+      qty: item.qty - 1,
+    }));
 
   // useEffect(() => {
   //   if (productb) {
   //     setProduct(productb);
   //   }
   // }, []);
-  
+
   // useEffect(() => {
   //   if (productb) {
   //     setProduct(productb);
