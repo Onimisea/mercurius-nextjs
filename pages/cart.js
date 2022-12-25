@@ -268,7 +268,7 @@ const cart = () => {
                         </section>
 
                         <section className="text-sm md:text-[16px]">
-                          {item.name} - ₦{item.price}
+                          {item.name} - ₦{numbersWithCommas(item.price)}
                         </section>
 
                         <ul className="w-fit block space-y-2 text-sm">

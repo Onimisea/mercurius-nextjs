@@ -199,7 +199,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             You Might Also Like
           </h1>
 
-          <section className="w-[80%] bg-orange-200 mt-8 mb-6 grid place-items-center ">
+          <section className="w-[80%] mt-8 mb-6 grid place-items-center gap-3">
             {relatedProducts.length > 0 ? (
               relatedProducts?.map((product) => (
                 <ProductCard key={product.id} product={product} />

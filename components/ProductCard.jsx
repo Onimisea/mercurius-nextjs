@@ -79,7 +79,7 @@ const ProductCard = ({ product }) => {
         </ul>
 
         <img
-          src={fiUrl}
+          src={fiUrl ? fiUrl : ""}
           alt={product.name}
           className="w-[250px] h-[250px] min-w-[250px] min-h-[250px] object-cover duration-300"
         />
