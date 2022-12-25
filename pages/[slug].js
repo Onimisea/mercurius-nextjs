@@ -4,7 +4,7 @@ import { useAppContext } from "../context/AppContext";
 import Head from "next/head";
 import { MdClose } from "react-icons/md";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
-import { FiHeart } from "react-icons/fi";
+import toast from "react-hot-toast";
 
 const ProductPage = ({ productb, productImages, pdi }) => {
   const router = useRouter();
@@ -65,7 +65,7 @@ const ProductPage = ({ productb, productImages, pdi }) => {
   //   }
   // }, [product]);
 
-  console.log(product);
+  // console.log(product);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
