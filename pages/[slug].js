@@ -37,16 +37,16 @@ const ProductPage = ({ products }) => {
       );
       setCurrProduct(currProd[0]);
 
-      if (currProd[0]) {
-        const currProdDI = currProd[0].product_images.filter(
-          (img) => img.is_feature === true
-        );
-        setCurrProductDI(bgUrl(currProdDI));
+      // if (currProd[0]) {
+      //   const currProdDI = currProd[0].product_images.filter(
+      //     (img) => img.is_feature === true
+      //   );
+      //   setCurrProductDI(bgUrl(currProdDI));
 
-        if (currProd[0].product_images) {
-          setProductDIs(currProd[0].product_images);
-        }
-      }
+      //   if (currProd[0].product_images) {
+      //     setProductDIs(currProd[0].product_images);
+      //   }
+      // }
     }
   }, [router.query]);
 
