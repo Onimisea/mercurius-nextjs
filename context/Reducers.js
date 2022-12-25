@@ -1,8 +1,6 @@
 export const appReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      console.log(action.payload.qty);
-
       if (action.payload.qty > 1) {
         return {
           ...state,

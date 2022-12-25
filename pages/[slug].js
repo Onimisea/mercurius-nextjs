@@ -52,6 +52,8 @@ const ProductPage = ({ productb, productImages, pdi }) => {
     }
   };
 
+  console.log(product);
+
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
       <Head>
@@ -73,7 +75,7 @@ const ProductPage = ({ productb, productImages, pdi }) => {
 
             <section className="w-full h-[120px] flex items-center justify-start whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500 overflow-y-hidden space-x-4">
               {productImages?.map((pi) => (
-                <section className="w-[100px] h-[100px]">
+                <section className="w-[100px] h-[100px]" onMouseEnter="">
                   <img
                     src={pi.product_image}
                     alt={pi.product}
