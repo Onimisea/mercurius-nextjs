@@ -5,7 +5,7 @@ import Head from "next/head";
 
 const ProductPage = ({ products }) => {
   const router = useRouter();
-  
+
   const {
     appState: { cart, wishlist },
     appStateDispatch,
@@ -37,22 +37,23 @@ const ProductPage = ({ products }) => {
       );
       setCurrProduct(currProd[0]);
 
-      // if (currProd[0]) {
-      //   const currProdDI = currProd[0].product_images.filter(
-      //     (img) => img.is_feature === true
-      //   );
-      //   setCurrProductDI(bgUrl(currProdDI));
+      if (currProduct) {
+        console.log(currProduct);
+        // const currProdDI = currProd[0].product_images.filter(
+        //   (img) => img.is_feature === true
+        // );
+        // setCurrProductDI(bgUrl(currProdDI));
 
-      //   if (currProd[0].product_images) {
-      //     setProductDIs(currProd[0].product_images);
-      //   }
-      // }
+        //   if (currProd[0].product_images) {
+        //     setProductDIs(currProd[0].product_images);
+        //   }
+      }
     }
   }, [router.query]);
 
-  console.log(currProduct);
+  // console.log(currProduct);
   // console.log(currProductDI);
-  console.log(productDIs);
+  // console.log(productDIs);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
