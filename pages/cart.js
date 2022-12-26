@@ -79,7 +79,7 @@ const cart = () => {
                     key={item.id}
                     className="flex md:items-center justify-between sm2:justify-between flex-wrap md:my-3 md:p-3 border-b-2 my-3 py-3 text-sm sm2:text-md md:text-lg"
                   >
-                    <section className="w-[40px] h-[40px] mr-4 sm2:w-[60px] sm2:h-[60px] md:w-[80px] md:h-[80px] rounded-md">
+                    <section className="w-[60px] h-[60px] mr-4 md:w-[80px] md:h-[80px] rounded-md">
                       <img
                         src={fiUrl}
                         alt={item.name}
@@ -87,7 +87,7 @@ const cart = () => {
                       />
                     </section>
 
-                    <section className="w-[50%] sm3:w-[40%] sm2:w-[45%] mb-2 bg-red-400 mr-4">
+                    <section className="w-[60%] sm3:w-[40%] sm2:w-[45%] mb-2 bg-red-400 mr-4">
                       <section className="">{item.name}</section>
 
                       <section className="mt-1 sm2:mt-2 font-semibold">
@@ -126,12 +126,12 @@ const cart = () => {
                       </section>
                     </section>
 
-                    <section className="w-[60%] sm2:w-[18%] relative flex items-center justify-between sm2:flex-col sm2:items-start">
-                      <section className="font-semibold">
+                    <section className="w-fit relative flex items-center justify-between sm2:flex-col sm2:items-start">
+                      <section className="w-fit font-semibold">
                         ₦{numbersWithCommas(item.price * item.qty)}
                       </section>
                       <section
-                        className="md:mt-2 cursor-pointer text-red-700 hover:text-black duration-300"
+                        className="md:mt-2 cursor-pointer text-red-700 hover:text-black duration-300 w-fit"
                         onClick={() => {
                           removeFromCart(item);
                           toast.error(`${item.name} removed from cart`);
@@ -140,7 +140,7 @@ const cart = () => {
                         remove
                       </section>
                       <section
-                        className="md:mt-2 cursor-pointer text-red-700 hover:text-black duration-300"
+                        className="md:mt-2 cursor-pointer text-red-700 hover:text-black duration-300 fit"
                         onClick={() => {
                           addToWishlist(item);
                           toast.success(`${item.name} added to wishlist`);
