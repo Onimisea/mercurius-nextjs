@@ -87,7 +87,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
               {productImages ? (
                 productImages?.map((pi, i) => (
                   <section
-                    className={`w-[100px] h-[100px] ${i === imgIndex ? "p-3 bg-gray-300 rounded-md" : ""}`}
+                    className={`w-[100px] h-[100px] ${i === imgIndex ? "p-1 bg-primary rounded-sm" : ""}`}
                     onMouseEnter={() => setImgIndex(i)}
                   >
                     <img
@@ -222,7 +222,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             You Might Also Like
           </h1>
 
-          <section className="w-[80%] mt-8 mb-6 grid place-items-center gap-y-2 sm3:gap-x-2 grid-cols-1 sm3:grid-cols-2 md:grid-cols-3">
+          <section className="w-[80%] mt-8 mb-6 flex items-center justify-center space-x-4">
             {relatedProducts.length > 0 ? (
               relatedProducts?.map((product) => (
                 <ProductCard key={product.id} product={product} />
