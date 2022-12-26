@@ -6,6 +6,15 @@ const Sidebar = ({ links }) => {
   return (
     <section className="w-full h-fit grid place-items-center">
       <ul className="p-0 m-0 block">
+        {links.map((ln) => (
+          <li className="flex items-center justify-center text-md md:text-lg">
+            <Link href={ln.url} className={`w-full h-full px-2 py-1 cursor-pointer text-white hover:text-primary`}>
+              {ln.icon}
+              {ln.name}
+            </Link>
+          </li>
+        ))}
+
         {/* <li className="flex items-center justify-center text-md md:text-lg">
         <ImUser size={25} className="mr-2" />
         Account

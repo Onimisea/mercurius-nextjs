@@ -31,6 +31,7 @@ const account = ({ userStatus }) => {
       name: "Account",
       url: "/account",
       icon: <ImUser size={25} className="mr-2" />,
+      active: true,
     },
     {
       name: "Favourites",
