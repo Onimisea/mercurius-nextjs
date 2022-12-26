@@ -15,7 +15,7 @@ const Sidebar = ({ links }) => {
               }`}
             >
               <span className="mr-1">{ln.icon}</span>
-              <span className="">{ln.name}</span>
+              <span className="hidden sm2:flex">{ln.name}</span>
             </Link>
           </li>
         ))}
