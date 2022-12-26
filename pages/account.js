@@ -87,7 +87,7 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-between mt-8">
-            <section className="bg-black w-[25%] p-6">
+            <section className="bg-black w-[25%] p-8 md2:px-12 md2:py-8">
               <Sidebar links={sidebarLinks} />
             </section>
 
