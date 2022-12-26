@@ -107,7 +107,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             </section>
           </section>
 
-          <section className="w-full mt-8 md:w-[48%] py-0 md2:py-6">
+          <section className="w-full mt-16 md:w-[48%] py-0 md3:py-6">
             <section className="text-black sm3:text-2xl md:text-3xl">
               {product.name}
             </section>
@@ -133,7 +133,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
 
             <section className="flex items-center justify-start space-x-6 mt-2">
               <section
-                className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
+                className="bg-white text-black md2:text-lg border-2 border-black w-[40px] h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
                 onClick={() => increQty(product)}
               >
                 +
@@ -142,7 +142,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
                 {product.qty}
               </section>
               <section
-                className="bg-white text-black md2:text-lg border-2 border-black sm3:w-[40px] sm3:h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
+                className="bg-white text-black md2:text-lg border-2 border-black w-[40px] h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
                 onClick={() => decreQty(product)}
               >
                 -
