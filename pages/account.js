@@ -41,7 +41,7 @@ const account = ({ userStatus }) => {
           </Link>
         </section>
       ) : (
-        <section className="w-full flex items-start justify-start my-10">
+        <section className="w-full flex flex-col items-start justify-start my-10">
           <h1 className="text-2xl sm2:text-3xl md2:text-4xl text-primary font-dalek">
             Settings
           </h1>
