@@ -4,8 +4,8 @@ import Link from "next/link";
 const Sidebar = ({ links }) => {
   console.log(links);
   return (
-    <section className="w-full h-fit grid place-items-center">
-      <ul className="p-0 m-0 block w-full space-y-4">
+    <section className="w-full h-fit flex items-center justify-center">
+      <ul className="p-0 m-0 flex items-center justify-center w-full space-y-4">
         {links.map((ln) => (
           <li className="w-full p-2 md:text-md grid place-items-center">
             <Link

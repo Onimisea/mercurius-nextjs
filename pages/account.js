@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useAppContext } from "../context/AppContext";
@@ -87,7 +87,7 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-between mt-8">
-            <section className="bg-black w-[20%] py-8 px-6">
+            <section className="bg-black xl:w-[20%] py-8 px-6">
               <Sidebar links={sidebarLinks} />
             </section>
 
