@@ -8,7 +8,13 @@ import toast from "react-hot-toast";
 import ProductCard from "../components/ProductCard";
 import phImg from "../public/favicon.png";
 
-const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
+const ProductPage = ({
+  productb,
+  productImages,
+  pdi,
+  relatedProducts,
+  productAttributesArr,
+}) => {
   const router = useRouter();
 
   const {
@@ -62,6 +68,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
   }, [router.query, router.isReady]);
 
   console.log(product);
+  console.log(productAttributesArr);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -149,7 +156,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
               </section>
             </section>
 
-            <section className="flex items-center justify-start space-x-6 mt-2">
+            <section className="flex items-center justify-start space-x-6 mt-4">
               Sizes
             </section>
 
@@ -265,11 +272,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const producta = await productArr[0];
 
-  const productb = {
-    ...producta,
-    qty: 1,
-  };
-
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
@@ -279,6 +281,21 @@ export const getStaticProps = async ({ params: { slug } }) => {
     alt_text: pi.alt_text,
     is_featured: pi.is_feature,
   }));
+
+  const productAttributesArr = await producta.attribute_value.map((pa) => {
+    const paTTrArr = pa.attribute.split(" ");
+    const pattr = paTTrArr[paTTrArr.length - 1];
+
+    return {
+      attr: pattr,
+      value: pa.value,
+    };
+  });
+
+  const productb = {
+    ...producta,
+    qty: 1,
+  };
 
   const pdiArr = await productImages.filter((pi) => pi.is_featured === true);
 
@@ -315,6 +332,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
       productImages,
       pdi,
       relatedProducts,
+      productAttributesArr,
     },
   };
 };
