@@ -50,8 +50,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
   useEffect(() => {
     setProduct(productb);
     setProductDI(pdi);
-    router.reload();
-  }, [router.query.slug]);
+  }, [router.query, router.isReady]);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
