@@ -13,7 +13,7 @@ const ProductPage = ({
   productImages,
   pdi,
   relatedProducts,
-  productAttributesArr,
+  productAttributesArr, productsAttr
 }) => {
   const router = useRouter();
 
@@ -69,6 +69,7 @@ const ProductPage = ({
 
   console.log(product);
   console.log(productAttributesArr);
+  console.log(productsAttr);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -292,6 +293,26 @@ export const getStaticProps = async ({ params: { slug } }) => {
     };
   });
 
+  const productsAttr = []
+  
+  await productAttributesArr.map((par) => {
+    if (par.attr === "Size") {
+      productsAttr.push({
+        Size: [
+          par.value,
+        ],
+      });
+    }
+
+    if (par.attr === "Volume") {
+      productsAttr.push({
+        Volume: [par.value],
+      });
+    }
+  })
+
+
+
   const productb = {
     ...producta,
     qty: 1,
@@ -317,12 +338,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
   if (relatedProductsss.length >= 4) {
     for (let rp = 0; rp < 4; rp++) {
       relatedProducts.push(relatedProductsss[rp]);
-      console.log(rp);
     }
   } else {
     for (let rp = 0; rp < relatedProductsss.length; rp++) {
       relatedProducts.push(relatedProductsss[rp]);
-      console.log(rp);
     }
   }
 
@@ -333,6 +352,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
       pdi,
       relatedProducts,
       productAttributesArr,
+      productsAttr,
     },
   };
 };
