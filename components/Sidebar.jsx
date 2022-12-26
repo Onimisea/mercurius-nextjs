@@ -5,7 +5,7 @@ const Sidebar = ({ links }) => {
   console.log(links);
   return (
     <section className="w-full h-fit flex items-center justify-center">
-      <ul className="p-0 m-0 flex items-center justify-center w-full space-y-4">
+      <ul className="p-0 m-0 flex flex-col items-center justify-center w-full space-y-4">
         {links.map((ln) => (
           <li className="w-full p-2 md:text-md grid place-items-center">
             <Link
