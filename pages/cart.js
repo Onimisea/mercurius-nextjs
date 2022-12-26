@@ -77,9 +77,9 @@ const cart = () => {
                 return (
                   <section
                     key={item.id}
-                    className="flex md:items-center sm2:justify-start flex-wrap md:my-3 md:p-3 border-b-2 my-3 py-3 text-sm sm2:text-md md:text-lg"
+                    className="flex md:items-center justify-start sm2:justify-between flex-wrap md:my-3 md:p-3 border-b-2 my-3 py-3 text-sm sm2:text-md md:text-lg"
                   >
-                    <section className="w-[40px] h-[40px] sm2:w-[60px] sm2:h-[60px] sm2:mr-4 md:w-[80px] md:h-[80px] rounded-md">
+                    <section className="w-[40px] h-[40px] mr-4 sm2:w-[60px] sm2:h-[60px] md:w-[80px] md:h-[80px] rounded-md">
                       <img
                         src={fiUrl}
                         alt={item.name}
