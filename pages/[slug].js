@@ -75,8 +75,8 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
               />
             </section>
 
-            <section className="w-[90px] h-[90px] md:w-[110px] md:h-[110px] md2:w-[120px] md2:h-[120px] flex items-center justify-start whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500 overflow-y-hidden space-x-4">
-              {productImages ? (
+            <section className="w-full h-[90px] md:h-[110px] md2:h-[120px] flex items-center justify-start whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500 overflow-y-hidden space-x-4">
+              {productImages &&
                 productImages?.map((pi, i) => (
                   <section
                     className={`w-[80px] h-[80px] md:w-[95px] md:h-[95px] md2:w-[115px] md2:h-[115px] cursor-pointer ${
@@ -92,18 +92,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
                       className="w-full h-full rounded-md object-cover object-center z-20"
                     />
                   </section>
-                ))
-              ) : (
-                <section className="w-[100px] h-[100px]" onMouseEnter="">
-                  <img
-                    src={phImg}
-                    alt={pi.product}
-                    width={0}
-                    height={0}
-                    className="w-[100px] h-[100px] object-cover object-center z-20"
-                  />
-                </section>
-              )}
+                ))}
             </section>
           </section>
 
