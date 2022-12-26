@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <Link href={`../${product.slug}`}>
-      <section className="bg-white m-4 pb-6 shadow-sm rounded-md relative text-center cursor-pointer group w-[250px] min-w-[250px]">
+      <section className="bg-white m-4 pb-6 shadow-md rounded-md relative text-center cursor-pointer group w-[250px] min-w-[250px]">
         {product.is_onFlashsale && (
           <span className="w-fit block absolute top-[15px] left-[15px] bg-primary text-white px-3 py-2 rounded-lg">
             -{product.flashsale}%
