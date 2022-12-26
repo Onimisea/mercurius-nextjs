@@ -333,19 +333,27 @@ export const getStaticProps = async ({ params: { slug } }) => {
     qty: 1,
   };
 
-  if (productsAttr.Size !== undefined) {
+  if (productsAttr.Size !== undefined && productsAttr.Size !== null) {
     productb = {
       ...producta,
       qty: 1,
       size: productsAttr.Size[0],
     };
-  } else if (productsAttr.Volume !== undefined) {
+  } else if (
+    productsAttr.Volume !== undefined &&
+    productsAttr.Volume !== null
+  ) {
     productb = {
       ...producta,
       qty: 1,
       volume: productsAttr.Volume[0],
     };
-  } else if (productsAttr.Size !== undefined && productsAttr.Volume !== undefined) {
+  } else if (
+    productsAttr.Size !== undefined &&
+    productsAttr.Size !== null &&
+    productsAttr.Volume !== undefined &&
+    productsAttr.Volume !== null
+  ) {
     productb = {
       ...producta,
       qty: 1,
