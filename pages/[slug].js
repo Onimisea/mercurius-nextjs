@@ -80,7 +80,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
                 productImages?.map((pi, i) => (
                   <section
                     className={`w-[80px] h-[80px] md:w-[95px] md:h-[95px] md2:w-[115px] md2:h-[115px] cursor-pointer ${
-                      i === imgIndex ? "p-1 bg-gray-400 rounded-sm" : ""
+                      i === imgIndex ? "p-1 bg-gray-500 rounded-md" : ""
                     }`}
                     onMouseEnter={() => setImgIndex(i)}
                   >
