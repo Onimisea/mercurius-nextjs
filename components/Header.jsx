@@ -49,7 +49,7 @@ const Header = () => {
   return (
     <section className="w-[85%] max-w-screen-xl mx-auto flex items-center justify-between py-6 z-50">
       <Link href="/">
-        <h1 className="z-50 font-dalek text-2xl font-semibold cursor-pointer hover:scale-105 duration-300">
+        <h1 className="z-50 font-dalek text-xl sm3:text-2xl font-semibold cursor-pointer hover:scale-105 duration-300">
           MERCURIUS
         </h1>
       </Link>
