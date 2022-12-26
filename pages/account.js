@@ -94,7 +94,7 @@ const account = ({ userStatus }) => {
                 <Sidebar links={sidebarLinks} />
               </section>
 
-              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] bg-red-500 absolute -top-[50[x]] left-0">
+              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] bg-red-500 absolute -top-[50px] left-[7.5px]">
                 {asideOpen ? (
                   <MdClose size={25} className="text-primary" />
                 ) : (
