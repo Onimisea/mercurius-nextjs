@@ -227,6 +227,11 @@ export const AppProvider = ({ children }) => {
     // onClose: () => alert("Wait! You need this items, don't go!!!!"),
   };
 
+  // Select product size
+  const selectSize = (item) => {
+    appStateDispatch({ type: "SELECT_SIZE", payload: item });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -277,6 +282,7 @@ export const AppProvider = ({ children }) => {
         setUserInfo,
         productTypes,
         setProductTypes,
+        selectSize,
       }}
     >
       {children}

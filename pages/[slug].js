@@ -13,6 +13,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
 
   const {
     appState: { cart, wishlist },
+    appStateDispatch,
     addToCart,
     removeFromCart,
     addToWishlist,
@@ -23,6 +24,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
   const [productDI, setProductDI] = useState(pdi);
   const [product, setProduct] = useState(productb);
   const [imgIndex, setImgIndex] = useState(0);
+  const [size, setSize] = useState(null);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -47,10 +49,19 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
     }
   };
 
+  const selectSize = (item, size) => {
+    setProduct((item) => ({
+      ...item,
+      size: size,
+    }));
+  };
+
   useEffect(() => {
     setProduct(productb);
     setProductDI(pdi);
   }, [router.query, router.isReady]);
+
+  console.log(product);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -136,6 +147,10 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
               >
                 -
               </section>
+            </section>
+
+            <section className="flex items-center justify-start space-x-6 mt-2">
+              Sizes
             </section>
 
             <section className="mt-6">

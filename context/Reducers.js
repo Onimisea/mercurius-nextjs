@@ -92,6 +92,12 @@ export const appReducer = (state, action) => {
         wishlist: newWishlist,
       };
 
+    case "SELECT_SIZE":
+      return {
+        ...state,
+        cart: [...state.cart, { ...action.payload, size: action.payload.size }],
+      };
+
     default:
       return state;
   }
