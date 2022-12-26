@@ -175,7 +175,7 @@ const ProductPage = ({
                       selectedSize === size
                         ? "bg-black text-white hover:bg-primary hover:border-primary"
                         : "bg-white text-black"
-                    } md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300`}
+                    } md2:text-lg border-2 border-black w-fit h-fit grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 p-1`}
                     onClick={() => selectSize(product, size)}
                   >
                     {size}
@@ -192,7 +192,7 @@ const ProductPage = ({
                       selectedVol === vol
                         ? "bg-black text-white hover:bg-primary hover:border-primary"
                         : "bg-white text-black"
-                    } md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 px-2`}
+                    } md2:text-lg border-2 border-black w-fit h-fit grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 p-1`}
                     onClick={() => selectVolume(product, vol)}
                   >
                     {vol}
@@ -201,7 +201,7 @@ const ProductPage = ({
               </section>
             )}
 
-            <section className="mt-6">
+            <section className="mt-4">
               <ul className="block space-y-4">
                 {cart.some((p) => p.id === product.id) ? (
                   <li
