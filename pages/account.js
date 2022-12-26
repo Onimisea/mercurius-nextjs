@@ -47,9 +47,9 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-between mt-8">
-            <section className="bg-gray-300 w-[36%]">Sidebar</section>
+            <section className="bg-gray-300 w-[30%]">Sidebar</section>
 
-            <section className="bg-gray-400 w-[60%]">Main</section>
+            <section className="bg-gray-400 w-[65%]">Main</section>
           </section>
         </section>
       )}
