@@ -79,7 +79,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
               {productImages ? (
                 productImages?.map((pi, i) => (
                   <section
-                    className={`w-[100px] h-fit max-h-[100px] md2:h-[100px] cursor-pointer ${
+                    className={`w-[100px] h-auto max-h-[100px] md2:h-[100px] cursor-pointer ${
                       i === imgIndex ? "p-1 bg-black rounded-sm" : ""
                     }`}
                     onMouseEnter={() => setImgIndex(i)}
@@ -89,7 +89,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
                       alt={pi.product}
                       width={0}
                       height={0}
-                      className="w-full h-fit max-h-[100px] md2:h-full rounded-sm object-cover object-center z-20"
+                      className="w-full h-auto max-h-[100px] md2:h-full rounded-sm object-cover object-center z-20"
                     />
                   </section>
                 ))
