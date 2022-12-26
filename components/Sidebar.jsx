@@ -10,10 +10,10 @@ const Sidebar = ({ links }) => {
           <li className="w-full p-2 md:text-md grid place-items-center">
             <Link
               href={ln.url}
-              className={`w-[60%] flex items-start justify-start h-full cursor-pointer text-white hover:text-primary`}
+              className={`w-[60%] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary`}
             >
-              <span className="w-[30%] bg-red-400">{ln.icon}</span>
-              <span className="w-[60%] bg-red-500">{ln.name}</span>
+              <span className="">{ln.icon}</span>
+              <span className="w-[80%] bg-red-500">{ln.name}</span>
             </Link>
           </li>
         ))}
