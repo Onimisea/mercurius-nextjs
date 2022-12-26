@@ -18,7 +18,7 @@ const Sidebar = ({ links, asideOpen }) => {
             >
               <span className="mr-1">{ln.icon}</span>
               <span
-                className={` ${asideOpen ? "flex" : "hidden"} sm2:flex`}
+                className={` ${asideOpen ? "hidden" : "hidden"} sm2:flex`}
               >
                 {ln.name}
               </span>
