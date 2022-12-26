@@ -294,14 +294,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
     };
   });
 
-  const productsAttr = [
-    {
-      Size: [],
-    },
-    {
-      Volume: [],
-    },
-  ];
+  const productsAttr = {
+    Size: [],
+    Volume: [],
+  };
 
   await productAttributesArr.map((par) => {
     if (par.attr === "Size") {
