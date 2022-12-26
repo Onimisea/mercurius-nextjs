@@ -89,8 +89,24 @@ const cart = () => {
 
                     <section className="w-[60%] sm3:w-[40%] sm2:w-[45%] mb-2">
                       <section className="">{item.name}</section>
+
                       <section className="mt-1 sm2:mt-2 font-semibold">
                         ₦{numbersWithCommas(item.price)}
+                      </section>
+
+                      <section className="mt-1 sm2:mt-2 flex items-start justify-start flex-wrap space-x-2 space-y-2">
+                        {item.size && (
+                          <p className="">
+                            Size:{" "}
+                            <span className="font-semibold">{item.size}</span>
+                          </p>
+                        )}
+                        {item.vol && (
+                          <p className="">
+                            Vol:{" "}
+                            <span className="font-semibold">{item.vol}</span>
+                          </p>
+                        )}
                       </section>
                     </section>
 

@@ -71,15 +71,13 @@ const ProductPage = ({
       vol: vol,
     }));
 
-    setSelectedVol(vol)
+    setSelectedVol(vol);
   };
 
   useEffect(() => {
     setProduct(productb);
     setProductDI(pdi);
   }, [router.query, router.isReady]);
-
-  console.log(product);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -175,7 +173,7 @@ const ProductPage = ({
                       selectedSize === size
                         ? "bg-black text-white hover:bg-primary hover:border-primary"
                         : "bg-white text-black"
-                    } md2:text-lg border-2 border-black w-fit h-fit grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 p-1`}
+                    } md2:text-lg border-2 border-black w-fit h-fit grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 px-2 py-1`}
                     onClick={() => selectSize(product, size)}
                   >
                     {size}
@@ -192,7 +190,7 @@ const ProductPage = ({
                       selectedVol === vol
                         ? "bg-black text-white hover:bg-primary hover:border-primary"
                         : "bg-white text-black"
-                    } md2:text-lg border-2 border-black w-fit h-fit grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 p-1`}
+                    } md2:text-lg border-2 border-black w-fit h-fit grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 px-2 py-1`}
                     onClick={() => selectVolume(product, vol)}
                   >
                     {vol}
