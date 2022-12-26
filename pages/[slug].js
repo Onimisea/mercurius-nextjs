@@ -30,7 +30,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
 
   const [productDI, setProductDI] = useState(pdi);
   const [product, setProduct] = useState(productb);
-  const [imgIndex, setImgIndex] = useState(0)
+  const [imgIndex, setImgIndex] = useState(0);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -87,7 +87,9 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
               {productImages ? (
                 productImages?.map((pi, i) => (
                   <section
-                    className={`w-[100px] h-[100px] cursor-pointer ${i === imgIndex ? "p-1 bg-black rounded-sm" : ""}`}
+                    className={`w-[100px] h-[100px] cursor-pointer ${
+                      i === imgIndex ? "p-1 bg-black rounded-sm" : ""
+                    }`}
                     onMouseEnter={() => setImgIndex(i)}
                   >
                     <img
@@ -217,7 +219,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
           </section>
         </section>
 
-        <section className="w-full mx-auto max-w-screen-xl grid place-items-center mt-16">
+        <section className="w-full mx-auto max-w-screen-xl grid place-items-center mt-20">
           <h1 className="text-black sm2:text-2xl md:text-3xl font-dalek font-semibold">
             You Might Also Like
           </h1>
@@ -292,9 +294,16 @@ export const getStaticProps = async ({ params: { slug } }) => {
     (product) => product.lowersubcategory.slug === relatedProductsSlug
   );
 
-  const relatedProducts = await relatedProductsArr.filter(
+  const relatedProductsss = await relatedProductsArr.filter(
     (product) => product.id !== productb.id
   );
+
+  const relatedProducts = [];
+  let rp = 0;
+  do {
+    relatedProducts.push(relatedProductsss[rp]);
+    rp++;
+  } while (rp < 5);
 
   return {
     props: {
