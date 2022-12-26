@@ -13,19 +13,11 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
 
   const {
     appState: { cart, wishlist },
-    appStateDispatch,
     addToCart,
     removeFromCart,
     addToWishlist,
     removeFromWishlist,
-    totalPrice,
-    shipping,
-    setShipping,
-    salesTax,
-    setSalesTax,
     numbersWithCommas,
-    increaseQty,
-    decreaseQty,
   } = useAppContext();
 
   const [productDI, setProductDI] = useState(pdi);
@@ -69,7 +61,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
       <section className="w-full mx-auto max-w-screen-xl flex items-center justify-center flex-wrap my-6 bg-white">
         <section className="w-full mx-auto max-w-screen-xl flex items-start justify-between mt-6">
           <section className="w-[48%] flex flex-col items-center justify-center space-y-6">
-            <section className="w-full h-[500px]">
+            <section className="w-full h-auto md2:h-[500px]">
               <img
                 src={
                   productImages.length > 1
@@ -79,15 +71,15 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
                 alt={productDI.product}
                 width={0}
                 height={0}
-                className="w-full h-[500px] max-h-[500px] object-cover object-center z-20"
+                className="w-full h-auto md2:h-[500px] object-cover object-center z-20"
               />
             </section>
 
-            <section className="w-full h-[120px] flex items-center justify-start whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500 overflow-y-hidden space-x-4">
+            <section className="w-full h-auto md2:h-[120px] flex items-center justify-start whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500 overflow-y-hidden space-x-4">
               {productImages ? (
                 productImages?.map((pi, i) => (
                   <section
-                    className={`w-[100px] h-[100px] cursor-pointer ${
+                    className={`w-[100px] h-auto md2:-[100px] cursor-pointer ${
                       i === imgIndex ? "p-1 bg-black rounded-sm" : ""
                     }`}
                     onMouseEnter={() => setImgIndex(i)}
@@ -97,7 +89,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
                       alt={pi.product}
                       width={0}
                       height={0}
-                      className="w-full h-full rounded-sm object-cover object-center z-20"
+                      className="w-full h-auto md2:h-full rounded-sm object-cover object-center z-20"
                     />
                   </section>
                 ))
