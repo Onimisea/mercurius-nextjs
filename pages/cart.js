@@ -94,7 +94,7 @@ const cart = () => {
                         ₦{numbersWithCommas(item.price)}
                       </section>
 
-                      <section className="mt-1 sm2:mt-2 flex items-start justify-start flex-wrap space-x-2 space-y-2">
+                      <section className="mt-1 sm2:mt-2 flex items-start justify-start flex-wrap space-x-2 space-y-2 text-sm">
                         {item.size && (
                           <p className="">
                             Size:{" "}
