@@ -77,7 +77,7 @@ const cart = () => {
                 return (
                   <section
                     key={item.id}
-                    className="flex items-start justify-start flex-wrap space-x-3 md:my-3 md:p-3 border-b-2 my-3 py-3 text-sm sm2:text-md md:text-lg"
+                    className="flex items-start justify-start flex-wrap space-x-3 space-y-3 md:my-3 md:p-3 border-b-2 my-3 py-3 text-sm sm2:text-md md:text-lg"
                   >
                     {/* md:items-center sm3:justify-between */}
                     <section className="w-[60px] h-[60px] sm2:w-[80px] sm2:h-[80px] rounded-md">
@@ -125,8 +125,9 @@ const cart = () => {
                         -
                       </section>
                     </section>
-                    <section className="w-fit relative flex items-center justify-between sm2:flex-col sm2:items-start spaxe-x-4">
-                      <section className="w-fit font-semibold">
+
+                    <section className="w-full relative flex items-center justify-between sm2:flex-col sm2:items-start spaxe-x-4">
+                      <section className="w-full font-semibold">
                         ₦{numbersWithCommas(item.price * item.qty)}
                       </section>
                       <section
