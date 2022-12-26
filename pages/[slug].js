@@ -50,6 +50,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
   useEffect(() => {
     setProduct(productb);
     setProductDI(pdi);
+    router.reload();
   }, [router.query.slug]);
 
   return (
