@@ -300,10 +300,20 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const relatedProducts = [];
   let rp = 0;
-  do {
-    relatedProducts.push(relatedProductsss[rp]);
-    rp++;
-  } while (rp < 5);
+
+  if (relatedProductsss.length > 4) {
+    do {
+      relatedProducts.push(relatedProductsss[rp]);
+      rp++;
+      console.log(rp);
+    } while (rp < 5);
+  } else {
+    do {
+      relatedProducts.push(relatedProductsss[rp]);
+      rp++;
+      console.log(rp);
+    } while (rp < relatedProductsss.length);
+  }
 
   return {
     props: {
