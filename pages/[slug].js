@@ -156,13 +156,26 @@ const ProductPage = ({
             </section>
 
             {productsAttr.Size && (
-              <section className="flex items-center justify-start space-x-3 mt-4">
+              <section className="flex items-center justify-start space-x-3 mt-6">
                 {productsAttr.Size.map((size) => (
                   <section
                     className="bg-white text-black md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300"
                     onClick={() => selectSize(product, size)}
                   >
                     {size}
+                  </section>
+                ))}
+              </section>
+            )}
+
+            {productsAttr.Volume && (
+              <section className="flex items-center justify-start space-x-3 mt-6">
+                {productsAttr.Volume.map((vol) => (
+                  <section
+                    className="bg-white text-black md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300"
+                    onClick={() => selectVolume(product, vol)}
+                  >
+                    {vol}
                   </section>
                 ))}
               </section>
@@ -315,7 +328,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
     }
   });
 
-  let productb = {};
+  let productb = null;
 
   if (productsAttr.Size) {
     productb = {
