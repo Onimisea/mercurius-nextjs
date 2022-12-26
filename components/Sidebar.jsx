@@ -10,7 +10,7 @@ const Sidebar = ({ links }) => {
           <li className="w-full md:text-md bg-red-600">
             <Link
               href={ln.url}
-              className={`w-full flex items-center justify-center h-full px-2 py-1 cursor-pointer text-white hover:text-primary`}
+              className={`w-full flex items-center justify-start h-full px-2 py-1 cursor-pointer text-white hover:text-primary`}
             >
               {ln.icon}
               {ln.name}
