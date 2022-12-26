@@ -56,12 +56,10 @@ const ProductPage = ({
   };
 
   const selectSize = (item, size) => {
-    // setProduct((item) => ({
-    //   ...item,
-    //   size: size,
-    // }));
-
-    console.log(size);
+    setProduct((item) => ({
+      ...item,
+      size: size,
+    }));
   };
 
   useEffect(() => {
@@ -70,7 +68,6 @@ const ProductPage = ({
   }, [router.query, router.isReady]);
 
   console.log(product);
-  console.log(productsAttr);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -142,7 +139,7 @@ const ProductPage = ({
 
             <section className="flex items-center justify-start space-x-6 mt-2">
               <section
-                className="bg-white text-black md2:text-lg border-2 border-black w-[40px] h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
+                className="bg-white text-black md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300"
                 onClick={() => increQty(product)}
               >
                 +
@@ -151,7 +148,7 @@ const ProductPage = ({
                 {product.qty}
               </section>
               <section
-                className="bg-white text-black md2:text-lg border-2 border-black w-[40px] h-[40px] md:w-[50px] md:h-[50px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
+                className="bg-white text-black md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300"
                 onClick={() => decreQty(product)}
               >
                 -
@@ -159,10 +156,10 @@ const ProductPage = ({
             </section>
 
             {productsAttr.Size && (
-              <section className="flex items-center justify-start space-x-6 mt-4">
+              <section className="flex items-center justify-start space-x-3 mt-4">
                 {productsAttr.Size.map((size) => (
                   <section
-                    className="bg-white text-black md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
+                    className="bg-white text-black md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300"
                     onClick={() => selectSize(product, size)}
                   >
                     {size}
