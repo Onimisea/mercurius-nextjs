@@ -301,18 +301,16 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const relatedProducts = [];
   let rp = 0;
 
-  if (relatedProductsss.length > 4) {
-    do {
+  if (relatedProductsss.length >= 4) {
+    for (let rp = 0; rp < 4; rp++) {
       relatedProducts.push(relatedProductsss[rp]);
-      rp++;
       console.log(rp);
-    } while (rp < 5);
+    }
   } else {
-    do {
+    for (let rp = 0; rp < relatedProductsss.length; rp++) {
       relatedProducts.push(relatedProductsss[rp]);
-      rp++;
       console.log(rp);
-    } while (rp < relatedProductsss.length);
+    }
   }
 
   return {
