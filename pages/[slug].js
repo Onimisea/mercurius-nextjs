@@ -328,7 +328,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
     }
   });
 
-  let productb = null;
+  let productb = {
+    ...producta,
+    qty: 1,
+  };
 
   if (productsAttr.Size) {
     productb = {
