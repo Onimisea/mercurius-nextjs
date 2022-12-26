@@ -56,10 +56,12 @@ const ProductPage = ({
   };
 
   const selectSize = (item, size) => {
-    setProduct((item) => ({
-      ...item,
-      size: size,
-    }));
+    // setProduct((item) => ({
+    //   ...item,
+    //   size: size,
+    // }));
+
+    console.log(size);
   };
 
   useEffect(() => {
@@ -156,13 +158,18 @@ const ProductPage = ({
               </section>
             </section>
 
-            <section className="flex items-center justify-start space-x-6 mt-4">
-              {productsAttr && productsAttr.map((pa) => {
-                if(pa) {
-                  return <p>{pa}</p>
-                }
-              })}
-            </section>
+            {productsAttr.Size && (
+              <section className="flex items-center justify-start space-x-6 mt-4">
+                {productsAttr.Size.map((size) => (
+                  <section
+                    className="bg-white text-black md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-md cursor-pointer hover:bg-primary hover:border-primary hover:text-white duration-300"
+                    onClick={() => selectSize(product, size)}
+                  >
+                    {size}
+                  </section>
+                ))}
+              </section>
+            )}
 
             <section className="mt-6">
               <ul className="block space-y-4">
