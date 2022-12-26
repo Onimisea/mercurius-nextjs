@@ -66,7 +66,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
         <title>Mercurius {product.name} | Best Thrift Store in Nigeria</title>
       </Head>
 
-      <section className="w-full mx-auto max-w-screen-xl grid place-items-center my-6 bg-white">
+      <section className="w-full mx-auto max-w-screen-xl flex items-center justify-center flex-wrap my-6 bg-white">
         <section className="w-full mx-auto max-w-screen-xl flex items-start justify-between mt-6">
           <section className="w-[48%] flex flex-col items-center justify-center space-y-6">
             <section className="w-full h-[500px]">
