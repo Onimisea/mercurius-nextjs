@@ -75,11 +75,11 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
               />
             </section>
 
-            <section className="w-full h-auto max-h-[120px] md2:h-[120px] flex items-center justify-start whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500 overflow-y-hidden space-x-4">
+            <section className="w-full h-fit max-h-[120px] md2:h-[120px] flex items-center justify-start whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500 overflow-y-hidden space-x-4">
               {productImages ? (
                 productImages?.map((pi, i) => (
                   <section
-                    className={`w-[100px] h-auto max-h-[100px] md2:-[100px] cursor-pointer ${
+                    className={`w-[100px] h-fit max-h-[100px] md2:h-[100px] cursor-pointer ${
                       i === imgIndex ? "p-1 bg-black rounded-sm" : ""
                     }`}
                     onMouseEnter={() => setImgIndex(i)}
@@ -89,7 +89,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
                       alt={pi.product}
                       width={0}
                       height={0}
-                      className="w-full h-auto max-h-[100px] md2:h-full rounded-sm object-cover object-center z-20"
+                      className="w-full h-fit max-h-[100px] md2:h-full rounded-sm object-cover object-center z-20"
                     />
                   </section>
                 ))
