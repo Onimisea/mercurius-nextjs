@@ -30,8 +30,8 @@ const ProductPage = ({
   const [productDI, setProductDI] = useState(pdi);
   const [product, setProduct] = useState(productb);
   const [imgIndex, setImgIndex] = useState(0);
-  const [selectedSize, setSelectedSize] = useState(false);
-  const [selectedVol, setSelectedVol] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedVol, setSelectedVol] = useState(null);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -62,7 +62,7 @@ const ProductPage = ({
       size: size,
     }));
 
-    setSelectedSize(!selectedSize);
+    setSelectedSize(size);
   };
 
   const selectVolume = (item, vol) => {
@@ -71,7 +71,7 @@ const ProductPage = ({
       vol: vol,
     }));
 
-    setSelectedVol(!selectedVol)
+    setSelectedVol(vol)
   };
 
   useEffect(() => {
@@ -172,7 +172,7 @@ const ProductPage = ({
                 {productsAttr.Size.map((size) => (
                   <section
                     className={`${
-                      selectedSize
+                      selectedSize === size
                         ? "bg-black text-white hover:bg-primary hover:border-primary"
                         : "bg-white text-black"
                     } md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300`}
@@ -189,7 +189,7 @@ const ProductPage = ({
                 {productsAttr.Volume.map((vol) => (
                   <section
                     className={`${
-                      selectedVol
+                      selectedVol === vol
                         ? "bg-black text-white hover:bg-primary hover:border-primary"
                         : "bg-white text-black"
                     } md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 px-2`}
