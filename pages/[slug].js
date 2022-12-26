@@ -59,8 +59,8 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
       </Head>
 
       <section className="w-full mx-auto max-w-screen-xl flex items-center justify-center flex-wrap my-6 bg-white">
-        <section className="w-full mx-auto max-w-screen-xl flex items-start justify-between mt-6">
-          <section className="w-[48%] flex flex-col items-center justify-center space-y-6">
+        <section className="w-full mx-auto max-w-screen-xl flex items-start justify-between mt-6 flex-col md:flex-row">
+          <section className="w-full md:w-[48%] flex flex-col md:flex-row items-center justify-center space-y-6">
             <section className="w-full h-auto md2:h-[500px]">
               <img
                 src={
@@ -107,7 +107,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             </section>
           </section>
 
-          <section className="w-[48%] py-6">
+          <section className="w-full md:w-[48%] py-0 md2:py-6">
             <section className="text-black sm3:text-2xl md:text-3xl">
               {product.name}
             </section>
