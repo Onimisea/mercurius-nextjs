@@ -14,11 +14,11 @@ const Sidebar = ({ links, asideOpen }) => {
                 asideOpen ? "w-[150px] ml-4" : "w-[60px]"
               } sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
                 ln.active && "text-primary hover:text-gray-300"
-              } duration-300`}
+              }`}
             >
               <span className="mr-1">{ln.icon}</span>
               <span
-                className={` ${asideOpen ? "flex" : "hidden"} sm2:flex duration-300`}
+                className={` ${asideOpen ? "flex" : "hidden"} sm2:flex`}
               >
                 {ln.name}
               </span>
