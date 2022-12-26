@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const Sidebar = ({ links }) => {
+const Sidebar = ({ links, asideOpen }) => {
 
   return (
     <section className="w-fit h-fit flex items-center justify-center">
@@ -10,12 +10,18 @@ const Sidebar = ({ links }) => {
           <li className="w-fit md:text-md flex flex-col items-start justify-start">
             <Link
               href={ln.url}
-              className={`w-[60px] sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
+              className={` ${
+                asideOpen ? "w-[150px]" : "w-[60px]"
+              } sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
                 ln.active && "text-primary hover:text-gray-300"
               }`}
             >
               <span className="mr-1">{ln.icon}</span>
-              <span className="hidden sm2:flex">{ln.name}</span>
+              <span
+                className={` ${asideOpen ? "flex" : "hidden"} sm2:flex`}
+              >
+                {ln.name}
+              </span>
             </Link>
           </li>
         ))}

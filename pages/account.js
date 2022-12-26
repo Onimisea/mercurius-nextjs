@@ -88,17 +88,29 @@ const account = ({ userStatus }) => {
             Settings
           </h1>
 
-          <section className="w-full flex items-start justify-between mt-16">
+          <section className="w-full flex items-start justify-between mt-14">
             <section className="flex items-start justify-between relative">
-              <section className="bg-black w-[60px] sm2:w-[250px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative">
-                <Sidebar links={sidebarLinks} />
+              <section
+                className={`bg-black ${
+                  asideOpen ? "w-[250px]" : "w-[60px]"
+                } sm2:w-[250px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
+              >
+                <Sidebar links={sidebarLinks} asideOpen={asideOpen} />
               </section>
 
-              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] absolute -top-[50px] left-[8px]">
+              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] absolute -top-[40px] left-[8px] font-bold duration-300 cursor-pointer">
                 {asideOpen ? (
-                  <MdClose size={25} className="text-primary" />
+                  <MdClose
+                    size={25}
+                    className="text-primary"
+                    onClick={() => setAsideOpen(false)}
+                  />
                 ) : (
-                  <FiMenu size={25} className="text-primary" />
+                  <FiMenu
+                    size={25}
+                    className="text-black"
+                    onClick={() => setAsideOpen(true)}
+                  />
                 )}
               </section>
             </section>
