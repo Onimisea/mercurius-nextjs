@@ -79,7 +79,7 @@ const cart = () => {
                     key={item.id}
                     className="flex md:items-center justify-between sm2:justify-between flex-wrap md:my-3 md:p-3 border-b-2 my-3 py-3 text-sm sm2:text-md md:text-lg"
                   >
-                    <section className="w-[60px] h-[60px] mr-4 md:w-[80px] md:h-[80px] rounded-md">
+                    <section className="w-[60px] h-[60px] md:w-[80px] md:h-[80px] rounded-md">
                       <img
                         src={fiUrl}
                         alt={item.name}
@@ -126,7 +126,7 @@ const cart = () => {
                       </section>
                     </section>
 
-                    <section className="w-full relative flex items-center justify-between sm2:flex-col sm2:items-start">
+                    <section className="w-[60%] relative flex items-center justify-between sm2:flex-col sm2:items-start">
                       <section className="w-fit font-semibold">
                         ₦{numbersWithCommas(item.price * item.qty)}
                       </section>
