@@ -315,10 +315,33 @@ export const getStaticProps = async ({ params: { slug } }) => {
     }
   });
 
-  const productb = {
-    ...producta,
-    qty: 1,
-  };
+  let productb = {};
+
+  if (productsAttr.Size) {
+    productb = {
+      ...producta,
+      qty: 1,
+      size: productsAttr.Size[0],
+    };
+  } else if (productsAttr.Volume) {
+    productb = {
+      ...producta,
+      qty: 1,
+      volume: productsAttr.Volume[0],
+    };
+  } else if (productsAttr.Size && productsAttr.Volume) {
+    productb = {
+      ...producta,
+      qty: 1,
+      size: productsAttr.Size[0],
+      volume: productsAttr.Volume[0],
+    };
+  } else {
+    productb = {
+      ...producta,
+      qty: 1,
+    };
+  }
 
   const pdiArr = await productImages.filter((pi) => pi.is_featured === true);
 
