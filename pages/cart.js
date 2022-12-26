@@ -77,17 +77,17 @@ const cart = () => {
                 return (
                   <section
                     key={item.id}
-                    className="flex md:items-center justify-between sm2:justify-between flex-wrap md:my-3 md:p-3 border-b-2 my-3 py-3 text-sm sm2:text-md md:text-lg"
+                    className="flex md:items-center justify-start sm3:justify-between flex-wrap md:my-3 md:p-3 border-b-2 my-3 py-3 text-sm sm2:text-md md:text-lg"
                   >
-                    <section className="w-[60px] h-[60px] md:w-[80px] md:h-[80px] rounded-md">
+                    <section className="w-[60px] h-[60px] sm2:w-[80px] sm2:h-[80px] rounded-md">
                       <img
                         src={fiUrl}
                         alt={item.name}
-                        className="w-[40px] h-[40px] sm2:w-[50px] sm2:h-[50px] md:w-[80px] md:h-[80px] object-contain rounded-md"
+                        className="w-[55px] h-[55px] sm2:w-[80px] sm2:h-[80px] object-contain rounded-md"
                       />
                     </section>
 
-                    <section className="w-[60%] sm2:w-[45%] mb-2 bg-red-400 mr-4">
+                    <section className="w-[60%] sm2:w-[45%] mb-2 bg-red-400">
                       <section className="">{item.name}</section>
 
                       <section className="mt-1 sm2:mt-2 font-semibold">
@@ -126,7 +126,7 @@ const cart = () => {
                       </section>
                     </section>
 
-                    <section className="w-[60%] relative flex items-center justify-between sm2:flex-col sm2:items-start">
+                    <section className="w-fit relative flex items-center justify-between sm2:flex-col sm2:items-start spaxe-x-4">
                       <section className="w-fit font-semibold">
                         ₦{numbersWithCommas(item.price * item.qty)}
                       </section>
