@@ -13,7 +13,8 @@ const ProductPage = ({
   productImages,
   pdi,
   relatedProducts,
-  productAttributesArr, productsAttr
+  productAttributesArr,
+  productsAttr,
 }) => {
   const router = useRouter();
 
@@ -293,25 +294,24 @@ export const getStaticProps = async ({ params: { slug } }) => {
     };
   });
 
-  const productsAttr = []
-  
+  const productsAttr = [
+    {
+      Size: [],
+    },
+    {
+      Volume: [],
+    },
+  ];
+
   await productAttributesArr.map((par) => {
     if (par.attr === "Size") {
-      productsAttr.push({
-        Size: [
-          par.value,
-        ],
-      });
+      productsAttr.Size.push(par.value);
     }
 
     if (par.attr === "Volume") {
-      productsAttr.push({
-        Volume: [par.value],
-      });
+      productsAttr.Volume.push(par.value);
     }
-  })
-
-
+  });
 
   const productb = {
     ...producta,
