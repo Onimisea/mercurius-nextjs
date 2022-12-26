@@ -110,7 +110,8 @@ const cart = () => {
                         )}
                       </section>
                     </section>
-                    <section className="w-fit flex items-center justify-center space-x-2">
+                    
+                    <section className="w-fit flex items-center justify-center space-x-2 mt-3">
                       <section
                         className="bg-black w-[30px] h-[30px] grid place-items-center text-white rounded-sm cursor-pointer hover:bg-primary duration-300"
                         onClick={() => increaseQty(item.id)}
@@ -126,7 +127,7 @@ const cart = () => {
                       </section>
                     </section>
 
-                    <section className="w-full relative flex items-center justify-between sm2:flex-col sm2:items-start spaxe-x-2">
+                    <section className="w-full relative flex items-center justify-between sm2:flex-col sm2:items-start spaxe-x-2 mt-3">
                       <section className="font-semibold">
                         ₦{numbersWithCommas(item.price * item.qty)}
                       </section>
