@@ -13,7 +13,6 @@ const ProductPage = ({
   productImages,
   pdi,
   relatedProducts,
-  productAttributesArr,
   productsAttr,
 }) => {
   const router = useRouter();
@@ -69,7 +68,6 @@ const ProductPage = ({
   }, [router.query, router.isReady]);
 
   console.log(product);
-  console.log(productAttributesArr);
   console.log(productsAttr);
 
   return (
@@ -159,7 +157,11 @@ const ProductPage = ({
             </section>
 
             <section className="flex items-center justify-start space-x-6 mt-4">
-              Sizes
+              {productsAttr && productsAttr.map((pa) => {
+                if(pa) {
+                  return <p>{pa}</p>
+                }
+              })}
             </section>
 
             <section className="mt-6">
@@ -347,7 +349,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
       productImages,
       pdi,
       relatedProducts,
-      productAttributesArr,
       productsAttr,
     },
   };
