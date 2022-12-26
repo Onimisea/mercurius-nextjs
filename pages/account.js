@@ -93,14 +93,14 @@ const account = ({ userStatus }) => {
               <section className="bg-black w-[60px] sm2:w-[250px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative">
                 <Sidebar links={sidebarLinks} />
               </section>
+            </section>
 
-              <section className="hidden sm2:flex absolute top-0 right-0 px-[15px] py-[20px] md:px-[20px] md:py-[35px]">
-                {asideOpen ? (
-                  <MdClose size={25} className="ml-4 text-primary" />
-                ) : (
-                  <FiMenu size={25} className="ml-4 text-primary" />
-                )}
-              </section>
+            <section className="hidden sm2:flex absolute top-0 right-0 px-[15px] py-[20px] md:px-[20px] md:py-[35px]">
+              {asideOpen ? (
+                <MdClose size={25} className="ml-4 text-primary" />
+              ) : (
+                <FiMenu size={25} className="ml-4 text-primary" />
+              )}
             </section>
 
             <section className="bg-gray-400 lg:w-[70%] xl:w-[80%]">
