@@ -153,7 +153,7 @@ const Header = () => {
             {userInfo ? (
               <>
                 <Link
-                  href=""
+                  href="/account"
                   className="block px-8 py-2 rounded-md hover:bg-slate-100 hover:text-primary"
                 >
                   <p>Account</p>

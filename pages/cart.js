@@ -77,7 +77,7 @@ const cart = () => {
                 return (
                   <section
                     key={item.id}
-                    className="flex items-start justify-start flex-wrap space-x-3 md:my-3 md:p-3 border-b-2 my-3 py-3 text-sm sm2:text-md md:text-lg"
+                    className="flex items-start justify-start flex-wrap space-x-3 md:my-3 md:p-3 border-b-2 my-3 py-3 text-sm sm2:text-md md:text-lg sm2:items-center sm2:justify-between"
                   >
                     {/* md:items-center sm3:justify-between */}
                     <section className="w-[60px] h-[60px] sm2:w-[80px] sm2:h-[80px] rounded-md">
@@ -110,7 +110,7 @@ const cart = () => {
                         )}
                       </section>
                     </section>
-                    
+
                     <section className="w-fit flex items-center justify-center space-x-2 mt-3">
                       <section
                         className="bg-black w-[30px] h-[30px] grid place-items-center text-white rounded-sm cursor-pointer hover:bg-primary duration-300"
