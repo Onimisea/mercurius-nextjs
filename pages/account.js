@@ -89,7 +89,7 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-between mt-8">
-            <section className="bg-black w-[200px] sm2:w-[250] md:w-[300] md2:w-[350] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between">
+            <section className="bg-black w-[200px] sm2:w-[250] md:w-[300] md2:w-[400] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between">
               <Sidebar links={sidebarLinks} />
 
               <section className="">
@@ -101,7 +101,7 @@ const account = ({ userStatus }) => {
               </section>
             </section>
 
-            <section className="bg-gray-400 w-[70%]">Main</section>
+            <section className="bg-gray-400 w-[80%]">Main</section>
           </section>
         </section>
       )}
