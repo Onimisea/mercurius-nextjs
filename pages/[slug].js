@@ -30,6 +30,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
 
   const [productDI, setProductDI] = useState(pdi);
   const [product, setProduct] = useState(productb);
+  const [imgIndex, setImgIndex] = useState(0)
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -70,7 +71,11 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
           <section className="w-[48%] flex flex-col items-center justify-center space-y-6">
             <section className="w-full h-[500px]">
               <img
-                src={productDI.product_image ? productDI.product_image : phImg}
+                src={
+                  productImages.length > 1
+                    ? productImages[0].product_image
+                    : productDI.product_image
+                }
                 alt={productDI.product}
                 width={0}
                 height={0}
@@ -80,14 +85,17 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
 
             <section className="w-full h-[120px] flex items-center justify-start whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500 overflow-y-hidden space-x-4">
               {productImages ? (
-                productImages?.map((pi) => (
-                  <section className="w-[100px] h-[100px]" onMouseEnter="">
+                productImages?.map((pi, i) => (
+                  <section
+                    className={`w-[100px] h-[100px] ${i === index ? "p-3 bg-primary rounded-md" : ""}`}
+                    onMouseEnter={() => setIndex(i)}
+                  >
                     <img
                       src={pi.product_image}
                       alt={pi.product}
                       width={0}
                       height={0}
-                      className="w-[100px] h-[100px] object-cover object-center z-20"
+                      className="w-full h-full object-cover object-center z-20"
                     />
                   </section>
                 ))
@@ -214,7 +222,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             You Might Also Like
           </h1>
 
-          <section className="w-[80%] mt-8 mb-6 grid place-items-center gap-y-3 sm3:gap-x-3 grid-cols-1 sm3:grid-cols-2 md:grid-cols-3">
+          <section className="w-[80%] mt-8 mb-6 grid place-items-center gap-y-2 sm3:gap-x-2 grid-cols-1 sm3:grid-cols-2 md:grid-cols-3">
             {relatedProducts.length > 0 ? (
               relatedProducts?.map((product) => (
                 <ProductCard key={product.id} product={product} />
