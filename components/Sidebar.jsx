@@ -12,8 +12,8 @@ const Sidebar = ({ links }) => {
               href={ln.url}
               className={`w-[80%] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary bg-red-800`}
             >
-              {ln.icon}
-              {ln.name}
+              <span className="w-[30%]">{ln.icon}</span>
+              <span className="w-[60%]">{ln.name}</span>
             </Link>
           </li>
         ))}
