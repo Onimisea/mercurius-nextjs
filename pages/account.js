@@ -89,10 +89,10 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-between mt-8">
-            <section className="bg-black w-[60px] sm2:w-[250px] md:w-[300px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between">
+            <section className="bg-black w-[60px] sm2:w-[250px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative">
               <Sidebar links={sidebarLinks} />
 
-              <section className="hidden sm2:flex">
+              <section className="hidden sm2:flex absolute top-0 right-0">
                 {asideOpen ? (
                   <MdClose size={25} className="ml-4 text-primary" />
                 ) : (
