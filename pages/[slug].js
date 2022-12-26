@@ -163,7 +163,7 @@ const ProductPage = ({
             </section>
 
             {productsAttr.Size && (
-              <section className="flex items-center justify-start space-x-3 mt-6">
+              <section className="flex items-center justify-start space-x-3 mt-4">
                 {productsAttr.Size.map((size) => (
                   <section
                     className="bg-white text-black md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300"
@@ -176,10 +176,10 @@ const ProductPage = ({
             )}
 
             {productsAttr.Volume && (
-              <section className="flex items-center justify-start space-x-3 mt-6">
+              <section className="flex items-center justify-start space-x-3 mt-4">
                 {productsAttr.Volume.map((vol) => (
                   <section
-                    className="bg-white text-black md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300"
+                    className="bg-white text-black md2:text-lg border-2 border-black w-fit h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 px-2"
                     onClick={() => selectVolume(product, vol)}
                   >
                     {vol}
