@@ -87,7 +87,7 @@ const cart = () => {
                       />
                     </section>
 
-                    <section className="w-[60%] sm3:w-[40%] sm2:w-[45%] mb-2">
+                    <section className="w-[50%] sm3:w-[40%] sm2:w-[45%] mb-2 bg-red-400">
                       <section className="">{item.name}</section>
 
                       <section className="mt-1 sm2:mt-2 font-semibold">
@@ -110,7 +110,7 @@ const cart = () => {
                       </section>
                     </section>
 
-                    <section className="w-[35%] sm2:w-[17%] flex items-center justify-center space-x-2">
+                    <section className="w-fit flex items-center justify-center space-x-2 bg-red-500">
                       <section
                         className="bg-black w-[30px] h-[30px] grid place-items-center text-white rounded-sm cursor-pointer hover:bg-primary duration-300"
                         onClick={() => increaseQty(item.id)}
