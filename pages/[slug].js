@@ -87,7 +87,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
               {productImages ? (
                 productImages?.map((pi, i) => (
                   <section
-                    className={`w-[100px] h-[100px] ${i === imgIndex ? "p-1 bg-primary rounded-sm" : ""}`}
+                    className={`w-[100px] h-[100px] cursor-pointer ${i === imgIndex ? "p-1 bg-black rounded-sm" : ""}`}
                     onMouseEnter={() => setImgIndex(i)}
                   >
                     <img
@@ -95,7 +95,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
                       alt={pi.product}
                       width={0}
                       height={0}
-                      className="w-full h-full object-cover object-center z-20"
+                      className="w-full h-full rounded-sm object-cover object-center z-20"
                     />
                   </section>
                 ))
@@ -222,7 +222,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             You Might Also Like
           </h1>
 
-          <section className="w-[80%] mt-8 mb-6 flex items-center justify-center space-x-4">
+          <section className="w-[80%] mt-8 mb-6 flex items-center justify-center space-x-2 space-y-2">
             {relatedProducts.length > 0 ? (
               relatedProducts?.map((product) => (
                 <ProductCard key={product.id} product={product} />
