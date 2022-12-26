@@ -224,7 +224,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             You Might Also Like
           </h1>
 
-          <section className="w-[80%] mt-8 mb-6 flex items-center justify-center flex-wrap space-x-2 space-y-2">
+          <section className="w-full mt-8 mb-6 flex items-center justify-center flex-wrap space-x-2 space-y-2">
             {relatedProducts.length > 0 ? (
               relatedProducts?.map((product) => (
                 <ProductCard key={product.id} product={product} />
