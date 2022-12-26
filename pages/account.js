@@ -88,13 +88,13 @@ const account = ({ userStatus }) => {
             Settings
           </h1>
 
-          <section className="w-full flex items-start justify-between mt-8">
+          <section className="w-full flex items-start justify-between mt-16">
             <section className="flex items-start justify-between relative">
               <section className="bg-black w-[60px] sm2:w-[250px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative">
                 <Sidebar links={sidebarLinks} />
               </section>
 
-              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] bg-red-500 absolute -top-[50px] left-[7.5px]">
+              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] absolute -top-[50px] left-[8px]">
                 {asideOpen ? (
                   <MdClose size={25} className="text-primary" />
                 ) : (
