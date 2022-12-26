@@ -126,8 +126,8 @@ const cart = () => {
                       </section>
                     </section>
 
-                    <section className="w-[60%] relative flex items-center justify-between sm2:flex-col sm2:items-start spaxe-x-4">
-                      <section className="w-[50%] font-semibold">
+                    <section className="w-[60%] relative flex items-center justify-between sm2:flex-col sm2:items-start spaxe-x-2">
+                      <section className="font-semibold">
                         ₦{numbersWithCommas(item.price * item.qty)}
                       </section>
                       <section
@@ -146,7 +146,7 @@ const cart = () => {
                           toast.success(`${item.name} added to wishlist`);
                         }}
                       >
-                        to wishlist
+                        wishlist
                       </section>
                     </section>
                   </section>
