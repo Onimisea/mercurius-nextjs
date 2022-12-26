@@ -7,38 +7,16 @@ const Sidebar = ({ links }) => {
     <section className="w-full h-fit grid place-items-center">
       <ul className="p-0 m-0 block">
         {links.map((ln) => (
-          <li className="flex items-center justify-center text-md md:text-lg">
-            <Link href={ln.url} className={`w-full h-full px-2 py-1 cursor-pointer text-white hover:text-primary`}>
+          <li className="w-full md:text-md md3:text-lg">
+            <Link
+              href={ln.url}
+              className={`w-full flex items-center justify-center h-full px-2 py-1 cursor-pointer text-white hover:text-primary`}
+            >
               {ln.icon}
               {ln.name}
             </Link>
           </li>
         ))}
-
-        {/* <li className="flex items-center justify-center text-md md:text-lg">
-        <ImUser size={25} className="mr-2" />
-        Account
-      </li>
-      <li className="flex items-center justify-center text-md md:text-lg">
-        <FiHeart size={25} className="mr-2" />
-        Favourites
-      </li>
-      <li className="flex items-center justify-center text-md md:text-lg">
-        <FiPackage size={25} className="mr-2" />
-        Orders
-      </li>
-      <li className="flex items-center justify-center text-md md:text-lg">
-        <FaEnvelope size={25} className="mr-2" />
-        Inbox
-      </li>
-      <li className="flex items-center justify-center text-md md:text-lg">
-        <MdInventory size={25} className="mr-2" />
-        Inventory
-      </li>
-      <li className="flex items-center justify-center text-md md:text-lg">
-        <RiLogoutBoxFill size={25} className="mr-2" />
-        Log Out
-      </li> */}
       </ul>
     </section>
   );

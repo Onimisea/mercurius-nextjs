@@ -87,11 +87,11 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-between mt-8">
-            <section className="bg-gray-300 w-[30%]">
+            <section className="bg-black w-[25%] p-4">
               <Sidebar links={sidebarLinks} />
             </section>
 
-            <section className="bg-gray-400 w-[65%]">Main</section>
+            <section className="bg-gray-400 w-[70%]">Main</section>
           </section>
         </section>
       )}
