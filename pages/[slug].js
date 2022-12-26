@@ -30,7 +30,8 @@ const ProductPage = ({
   const [productDI, setProductDI] = useState(pdi);
   const [product, setProduct] = useState(productb);
   const [imgIndex, setImgIndex] = useState(0);
-  const [size, setSize] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(false);
+  const [selectedVol, setSelectedVol] = useState(false);
 
   const bgUrl = (imgUrl) =>
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
@@ -60,13 +61,17 @@ const ProductPage = ({
       ...item,
       size: size,
     }));
+
+    setSelectedSize(!selectedSize);
   };
-  
+
   const selectVolume = (item, vol) => {
     setProduct((item) => ({
       ...item,
       vol: vol,
     }));
+
+    setSelectedVol(!selectedVol)
   };
 
   useEffect(() => {
@@ -166,7 +171,11 @@ const ProductPage = ({
               <section className="flex items-center justify-start space-x-3 mt-4">
                 {productsAttr.Size.map((size) => (
                   <section
-                    className="bg-white text-black md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300"
+                    className={`${
+                      selectedSize
+                        ? "bg-black text-white hover:bg-primary hover:border-primary"
+                        : "bg-white text-black"
+                    } md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300`}
                     onClick={() => selectSize(product, size)}
                   >
                     {size}
@@ -179,7 +188,11 @@ const ProductPage = ({
               <section className="flex items-center justify-start space-x-3 mt-4">
                 {productsAttr.Volume.map((vol) => (
                   <section
-                    className="bg-white text-black md2:text-lg border-2 border-black w-fit h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 px-2"
+                    className={`${
+                      selectedVol
+                        ? "bg-black text-white hover:bg-primary hover:border-primary"
+                        : "bg-white text-black"
+                    } md2:text-lg border-2 border-black w-[45px] h-[45px] grid place-items-center rounded-sm cursor-pointer hover:bg-black hover:border-black hover:text-white duration-300 px-2`}
                     onClick={() => selectVolume(product, vol)}
                   >
                     {vol}
