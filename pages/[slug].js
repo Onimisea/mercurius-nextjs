@@ -73,7 +73,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
               <img
                 src={
                   productImages.length > 1
-                    ? productImages[0].product_image
+                    ? productImages[imgIndex].product_image
                     : productDI.product_image
                 }
                 alt={productDI.product}
@@ -87,8 +87,8 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
               {productImages ? (
                 productImages?.map((pi, i) => (
                   <section
-                    className={`w-[100px] h-[100px] ${i === index ? "p-3 bg-primary rounded-md" : ""}`}
-                    onMouseEnter={() => setIndex(i)}
+                    className={`w-[100px] h-[100px] ${i === imgIndex ? "p-3 bg-gray-300 rounded-md" : ""}`}
+                    onMouseEnter={() => setImgIndex(i)}
                   >
                     <img
                       src={pi.product_image}
