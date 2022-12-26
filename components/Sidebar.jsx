@@ -11,14 +11,14 @@ const Sidebar = ({ links, asideOpen }) => {
             <Link
               href={ln.url}
               className={` ${
-                asideOpen ? "w-[150px]" : "w-[60px]"
+                asideOpen ? "w-[120px] ml-4" : "w-[60px]"
               } sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
                 ln.active && "text-primary hover:text-gray-300"
-              }`}
+              } duration-300 bg-red-300`}
             >
               <span className="mr-1">{ln.icon}</span>
               <span
-                className={` ${asideOpen ? "flex" : "hidden"} sm2:flex`}
+                className={` ${asideOpen ? "flex" : "hidden"} sm2:flex duration-300`}
               >
                 {ln.name}
               </span>
