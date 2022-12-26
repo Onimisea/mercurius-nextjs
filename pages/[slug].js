@@ -58,7 +58,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
         <title>Mercurius {product.name} | Best Thrift Store in Nigeria</title>
       </Head>
 
-      <section className="w-full mx-auto max-w-screen-xl flex items-center justify-center flex-wrap my-6 bg-white">
+      <section className="w-full mx-auto max-w-screen-xl flex items-start justify-center flex-wrap my-6 bg-white">
         <section className="w-full mx-auto max-w-screen-xl flex items-start justify-between mt-6 flex-col md:flex-row">
           <section className="w-full md:w-[48%] flex flex-col items-center justify-center space-y-6">
             <section className="w-full h-auto max-h-[500px] md2:h-[500px]">
@@ -107,7 +107,7 @@ const ProductPage = ({ productb, productImages, pdi, relatedProducts }) => {
             </section>
           </section>
 
-          <section className="w-full mt-16 md:w-[48%] py-0 md3:py-6">
+          <section className="w-full mt-16 md:mt-0 md:w-[48%] py-0 md3:py-6">
             <section className="text-black sm3:text-2xl md:text-3xl">
               {product.name}
             </section>
