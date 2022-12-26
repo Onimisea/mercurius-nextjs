@@ -30,33 +30,33 @@ const account = ({ userStatus }) => {
     {
       name: "Account",
       url: "/account",
-      icon: <ImUser size={25} className="mr-2" />,
+      icon: <ImUser size={20} className="mr-2" />,
       active: true,
     },
     {
       name: "Favourites",
       url: "/favourites",
-      icon: <FiHeart size={25} className="mr-2" />,
+      icon: <FiHeart size={20} className="mr-2" />,
     },
     {
       name: "Orders",
       url: "/orders",
-      icon: <FiPackage size={25} className="mr-2" />,
+      icon: <FiPackage size={20} className="mr-2" />,
     },
     {
       name: "Inbox",
       url: "/inbox",
-      icon: <FaEnvelope size={25} className="mr-2" />,
+      icon: <FaEnvelope size={20} className="mr-2" />,
     },
     {
       name: "Inventory",
       url: "/inventory",
-      icon: <MdInventory size={25} className="mr-2" />,
+      icon: <MdInventory size={20} className="mr-2" />,
     },
     {
       name: "Log Out",
       url: "/logout",
-      icon: <RiLogoutBoxFill size={25} className="mr-2" />,
+      icon: <RiLogoutBoxFill size={20} className="mr-2" />,
     },
   ];
 

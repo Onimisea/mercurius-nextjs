@@ -7,10 +7,10 @@ const Sidebar = ({ links }) => {
     <section className="w-full h-fit grid place-items-center">
       <ul className="p-0 m-0 block w-full space-y-4 bg-red-300">
         {links.map((ln) => (
-          <li className="w-full md:text-md bg-red-600">
+          <li className="w-full p-2 md:text-md bg-red-600 grid place-items-center">
             <Link
               href={ln.url}
-              className={`w-full flex items-center justify-start h-full px-2 py-1 cursor-pointer text-white hover:text-primary`}
+              className={`w-[80%] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary bg-red-800`}
             >
               {ln.icon}
               {ln.name}
