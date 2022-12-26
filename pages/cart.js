@@ -126,7 +126,7 @@ const cart = () => {
                       </section>
                     </section>
 
-                    <section className="w-[60%] relative flex items-center justify-between sm2:flex-col sm2:items-start spaxe-x-2">
+                    <section className="w-full relative flex items-center justify-between sm2:flex-col sm2:items-start spaxe-x-2">
                       <section className="font-semibold">
                         ₦{numbersWithCommas(item.price * item.qty)}
                       </section>
