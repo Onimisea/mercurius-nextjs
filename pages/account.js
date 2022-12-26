@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
 import { getSession, useSession, signOut } from "next-auth/react";
+import { Sidebar } from "../components";
 
 const account = ({ userStatus }) => {
   const {
@@ -47,7 +48,9 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-between mt-8">
-            <section className="bg-gray-300 w-[30%]">Sidebar</section>
+            <section className="bg-gray-300 w-[30%]">
+              <Sidebar />
+            </section>
 
             <section className="bg-gray-400 w-[65%]">Main</section>
           </section>

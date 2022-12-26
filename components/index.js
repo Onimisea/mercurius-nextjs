@@ -7,3 +7,4 @@ export { default as Flashsales } from "./Flashsales";
 export { default as Timer } from "./Timer";
 export { default as AllProducts } from "./AllProducts";
 export { default as FlashSlider } from "./FlashSlider";
+export { default as Sidebar } from "./Sidebar";
