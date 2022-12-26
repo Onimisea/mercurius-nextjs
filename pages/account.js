@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
 import { getSession, useSession, signOut } from "next-auth/react";
 import { Sidebar } from "../components";
-import { FiHeart, FiPackage } from "react-icons/fi";
+import { FiHeart, FiMenu, FiPackage } from "react-icons/fi";
 import { FaEnvelope } from "react-icons/fa";
-import { MdInventory } from "react-icons/md";
+import { MdClose, MdInventory } from "react-icons/md";
 import { ImUser } from "react-icons/im";
 import { RiLogoutBoxFill } from "react-icons/ri";
 
@@ -60,6 +60,8 @@ const account = ({ userStatus }) => {
     },
   ];
 
+  const [asideOpen, setAsideOpen] = useState(false);
+
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
       <Head>
@@ -87,9 +89,16 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-between mt-8">
-            <section className="bg-black w-[200px] sm2:w-[250] md:w-[300] px-[15px] py-[20px] md:px-[20px] md:py-[35px] grid place-items-center">
+            <section className="bg-black w-[200px] sm2:w-[250] md:w-[300] md2:w-[350] px-[15px] py-[20px] md:px-[20px] md:py-[35px] grid place-items-center">
               <Sidebar links={sidebarLinks} />
-              {/* md2:py-6 md2:px-8 md3:py-8 md3:px-12 lg:py-12 lg:px-16 */}
+
+              <section className="">
+                {asideOpen ? (
+                  <MdClose size={25} className="ml-4 text-primary" />
+                ) : (
+                  <FiMenu size={25} className="ml-4 text-black" />
+                )}
+              </section>
             </section>
 
             <section className="bg-gray-400 w-[70%]">Main</section>
