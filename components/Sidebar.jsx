@@ -1,20 +1,38 @@
 import React from "react";
 import Link from "next/link";
-import { FiHeart, FiPackage } from "react-icons/fi";
-import { FaEnvelope } from "react-icons/fa";
-import { MdInventory } from "react-icons/md";
-import { ImUser } from "react-icons/im";
-import { RiLogoutBoxFill } from "react-icons/ri";
 
-const Sidebar = () => {
-  return <section className="w-full h-fit grid place-items-center">
-    <ul className="">
-      <li className="">
+const Sidebar = ({ links }) => {
+  console.log(links);
+  return (
+    <section className="w-full h-fit grid place-items-center">
+      <ul className="p-0 m-0 block">
+        {/* <li className="flex items-center justify-center text-md md:text-lg">
         <ImUser size={25} className="mr-2" />
         Account
       </li>
-    </ul>
-  </section>
+      <li className="flex items-center justify-center text-md md:text-lg">
+        <FiHeart size={25} className="mr-2" />
+        Favourites
+      </li>
+      <li className="flex items-center justify-center text-md md:text-lg">
+        <FiPackage size={25} className="mr-2" />
+        Orders
+      </li>
+      <li className="flex items-center justify-center text-md md:text-lg">
+        <FaEnvelope size={25} className="mr-2" />
+        Inbox
+      </li>
+      <li className="flex items-center justify-center text-md md:text-lg">
+        <MdInventory size={25} className="mr-2" />
+        Inventory
+      </li>
+      <li className="flex items-center justify-center text-md md:text-lg">
+        <RiLogoutBoxFill size={25} className="mr-2" />
+        Log Out
+      </li> */}
+      </ul>
+    </section>
+  );
 };
 
 export default Sidebar;
