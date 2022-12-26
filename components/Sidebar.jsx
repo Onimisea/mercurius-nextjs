@@ -10,7 +10,7 @@ const Sidebar = ({ links }) => {
           <li className="w-fit md:text-md flex flex-col items-start justify-start">
             <Link
               href={ln.url}
-              className={`w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
+              className={`w-[60px] sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
                 ln.active && "text-primary hover:text-gray-300"
               }`}
             >
