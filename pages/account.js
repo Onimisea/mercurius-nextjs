@@ -24,3 +24,38 @@ const account = () => {
 };
 
 export default account;
+
+export const getServerSideProps = async ({ req }) => {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  let userStatus = {};
+
+  if (session.user) {
+    await fetch(
+      "https://mercurius-api-production.up.railway.app/api/users/verify/",
+      {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(session.user),
+      }
+    )
+      .then((res) => res.json())
+      .then((userStatusRes) => {
+        userStatus = userStatusRes;
+        return userStatus;
+      });
+  }
+
+  return {
+    props: { session, userStatus },
+  };
+};
