@@ -4,7 +4,7 @@ import Link from "next/link";
 const Sidebar = ({ links }) => {
 
   return (
-    <section className="w-[250px] h-fit flex items-center justify-center bg-red-300">
+    <section className="w-[200px] h-fit flex items-center justify-center">
       <ul className="p-0 m-0 flex flex-col items-center justify-center w-full space-y-4">
         {links.map((ln) => (
           <li className="w-full md:text-md flex flex-col items-start justify-start bg-red-500">
