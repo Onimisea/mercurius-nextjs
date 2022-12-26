@@ -88,7 +88,7 @@ const cart = () => {
                       />
                     </section>
 
-                    <section className="w-[70%] sm2:w-[45%] mb-2 bg-red-400">
+                    <section className="w-[70%] sm:w-[60%] sm2:w-[45%] mb-2 bg-red-400">
                       <section className="">{item.name}</section>
 
                       <section className="mt-1 sm2:mt-2 font-semibold">
