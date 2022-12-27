@@ -186,10 +186,10 @@ const AccountDetails = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
                 <form
-                  className="flex flex-col space-y-6 w-full"
+                  className="grid grid-cols-2 gap-4 sm2:grid-cols-1 space-y-6 w-full"
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  <section className="w-full">
+                  <section className="w-full col-span-2 sm2:col-span-full">
                     <label htmlFor="fullname">Fullname</label>
                     <section className="flex items-center justify-between relative mt-1">
                       <input
@@ -246,7 +246,7 @@ const AccountDetails = ({ userStatus }) => {
                         type="email"
                         name="email"
                         placeholder="Email"
-                        className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-black pr-12 text-black outline-none ${
+                        className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.email &&
                           "border-2 border-red-500 text-red-500 bg-black"
                         }`}
@@ -293,7 +293,7 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="phone"
                         placeholder="Phone Number"
-                        className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-black pr-12 text-black outline-none ${
+                        className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.phone &&
                           "border-2 border-red-500 text-red-500 bg-black"
                         }`}
