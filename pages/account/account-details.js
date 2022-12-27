@@ -330,14 +330,13 @@ const AccountDetails = ({ userStatus }) => {
                       className="flex items-center justify-between relative mt-2"
                     >
                       <select
-                        className={`form-select appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
-                          errors.gender &&
-                          "border-2 border-red-500 text-red-500 bg-black"
-                        } transition ease-in-out text-black text-base
-      font-normal
+                        className={`form-select appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none
       block
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300`}
+      text-xl
+      font-normal
+      bg-white bg-clip-padding bg-no-repeat ${
+        errors.gender && "border-2 border-red-500 text-red-500 bg-black"
+      }`}
                         aria-label="Gender Select"
                       >
                         <option selected>Male or Female</option>
