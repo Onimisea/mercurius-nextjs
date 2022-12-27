@@ -122,68 +122,26 @@ const account = ({ userStatus }) => {
             >
               {/* whitespace-nowrap overflow-x-scroll scrollbar-none */}
               <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8">
-                <h1 className="text-xl text-white">Account</h1>
+                <h3 className="text-xl text-white">Account</h3>
               </section>
               <section
                 className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
                   asideOpen ? "" : ""
-                } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth duration-500`}
+                } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                porta dictum erat, a facilisis augue. In posuere id lacus eget
-                lacinia. In placerat magna sed sem bibendum, tincidunt porta
-                libero finibus. Interdum et malesuada fames ac ante ipsum primis
-                in faucibus. Etiam ut tempus orci. Nulla a ipsum sem. Aliquam
-                fringilla suscipit pulvinar. Duis nec orci ligula. Pellentesque
-                lectus neque, interdum quis interdum a, faucibus non nibh.
-                Quisque faucibus, enim vitae suscipit venenatis, ante metus
-                molestie arcu, non feugiat tortor lectus at enim. Pellentesque
-                ultricies justo suscipit purus molestie elementum eget sed
-                velit. Aliquam id vehicula sapien. Vivamus consectetur sapien
-                sodales neque sodales blandit. Morbi feugiat felis a magna
-                varius efficitur. Vestibulum quis velit ipsum. Donec justo
-                felis, bibendum vitae nisl nec, mollis rhoncus tortor. Mauris
-                aliquet laoreet hendrerit. Donec pulvinar lorem a eleifend
-                auctor. Cras vitae mollis ante, at volutpat turpis. Donec varius
-                orci sed ultrices aliquam. Praesent eget risus id nunc pulvinar
-                euismod. Vestibulum elementum, velit eget feugiat dapibus, dolor
-                dolor vulputate nulla, vitae rutrum risus quam ac dolor.
-                Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia curae; Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Etiam eu bibendum leo, ut scelerisque ipsum.
-                Vivamus elementum magna id metus ornare convallis. Curabitur
-                nisl arcu, egestas sed iaculis eu, sagittis nec nulla. Proin
-                faucibus massa eu augue suscipit, sed congue nisi varius. Morbi
-                quis lacus sed mauris suscipit hendrerit nec quis dolor. Donec
-                malesuada quis neque a rhoncus. Vestibulum suscipit accumsan
-                turpis in varius. Suspendisse id est in ex pretium ultrices quis
-                ut ligula. Suspendisse id risus ut felis lobortis elementum eget
-                nec justo. Nunc sollicitudin, dui ac dapibus varius, neque velit
-                ullamcorper odio, a porta odio nibh sed quam. Fusce tempus
-                gravida neque at accumsan. Nunc venenatis enim a ex fermentum, a
-                elementum libero accumsan. Nam fermentum pretium tellus. In a
-                odio luctus, tristique nunc quis, fermentum nisl. Nulla id
-                volutpat nisl, id tristique felis. Cras faucibus neque ac lacus
-                blandit ullamcorper. Sed eget metus feugiat, ornare leo quis,
-                ornare tellus. Sed sed mattis risus. Curabitur diam diam,
-                aliquet et varius ac, imperdiet et ex. Maecenas scelerisque
-                blandit sodales. Suspendisse pulvinar felis vitae nunc placerat
-                fermentum. Duis bibendum nulla ornare, imperdiet dui id,
-                lobortis nunc. Nullam dignissim accumsan faucibus. Cras sodales
-                turpis massa, imperdiet ullamcorper tellus mattis in.
-                Suspendisse eget ante vitae purus congue egestas ornare vitae
-                dolor. Mauris tincidunt quam a velit aliquam dapibus. Duis
-                varius erat non tortor congue malesuada. Cras volutpat quis
-                tortor venenatis porta. Praesent vulputate sagittis ante, eget
-                laoreet lectus pulvinar quis. Phasellus id massa non enim
-                lacinia posuere vitae condimentum dolor. Curabitur ut libero a
-                quam facilisis cursus. In sed elit nisl. In a gravida ipsum, nec
-                mattis lectus. Curabitur tempor a tortor in consectetur. Nam nec
-                augue tellus. Phasellus vel dolor porta mauris varius vehicula.
-                Maecenas ex lectus, maximus a consectetur id, ultricies eget
-                augue. Donec porttitor maximus laoreet. Aliquam scelerisque
-                dapibus neque.
+                <section className="bg-white rounded-md p-3">
+                  <section className="flex items-start justify-between mb-4">
+                    <h3 className="text-lg text-black font-semibold">
+                      Account Details
+                    </h3>
+                    <FiEdit size={25} className="p-0 m-0" />
+                  </section>
+
+                  <section className="block">
+                    <h3>Onimisea Tijani</h3>
+                    <h3>onimisea@gmail.com</h3>
+                  </section>
+                </section>
               </section>
             </section>
           </section>
