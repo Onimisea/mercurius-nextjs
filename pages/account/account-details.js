@@ -326,16 +326,11 @@ const AccountDetails = ({ userStatus }) => {
                   <section className="">
                     <label htmlFor="gender">Gender</label>
                     <section
-                      {...register("gender", {
-                        required: {
-                          value: false,
-                          message: "Please select your gender",
-                        },
-                      })}
+                      {...register("gender")}
                       className="flex items-center justify-between relative mt-2"
                     >
                       <select
-                        className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
+                        className={`form-select appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500 bg-black"
                         } transition ease-in-out text-black text-base
@@ -391,7 +386,7 @@ const AccountDetails = ({ userStatus }) => {
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone &&
                           "border-2 border-red-500 text-red-500 bg-black"
-                        }`}
+                        } focus:border-none focus:outline-none`}
                         data-mdb-toggle="datepicker"
                       />
                     </section>
