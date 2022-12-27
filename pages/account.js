@@ -111,14 +111,14 @@ const account = ({ userStatus }) => {
               <section
                 className={`bg-black ${
                   asideOpen ? "w-[175px] duration-300" : "w-[60px]"
-                } sm2:w-[200px] h-screen px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
+                } sm2:w-[200px] h-full px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
               >
                 <Sidebar links={sidebarLinks} asideOpen={asideOpen} />
               </section>
             </section>
 
             <section
-              className={`bg-gray-300 w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
+              className={`bg-[#F1F1F1] w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
             >
               {/* whitespace-nowrap overflow-x-scroll scrollbar-none */}
               <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8">
