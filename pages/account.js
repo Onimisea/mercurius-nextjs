@@ -92,8 +92,8 @@ const account = ({ userStatus }) => {
             <section className="flex items-start justify-between relative mr-10">
               <section
                 className={`bg-black ${
-                  asideOpen ? "w-[175px] sm2:w-[200px] duration-300" : "w-[60px]"
-                } md:w-[250px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
+                  asideOpen ? "w-[175px] duration-300" : "w-[60px]"
+                } sm2:w-[200px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
               >
                 <Sidebar links={sidebarLinks} asideOpen={asideOpen} />
               </section>
