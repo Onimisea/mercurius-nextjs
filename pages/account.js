@@ -159,7 +159,7 @@ const account = ({ userStatus }) => {
                     <FiEdit size={25} className="p-0 m-0" />
                   </section>
 
-                  <section className="flex flex-col items-start text-[#F1F1F1] space-y-2 w-full">
+                  <section className="flex flex-col items-start text-[#868686] space-y-2 w-full">
                     <p>Mike Longo</p>
                     <p>No. 32, Iyanikpaja Expressway, Dodoma Street, Lagos</p>
                     
@@ -173,17 +173,17 @@ const account = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
                 <section className="w-full bg-white rounded-md p-4">
-                  <section className="flex items-start justify-between mb-4">
+                  <section className="flex items-start justify-between mb-0">
                     <h3 className="text-lg text-black font-semibold">
                       Change Password
                     </h3>
                     <FiEdit size={25} className="p-0 m-0" />
                   </section>
 
-                  <section className="flex flex-col items-start text-[#868686] space-y-2 w-full">
-                    {/* <p>Onimisea Tijani</p>
-                    <p>onimisea@gmail.com</p> */}
-                  </section>
+                  {/* <section className="flex flex-col items-start text-[#868686] space-y-2 w-full">
+                    <p>Onimisea Tijani</p>
+                    <p>onimisea@gmail.com</p>
+                  </section> */}
                 </section>
               </section>
 
@@ -193,7 +193,7 @@ const account = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
                 <section className="w-full bg-white rounded-md p-4">
-                  <section className="flex items-start justify-between mb-4">
+                  <section className="flex items-start justify-between mb-0">
                     <h3 className="text-lg text-black font-semibold">
                       Select Currency
                     </h3>
@@ -202,10 +202,10 @@ const account = ({ userStatus }) => {
                     {/* <FiEdit size={25} className="p-0 m-0" /> */}
                   </section>
 
-                  <section className="flex flex-col items-start text-[#F1F1F1] space-y-2 w-full">
-                    {/* <p>Onimisea Tijani</p>
-                    <p>onimisea@gmail.com</p> */}
-                  </section>
+                  {/* <section className="flex flex-col items-start text-[#F1F1F1] space-y-2 w-full">
+                    <p>Onimisea Tijani</p>
+                    <p>onimisea@gmail.com</p>
+                  </section> */}
                 </section>
               </section>
             </section>
