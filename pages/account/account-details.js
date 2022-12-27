@@ -183,7 +183,7 @@ const AccountDetails = ({ userStatus }) => {
               <section
                 className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
                   asideOpen ? "" : ""
-                } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
+                } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-2 duration-500`}
               >
                 <form
                   className="grid grid-cols-1 grid-rows-3 gap-6 sm2:gap-8 sm2:grid-cols-2 space-y-0 w-full"
@@ -338,7 +338,7 @@ const AccountDetails = ({ userStatus }) => {
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500 bg-black"
-                        } transition ease-in-out`}
+                        } transition ease-in-out text-black`}
                         aria-label="Gender Select"
                       >
                         <option selected>Male or Female</option>
