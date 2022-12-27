@@ -120,12 +120,12 @@ const account = ({ userStatus }) => {
             <section
               className={`bg-gray-300 w-[100%] flex flex-col items-center justify-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500`}
             >
-              <section className="w-full sticky top-0 left-0 bg-black px-3 py-2 md:px-6 md:py-4 mb-8">
+              <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-8">
                 <h1 className="text-xl text-white">Account</h1>
               </section>
 
               <section
-                className={`w-[100%] h-fit flex flex-col items-center justify-center ${
+                className={`w-[100%] h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
                   asideOpen ? "" : ""
                 } scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth duration-500`}
               >
