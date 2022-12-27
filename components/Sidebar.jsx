@@ -1,8 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import { getSession, useSession, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
+import { useAppContext } from "../context/AppContext";
 
 const Sidebar = ({ links, asideOpen }) => {
+  const { userInfo, setUserInfo } = useAppContext();
+
   const handleSignOut = () => {
     window.localStorage.removeItem("UserData");
     setUserInfo(null);
