@@ -89,16 +89,10 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-start mt-14">
-            <section className="flex items-start justify-between relative mr-10">
-              <section
-                className={`bg-black ${
-                  asideOpen ? "w-[175px] duration-300" : "w-[60px]"
-                } sm2:w-[200px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
-              >
-                <Sidebar links={sidebarLinks} asideOpen={asideOpen} />
-              </section>
-
-              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] absolute -top-[40px] left-[8px] font-bold duration-300 cursor-pointer">
+            <section className="flex items-start justify-between sticky mr-10">
+              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] font-bold duration-300 cursor-pointer">
+                {/* grid place-items-center sm2:hidden w-[40px] h-[40px] absolute
+                -top-[40px] left-[8px] font-bold duration-300 cursor-pointer */}
                 {asideOpen ? (
                   <MdClose
                     size={25}
@@ -113,12 +107,18 @@ const account = ({ userStatus }) => {
                   />
                 )}
               </section>
+
+              <section
+                className={`bg-black ${
+                  asideOpen ? "w-[175px] duration-300" : "w-[60px]"
+                } sm2:w-[200px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
+              >
+                <Sidebar links={sidebarLinks} asideOpen={asideOpen} />
+              </section>
             </section>
 
             <section
-              className={`bg-gray-400 ${
-                asideOpen ? "w-[100%]" : "w-[100%]"
-              }`}
+              className={`bg-gray-400 ${asideOpen ? "w-[100%]" : "w-[100%]"}`}
             >
               Main
             </section>
