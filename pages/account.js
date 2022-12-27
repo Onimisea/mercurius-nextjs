@@ -89,7 +89,7 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-start mt-14">
-            <section className="flex items-start justify-between sticky mr-10">
+            <section className="flex items-start justify-between sticky top-0 left-0 mr-10">
               <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] font-bold duration-300 cursor-pointer">
                 {/* grid place-items-center sm2:hidden w-[40px] h-[40px] absolute
                 -top-[40px] left-[8px] font-bold duration-300 cursor-pointer */}
@@ -118,7 +118,7 @@ const account = ({ userStatus }) => {
             </section>
 
             <section
-              className={`bg-gray-400 ${asideOpen ? "w-[100%]" : "w-[100%]"}`}
+              className={`bg-gray-300 w-[100%] whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500`}
             >
               Main
             </section>
