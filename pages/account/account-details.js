@@ -330,13 +330,19 @@ const AccountDetails = ({ userStatus }) => {
                       className="flex items-center justify-between relative mt-2"
                     >
                       <select
-                        className={`form-select appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none
+                        className="form-select
+      appearance-none
       block
+      w-full
+      px-4
+      py-2
       text-xl
       font-normal
-      bg-white bg-clip-padding bg-no-repeat ${
-        errors.gender && "border-2 border-red-500 text-red-500 bg-black"
-      }`}
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      rounded
+      transition
+      ease-in-out"
                         aria-label="Gender Select"
                       >
                         <option selected>Male or Female</option>
@@ -346,7 +352,7 @@ const AccountDetails = ({ userStatus }) => {
                     </section>
                   </section>
 
-                  <div className="">
+                  {/* <div className="">
                     <div className="mb-3 xl:w-96">
                       <select
                         className="form-select
@@ -369,7 +375,7 @@ const AccountDetails = ({ userStatus }) => {
                         <option value="Female">Female</option>
                       </select>
                     </div>
-                  </div>
+                  </div> */}
 
                   <section className="">
                     <label htmlFor="dob">Date of Birth</label>
