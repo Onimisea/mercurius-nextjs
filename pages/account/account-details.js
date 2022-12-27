@@ -352,10 +352,10 @@ const AccountDetails = ({ userStatus }) => {
                     </section>
                   </section>
 
-                  <div class="flex justify-center">
-                    <div class="mb-3 xl:w-96">
+                  <div className="flex justify-center">
+                    <div className="mb-3 xl:w-96">
                       <select
-                        class="form-select
+                        className="form-select
       appearance-none
       block
       w-full
@@ -381,19 +381,19 @@ const AccountDetails = ({ userStatus }) => {
                   <section className="">
                     <label htmlFor="dob">Date of Birth</label>
                     <section
-                      className="datepicker relative form-floating"
+                      className="datepicker relative"
                       data-mdb-toggle-button="false"
                     >
                       <input
                         type="text"
-                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        className="form-control text-base bg-clip-padding rounded-sm transition ease-in-out"
                         placeholder="Select a date"
                         data-mdb-toggle="datepicker"
                       />
                     </section>
                   </section>
 
-                  <div class="flex items-center justify-center">
+                  <div className="flex items-center justify-center">
                     <div
                       class="datepicker relative form-floating mb-3 xl:w-96"
                       data-mdb-toggle-button="false"
@@ -411,7 +411,7 @@ const AccountDetails = ({ userStatus }) => {
                   </div>
 
                   <section className="flex items-center justify-end col-start-2">
-                    <button className="bg-black text-white rounded-sm px-8 py-3 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
+                    <button className="bg-black text-white rounded-sm px-8 py-4 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
                       <span>Save Changes</span>
                     </button>
                   </section>
