@@ -341,7 +341,6 @@ const AccountDetails = ({ userStatus }) => {
                         } transition ease-in-out text-black text-base
       font-normal
       block
-      w-full
       bg-white bg-clip-padding bg-no-repeat
       border border-solid border-gray-300`}
                         aria-label="Gender Select"
@@ -352,6 +351,77 @@ const AccountDetails = ({ userStatus }) => {
                       </select>
                     </section>
                   </section>
+
+                  <div class="flex justify-center">
+                    <div class="mb-3 xl:w-96">
+                      <select
+                        class="form-select form-select-lg mb-3
+      appearance-none
+      block
+      w-full
+      px-4
+      py-2
+      text-xl
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        aria-label=".form-select-lg example"
+                      >
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+
+                      <select
+                        class="form-select form-select-sm
+    appearance-none
+    block
+    w-full
+    px-2
+    py-1
+    text-sm
+    font-normal
+    text-gray-700
+    bg-white bg-clip-padding bg-no-repeat
+    border border-solid border-gray-300
+    rounded
+    transition
+    ease-in-out
+    m-0
+    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        aria-label=".form-select-sm example"
+                      >
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-center">
+                    <div
+                      class="datepicker relative form-floating mb-3 xl:w-96"
+                      data-mdb-toggle-button="false"
+                    >
+                      <input
+                        type="text"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        placeholder="Select a date"
+                        data-mdb-toggle="datepicker"
+                      />
+                      <label for="floatingInput" class="text-gray-700">
+                        Select a date
+                      </label>
+                    </div>
+                  </div>
 
                   <section className="flex items-center justify-end col-start-2">
                     <button className="bg-black text-white rounded-sm px-8 py-3 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
