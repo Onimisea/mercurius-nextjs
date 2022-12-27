@@ -199,7 +199,7 @@ export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
   let userStatus = {};
 
-  if (!session.user) {
+  if (!session) {
     return {
       redirect: {
         destination: "/login",
@@ -225,7 +225,4 @@ export const getServerSideProps = async ({ req }) => {
       props: { session, userStatus },
     };
   }
-
-  // if (session.user) {
-  // }
 };
