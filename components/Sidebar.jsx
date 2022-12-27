@@ -16,7 +16,7 @@ const Sidebar = ({ links, asideOpen }) => {
           return (
             <li className="w-fit md:text-md flex flex-col items-start justify-start">
               <Link
-                href=""
+                href={ln.url && ln.url}
                 className={` ${
                   asideOpen ? "w-[150px]" : "w-[60px]"
                 } sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
