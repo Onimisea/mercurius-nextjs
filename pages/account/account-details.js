@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { useAppContext } from "../../context/AppContext"
+import { useAppContext } from "../../context/AppContext";
 import toast from "react-hot-toast";
 import { getSession, useSession, signOut } from "next-auth/react";
 import { Sidebar } from "../../components";
@@ -10,6 +10,7 @@ import { FaEnvelope, FaHeart } from "react-icons/fa";
 import { MdClose, MdInventory } from "react-icons/md";
 import { ImUser } from "react-icons/im";
 import { RiLogoutBoxFill } from "react-icons/ri";
+import { BsArrowLeft } from "react-icons/bs";
 
 const AccountDetails = ({ userStatus }) => {
   const {
@@ -65,7 +66,9 @@ const AccountDetails = ({ userStatus }) => {
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
       <Head>
-        <title>Mercurius | Account | Best Thrift Store in Nigeria</title>
+        <title>
+          Mercurius | Account Details | Best Thrift Store in Nigeria
+        </title>
       </Head>
 
       {userStatus.error ? (
@@ -117,96 +120,28 @@ const AccountDetails = ({ userStatus }) => {
               </section>
             </section>
 
+            {/* Main Section */}
             <section
               className={`bg-[#F1F1F1] w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
             >
-              {/* whitespace-nowrap overflow-x-scroll scrollbar-none */}
+              {/* Header */}
               <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8">
-                <h3 className="text-xl text-white">Account</h3>
+                <BsArrowLeft size={25} className="p-0 m-0 mr-4" />
+                <h3 className="text-xl text-white">Account Details</h3>
               </section>
 
+              {/* Content Start */}
               <section
                 className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
                   asideOpen ? "" : ""
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
-                <section className="w-full bg-white rounded-md p-4">
-                  <section className="flex items-start justify-between mb-6">
-                    <h3 className="text-lg text-black font-semibold">
-                      Account Details
-                    </h3>
-                    <FiEdit size={25} className="p-0 m-0" />
-                  </section>
-
-                  <section className="flex flex-col items-start text-[#868686] space-y-1 w-full">
-                    <p>Onimisea Tijani</p>
-                    <p>onimisea@gmail.com</p>
-                    <p>+234 8034 023 726</p>
-                  </section>
+                <section className="flex flex-col items-start text-[#868686] space-y-1 w-full">
+                  <p>Update Form</p>
                 </section>
               </section>
 
-              <section
-                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
-                  asideOpen ? "" : ""
-                } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
-              >
-                <section className="w-full bg-white rounded-md p-4">
-                  <section className="flex items-start justify-between mb-6">
-                    <h3 className="text-lg text-black font-semibold">
-                      Shipping Address
-                    </h3>
-                    <FiEdit size={25} className="p-0 m-0" />
-                  </section>
-
-                  <section className="flex flex-col items-start text-[#868686] space-y-1 w-full">
-                    <p>Mike Longo</p>
-                    <p>No. 32, Iyanikpaja Expressway, Dodoma Street, Lagos</p>
-                  </section>
-                </section>
-              </section>
-
-              <section
-                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
-                  asideOpen ? "" : ""
-                } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
-              >
-                <section className="w-full bg-white rounded-md p-4">
-                  <section className="flex items-start justify-between mb-0">
-                    <h3 className="text-lg text-black font-semibold">
-                      Change Password
-                    </h3>
-                    <FiEdit size={25} className="p-0 m-0" />
-                  </section>
-
-                  {/* <section className="flex flex-col items-start text-[#868686] space-y-2 w-full">
-                    <p>Onimisea Tijani</p>
-                    <p>onimisea@gmail.com</p>
-                  </section> */}
-                </section>
-              </section>
-
-              <section
-                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
-                  asideOpen ? "" : ""
-                } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
-              >
-                <section className="w-full bg-white rounded-md p-4">
-                  <section className="flex items-start justify-between mb-0">
-                    <h3 className="text-lg text-black font-semibold">
-                      Select Currency
-                    </h3>
-
-                    <p className="text-primary">Nigeria (NGN)</p>
-                    {/* <FiEdit size={25} className="p-0 m-0" /> */}
-                  </section>
-
-                  {/* <section className="flex flex-col items-start text-[#F1F1F1] space-y-2 w-full">
-                    <p>Onimisea Tijani</p>
-                    <p>onimisea@gmail.com</p>
-                  </section> */}
-                </section>
-              </section>
+              {/* Content End */}
             </section>
           </section>
         </section>
