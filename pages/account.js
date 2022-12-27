@@ -5,8 +5,8 @@ import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
 import { getSession, useSession, signOut } from "next-auth/react";
 import { Sidebar } from "../components";
-import { FiHeart, FiMenu, FiPackage } from "react-icons/fi";
-import { FaEnvelope } from "react-icons/fa";
+import { FiMenu, FiPackage } from "react-icons/fi";
+import { FaEnvelope, FaHeart } from "react-icons/fa";
 import { MdClose, MdInventory } from "react-icons/md";
 import { ImUser } from "react-icons/im";
 import { RiLogoutBoxFill } from "react-icons/ri";
@@ -36,7 +36,7 @@ const account = ({ userStatus }) => {
     {
       name: "Favourites",
       url: "/favourites",
-      icon: <FiHeart size={20} className="mr-2" />,
+      icon: <FaHeart size={20} className="mr-2" />,
     },
     {
       name: "Orders",
@@ -93,7 +93,7 @@ const account = ({ userStatus }) => {
               <section
                 className={`bg-black ${
                   asideOpen ? "w-[200px] duration-300" : "w-[60px]"
-                } sm2:w-[250px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
+                } sm2:w-[250px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative text-md duration-300`}
               >
                 <Sidebar links={sidebarLinks} asideOpen={asideOpen} />
               </section>
@@ -115,7 +115,13 @@ const account = ({ userStatus }) => {
               </section>
             </section>
 
-            <section className={`bg-gray-400 `}>Main</section>
+            <section
+              className={`bg-gray-400 ${
+                asideOpen ? "w-[100% - 200px]" : "w-[100% - 60px]"
+              }`}
+            >
+              Main
+            </section>
           </section>
         </section>
       )}
