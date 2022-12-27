@@ -55,7 +55,7 @@ const account = ({ userStatus }) => {
     },
     {
       name: "Log Out",
-      url: "/logout",
+      url: "",
       icon: <RiLogoutBoxFill size={20} className="mr-2" />,
     },
   ];

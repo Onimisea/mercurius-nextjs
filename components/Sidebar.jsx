@@ -16,13 +16,13 @@ const Sidebar = ({ links, asideOpen }) => {
           return (
             <li className="w-fit md:text-md flex flex-col items-start justify-start">
               <Link
-                href={ln.url === "/logout" ? "" : ln.url}
+                href={ln.url && ln.url}
                 className={` ${
                   asideOpen ? "w-[150px]" : "w-[60px]"
                 } sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
                   ln.active && "text-primary hover:text-gray-300"
                 }`}
-                onClick={ln.url === "/logout" ? () => handleSignOut() : ""}
+                onClick={ln.url === "" ? () => handleSignOut() : ""}
               >
                 <span className="mr-1">{ln.icon}</span>
                 <span
