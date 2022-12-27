@@ -135,7 +135,9 @@ const account = ({ userStatus }) => {
                     <h3 className="text-lg text-black font-semibold">
                       Account Details
                     </h3>
-                    <FiEdit size={25} className="p-0 m-0" />
+                    <Link href="/account/account-details">
+                      <FiEdit size={25} className="p-0 m-0" />
+                    </Link>
                   </section>
 
                   <section className="flex flex-col items-start text-[#868686] space-y-1 w-full">
@@ -162,7 +164,6 @@ const account = ({ userStatus }) => {
                   <section className="flex flex-col items-start text-[#868686] space-y-1 w-full">
                     <p>Mike Longo</p>
                     <p>No. 32, Iyanikpaja Expressway, Dodoma Street, Lagos</p>
-                    
                   </section>
                 </section>
               </section>
