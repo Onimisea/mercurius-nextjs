@@ -135,7 +135,7 @@ const account = ({ userStatus }) => {
                     <h3 className="text-lg text-black font-semibold">
                       Account Details
                     </h3>
-                    <Link href="/account/account-details">
+                    <Link href="/account/account-details" className="cursor-pointer hover:text-primary duration-300">
                       <FiEdit size={25} className="p-0 m-0" />
                     </Link>
                   </section>
