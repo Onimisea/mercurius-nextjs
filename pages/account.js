@@ -90,7 +90,7 @@ const account = ({ userStatus }) => {
 
           <section className="w-full flex items-start justify-start mt-8">
             <section className="flex flex-col items-start sticky top-0 left-0 mr-5 md:mr-10">
-              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] font-bold duration-300 cursor-pointer">
+              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] ml-1 font-bold duration-300 cursor-pointer">
                 {/* grid place-items-center sm2:hidden w-[40px] h-[40px] absolute
                 -top-[40px] left-[8px] font-bold duration-300 cursor-pointer */}
                 {asideOpen ? (
