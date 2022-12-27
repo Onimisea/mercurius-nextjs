@@ -381,34 +381,22 @@ const AccountDetails = ({ userStatus }) => {
                   <section className="">
                     <label htmlFor="dob">Date of Birth</label>
                     <section
-                      className="datepicker relative"
+                      {...register("dob")}
+                      className="datepicker flex items-center justify-between relative mt-2"
                       data-mdb-toggle-button="false"
                     >
                       <input
                         type="text"
-                        className="form-control text-base bg-clip-padding rounded-sm transition ease-in-out"
-                        placeholder="Select a date"
+                        name="dob"
+                        placeholder="Select a Date"
+                        className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
+                          errors.phone &&
+                          "border-2 border-red-500 text-red-500 bg-black"
+                        }`}
                         data-mdb-toggle="datepicker"
                       />
                     </section>
                   </section>
-
-                  <div className="flex items-center justify-center">
-                    <div
-                      class="datepicker relative form-floating mb-3 xl:w-96"
-                      data-mdb-toggle-button="false"
-                    >
-                      <input
-                        type="text"
-                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        placeholder="Select a date"
-                        data-mdb-toggle="datepicker"
-                      />
-                      <label for="floatingInput" class="text-gray-700">
-                        Select a date
-                      </label>
-                    </div>
-                  </div>
 
                   <section className="flex items-center justify-end col-start-2">
                     <button className="bg-black text-white rounded-sm px-8 py-4 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
