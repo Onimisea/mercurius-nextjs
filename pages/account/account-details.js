@@ -370,29 +370,16 @@ const AccountDetails = ({ userStatus }) => {
                     )}
                   </section>
 
-                  <section className="flex justify-center">
-                    <section className="mb-3 xl:w-96">
+                  <section className="">
+                    <label htmlFor="gender">Gender</label>
+                    <section className="flex items-center justify-between relative mt-2">
                       <select
-                        className="form-select appearance-none block
-      w-full
-      px-3
-      py-1.5
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        aria-label="Default select example"
+                        className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        aria-label="Gender Select"
                       >
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>Male or Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                       </select>
                     </section>
                   </section>
