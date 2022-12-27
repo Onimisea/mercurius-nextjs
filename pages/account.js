@@ -89,7 +89,7 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-start mt-14">
-            <section className="flex items-start justify-between sticky top-0 left-0 mr-10">
+            <section className="flex flex-col items-center justify-center sticky top-0 left-0 mr-10">
               <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] font-bold duration-300 cursor-pointer">
                 {/* grid place-items-center sm2:hidden w-[40px] h-[40px] absolute
                 -top-[40px] left-[8px] font-bold duration-300 cursor-pointer */}
@@ -118,9 +118,71 @@ const account = ({ userStatus }) => {
             </section>
 
             <section
-              className={`bg-gray-300 w-[100%] whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500`}
+              className={`bg-gray-300 w-[100%] flex flex-col items-center justify-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500`}
             >
-              Main
+              <section className="w-full bg-black px-6 py-4 mb-8">
+                <h1 className="text-2xl sm2:text-3xl text-white">
+                  Account
+                </h1>
+              </section>
+
+              <section className="">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                porta dictum erat, a facilisis augue. In posuere id lacus eget
+                lacinia. In placerat magna sed sem bibendum, tincidunt porta
+                libero finibus. Interdum et malesuada fames ac ante ipsum primis
+                in faucibus. Etiam ut tempus orci. Nulla a ipsum sem. Aliquam
+                fringilla suscipit pulvinar. Duis nec orci ligula. Pellentesque
+                lectus neque, interdum quis interdum a, faucibus non nibh.
+                Quisque faucibus, enim vitae suscipit venenatis, ante metus
+                molestie arcu, non feugiat tortor lectus at enim. Pellentesque
+                ultricies justo suscipit purus molestie elementum eget sed
+                velit. Aliquam id vehicula sapien. Vivamus consectetur sapien
+                sodales neque sodales blandit. Morbi feugiat felis a magna
+                varius efficitur. Vestibulum quis velit ipsum. Donec justo
+                felis, bibendum vitae nisl nec, mollis rhoncus tortor. Mauris
+                aliquet laoreet hendrerit. Donec pulvinar lorem a eleifend
+                auctor. Cras vitae mollis ante, at volutpat turpis. Donec varius
+                orci sed ultrices aliquam. Praesent eget risus id nunc pulvinar
+                euismod. Vestibulum elementum, velit eget feugiat dapibus, dolor
+                dolor vulputate nulla, vitae rutrum risus quam ac dolor.
+                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                posuere cubilia curae; Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Etiam eu bibendum leo, ut scelerisque ipsum.
+                Vivamus elementum magna id metus ornare convallis. Curabitur
+                nisl arcu, egestas sed iaculis eu, sagittis nec nulla. Proin
+                faucibus massa eu augue suscipit, sed congue nisi varius. Morbi
+                quis lacus sed mauris suscipit hendrerit nec quis dolor. Donec
+                malesuada quis neque a rhoncus. Vestibulum suscipit accumsan
+                turpis in varius. Suspendisse id est in ex pretium ultrices quis
+                ut ligula. Suspendisse id risus ut felis lobortis elementum eget
+                nec justo. Nunc sollicitudin, dui ac dapibus varius, neque velit
+                ullamcorper odio, a porta odio nibh sed quam. Fusce tempus
+                gravida neque at accumsan. Nunc venenatis enim a ex fermentum, a
+                elementum libero accumsan. Nam fermentum pretium tellus. In a
+                odio luctus, tristique nunc quis, fermentum nisl. Nulla id
+                volutpat nisl, id tristique felis. Cras faucibus neque ac lacus
+                blandit ullamcorper. Sed eget metus feugiat, ornare leo quis,
+                ornare tellus. Sed sed mattis risus. Curabitur diam diam,
+                aliquet et varius ac, imperdiet et ex. Maecenas scelerisque
+                blandit sodales. Suspendisse pulvinar felis vitae nunc placerat
+                fermentum. Duis bibendum nulla ornare, imperdiet dui id,
+                lobortis nunc. Nullam dignissim accumsan faucibus. Cras sodales
+                turpis massa, imperdiet ullamcorper tellus mattis in.
+                Suspendisse eget ante vitae purus congue egestas ornare vitae
+                dolor. Mauris tincidunt quam a velit aliquam dapibus. Duis
+                varius erat non tortor congue malesuada. Cras volutpat quis
+                tortor venenatis porta. Praesent vulputate sagittis ante, eget
+                laoreet lectus pulvinar quis. Phasellus id massa non enim
+                lacinia posuere vitae condimentum dolor. Curabitur ut libero a
+                quam facilisis cursus. In sed elit nisl. In a gravida ipsum, nec
+                mattis lectus. Curabitur tempor a tortor in consectetur. Nam nec
+                augue tellus. Phasellus vel dolor porta mauris varius vehicula.
+                Maecenas ex lectus, maximus a consectetur id, ultricies eget
+                augue. Donec porttitor maximus laoreet. Aliquam scelerisque
+                dapibus neque.
+              </section>
             </section>
           </section>
         </section>
