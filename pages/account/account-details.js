@@ -11,7 +11,7 @@ import { MdClose, MdInventory } from "react-icons/md";
 import { ImUser } from "react-icons/im";
 import { RiLogoutBoxFill } from "react-icons/ri";
 
-const AccountDetails = () => {
+const AccountDetails = ({ userStatus }) => {
   const {
     appState: { cart },
     tabbed,
