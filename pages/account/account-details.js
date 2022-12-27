@@ -186,7 +186,7 @@ const AccountDetails = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
                 <form
-                  className="grid grid-cols-1 grid-rows-3 gap-6 sm2:gap-8 sm2:grid-cols-2 space-y-2 w-full"
+                  className="grid grid-cols-1 grid-rows-3 gap-6 sm2:gap-8 sm2:grid-cols-2 space-y-0 w-full"
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <section className="col-span-2 sm2:col-span-full">
@@ -275,7 +275,7 @@ const AccountDetails = ({ userStatus }) => {
                   <section className="">
                     <label htmlFor="phone">Phone Number</label>
                     <section className="flex items-center justify-start relative mt-2">
-                      <section className="rounded-sm py-3 pl-5 w-fit pr-12 text-white bg-black">
+                      <section className="rounded-sm py-3 px-5 w-fit text-white bg-black">
                         +234
                       </section>
                       <input
@@ -325,56 +325,20 @@ const AccountDetails = ({ userStatus }) => {
 
                   <section className="">
                     <label htmlFor="gender">Gender</label>
-                    <section className="flex items-center justify-between relative mt-2">
-                      <input
-                        {...register("gender", {
-                          required: {
-                            value: false,
-                            message: "Please type your gender",
-                          },
-                          pattern: {
-                            value: /^[A-Za-z ]*$/,
-                            message: "Please type your gender",
-                          },
-                          maxLength: {
-                            value: 6,
-                            message: "Gender should not be more than 6 digits",
-                          },
-                        })}
-                        type="text"
-                        name="gender"
-                        placeholder="Male or Female"
+                    <section
+                      {...register("gender", {
+                        required: {
+                          value: false,
+                          message: "Please select your gender",
+                        },
+                      })}
+                      className="flex items-center justify-between relative mt-2"
+                    >
+                      <select
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500 bg-black"
-                        }`}
-                      />
-                    </section>
-
-                    {errors.gender && errors.gender.type === "pattern" && (
-                      <span className="text-red-500 block mt-2">
-                        {errors.gender.message}
-                      </span>
-                    )}
-
-                    {errors.gender && errors.gender.type === "required" && (
-                      <span className="text-red-500 block mt-2">
-                        {errors.gender.message}
-                      </span>
-                    )}
-
-                    {errors.gender && errors.gender.type === "maxLength" && (
-                      <span className="text-red-500 block mt-2">
-                        {errors.gender.message}
-                      </span>
-                    )}
-                  </section>
-
-                  <section className="">
-                    <label htmlFor="gender">Gender</label>
-                    <section className="flex items-center justify-between relative mt-2">
-                      <select
-                        className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        } form-select bg-clip-padding bg-no-repeat transition ease-in-out`}
                         aria-label="Gender Select"
                       >
                         <option selected>Male or Female</option>
@@ -385,7 +349,7 @@ const AccountDetails = ({ userStatus }) => {
                   </section>
 
                   <section className="flex items-center justify-end col-start-2">
-                    <button className="bg-black text-white rounded-sm px-8 py-0 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
+                    <button className="bg-black text-white rounded-sm px-8 py-2 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
                       <span>Save Changes</span>
                     </button>
                   </section>
