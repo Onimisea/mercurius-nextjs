@@ -89,7 +89,7 @@ const account = ({ userStatus }) => {
           </h1>
 
           <section className="w-full flex items-start justify-start mt-14">
-            <section className="flex flex-col items-center justify-center sticky top-0 left-0 mr-10">
+            <section className="flex flex-col items-center justify-start sticky top-0 left-0 mr-10">
               <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] font-bold duration-300 cursor-pointer">
                 {/* grid place-items-center sm2:hidden w-[40px] h-[40px] absolute
                 -top-[40px] left-[8px] font-bold duration-300 cursor-pointer */}
@@ -120,13 +120,11 @@ const account = ({ userStatus }) => {
             <section
               className={`bg-gray-300 w-[100%] flex flex-col items-center justify-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500`}
             >
-              <section className="w-full bg-black px-6 py-4 mb-8">
-                <h1 className="text-2xl sm2:text-3xl text-white">
-                  Account
-                </h1>
+              <section className="w-full sticky top-0 left-0 bg-black px-3 py-2 md:px-6 md:py-4 mb-8">
+                <h1 className="text-xl text-white">Account</h1>
               </section>
 
-              <section className="">
+              <section className="w-[100%] flex flex-col items-center justify-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
                 porta dictum erat, a facilisis augue. In posuere id lacus eget
                 lacinia. In placerat magna sed sem bibendum, tincidunt porta
