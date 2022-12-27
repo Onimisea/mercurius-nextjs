@@ -186,7 +186,7 @@ const AccountDetails = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
                 <form
-                  className="grid grid-cols-1 grid-rows-3 gap-4 sm2:grid-cols-2 space-y-2 w-full"
+                  className="grid grid-cols-1 grid-rows-3 gap-6 sm2:gap-8 sm2:grid-cols-2 space-y-2 w-full"
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <section className="col-span-2 sm2:col-span-full">
@@ -343,7 +343,7 @@ const AccountDetails = ({ userStatus }) => {
                       />
                     </section>
 
-                    <ul className=" bg-red-500 absolute hidden group-hover:block text-gray-700 pt-1">
+                    <ul className=" bg-red-500 hidden group-hover:block text-gray-700 pt-1">
                       <li className="">
                         <a
                           className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
@@ -371,7 +371,7 @@ const AccountDetails = ({ userStatus }) => {
                     </ul>
                   </section>
 
-                  <button className="col-start-2 bg-black text-white rounded-sm px-8 py-0 flex items-center justify-end w-fit cursor-pointer hover:bg-primary duration-300">
+                  <button className="col-start-2 bg-black text-white rounded-sm px-8 py-0 flex items-end justify-end w-fit cursor-pointer hover:bg-primary duration-300">
                     <span>Save Changes</span>
                   </button>
                 </form>
