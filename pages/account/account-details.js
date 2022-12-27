@@ -189,7 +189,7 @@ const AccountDetails = ({ userStatus }) => {
                   className="grid grid-cols-2 gap-4 sm2:grid-cols-1 space-y-6 w-full"
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  <section className="w-full col-span-2 sm2:col-span-full">
+                  <section className="col-span-2 sm2:col-span-full">
                     <label htmlFor="fullname">Fullname</label>
                     <section className="flex items-center justify-between relative mt-1">
                       <input
