@@ -186,12 +186,12 @@ const AccountDetails = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
                 <form
-                  className="flex flex-col space-y-6 w-full bg-red-300"
+                  className="flex flex-col space-y-6 w-full"
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <section className="w-full">
                     <label htmlFor="fullname">Fullname</label>
-                    <section className="flex items-center justify-between relative mt-2">
+                    <section className="flex items-center justify-between relative mt-1">
                       <input
                         {...register("fullname", {
                           required: {
@@ -206,7 +206,7 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="fullname"
                         placeholder="Firstname Lastname"
-                        className={`appearance-none rounded-md py-3 pl-5 w-full placeholder-black pr-12 text-black outline-none ${
+                        className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.fullname &&
                           "border-2 border-red-500 text-red-500 bg-black"
                         }`}
@@ -246,7 +246,7 @@ const AccountDetails = ({ userStatus }) => {
                         type="email"
                         name="email"
                         placeholder="Email"
-                        className={`appearance-none rounded-md py-3 pl-5 w-full placeholder-black pr-12 text-black outline-none ${
+                        className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-black pr-12 text-black outline-none ${
                           errors.email &&
                           "border-2 border-red-500 text-red-500 bg-black"
                         }`}
@@ -293,7 +293,7 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="phone"
                         placeholder="Phone Number"
-                        className={`appearance-none rounded-md py-3 pl-5 w-full placeholder-black pr-12 text-black outline-none ${
+                        className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-black pr-12 text-black outline-none ${
                           errors.phone &&
                           "border-2 border-red-500 text-red-500 bg-black"
                         }`}
@@ -319,7 +319,7 @@ const AccountDetails = ({ userStatus }) => {
                     )}
                   </section>
 
-                  <button className="bg-black text-white rounded-md px-6 py-3 grid place-items-center w-full cursor-pointer hover:bg-primary duration-300">
+                  <button className="bg-black text-white rounded-sm px-6 py-3 grid place-items-center w-full cursor-pointer hover:bg-primary duration-300">
                     <span>Save Changes</span>
                   </button>
                 </form>
