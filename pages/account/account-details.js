@@ -355,7 +355,7 @@ const AccountDetails = ({ userStatus }) => {
                   <div class="flex justify-center">
                     <div class="mb-3 xl:w-96">
                       <select
-                        class="form-select form-select-lg mb-3
+                        class="form-select
       appearance-none
       block
       w-full
@@ -365,38 +365,10 @@ const AccountDetails = ({ userStatus }) => {
       font-normal
       text-gray-700
       bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300
       rounded
       transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        aria-label=".form-select-lg example"
-                      >
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-
-                      <select
-                        class="form-select form-select-sm
-    appearance-none
-    block
-    w-full
-    px-2
-    py-1
-    text-sm
-    font-normal
-    text-gray-700
-    bg-white bg-clip-padding bg-no-repeat
-    border border-solid border-gray-300
-    rounded
-    transition
-    ease-in-out
-    m-0
-    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        aria-label=".form-select-sm example"
+      ease-in-out"
+                        aria-label="Gender Select"
                       >
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>
@@ -405,6 +377,21 @@ const AccountDetails = ({ userStatus }) => {
                       </select>
                     </div>
                   </div>
+
+                  <section className="">
+                    <label htmlFor="dob">Date of Birth</label>
+                    <section
+                      className="datepicker relative form-floating"
+                      data-mdb-toggle-button="false"
+                    >
+                      <input
+                        type="text"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        placeholder="Select a date"
+                        data-mdb-toggle="datepicker"
+                      />
+                    </section>
+                  </section>
 
                   <div class="flex items-center justify-center">
                     <div
