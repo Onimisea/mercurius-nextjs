@@ -15,24 +15,28 @@ const Sidebar = ({ links, asideOpen }) => {
         {links.map((ln) => {
           return (
             <li className="w-fit md:text-md flex flex-col items-start justify-start">
-              <Link
-                href={ln.url && ln.url}
-                className={` ${
-                  asideOpen ? "w-[150px]" : "w-[60px]"
-                } sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
-                  ln.active && "text-primary hover:text-gray-300"
-                }`}
-                onClick={ln.url === null ? () => handleSignOut() : ""}
-              >
-                <span className="mr-1">{ln.icon}</span>
-                <span
+              {ln.url !== null ? (
+                <Link
+                  href={ln.url ? ln.url : "#"}
                   className={` ${
-                    asideOpen ? "flex p-0 m-0" : "hidden"
-                  } sm2:flex`}
+                    asideOpen ? "w-[150px]" : "w-[60px]"
+                  } sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
+                    ln.active && "text-primary hover:text-gray-300"
+                  }`}
+                  onClick={ln.url === null ? () => handleSignOut() : ""}
                 >
-                  {ln.name}
-                </span>
-              </Link>
+                  <span className="mr-1">{ln.icon}</span>
+                  <span
+                    className={` ${
+                      asideOpen ? "flex p-0 m-0" : "hidden"
+                    } sm2:flex`}
+                  >
+                    {ln.name}
+                  </span>
+                </Link>
+              ) : (
+                "Log Out"
+              )}
             </li>
           );
         })}
