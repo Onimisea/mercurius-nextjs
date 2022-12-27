@@ -35,7 +35,23 @@ const Sidebar = ({ links, asideOpen }) => {
                   </span>
                 </Link>
               ) : (
-                "Log Out"
+                <section
+                  className={` ${
+                    asideOpen ? "w-[150px]" : "w-[60px]"
+                  } sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
+                    ln.active && "text-primary hover:text-gray-300"
+                  }`}
+                  onClick={() => handleSignOut()}
+                >
+                  <span className="mr-1">{ln.icon}</span>
+                  <span
+                    className={` ${
+                      asideOpen ? "flex p-0 m-0" : "hidden"
+                    } sm2:flex`}
+                  >
+                    {ln.name}
+                  </span>
+                </section>
               )}
             </li>
           );
