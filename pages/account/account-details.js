@@ -298,7 +298,6 @@ const AccountDetails = ({ userStatus }) => {
                           "border-2 border-red-500 text-red-500 bg-black"
                         }`}
                       />
-                      <BsPhoneFill className="absolute right-0 z-50 mr-4 text-black" />
                     </section>
 
                     {errors.phone && errors.phone.type === "pattern" && (
