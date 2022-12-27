@@ -125,7 +125,7 @@ const account = ({ userStatus }) => {
               </section>
 
               <section
-                className={`w-[100%] h-fit flex flex-col items-center justify-center whitespace-nowrap ${
+                className={`w-[100%] h-fit flex flex-col items-center justify-center ${
                   asideOpen ? "" : ""
                 } scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth duration-500`}
               >
