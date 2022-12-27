@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Script from "next/script";
 import "tw-elements";
 import { useForm } from "react-hook-form";
 import { useAppContext } from "../../context/AppContext";
@@ -117,7 +118,8 @@ const AccountDetails = ({ userStatus }) => {
           Mercurius | Account Details | Best Thrift Store in Nigeria
         </title>
       </Head>
-
+      {/* src="./TW-ELEMENTS-PATH/dist/js/index.min.js" */}
+      <Script src="../../node_modules/tw-elements/dist/js/index.min.js" />
       {userStatus.error ? (
         <section className="w-full p-12 grid place-items-center">
           <h4 className="text-xl text-primary">
