@@ -115,9 +115,7 @@ const account = ({ userStatus }) => {
               </section>
             </section>
 
-            <section className="bg-gray-400 lg:w-[70%] xl:w-[80%]">
-              Main
-            </section>
+            <section className={`bg-gray-400 `}>Main</section>
           </section>
         </section>
       )}
