@@ -352,7 +352,7 @@ const AccountDetails = ({ userStatus }) => {
                     </section>
                   </section>
 
-                  <div className="flex justify-center">
+                  <div className="">
                     <div className="mb-3 xl:w-96">
                       <select
                         className="form-select
@@ -370,10 +370,9 @@ const AccountDetails = ({ userStatus }) => {
       ease-in-out"
                         aria-label="Gender Select"
                       >
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>Male or Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                       </select>
                     </div>
                   </div>
