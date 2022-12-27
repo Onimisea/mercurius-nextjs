@@ -5,7 +5,7 @@ import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
 import { getSession, useSession, signOut } from "next-auth/react";
 import { Sidebar } from "../components";
-import { FiMenu, FiPackage } from "react-icons/fi";
+import { FiMenu, FiPackage, FiEdit } from "react-icons/fi";
 import { FaEnvelope, FaHeart } from "react-icons/fa";
 import { MdClose, MdInventory } from "react-icons/md";
 import { ImUser } from "react-icons/im";
