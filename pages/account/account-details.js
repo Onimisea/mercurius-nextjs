@@ -338,7 +338,8 @@ const AccountDetails = ({ userStatus }) => {
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500 bg-black"
-                        } transition ease-in-out text-black`}
+                        } transition ease-in-out text-black text-base
+      font-normal`}
                         aria-label="Gender Select"
                       >
                         <option selected>Male or Female</option>
