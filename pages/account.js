@@ -124,7 +124,11 @@ const account = ({ userStatus }) => {
                 <h1 className="text-xl text-white">Account</h1>
               </section>
 
-              <section className="w-[100%] flex flex-col items-center justify-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500">
+              <section
+                className={`w-[100%] h-fit flex flex-col items-center justify-center whitespace-nowrap ${
+                  asideOpen ? "" : ""
+                } scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth duration-500`}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
                 porta dictum erat, a facilisis augue. In posuere id lacus eget
                 lacinia. In placerat magna sed sem bibendum, tincidunt porta
