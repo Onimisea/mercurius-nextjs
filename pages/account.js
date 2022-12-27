@@ -118,14 +118,14 @@ const account = ({ userStatus }) => {
             </section>
 
             <section
-              className={`bg-gray-300 w-[100%] flex flex-col items-center justify-center whitespace-nowrap overflow-x-scroll scrollbar-none scroll-smooth duration-500`}
+              className={`bg-gray-300 w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
             >
+              {/* whitespace-nowrap overflow-x-scroll scrollbar-none */}
               <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-8">
                 <h1 className="text-xl text-white">Account</h1>
               </section>
-
               <section
-                className={`w-full h-fit flex flex-col items-center justify-center flex-wrap px-4 py-3 md:px-6 md:py-4 ${
+                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
                   asideOpen ? "" : ""
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth duration-500`}
               >
