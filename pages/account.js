@@ -129,7 +129,7 @@ const account = ({ userStatus }) => {
                   asideOpen ? "" : ""
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
-                <section className="bg-white rounded-md p-3">
+                <section className="w-full bg-white rounded-md p-3">
                   <section className="flex items-start justify-between mb-4">
                     <h3 className="text-lg text-black font-semibold">
                       Account Details
