@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 import { useAppContext } from "../../context/AppContext";
 import toast from "react-hot-toast";
 import { getSession, useSession, signOut } from "next-auth/react";
@@ -62,6 +63,51 @@ const AccountDetails = ({ userStatus }) => {
   ];
 
   const [asideOpen, setAsideOpen] = useState(false);
+
+  // Form Dependencies
+
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      fullname: "",
+      email: "",
+      phone: "",
+      gender: "",
+      dob: "",
+    },
+  });
+
+  const onSubmit = async (data) => {
+    if (userStatus) {
+      try {
+        const options = {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(data),
+        };
+
+        await fetch(
+          "https://mercurius-api-production.up.railway.app/api/users/update/",
+          options
+        )
+          .then((res) => res.json())
+          .then((resData) => {
+            if (resData.errors) {
+              toast.error(resData.errors[0]);
+            } else {
+              toast.success(resData.message);
+              router.push("/account");
+            }
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -139,9 +185,146 @@ const AccountDetails = ({ userStatus }) => {
                   asideOpen ? "" : ""
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
-                <section className="flex flex-col items-start text-[#868686] space-y-1 w-full">
-                  <p>Update Form</p>
-                </section>
+                <form
+                  className="flex flex-col space-y-6"
+                  onSubmit={handleSubmit(onSubmit)}
+                >
+                  <section className="">
+                    <label htmlFor="fullname">Fullname</label>
+                    <section className="flex items-center justify-between relative mt-2">
+                      <input
+                        {...register("fullname", {
+                          required: {
+                            value: true,
+                            message: "Firstname and Lastname is required",
+                          },
+                          pattern: {
+                            value: /^[A-Za-z ]*$/,
+                            message: "Please enter valid names",
+                          },
+                        })}
+                        type="text"
+                        name="fullname"
+                        placeholder="Firstname Lastname"
+                        className={`appearance-none rounded-md py-3 pl-5 w-full placeholder-black pr-12 text-black outline-none ${
+                          errors.fullname &&
+                          "border-2 border-red-500 text-red-500 bg-black"
+                        }`}
+                      />
+                    </section>
+                    {errors.fullname && errors.fullname.type === "pattern" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.fullname.message}
+                      </span>
+                    )}
+                    {errors.fullname && errors.fullname.type === "required" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.fullname.message}
+                      </span>
+                    )}
+                  </section>
+
+                  <section className="">
+                    <label htmlFor="email">Email</label>
+                    <section className="flex items-center justify-between relative mt-2">
+                      <input
+                        {...register("email", {
+                          required: {
+                            value: true,
+                            message: "Email is required",
+                          },
+                          pattern: {
+                            value:
+                              /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                            message: "Please enter a valid email",
+                          },
+                          maxLength: {
+                            value: 60,
+                            message: "Email is longer than 60 characters",
+                          },
+                        })}
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        className={`appearance-none rounded-md py-3 pl-5 w-full placeholder-black pr-12 text-black outline-none ${
+                          errors.email &&
+                          "border-2 border-red-500 text-red-500 bg-black"
+                        }`}
+                      />
+                      <BsEnvelopeFill className="absolute right-0 z-50 mr-4 text-black" />
+                    </section>
+
+                    {errors.email && errors.email.type === "pattern" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.email.message}
+                      </span>
+                    )}
+
+                    {errors.email && errors.email.type === "maxLength" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.email.message}
+                      </span>
+                    )}
+
+                    {errors.email && errors.email.type === "required" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.email.message}
+                      </span>
+                    )}
+                  </section>
+
+                  <section className="">
+                    <label htmlFor="phone">Phone Number</label>
+                    <section className="flex items-center justify-between relative mt-2">
+                      <input
+                        {...register("phone", {
+                          required: {
+                            value: true,
+                            message: "Phone number is required",
+                          },
+                          pattern: {
+                            value: /^[0-9]+$/,
+                            message: "Please enter valid phone number",
+                          },
+                          maxLength: {
+                            value: 11,
+                            message: "Phone number is more than 11 digits",
+                          },
+                        })}
+                        type="text"
+                        name="phone"
+                        placeholder="Phone Number"
+                        className={`appearance-none rounded-md py-3 pl-5 w-full placeholder-black pr-12 text-black outline-none ${
+                          errors.phone &&
+                          "border-2 border-red-500 text-red-500 bg-black"
+                        }`}
+                      />
+                      <BsPhoneFill className="absolute right-0 z-50 mr-4 text-black" />
+                    </section>
+
+                    {errors.phone && errors.phone.type === "pattern" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.phone.message}
+                      </span>
+                    )}
+
+                    {errors.phone && errors.phone.type === "required" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.phone.message}
+                      </span>
+                    )}
+
+                    {errors.phone && errors.phone.type === "maxLength" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.phone.message}
+                      </span>
+                    )}
+                  </section>
+
+                  <button className="bg-black text-white rounded-md px-6 py-3 grid place-items-center w-full cursor-pointer hover:bg-primary duration-300">
+                    <span>Save Changes</span>
+                  </button>
+                </form>
               </section>
 
               {/* Content End */}
