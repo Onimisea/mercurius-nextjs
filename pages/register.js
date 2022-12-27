@@ -444,16 +444,16 @@ const Register = () => {
 export default Register;
 
 export const getServerSideProps = async ({ req }) => {
-  // const session = await getSession({ req });
+  const session = await getSession({ req });
 
-  // if (session) {
-  //   return {
-  //     redirect: {
-  //       destination: "/",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {},
