@@ -19,7 +19,8 @@
     "react-paystack": "^4.0.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
-    "swiper": "^8.4.4"
+    "swiper": "^8.4.4",
+    "tw-elements": "^1.0.0-alpha13"
   },
   "devDependencies": {
     "@iconify/react": "^4.0.1",
