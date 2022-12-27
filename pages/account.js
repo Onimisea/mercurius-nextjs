@@ -88,12 +88,12 @@ const account = ({ userStatus }) => {
             Settings
           </h1>
 
-          <section className="w-full flex items-start justify-between mt-14">
-            <section className="flex items-start justify-between relative">
+          <section className="w-full flex items-start justify-start mt-14">
+            <section className="flex items-start justify-between relative mr-10">
               <section
                 className={`bg-black ${
-                  asideOpen ? "w-[200px] duration-300" : "w-[60px]"
-                } sm2:w-[250px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative text-md duration-300`}
+                  asideOpen ? "w-[175px] sm2:w-[200px] duration-300" : "w-[60px]"
+                } md:w-[250px] px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
               >
                 <Sidebar links={sidebarLinks} asideOpen={asideOpen} />
               </section>
@@ -117,7 +117,7 @@ const account = ({ userStatus }) => {
 
             <section
               className={`bg-gray-400 ${
-                asideOpen ? "w-[100% - 200px]" : "w-[100% - 60px]"
+                asideOpen ? "w-[100%]" : "w-[100%]"
               }`}
             >
               Main
