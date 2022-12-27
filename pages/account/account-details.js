@@ -125,9 +125,9 @@ const AccountDetails = ({ userStatus }) => {
               className={`bg-[#F1F1F1] w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
             >
               {/* Header */}
-              <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8">
+              <section className="w-full sticky top-0 left-0 bg-black text-white px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8 flex items-center justify-start">
                 <BsArrowLeft size={25} className="p-0 m-0 mr-4" />
-                <h3 className="text-xl text-white">Account Details</h3>
+                <h3 className="text-xl">Account Details</h3>
               </section>
 
               {/* Content Start */}
