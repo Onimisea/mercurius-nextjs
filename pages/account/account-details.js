@@ -339,7 +339,15 @@ const AccountDetails = ({ userStatus }) => {
                           errors.gender &&
                           "border-2 border-red-500 text-red-500 bg-black"
                         } transition ease-in-out text-black text-base
-      font-normal`}
+      font-normal appearance-none
+      block
+      w-full
+      px-4
+      py-2
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      m-0`}
                         aria-label="Gender Select"
                       >
                         <option selected>Male or Female</option>
