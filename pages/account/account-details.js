@@ -326,15 +326,11 @@ const AccountDetails = ({ userStatus }) => {
                   <section className="">
                     <label htmlFor="gender">Gender</label>
                     <section>
-                      <section
-                        {...register("gender")}
-                        className="flex items-center justify-between relative mt-2"
-                      >
+                      <section className="">
                         <select
-                          className="form-select
-      appearance-none
-      block
-      w-full
+                          {...register("gender")}
+                          className="flex items-center justify-between relative mt-2 form-select
+      appearance-none w-full
       px-4
       py-2
       text-xl
