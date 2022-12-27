@@ -338,7 +338,7 @@ const AccountDetails = ({ userStatus }) => {
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500 bg-black"
-                        } form-select bg-clip-padding bg-no-repeat transition ease-in-out`}
+                        } transition ease-in-out`}
                         aria-label="Gender Select"
                       >
                         <option selected>Male or Female</option>
@@ -349,7 +349,7 @@ const AccountDetails = ({ userStatus }) => {
                   </section>
 
                   <section className="flex items-center justify-end col-start-2">
-                    <button className="bg-black text-white rounded-sm px-8 py-2 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
+                    <button className="bg-black text-white rounded-sm px-8 py-3 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
                       <span>Save Changes</span>
                     </button>
                   </section>
