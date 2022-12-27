@@ -319,7 +319,59 @@ const AccountDetails = ({ userStatus }) => {
                     )}
                   </section>
 
-                  <button className="col-start-2 bg-black text-white rounded-sm px-4 py-2 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
+                  <section className="">
+                    <label htmlFor="gender">Gender</label>
+                    <section className="flex items-center justify-between relative mt-2 group">
+                      <select
+                        {...register("gender", {
+                          required: {
+                            value: false,
+                            message: "Please select your gender",
+                          },
+                          pattern: {
+                            value: /^[A-Za-z ]*$/,
+                            message: "Please select your gender",
+                          },
+                        })}
+                        name="gender"
+                        className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
+                          errors.gender &&
+                          "border-2 border-red-500 text-red-500 bg-black"
+                        }`}
+                      >
+                        {" "}
+                      </select>
+                    </section>
+
+                    <ul class="absolute hidden group-hover:block text-gray-700 pt-1">
+                      <li class="">
+                        <a
+                          class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                          href="#"
+                        >
+                          One
+                        </a>
+                      </li>
+                      <li class="">
+                        <a
+                          class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                          href="#"
+                        >
+                          Two
+                        </a>
+                      </li>
+                      <li class="">
+                        <a
+                          class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                          href="#"
+                        >
+                          Three is the magic number
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+
+                  <button className="col-start-2 bg-black text-white rounded-sm px-8 py-0 flex items-center justify-end w-fit cursor-pointer hover:bg-primary duration-300">
                     <span>Save Changes</span>
                   </button>
                 </form>
