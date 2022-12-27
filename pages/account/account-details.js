@@ -186,10 +186,10 @@ const AccountDetails = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
                 <form
-                  className="flex flex-col space-y-6"
+                  className="flex flex-col space-y-6 w-full bg-red-300"
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  <section className="">
+                  <section className="w-full">
                     <label htmlFor="fullname">Fullname</label>
                     <section className="flex items-center justify-between relative mt-2">
                       <input
@@ -251,7 +251,6 @@ const AccountDetails = ({ userStatus }) => {
                           "border-2 border-red-500 text-red-500 bg-black"
                         }`}
                       />
-                      <BsEnvelopeFill className="absolute right-0 z-50 mr-4 text-black" />
                     </section>
 
                     {errors.email && errors.email.type === "pattern" && (
