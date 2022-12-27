@@ -129,7 +129,7 @@ const account = ({ userStatus }) => {
                   asideOpen ? "" : ""
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
-                <section className="w-full bg-white rounded-md p-3">
+                <section className="w-full bg-white rounded-md p-4">
                   <section className="flex items-start justify-between mb-4">
                     <h3 className="text-lg text-black font-semibold">
                       Account Details
@@ -137,9 +137,9 @@ const account = ({ userStatus }) => {
                     <FiEdit size={25} className="p-0 m-0" />
                   </section>
 
-                  <section className="block">
-                    <h3>Onimisea Tijani</h3>
-                    <h3>onimisea@gmail.com</h3>
+                  <section className="flex flex-col items-start text-[#F1F1F1] space-y-2 w-full">
+                    <p>Onimisea Tijani</p>
+                    <p>onimisea@gmail.com</p>
                   </section>
                 </section>
               </section>
