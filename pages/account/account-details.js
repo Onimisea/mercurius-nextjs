@@ -322,7 +322,7 @@ const AccountDetails = ({ userStatus }) => {
                   <section className="">
                     <label htmlFor="gender">Gender</label>
                     <section className="flex items-center justify-between relative mt-2 group">
-                      <select
+                      <input
                         {...register("gender", {
                           required: {
                             value: false,
@@ -334,35 +334,35 @@ const AccountDetails = ({ userStatus }) => {
                           },
                         })}
                         name="gender"
+                        type="text"
+                        placeholder="Male or Female"
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500 bg-black"
                         }`}
-                      >
-                        {" "}
-                      </select>
+                      />
                     </section>
 
-                    <ul class="absolute hidden group-hover:block text-gray-700 pt-1">
-                      <li class="">
+                    <ul className=" bg-red-500 absolute hidden group-hover:block text-gray-700 pt-1">
+                      <li className="">
                         <a
-                          class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                          className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                           href="#"
                         >
                           One
                         </a>
                       </li>
-                      <li class="">
+                      <li className="">
                         <a
-                          class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                          className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                           href="#"
                         >
                           Two
                         </a>
                       </li>
-                      <li class="">
+                      <li className="">
                         <a
-                          class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                          className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                           href="#"
                         >
                           Three is the magic number
