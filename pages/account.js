@@ -197,6 +197,7 @@ export default account;
 
 export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
+  let userStatus = {};
 
   if (!session.user) {
     return {
@@ -205,11 +206,7 @@ export const getServerSideProps = async ({ req }) => {
         permanent: false,
       },
     };
-  }
-
-  let userStatus = {};
-
-  if (session.user) {
+  } else {
     await fetch(
       "https://mercurius-api-production.up.railway.app/api/users/verify/",
       {
@@ -223,9 +220,12 @@ export const getServerSideProps = async ({ req }) => {
         userStatus = userStatusRes;
         return userStatus;
       });
+
+    return {
+      props: { session, userStatus },
+    };
   }
 
-  return {
-    props: { session, userStatus },
-  };
+  // if (session.user) {
+  // }
 };
