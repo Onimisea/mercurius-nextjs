@@ -88,7 +88,7 @@ const account = ({ userStatus }) => {
             Settings
           </h1>
 
-          <section className="w-full flex items-start justify-start mt-14">
+          <section className="w-full flex items-start justify-start mt-8">
             <section className="flex flex-col items-center justify-start sticky top-0 left-0 mr-10">
               <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] font-bold duration-300 cursor-pointer">
                 {/* grid place-items-center sm2:hidden w-[40px] h-[40px] absolute
@@ -121,7 +121,7 @@ const account = ({ userStatus }) => {
               className={`bg-gray-300 w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
             >
               {/* whitespace-nowrap overflow-x-scroll scrollbar-none */}
-              <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-8">
+              <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8">
                 <h1 className="text-xl text-white">Account</h1>
               </section>
               <section
