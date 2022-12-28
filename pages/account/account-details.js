@@ -172,7 +172,7 @@ const AccountDetails = ({ userStatus }) => {
             >
               {/* Header */}
               <section className="w-full sticky top-0 left-0 bg-black text-white px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8 flex items-center justify-start z-50">
-                <Link href="/index">
+                <Link href="/account">
                   <BsArrowLeft
                     size={25}
                     className="p-0 m-0 mr-4 cursor-pointer hover:text-primary duration-300"
@@ -188,10 +188,10 @@ const AccountDetails = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-2 duration-500`}
               >
                 <form
-                  className="grid grid-cols-1 grid-rows-6 gap-6 md:gap-8 md:grid-cols-2 md:grid-rows-3 space-y-0 w-full"
+                  className="grid grid-cols-1 space-y-0 w-full"
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  <section className="col-span-2 sm2:col-span-full">
+                  <section className="col-span-full">
                     <label htmlFor="fullname">Fullname</label>
                     <section className="flex items-center justify-between relative mt-1">
                       <input
