@@ -87,6 +87,23 @@ const AccountDetails = ({ userStatus }) => {
   const onSubmit = async (data) => {
     if (userStatus) {
       console.log(data);
+
+      const nameArr = data.fullname.split(" ");
+      if (nameArr.length < 2 || nameArr.length > 3) {
+        setError(
+          "fullname",
+          {
+            type: "invalidNames",
+            message: "Please enter your Firstname and Lastname!",
+          },
+          { shouldFocus: true }
+        );
+      }
+
+      data.phone = "+234" + data.phone;
+
+      console.log(data);
+
       // try {
       //   const options = {
       //     method: "POST",
@@ -216,6 +233,7 @@ const AccountDetails = ({ userStatus }) => {
                         }`}
                       />
                     </section>
+
                     {errors.fullname && errors.fullname.type === "pattern" && (
                       <span className="text-red-500 block mt-2">
                         {errors.fullname.message}
@@ -226,6 +244,12 @@ const AccountDetails = ({ userStatus }) => {
                         {errors.fullname.message}
                       </span>
                     )}
+                    {errors.fullname &&
+                      errors.fullname.type === "invalidNames" && (
+                        <span className="text-red-500 block mt-2">
+                          {errors.fullname.message}
+                        </span>
+                      )}
                   </section>
 
                   <section className="">
@@ -345,7 +369,7 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="gender"
-                        placeholder="Male of Female"
+                        placeholder="Male or Female"
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500"
