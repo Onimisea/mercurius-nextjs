@@ -251,8 +251,7 @@ const AccountDetails = ({ userStatus }) => {
                         name="email"
                         placeholder="Email"
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
-                          errors.email &&
-                          "border-2 border-red-500 text-red-500 bg-black"
+                          errors.email && "border-2 border-red-500 text-red-500"
                         }`}
                       />
                     </section>
@@ -279,7 +278,7 @@ const AccountDetails = ({ userStatus }) => {
                   <section className="">
                     <label htmlFor="phone">Phone Number</label>
                     <section className="flex items-center justify-start relative mt-2">
-                      <section className="rounded-sm py-3 px-5 w-fit text-white bg-black">
+                      <section className="rounded-sm py-2 px-3 md:py-3 md:px-5 w-fit text-white bg-black">
                         +234
                       </section>
                       <input
@@ -302,8 +301,7 @@ const AccountDetails = ({ userStatus }) => {
                         name="phone"
                         placeholder="Phone Number"
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
-                          errors.phone &&
-                          "border-2 border-red-500 text-red-500 bg-black"
+                          errors.phone && "border-2 border-red-500 text-red-500"
                         }`}
                       />
                     </section>
@@ -329,16 +327,49 @@ const AccountDetails = ({ userStatus }) => {
 
                   <section className="">
                     <label htmlFor="gender">Gender</label>
-                    <section className="flex items-center justify-between relative mt-2">
-                      <select
-                        className="form-select appearance-none w-full px-4 py-3 bg-white bg-clip-padding bg-no-repeat rounded-sm transition ease-in-out focus:border-white focus:outline-white"
-                        aria-label="Gender Select"
-                      >
-                        <option selected>Male or Female</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                      </select>
+                    <section className="flex items-center justify-between relative mt-0">
+                      <input
+                        {...register("gender", {
+                          required: {
+                            value: true,
+                            message: "Your gender is required",
+                          },
+                          pattern: {
+                            value: /^[A-Za-z ]*$/,
+                            message: "Please enter a valid gender",
+                          },
+                          maxLength: {
+                            value: 6,
+                            message: "Gender cannot be more than 6 digits",
+                          },
+                        })}
+                        type="text"
+                        name="gender"
+                        placeholder="Male of Female"
+                        className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
+                          errors.gender &&
+                          "border-2 border-red-500 text-red-500"
+                        }`}
+                      />
                     </section>
+
+                    {errors.gender && errors.gender.type === "pattern" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.gender.message}
+                      </span>
+                    )}
+
+                    {errors.gender && errors.gender.type === "required" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.gender.message}
+                      </span>
+                    )}
+
+                    {errors.gender && errors.gender.type === "maxLength" && (
+                      <span className="text-red-500 block mt-2">
+                        {errors.gender.message}
+                      </span>
+                    )}
                   </section>
 
                   <section className="">
@@ -353,8 +384,7 @@ const AccountDetails = ({ userStatus }) => {
                         name="dob"
                         placeholder="Select a Date"
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
-                          errors.phone &&
-                          "border-2 border-red-500 text-red-500 bg-black"
+                          errors.phone && "border-2 border-red-500 text-red-500"
                         }  focus:border-white focus:outline-white`}
                         data-mdb-toggle="datepicker"
                       />
