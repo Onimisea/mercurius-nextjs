@@ -325,7 +325,7 @@ const AccountDetails = ({ userStatus }) => {
 
                   <section className="">
                     <label htmlFor="gender">Gender</label>
-                    <div className="mb-3 xl:w-96">
+                    <section className="mb-3 xl:w-96">
                       <select
                         className="form-select
       appearance-none
@@ -346,7 +346,7 @@ const AccountDetails = ({ userStatus }) => {
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                       </select>
-                    </div>
+                    </section>
                   </section>
 
                   {/* <div className="">
