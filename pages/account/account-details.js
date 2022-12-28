@@ -325,12 +325,12 @@ const AccountDetails = ({ userStatus }) => {
 
                   <section className="">
                     <label htmlFor="gender">Gender</label>
-                    <section className="">
-                      <section className="mb-3 xl:w-96">
-                        <select
-                          {...register("gender")}
-                          className="flex items-center justify-between relative mt-2 form-select
-      appearance-none w-full
+                    <div className="mb-3 xl:w-96">
+                      <select
+                        className="form-select
+      appearance-none
+      block
+      w-full
       px-4
       py-2
       text-xl
@@ -340,14 +340,13 @@ const AccountDetails = ({ userStatus }) => {
       rounded
       transition
       ease-in-out"
-                          aria-label="Gender Select"
-                        >
-                          <option selected>Male or Female</option>
-                          <option value="Male">Male</option>
-                          <option value="Female">Female</option>
-                        </select>
-                      </section>
-                    </section>
+                        aria-label="Gender Select"
+                      >
+                        <option selected>Male or Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                    </div>
                   </section>
 
                   {/* <div className="">
