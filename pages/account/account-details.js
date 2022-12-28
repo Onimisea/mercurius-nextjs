@@ -12,8 +12,11 @@ import { MdClose, MdInventory } from "react-icons/md";
 import { ImUser } from "react-icons/im";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { BsArrowLeft } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 const AccountDetails = ({ userStatus }) => {
+  const router = useRouter();
+
   const {
     appState: { cart },
     tabbed,
@@ -83,29 +86,30 @@ const AccountDetails = ({ userStatus }) => {
 
   const onSubmit = async (data) => {
     if (userStatus) {
-      try {
-        const options = {
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-          body: JSON.stringify(data),
-        };
+      console.log(data);
+      // try {
+      //   const options = {
+      //     method: "POST",
+      //     headers: { "Content-type": "application/json" },
+      //     body: JSON.stringify(data),
+      //   };
 
-        await fetch(
-          "https://mercurius-api-production.up.railway.app/api/users/update/",
-          options
-        )
-          .then((res) => res.json())
-          .then((resData) => {
-            if (resData.errors) {
-              toast.error(resData.errors[0]);
-            } else {
-              toast.success(resData.message);
-              router.push("/account");
-            }
-          });
-      } catch (err) {
-        console.log(err);
-      }
+      //   await fetch(
+      //     "https://mercurius-api-production.up.railway.app/api/users/update/",
+      //     options
+      //   )
+      //     .then((res) => res.json())
+      //     .then((resData) => {
+      //       if (resData.errors) {
+      //         toast.error(resData.errors[0]);
+      //       } else {
+      //         toast.success(resData.message);
+      //         router.push("/account");
+      //       }
+      //     });
+      // } catch (err) {
+      //   console.log(err);
+      // }
     }
   };
 
@@ -140,8 +144,6 @@ const AccountDetails = ({ userStatus }) => {
           <section className="w-full flex items-start justify-start mt-8">
             <section className="flex flex-col h-full items-start sticky top-0 left-0 mr-5 md:mr-7">
               <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] ml-1 font-bold duration-300 cursor-pointer">
-                {/* grid place-items-center sm2:hidden w-[40px] h-[40px] absolute
-                -top-[40px] left-[8px] font-bold duration-300 cursor-pointer */}
                 {asideOpen ? (
                   <MdClose
                     size={25}
@@ -188,7 +190,7 @@ const AccountDetails = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-2 duration-500`}
               >
                 <form
-                  className="grid grid-cols-1 grid-rows-6  space-y-3 md:space-y-0 w-full"
+                  className="grid grid-cols-1 grid-rows-6 md2:grid-cols-2 md2:grid-rows-3 md2:gap-8 space-y-3 md2:space-y-0 w-full"
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <section className="col-span-full">
@@ -359,7 +361,7 @@ const AccountDetails = ({ userStatus }) => {
                     </section>
                   </section>
 
-                  <section className="flex items-center justify-start md:justify-end md:col-start-2">
+                  <section className="flex items-center justify-start md2:justify-end md2:col-start-2">
                     <button className="bg-black text-white rounded-sm px-8 py-4 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
                       <span>Save Changes</span>
                     </button>
