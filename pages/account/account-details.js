@@ -171,22 +171,24 @@ const AccountDetails = ({ userStatus }) => {
               className={`bg-[#F1F1F1] w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
             >
               {/* Header */}
-              <section className="w-full sticky top-0 left-0 bg-black text-white px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8 flex items-center justify-start">
-                <BsArrowLeft
-                  size={25}
-                  className="p-0 m-0 mr-4 cursor-pointer hover:text-primary duration-300"
-                />
+              <section className="w-full sticky top-0 left-0 bg-black text-white px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8 flex items-center justify-start z-50">
+                <link href="../account">
+                  <BsArrowLeft
+                    size={25}
+                    className="p-0 m-0 mr-4 cursor-pointer hover:text-primary duration-300"
+                  />
+                </link>
                 <h3 className="text-xl">Account Details</h3>
               </section>
 
               {/* Content Start */}
               <section
-                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
+                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 z-20 ${
                   asideOpen ? "" : ""
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-2 duration-500`}
               >
                 <form
-                  className="grid grid-cols-1 grid-rows-3 gap-6 sm2:gap-8 sm2:grid-cols-2 space-y-0 w-full"
+                  className="grid grid-cols-1 grid-rows-6 gap-6 md:gap-8 md:grid-cols-2 md:grid-rows-3 space-y-0 w-full"
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <section className="col-span-2 sm2:col-span-full">
@@ -337,31 +339,6 @@ const AccountDetails = ({ userStatus }) => {
                     </section>
                   </section>
 
-                  {/* <div className="">
-                    <div className="mb-3 xl:w-96">
-                      <select
-                        className="form-select
-      appearance-none
-      block
-      w-full
-      px-4
-      py-2
-      text-xl
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      rounded
-      transition
-      ease-in-out"
-                        aria-label="Gender Select"
-                      >
-                        <option selected>Male or Female</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                      </select>
-                    </div>
-                  </div> */}
-
                   <section className="">
                     <label htmlFor="dob">Date of Birth</label>
                     <section
@@ -376,7 +353,7 @@ const AccountDetails = ({ userStatus }) => {
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone &&
                           "border-2 border-red-500 text-red-500 bg-black"
-                        } focus:border-none focus:outline-none`}
+                        } focus:outline-white`}
                         data-mdb-toggle="datepicker"
                       />
                     </section>
