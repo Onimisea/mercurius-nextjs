@@ -327,7 +327,7 @@ const AccountDetails = ({ userStatus }) => {
                     <label htmlFor="gender">Gender</label>
                     <section className="flex items-center justify-between relative mt-2">
                       <select
-                        className="form-select appearance-none block w-full px-4 py-2 bg-clip-padding bg-no-repeat rounded transition ease-in-out"
+                        className="form-select appearance-none px-4 py-2 bg-clip-padding bg-no-repeat rounded-sm transition ease-in-out"
                         aria-label="Gender Select"
                       >
                         <option selected>Male or Female</option>
