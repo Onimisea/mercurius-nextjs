@@ -172,12 +172,12 @@ const AccountDetails = ({ userStatus }) => {
             >
               {/* Header */}
               <section className="w-full sticky top-0 left-0 bg-black text-white px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8 flex items-center justify-start z-50">
-                <link href="/index">
+                <Link href="/index">
                   <BsArrowLeft
                     size={25}
                     className="p-0 m-0 mr-4 cursor-pointer hover:text-primary duration-300"
                   />
-                </link>
+                </Link>
                 <h3 className="text-xl">Account Details</h3>
               </section>
 
