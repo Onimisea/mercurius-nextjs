@@ -325,7 +325,7 @@ const AccountDetails = ({ userStatus }) => {
 
                   <section className="">
                     <label htmlFor="gender">Gender</label>
-                    <section className="mb-3 xl:w-96">
+                    <section className="">
                       <select
                         className="form-select
       appearance-none
