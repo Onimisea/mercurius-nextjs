@@ -359,7 +359,7 @@ const AccountDetails = ({ userStatus }) => {
                     </section>
                   </section>
 
-                  <section className="flex items-center justify-end col-start-2">
+                  <section className="flex items-center justify-end md:col-start-2">
                     <button className="bg-black text-white rounded-sm px-8 py-4 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
                       <span>Save Changes</span>
                     </button>
