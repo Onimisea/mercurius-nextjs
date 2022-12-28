@@ -188,7 +188,7 @@ const AccountDetails = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-2 duration-500`}
               >
                 <form
-                  className="grid grid-cols-1 grid-rows-6  space-y-0 w-full"
+                  className="grid grid-cols-1 grid-rows-6  space-y-3 md:space-y-0 w-full"
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <section className="col-span-full">
@@ -359,7 +359,7 @@ const AccountDetails = ({ userStatus }) => {
                     </section>
                   </section>
 
-                  <section className="flex items-center justify-end md:col-start-2">
+                  <section className="flex items-center justify-start md:justify-end md:col-start-2">
                     <button className="bg-black text-white rounded-sm px-8 py-4 grid place-items-center w-fit cursor-pointer hover:bg-primary duration-300">
                       <span>Save Changes</span>
                     </button>
