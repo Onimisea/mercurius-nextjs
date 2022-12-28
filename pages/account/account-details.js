@@ -188,7 +188,7 @@ const AccountDetails = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-2 duration-500`}
               >
                 <form
-                  className="grid grid-cols-1 space-y-0 w-full"
+                  className="grid grid-cols-1 grid-rows-6  space-y-0 w-full"
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <section className="col-span-full">
