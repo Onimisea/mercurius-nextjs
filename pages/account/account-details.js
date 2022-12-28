@@ -327,7 +327,7 @@ const AccountDetails = ({ userStatus }) => {
                     <label htmlFor="gender">Gender</label>
                     <section className="flex items-center justify-between relative mt-2">
                       <select
-                        className="form-select appearance-none w-full px-4 py-3 bg-clip-padding bg-no-repeat rounded-sm transition ease-in-out"
+                        className="form-select appearance-none w-full px-4 py-3 bg-clip-padding bg-no-repeat rounded-sm transition ease-in-out focus:border-none outline-none"
                         aria-label="Gender Select"
                       >
                         <option selected>Male or Female</option>
@@ -373,8 +373,8 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="dob"
                         placeholder="Select a Date"
-                        className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
-                          errors.phone &&
+                        className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none focus:border-none focus:outline-none transition ease-in-out ${
+                          errors.dob &&
                           "border-2 border-red-500 text-red-500 bg-black"
                         } focus:border-none focus:outline-none`}
                         data-mdb-toggle="datepicker"
