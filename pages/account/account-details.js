@@ -325,7 +325,7 @@ const AccountDetails = ({ userStatus }) => {
 
                   <section className="">
                     <label htmlFor="gender">Gender</label>
-                    <section className="">
+                    <section className="flex items-center justify-between relative mt-2">
                       <select
                         className="form-select
       appearance-none
