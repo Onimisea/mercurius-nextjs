@@ -68,19 +68,6 @@ const AccountDetails = ({ userStatus }) => {
 
   const [asideOpen, setAsideOpen] = useState(false);
 
-  const [userProfile, setUserProfile] = useState(userStatus);
-
-  const handleChange = (e) => {
-    const value = e.target.value;
-    console.log(e.target);
-    setUserProfile({
-      ...userProfile,
-      [e.target.name]: value,
-    });
-  };
-
-
-
   // Form Dependencies
 
   const {
@@ -144,7 +131,9 @@ const AccountDetails = ({ userStatus }) => {
     }
   };
 
-  
+  const [userProfile, setUserProfile] = useState(userStatus);
+
+  const handleChange = () => {};
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -243,8 +232,6 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="fullname"
                         placeholder="Firstname Lastname"
-                        value={userProfile.fullname && userProfile.fullname}
-                        onChange={handleChange}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.fullname &&
                           "border-2 border-red-500 text-red-500 bg-black"
@@ -292,8 +279,6 @@ const AccountDetails = ({ userStatus }) => {
                         type="email"
                         name="email"
                         placeholder="Email"
-                        value={userProfile.email && userProfile.email}
-                        onChange={handleChange}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.email && "border-2 border-red-500 text-red-500"
                         }`}
@@ -344,8 +329,6 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="phone"
                         placeholder="Phone Number"
-                        value={userProfile.phone && userProfile.phone}
-                        onChange={handleChange}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }`}
@@ -392,8 +375,6 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="gender"
                         placeholder="Male or Female"
-                        value={userProfile.gender && userProfile.gender}
-                        onChange={handleChange}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500"
@@ -430,8 +411,6 @@ const AccountDetails = ({ userStatus }) => {
                       <input
                         type="text"
                         name="dob"
-                        value={userProfile.dob && userProfile.dob}
-                        onChange={handleChange}
                         placeholder="Select a Date"
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone && "border-2 border-red-500 text-red-500"
