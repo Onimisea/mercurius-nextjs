@@ -134,7 +134,12 @@ const AccountDetails = ({ userStatus }) => {
   const [userProfile, setUserProfile] = useState(userStatus);
 
   const handleChange = (e) => {
+    const value = e.target.value;
     console.log(e.target.value);
+    setUserProfile({
+      ...userProfile,
+      [evt.target.name]: value,
+    });
   };
 
   return (
