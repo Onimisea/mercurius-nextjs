@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 
 const AccountDetails = ({ userStatus }) => {
   const router = useRouter();
+  console.log("User status info:", userStatus)
 
   const {
     appState: { cart },
