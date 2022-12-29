@@ -68,6 +68,19 @@ const AccountDetails = ({ userStatus }) => {
 
   const [asideOpen, setAsideOpen] = useState(false);
 
+  const [userProfile, setUserProfile] = useState(userStatus);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    console.log(e.target);
+    setUserProfile({
+      ...userProfile,
+      [e.target.name]: value,
+    });
+  };
+
+
+
   // Form Dependencies
 
   const {
@@ -131,16 +144,7 @@ const AccountDetails = ({ userStatus }) => {
     }
   };
 
-  const [userProfile, setUserProfile] = useState(userStatus);
-
-  const handleChange = (e) => {
-    const value = e.target.value;
-    console.log(e.target.value);
-    setUserProfile({
-      ...userProfile,
-      [e.target.name]: value,
-    });
-  };
+  
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
