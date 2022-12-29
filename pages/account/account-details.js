@@ -228,6 +228,7 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="fullname"
                         placeholder="Firstname Lastname"
+                        value={userStatus.fullname}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.fullname &&
                           "border-2 border-red-500 text-red-500 bg-black"
@@ -275,6 +276,7 @@ const AccountDetails = ({ userStatus }) => {
                         type="email"
                         name="email"
                         placeholder="Email"
+                        value={userStatus.email}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.email && "border-2 border-red-500 text-red-500"
                         }`}
@@ -325,6 +327,7 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="phone"
                         placeholder="Phone Number"
+                        value={userStatus.phone.splice(0, 1)}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }`}
@@ -371,6 +374,7 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="gender"
                         placeholder="Male or Female"
+                        value={userStatus.gender}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500"
@@ -407,6 +411,7 @@ const AccountDetails = ({ userStatus }) => {
                       <input
                         type="text"
                         name="dob"
+                        value={userStatus.dob}
                         placeholder="Select a Date"
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone && "border-2 border-red-500 text-red-500"
