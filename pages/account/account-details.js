@@ -138,7 +138,7 @@ const AccountDetails = ({ userStatus }) => {
     console.log(e.target.value);
     setUserProfile({
       ...userProfile,
-      [evt.target.name]: value,
+      [e.target.name]: value,
     });
   };
 
