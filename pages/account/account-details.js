@@ -234,7 +234,11 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="fullname"
-                        placeholder={userInfo.fullname}
+                        placeholder={
+                          userInfo.fullname
+                            ? userInfo.fullname
+                            : "Firstname Lastname"
+                        }
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.fullname &&
                           "border-2 border-red-500 text-red-500 bg-black"
@@ -281,7 +285,11 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="email"
                         name="email"
-                        placeholder={userInfo.email}
+                        placeholder={
+                          userInfo.email
+                            ? userInfo.email
+                            : "johndoe@company.com"
+                        }
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.email && "border-2 border-red-500 text-red-500"
                         }`}
@@ -331,7 +339,10 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="phone"
-                        placeholder={userInfo.phone.replace("+234", "0")}
+                        placeholder={userInfo.phone ? userInfo.phone.replace(
+                          "+234",
+                          "0"
+                        ) : "801234568"}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }`}
@@ -377,7 +388,7 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="gender"
-                        placeholder={userInfo.gender}
+                        placeholder={userInfo.gender ? userInfo.gender : "Male or Female"}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500"
@@ -414,7 +425,7 @@ const AccountDetails = ({ userStatus }) => {
                       <input
                         type="text"
                         name="dob"
-                        placeholder={userInfo.dob}
+                        placeholder={userInfo.dob ? userInfo.dob : "31/12/1975"}
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }  focus:border-white focus:outline-white`}
