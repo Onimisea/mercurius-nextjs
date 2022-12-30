@@ -151,7 +151,7 @@ const favourites = ({ userStatus }) => {
                           className="w-full bg-white rounded-md p-4 flex items-center justify-between"
                           key={item.id}
                         >
-                          <section className="flex items-start justify-between w-[60%] lg3:w-[67%]">
+                          <section className="flex items-start justify-between w-[100%] lg:w-[60%] lg3:w-[67%]">
                             <section className="block w-[150px] h-[150px] p-1 mr-8">
                               <img
                                 src={fiUrl}
@@ -185,7 +185,7 @@ const favourites = ({ userStatus }) => {
                             </section>
                           </section>
 
-                          <section className="flex flex-col items-center space-y-1 w-[30%] lg3:w-[23%]">
+                          <section className="flex flex-row items-center space-y-1 w-[100%] lg:w-[30%] lg:flex-col lg3:w-[23%]">
                             <section className="w-full">
                               <button
                                 className="bg-black rounded-sm px-5 py-4 text-white hover:bg-primary cursor-pointer w-full"
