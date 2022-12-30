@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useAppContext } from "../context/AppContext";
+import { useAppContext } from "../../context/AppContext";
 import Head from "next/head";
 import { MdClose } from "react-icons/md";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import toast from "react-hot-toast";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../../components/ProductCard";
 import phImg from "../public/favicon.png";
 
 const ProductPage = ({
