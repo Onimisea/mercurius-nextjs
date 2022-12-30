@@ -66,6 +66,8 @@ const account = ({ userStatus }) => {
     if (typeof window !== "undefined" || typeof window !== null) {
       if (window.localStorage.getItem("UserData")) {
         console.log(JSON.parse(window.localStorage.getItem("UserData")));
+
+        console.log(userStatus);
       }
     }
   }, []);
