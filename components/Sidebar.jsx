@@ -24,7 +24,7 @@ const Sidebar = ({ links, asideOpen }) => {
                   className={` ${
                     asideOpen ? "w-[150px]" : "w-[60px]"
                   } sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary ${
-                    ln.active && "text-primary hover:text-gray-300"
+                    ln.active && "text-primary hover:text-gray-200"
                   }`}
                   onClick={ln.url === null ? () => handleSignOut() : ""}
                 >

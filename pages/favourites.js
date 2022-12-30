@@ -122,7 +122,7 @@ const favourites = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
                 <section className="w-full bg-white rounded-md p-4 flex items-center justify-between">
-                  <section className="flex items-start justify-between w-[60%] bg-red-400">
+                  <section className="flex items-start justify-between w-[70%] bg-red-700">
                     {/* <h3 className="text-lg text-black font-semibold">
                       Account Details
                     </h3>
@@ -132,15 +132,15 @@ const favourites = ({ userStatus }) => {
                     >
                       <FiEdit size={25} className="p-0 m-0" />
                     </Link> */}
-                    <section className="flex flex-col items-start space-y-1 w-[30%] bg-orange-400">
+                    <section className="flex flex-col items-start space-y-1 w-[20%] bg-orange-500">
                       A
                     </section>
-                    <section className="flex flex-col items-start space-y-1 w-[60%] bg-orange-600">
+                    <section className="flex flex-col items-start space-y-1 w-[80%] bg-orange-700">
                       B
                     </section>
                   </section>
 
-                  <section className="flex flex-col items-start space-y-1 w-[30%] bg-red-600">
+                  <section className="flex flex-col items-start space-y-1 w-[20%] bg-red-700">
                     C
                   </section>
                 </section>
