@@ -115,9 +115,12 @@ const AccountDetails = ({ userStatus }) => {
             if (resData.errors) {
               toast.error(resData.errors[0]);
             } else {
-              console.log(resData)
+              console.log(resData);
               toast.success(resData.success);
-              window.localStorage.setItem("UserData", JSON.stringify(resData.data));
+              window.localStorage.setItem(
+                "UserData",
+                JSON.stringify(resData.data)
+              );
               setUserInfo(resData.data);
               router.reload(window.location.pathname);
             }
@@ -231,7 +234,7 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="fullname"
-                        placeholder="Firstname Lastname"
+                        placeholder={userInfo.fullname}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.fullname &&
                           "border-2 border-red-500 text-red-500 bg-black"
@@ -278,7 +281,7 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="email"
                         name="email"
-                        placeholder="Email"
+                        placeholder={userInfo.email}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.email && "border-2 border-red-500 text-red-500"
                         }`}
@@ -328,7 +331,7 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="phone"
-                        placeholder="Phone Number"
+                        placeholder={userInfo.phone.replace("+234", "0")}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }`}
@@ -374,7 +377,7 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="gender"
-                        placeholder="Male or Female"
+                        placeholder={userInfo.gender}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500"
@@ -411,7 +414,7 @@ const AccountDetails = ({ userStatus }) => {
                       <input
                         type="text"
                         name="dob"
-                        placeholder="31/12/1975"
+                        placeholder={userInfo.dob}
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }  focus:border-white focus:outline-white`}

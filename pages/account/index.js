@@ -65,8 +65,6 @@ const account = ({ userStatus }) => {
   useEffect(() => {
     if (typeof window !== "undefined" || typeof window !== null) {
       if (window.localStorage.getItem("UserData")) {
-        console.log("From Local", JSON.parse(window.localStorage.getItem("UserData")));
-
         console.log("From Backend", userStatus);
       }
     }
