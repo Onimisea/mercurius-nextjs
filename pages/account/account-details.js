@@ -16,7 +16,6 @@ import { useRouter } from "next/router";
 
 const AccountDetails = ({ userStatus }) => {
   const router = useRouter();
-  console.log("User status info:", userStatus);
 
   const {
     appState: { cart },
@@ -105,29 +104,29 @@ const AccountDetails = ({ userStatus }) => {
 
       console.log(data);
 
-      // try {
-      //   const options = {
-      //     method: "POST",
-      //     headers: { "Content-type": "application/json" },
-      //     body: JSON.stringify(data),
-      //   };
+      try {
+        const options = {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(data),
+        };
 
-      //   await fetch(
-      //     "https://mercurius-api-production.up.railway.app/api/users/update/",
-      //     options
-      //   )
-      //     .then((res) => res.json())
-      //     .then((resData) => {
-      //       if (resData.errors) {
-      //         toast.error(resData.errors[0]);
-      //       } else {
-      //         toast.success(resData.message);
-      //         router.push("/account");
-      //       }
-      //     });
-      // } catch (err) {
-      //   console.log(err);
-      // }
+        await fetch(
+          `https://mercurius-api-production.up.railway.app/api/users/update/${userStatus.id}`,
+          options
+        )
+          .then((res) => res.json())
+          .then((resData) => {
+            if (resData.errors) {
+              toast.error(resData.errors[0]);
+            } else {
+              toast.success(resData.message);
+              router.push("/account");
+            }
+          });
+      } catch (err) {
+        console.log(err);
+      }
     } else {
       toast.error("Please LOGIN to your account to update it")
       handleSignOut()
