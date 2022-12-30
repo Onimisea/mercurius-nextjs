@@ -152,7 +152,7 @@ const favourites = ({ userStatus }) => {
                           className="w-full bg-white rounded-md p-4 flex items-center justify-between"
                           key={item.id}
                         >
-                          <section className="flex items-start justify-between w-[67%] bg-orange-500">
+                          <section className="flex items-start justify-between w-[67%]">
                             <section className="block w-[150px] h-[150px] p-1 mr-8">
                               <img
                                 src={fiUrl}
@@ -160,7 +160,7 @@ const favourites = ({ userStatus }) => {
                                 className="w-full h-full object-cover rounded-md"
                               />
                             </section>
-                            <section className="flex flex-col items-center space-y-2 w-full bg-green-500">
+                            <section className="flex flex-col items-start space-y-2 w-full">
                               <section className="text-lg">{item.name}</section>
                               <section className="text-md text-[#868686]">
                                 {item.description}
