@@ -67,8 +67,6 @@ const AccountDetails = ({ userStatus }) => {
 
   const [asideOpen, setAsideOpen] = useState(false);
 
-
-
   // Form Dependencies
   const {
     register,
@@ -87,7 +85,6 @@ const AccountDetails = ({ userStatus }) => {
 
   const onSubmit = async (data) => {
     if (userStatus) {
-
       const nameArr = data.fullname.split(" ");
       if (nameArr.length < 2 || nameArr.length > 3) {
         setError(
@@ -115,20 +112,20 @@ const AccountDetails = ({ userStatus }) => {
         )
           .then((res) => res.json())
           .then((resData) => {
-            console.log(resData)
+            console.log(resData);
             if (resData.errors) {
               toast.error(resData.errors[0]);
             } else {
-              toast.success(resData.message);
-              router.push("/account");
+              toast.success(resData.success);
+              // router.push("/account");
             }
           });
       } catch (err) {
         console.log(err);
       }
     } else {
-      toast.error("Please LOGIN to your account to update it")
-      handleSignOut()
+      toast.error("Please LOGIN to your account to update it");
+      handleSignOut();
     }
   };
 
