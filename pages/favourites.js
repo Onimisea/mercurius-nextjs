@@ -132,10 +132,10 @@ const favourites = ({ userStatus }) => {
                     >
                       <FiEdit size={25} className="p-0 m-0" />
                     </Link> */}
-                    <section className="flex flex-col items-start space-y-1 w-[20%] bg-orange-500">
+                    <section className="flex flex-col items-start space-y-1 w-[100px] mr-6 bg-orange-500">
                       A
                     </section>
-                    <section className="flex flex-col items-start space-y-1 w-[80%] bg-orange-700">
+                    <section className="flex flex-col items-start space-y-1 w-full bg-orange-700">
                       B
                     </section>
                   </section>
