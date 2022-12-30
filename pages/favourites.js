@@ -188,7 +188,7 @@ const favourites = ({ userStatus }) => {
                             </section>
                             <section className="w-full">
                               <button className="rounded-sm px-5 py-3 text-primary hover:text-black cursor-pointer w-full">
-                                <BsArrowLeft
+                                <HiOutlineTrash
                                   size={25}
                                   className="p-0 m-0 mr-4"
                                 />
