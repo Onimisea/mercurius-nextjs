@@ -45,8 +45,6 @@ const Avatar = ({ src, alt, isHeader }) => {
           {userInitials}
         </p>
       )}
-
-      {isHeader && <FaCaretDown size={20} />}
     </section>
   );
 };

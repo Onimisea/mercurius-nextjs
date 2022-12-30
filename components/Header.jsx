@@ -146,7 +146,6 @@ const Header = () => {
           ) : (
             <section className="flex items-center justify-center">
               <HiUser className="cursor-pointer hover:text-primary hover:scale-125 duration:300 mr-1" />
-              <FaCaretDown size={13} />
             </section>
           )}
 
