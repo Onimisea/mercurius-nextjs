@@ -126,7 +126,7 @@ const favourites = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
                 {wishlist.length === 0 ? (
-                  <section className="w-full bg-white rounded-md p-4 flex items-center justify-center">
+                  <section className="w-full bg-white rounded-md p-4 flex flex-col items-center justify-center">
                     <h4 className="text-xl font-dalek text-primary">
                       You have no Favourite items
                     </h4>
@@ -137,7 +137,7 @@ const favourites = ({ userStatus }) => {
                     </Link>
                   </section>
                 ) : (
-                  <section>
+                  <section className="w-full">
                     {wishlist.map((item) => {
                       const fi = item.product_images.filter(
                         (image) => image.is_feature == true
