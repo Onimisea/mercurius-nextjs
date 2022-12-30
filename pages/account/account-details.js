@@ -112,7 +112,6 @@ const AccountDetails = ({ userStatus }) => {
         )
           .then((res) => res.json())
           .then((resData) => {
-            console.log(resData);
             if (resData.errors) {
               toast.error(resData.errors[0]);
             } else {

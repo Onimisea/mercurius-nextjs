@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
     fi[0].product_images.replace(/ /g, "%20");
 
   return (
-    <Link href={`../${product.slug}`}>
+    <Link href={`../p/${product.slug}`}>
       <section className="bg-white m-4 pb-6 shadow-md rounded-md relative text-center cursor-pointer group w-[250px] min-w-[250px]">
         {product.is_onFlashsale && (
           <span className="w-fit block absolute top-[15px] left-[15px] bg-primary text-white px-3 py-2 rounded-lg">
