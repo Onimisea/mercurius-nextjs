@@ -29,7 +29,7 @@ const AccountDetails = ({ userStatus }) => {
   const handleSignOut = () => {
     window.localStorage.removeItem("UserData");
     setUserInfo(null);
-    signOut({ callbackUrl: "/register" });
+    signOut({ callbackUrl: "/login" });
   };
 
   const sidebarLinks = [
@@ -68,8 +68,9 @@ const AccountDetails = ({ userStatus }) => {
 
   const [asideOpen, setAsideOpen] = useState(false);
 
-  // Form Dependencies
 
+
+  // Form Dependencies
   const {
     register,
     handleSubmit,
@@ -87,7 +88,6 @@ const AccountDetails = ({ userStatus }) => {
 
   const onSubmit = async (data) => {
     if (userStatus) {
-      console.log(data);
 
       const nameArr = data.fullname.split(" ");
       if (nameArr.length < 2 || nameArr.length > 3) {
@@ -128,6 +128,9 @@ const AccountDetails = ({ userStatus }) => {
       // } catch (err) {
       //   console.log(err);
       // }
+    } else {
+      toast.error("Please LOGIN to your account to update it")
+      handleSignOut()
     }
   };
 
@@ -144,8 +147,8 @@ const AccountDetails = ({ userStatus }) => {
       </Head>
 
       {userStatus.error ? (
-        <section className="w-full p-12 grid place-items-center">
-          <h4 className="text-xl text-primary">
+        <section className="w-full p-12 grid place-items-center text-center">
+          <h4 className="text-xl text-primary text-center">
             Please, complete your Account registration!
           </h4>
           <Link href="/register">

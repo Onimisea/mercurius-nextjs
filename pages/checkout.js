@@ -57,8 +57,8 @@ const Checkout = ({ userStatus }) => {
       </Head>
 
       {userStatus.error ? (
-        <section className="w-full p-12 grid place-items-center">
-          <h4 className="text-xl text-primary">Please, complete your Account registration!</h4>
+        <section className="w-full p-12 grid place-items-center text-center">
+          <h4 className="text-xl text-primary text-center">Please, complete your Account registration!</h4>
           <Link href="/register">
             <button className="bg-black rounded-md mt-5 px-5 py-3 text-white hover:bg-primary cursor-pointer w-fit" onClick={handleSignOut}>
               Register
