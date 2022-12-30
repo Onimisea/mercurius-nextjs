@@ -23,7 +23,7 @@ const Sidebar = ({ links, asideOpen }) => {
                   href={ln.url ? ln.url : "#"}
                   className={` ${asideOpen ? "w-[150px]" : "w-[60px]"} ${
                     ln.active
-                      ? "sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary text-primary hover:text-gray-200"
+                      ? "sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-primary hover:text-gray-200"
                       : "sm2:w-[150px] flex items-center justify-start h-full cursor-pointer text-white hover:text-primary"
                   }`}
                   onClick={ln.url === null ? () => handleSignOut() : ""}
