@@ -102,8 +102,6 @@ const AccountDetails = ({ userStatus }) => {
 
       data.phone = "+234" + data.phone;
 
-      console.log(data);
-
       try {
         const options = {
           method: "PUT",
@@ -115,16 +113,16 @@ const AccountDetails = ({ userStatus }) => {
           `https://mercurius-api-production.up.railway.app/api/users/update/${userStatus.id}/`,
           options
         )
-          // .then((res) => res.json())
-          // .then((resData) => {
-          //   console.log(resData)
-            // if (resData.errors) {
-            //   toast.error(resData.errors[0]);
-            // } else {
-            //   toast.success(resData.message);
-            //   router.push("/account");
-            // }
-          // });
+          .then((res) => res.json())
+          .then((resData) => {
+            console.log(resData)
+            if (resData.errors) {
+              toast.error(resData.errors[0]);
+            } else {
+              toast.success(resData.message);
+              router.push("/account");
+            }
+          });
       } catch (err) {
         console.log(err);
       }
@@ -414,7 +412,7 @@ const AccountDetails = ({ userStatus }) => {
                       <input
                         type="text"
                         name="dob"
-                        placeholder="Select a Date"
+                        placeholder="31/12/1975"
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }  focus:border-white focus:outline-white`}
