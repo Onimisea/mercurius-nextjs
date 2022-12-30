@@ -56,6 +56,8 @@ const favourites = ({ userStatus }) => {
 
   const [asideOpen, setAsideOpen] = useState(false);
 
+  console.log(wishlist);
+
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
       <Head>
@@ -113,7 +115,9 @@ const favourites = ({ userStatus }) => {
               className={`bg-[#F1F1F1] w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
             >
               <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8">
-                <h3 className="text-xl text-white">Favourites</h3>
+                <h3 className="text-xl text-white">
+                  Favourites {wishlist.length > 0 && `(${wishlist.length})`}
+                </h3>
               </section>
 
               <section
@@ -121,29 +125,33 @@ const favourites = ({ userStatus }) => {
                   asideOpen ? "" : ""
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
-                <section className="w-full bg-white rounded-md p-4 flex items-center justify-between">
-                  <section className="flex items-start justify-between w-[70%] bg-red-700">
-                    {/* <h3 className="text-lg text-black font-semibold">
-                      Account Details
-                    </h3>
-                    <Link
-                      href="/account/account-details"
-                      className="cursor-pointer hover:text-primary duration-300"
-                    >
-                      <FiEdit size={25} className="p-0 m-0" />
-                    </Link> */}
-                    <section className="flex flex-col items-start space-y-1 w-[200px] mr-12 bg-orange-500">
-                      A
-                    </section>
-                    <section className="flex flex-col items-start space-y-1 w-full bg-orange-700">
-                      B
-                    </section>
+                {wishlist.length === 0 ? (
+                  <section className="w-full bg-white rounded-md p-4 flex items-center justify-center">
+                    <h4 className="text-xl font-dalek text-primary">
+                      You have no Favourite items
+                    </h4>
+                    <Link href="/">
+                      <button className="bg-black rounded-md mt-5 px-5 py-3 text-white hover:bg-primary cursor-pointer w-fit">
+                        Back to Shopping
+                      </button>
+                    </Link>
                   </section>
+                ) : (
+                  <section className="w-full bg-white rounded-md p-4 flex items-center justify-between">
+                    <section className="flex items-start justify-between w-[70%] bg-red-700">
+                      <section className="flex flex-col items-start space-y-1 w-[200px] mr-12 bg-orange-500">
+                        A
+                      </section>
+                      <section className="flex flex-col items-start space-y-1 w-full bg-orange-700">
+                        B
+                      </section>
+                    </section>
 
-                  <section className="flex flex-col items-start space-y-1 w-[20%] bg-red-700">
-                    C
+                    <section className="flex flex-col items-start space-y-1 w-[20%] bg-red-700">
+                      C
+                    </section>
                   </section>
-                </section>
+                )}
               </section>
             </section>
           </section>

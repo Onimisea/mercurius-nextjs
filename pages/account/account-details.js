@@ -18,10 +18,6 @@ const AccountDetails = ({ userStatus }) => {
   const router = useRouter();
 
   const {
-    appState: { cart },
-    tabbed,
-    setTabbed,
-    userInfo,
     setUserInfo,
   } = useAppContext();
 
@@ -235,8 +231,8 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="fullname"
                         placeholder={
-                          userInfo.fullname
-                            ? userInfo.fullname
+                          userStatus.fullname
+                            ? userStatus.fullname
                             : "Firstname Lastname"
                         }
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
@@ -286,8 +282,8 @@ const AccountDetails = ({ userStatus }) => {
                         type="email"
                         name="email"
                         placeholder={
-                          userInfo.email
-                            ? userInfo.email
+                          userStatus.email
+                            ? userStatus.email
                             : "johndoe@company.com"
                         }
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
@@ -339,7 +335,7 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="phone"
-                        placeholder={userInfo.phone ? userInfo.phone.replace(
+                        placeholder={userStatus.phone ? userStatus.phone.replace(
                           "+234",
                           ""
                         ) : "801234568"}
@@ -388,7 +384,7 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="gender"
-                        placeholder={userInfo.gender ? userInfo.gender : "Male or Female"}
+                        placeholder={userStatus.gender ? userStatus.gender : "Male or Female"}
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500"
@@ -425,7 +421,7 @@ const AccountDetails = ({ userStatus }) => {
                       <input
                         type="text"
                         name="dob"
-                        placeholder={userInfo.dob ? userInfo.dob : "31/12/1975"}
+                        placeholder={userStatus.dob ? userStatus.dob : "31/12/1975"}
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }  focus:border-white focus:outline-white`}
