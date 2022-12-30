@@ -126,9 +126,9 @@ const favourites = ({ userStatus }) => {
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
                 {wishlist.length === 0 ? (
-                  <section className="w-full bg-white rounded-md p-4 flex flex-col items-center justify-center">
-                    <h4 className="text-xl font-dalek text-primary">
-                      You have no Favourite items
+                  <section className="w-full rounded-md mt-6 mb-12 p-4 flex flex-col items-center justify-center">
+                    <h4 className="text-primary">
+                      You have no item in your Favourites
                     </h4>
                     <Link href="/">
                       <button className="bg-black rounded-md mt-5 px-5 py-3 text-white hover:bg-primary cursor-pointer w-fit">
@@ -137,7 +137,7 @@ const favourites = ({ userStatus }) => {
                     </Link>
                   </section>
                 ) : (
-                  <section className="w-full">
+                  <section className="w-[100%]">
                     {wishlist.map((item) => {
                       const fi = item.product_images.filter(
                         (image) => image.is_feature == true
@@ -169,8 +169,7 @@ const favourites = ({ userStatus }) => {
                                     <s className="text-[#868686] text-[16px] mr-1">
                                       ₦{numbersWithCommas(item.price)}
                                     </s>{" "}
-                                    ₦
-                                    {numbersWithCommas(item.flashsale_price)}
+                                    ₦{numbersWithCommas(item.flashsale_price)}
                                   </p>
                                 ) : (
                                   <p className="text-[18px] font-semibold">
@@ -181,16 +180,26 @@ const favourites = ({ userStatus }) => {
                             </section>
                           </section>
 
-                          <section className="flex flex-col items-start space-y-1 w-[20%] bg-red-700">
-                            C
+                          <section className="flex flex-col items-center space-y-1 w-[20%] bg-red-700">
+                            <section className="w-full">
+                              <button className="bg-black rounded-sm px-5 py-3 text-white hover:bg-primary cursor-pointer w-full">
+                                Add to Cart
+                              </button>
+                            </section>
+                            <section className="w-full">
+                              <button className="rounded-sm px-5 py-3 text-primary hover:text-black cursor-pointer w-full">
+                                <BsArrowLeft
+                                  size={25}
+                                  className="p-0 m-0 mr-4"
+                                />
+                                <span>Remove Item</span>
+                              </button>
+                            </section>
                           </section>
                         </section>
                       );
                     })}
                   </section>
-
-
-  
                 )}
               </section>
             </section>
