@@ -117,7 +117,9 @@ const AccountDetails = ({ userStatus }) => {
               toast.error(resData.errors[0]);
             } else {
               toast.success(resData.success);
-              // router.push("/account");
+              window.localStorage.setItem("UserData", JSON.stringify(resData.data));
+              setUserInfo(resData.data);
+              router.push("/account");
             }
           });
       } catch (err) {

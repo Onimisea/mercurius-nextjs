@@ -62,6 +62,14 @@ const account = ({ userStatus }) => {
 
   const [asideOpen, setAsideOpen] = useState(false);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" || typeof window !== null) {
+      if (window.localStorage.getItem("UserData")) {
+        console.log(JSON.parse(window.localStorage.getItem("UserData")));
+      }
+    }
+  }, []);
+
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
       <Head>
@@ -135,7 +143,10 @@ const account = ({ userStatus }) => {
                     <h3 className="text-lg text-black font-semibold">
                       Account Details
                     </h3>
-                    <Link href="/account/account-details" className="cursor-pointer hover:text-primary duration-300">
+                    <Link
+                      href="/account/account-details"
+                      className="cursor-pointer hover:text-primary duration-300"
+                    >
                       <FiEdit size={25} className="p-0 m-0" />
                     </Link>
                   </section>
