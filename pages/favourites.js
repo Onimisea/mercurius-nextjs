@@ -137,7 +137,7 @@ const favourites = ({ userStatus }) => {
                     </Link>
                   </section>
                 ) : (
-                  <section className="w-[100%]">
+                  <section className="w-[100%] space-y-4">
                     {wishlist.map((item) => {
                       const fi = item.product_images.filter(
                         (image) => image.is_feature == true
@@ -153,14 +153,14 @@ const favourites = ({ userStatus }) => {
                           key={item.id}
                         >
                           <section className="flex items-start justify-between w-[70%]">
-                            <section className="block w-[200px] h-[200px] p-1 mr-12">
+                            <section className="block w-[200px] h-[200px] p-1 mr-8">
                               <img
                                 src={fiUrl}
                                 alt={item.name}
                                 className="w-full h-full object-contain rounded-md"
                               />
                             </section>
-                            <section className="flex flex-col items-start space-y-1 w-full bg-orange-200">
+                            <section className="flex flex-col items-start space-y-1 w-full">
                               <section className="">{item.name}</section>
                               <section className="">{item.description}</section>
                               <section className="">
@@ -180,17 +180,17 @@ const favourites = ({ userStatus }) => {
                             </section>
                           </section>
 
-                          <section className="flex flex-col items-center space-y-1 w-[20%] bg-red-700">
+                          <section className="flex flex-col items-center space-y-1 w-[20%]">
                             <section className="w-full">
                               <button className="bg-black rounded-sm px-5 py-3 text-white hover:bg-primary cursor-pointer w-full">
                                 Add to Cart
                               </button>
                             </section>
                             <section className="w-full">
-                              <button className="rounded-sm px-5 py-3 text-primary hover:text-black cursor-pointer w-full">
+                              <button className="rounded-sm px-5 py-3 text-primary hover:text-black cursor-pointer w-full flex items-center justify-center">
                                 <HiOutlineTrash
                                   size={25}
-                                  className="p-0 m-0 mr-4"
+                                  className="p-0 m-0 mr-2"
                                 />
                                 <span>Remove Item</span>
                               </button>
