@@ -148,7 +148,7 @@ const favourites = ({ userStatus }) => {
 
                       return (
                         <section
-                          className="w-full bg-white rounded-md p-4 flex items-center justify-between"
+                          className="w-full bg-white rounded-md p-4 flex flex-col lg:flex-row items-center justify-center lg:justify-between"
                           key={item.id}
                         >
                           <section className="flex items-start justify-between w-[100%] lg:w-[60%] lg3:w-[67%]">
