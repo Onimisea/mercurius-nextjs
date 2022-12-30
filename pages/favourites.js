@@ -15,6 +15,7 @@ import { HiOutlineTrash } from "react-icons/hi";
 const favourites = ({ userStatus }) => {
   const {
     appState: { cart, wishlist },
+    appStateDispatch,
     addToCart,
     removeFromWishlist,
     numbersWithCommas,
@@ -161,7 +162,9 @@ const favourites = ({ userStatus }) => {
                               />
                             </section>
                             <section className="flex flex-col items-start space-y-2 w-full">
-                              <section className="text-xl uppercase">{item.name}</section>
+                              <section className="text-xl uppercase">
+                                {item.name}
+                              </section>
                               <section className="text-md text-[#868686]">
                                 {item.description}
                               </section>
@@ -186,12 +189,26 @@ const favourites = ({ userStatus }) => {
 
                           <section className="flex flex-col items-center space-y-1 w-[23%]">
                             <section className="w-full">
-                              <button className="bg-black rounded-sm px-5 py-4 text-white hover:bg-primary cursor-pointer w-full">
+                              <button
+                                className="bg-black rounded-sm px-5 py-4 text-white hover:bg-primary cursor-pointer w-full"
+                                onClick={() => {
+                                  addToCart(item);
+                                  toast.success(`${item.name} added to Cart`);
+                                }}
+                              >
                                 Add to Cart
                               </button>
                             </section>
                             <section className="w-full">
-                              <button className="rounded-sm px-5 py-3 text-primary hover:text-black cursor-pointer w-full flex items-center justify-center">
+                              <button
+                                className="rounded-sm px-5 py-3 text-primary hover:text-black cursor-pointer w-full flex items-center justify-center"
+                                onClick={() => {
+                                  removeFromWishlist(item);
+                                  toast.error(
+                                    `${item.name} removed from Favourites`
+                                  );
+                                }}
+                              >
                                 <HiOutlineTrash
                                   size={25}
                                   className="p-0 m-0 mr-2"
@@ -204,7 +221,15 @@ const favourites = ({ userStatus }) => {
                       );
                     })}
 
-                    <section className="px-5 py-3 text-red-500 hover:text-black cursor-pointer w-full flex items-center justify-center uppercase">
+                    <section
+                      className="px-5 py-3 text-red-500 hover:text-black cursor-pointer w-full flex items-center justify-center uppercase font-semibold"
+                      onClick={() => {
+                        appStateDispatch({
+                          type: "CLEAR_WISHLIST",
+                        });
+                        toast.error(`Favourites Cleared`);
+                      }}
+                    >
                       <span>Clear All</span>
                     </section>
                   </section>

@@ -164,7 +164,7 @@ const Header = () => {
                   <p>Account</p>
                 </Link>
                 <Link
-                  href=""
+                  href="/favourites"
                   className="block px-8 py-2 rounded-sm hover:bg-slate-100 text-md hover:text-primary"
                 >
                   <p>Favourites</p>

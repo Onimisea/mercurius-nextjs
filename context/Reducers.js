@@ -73,6 +73,13 @@ export const appReducer = (state, action) => {
         cart: [],
       };
 
+    case "CLEAR_WISHLIST":
+      window.localStorage.setItem("wishlist", JSON.stringify([]));
+      return {
+        ...state,
+        wishlist: [],
+      };
+
     case "ADD_TO_WISHLIST":
       return { ...state, wishlist: [...state.wishlist, { ...action.payload }] };
 
