@@ -154,9 +154,9 @@ const account = ({ userStatus }) => {
                   </section>
 
                   <section className="flex flex-col items-start text-[#868686] space-y-1 w-full">
-                    <p>Onimisea Tijani</p>
-                    <p>onimisea@gmail.com</p>
-                    <p>+234 8034 023 726</p>
+                    <p>{userStatus.fullname}</p>
+                    <p>{userStatus.email}</p>
+                    <p>{userStatus.phone}</p>
                   </section>
                 </section>
               </section>
