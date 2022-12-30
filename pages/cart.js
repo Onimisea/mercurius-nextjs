@@ -13,7 +13,6 @@ const cart = () => {
     removeFromCart,
     addToWishlist,
     removeFromWishlist,
-    filterWishlist,
     totalPrice,
     shipping,
     setShipping,
