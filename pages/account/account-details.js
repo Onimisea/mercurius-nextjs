@@ -106,7 +106,7 @@ const AccountDetails = ({ userStatus }) => {
 
       try {
         const options = {
-          method: "POST",
+          method: "PUT",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(data),
         };
