@@ -161,7 +161,7 @@ const favourites = ({ userStatus }) => {
                               />
                             </section>
                             <section className="flex flex-col items-start space-y-2 w-full">
-                              <section className="text-lg">{item.name}</section>
+                              <section className="text-xl uppercase">{item.name}</section>
                               <section className="text-md text-[#868686]">
                                 {item.description}
                               </section>
@@ -203,6 +203,10 @@ const favourites = ({ userStatus }) => {
                         </section>
                       );
                     })}
+
+                    <section className="px-5 py-3 text-red-500 hover:text-black cursor-pointer w-full flex items-center justify-center uppercase">
+                      <span>Clear All</span>
+                    </section>
                   </section>
                 )}
               </section>
