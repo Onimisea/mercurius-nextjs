@@ -137,20 +137,60 @@ const favourites = ({ userStatus }) => {
                     </Link>
                   </section>
                 ) : (
-                  <section className="w-full bg-white rounded-md p-4 flex items-center justify-between">
-                    <section className="flex items-start justify-between w-[70%] bg-red-700">
-                      <section className="flex flex-col items-start space-y-1 w-[200px] mr-12 bg-orange-500">
-                        A
-                      </section>
-                      <section className="flex flex-col items-start space-y-1 w-full bg-orange-700">
-                        B
-                      </section>
-                    </section>
+                  <section>
+                    {wishlist.map((item) => {
+                      const fi = item.product_images.filter(
+                        (image) => image.is_feature == true
+                      );
 
-                    <section className="flex flex-col items-start space-y-1 w-[20%] bg-red-700">
-                      C
-                    </section>
+                      const fiUrl =
+                        "https://res.cloudinary.com/dxhq8jlxf/" +
+                        fi[0].product_images.replace(/ /g, "%20");
+
+                      return (
+                        <section
+                          className="w-full bg-white rounded-md p-4 flex items-center justify-between"
+                          key={item.id}
+                        >
+                          <section className="flex items-start justify-between w-[70%]">
+                            <section className="block w-[200px] h-[200px] p-1 mr-12">
+                              <img
+                                src={fiUrl}
+                                alt={item.name}
+                                className="w-full h-full object-contain rounded-md"
+                              />
+                            </section>
+                            <section className="flex flex-col items-start space-y-1 w-full bg-orange-200">
+                              <section className="">{item.name}</section>
+                              <section className="">{item.description}</section>
+                              <section className="">
+                                {item.is_onFlashsale ? (
+                                  <p className="">
+                                    <s className="text-[#868686] text-[16px] mr-1">
+                                      ₦{numbersWithCommas(item.price)}
+                                    </s>{" "}
+                                    ₦
+                                    {numbersWithCommas(item.flashsale_price)}
+                                  </p>
+                                ) : (
+                                  <p className="text-[18px] font-semibold">
+                                    ₦{numbersWithCommas(item.price)}
+                                  </p>
+                                )}
+                              </section>
+                            </section>
+                          </section>
+
+                          <section className="flex flex-col items-start space-y-1 w-[20%] bg-red-700">
+                            C
+                          </section>
+                        </section>
+                      );
+                    })}
                   </section>
+
+
+  
                 )}
               </section>
             </section>
