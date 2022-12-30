@@ -112,7 +112,7 @@ const AccountDetails = ({ userStatus }) => {
         };
 
         await fetch(
-          `https://mercurius-api-production.up.railway.app/api/users/update/${userStatus.id}`,
+          `https://mercurius-api-production.up.railway.app/api/users/update/${userStatus.id}/`,
           options
         )
           .then((res) => res.json())
