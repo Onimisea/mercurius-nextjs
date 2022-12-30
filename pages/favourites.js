@@ -149,30 +149,34 @@ const favourites = ({ userStatus }) => {
 
                       return (
                         <section
-                          className="w-full bg-white rounded-md p-4 flex items-start justify-between"
+                          className="w-full bg-white rounded-md p-4 flex items-center justify-between"
                           key={item.id}
                         >
                           <section className="flex items-start justify-between w-[67%] bg-orange-500">
-                            <section className="block w-[150px] h-[150px] p-1 mr-8 bg-red-500">
+                            <section className="block w-[150px] h-[150px] p-1 mr-8">
                               <img
                                 src={fiUrl}
                                 alt={item.name}
                                 className="w-full h-full object-cover rounded-md"
                               />
                             </section>
-                            <section className="flex flex-col items-start space-y-1 w-full bg-green-500">
-                              <section className="">{item.name}</section>
-                              <section className="">{item.description}</section>
+                            <section className="flex flex-col items-center space-y-2 w-full bg-green-500">
+                              <section className="text-lg">{item.name}</section>
+                              <section className="text-md text-[#868686]">
+                                {item.description}
+                              </section>
                               <section className="">
                                 {item.is_onFlashsale ? (
-                                  <p className="">
-                                    <s className="text-[#868686] text-[16px] mr-1">
+                                  <p className="flex items-center justify-start">
+                                    <s className="text-[#868686] text-md mr-2">
                                       ₦{numbersWithCommas(item.price)}
                                     </s>{" "}
-                                    ₦{numbersWithCommas(item.flashsale_price)}
+                                    <span className="text-lg font-semibold">
+                                      ₦{numbersWithCommas(item.flashsale_price)}
+                                    </span>
                                   </p>
                                 ) : (
-                                  <p className="text-[18px] font-semibold">
+                                  <p className="text-lg font-semibold">
                                     ₦{numbersWithCommas(item.price)}
                                   </p>
                                 )}
