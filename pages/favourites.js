@@ -152,12 +152,12 @@ const favourites = ({ userStatus }) => {
                           className="w-full bg-white rounded-md p-4 flex items-start justify-between"
                           key={item.id}
                         >
-                          <section className="flex items-start justify-between w-[70%] bg-orange-500">
-                            <section className="block w-[200px] h-[200px] p-1 mr-8 bg-red-500">
+                          <section className="flex items-start justify-between w-[67%] bg-orange-500">
+                            <section className="block w-[150px] h-[150px] p-1 mr-8 bg-red-500">
                               <img
                                 src={fiUrl}
                                 alt={item.name}
-                                className="w-full h-full object-contain rounded-md"
+                                className="w-full h-full object-cover rounded-md"
                               />
                             </section>
                             <section className="flex flex-col items-start space-y-1 w-full bg-green-500">
@@ -180,7 +180,7 @@ const favourites = ({ userStatus }) => {
                             </section>
                           </section>
 
-                          <section className="flex flex-col items-center space-y-1 w-[20%]">
+                          <section className="flex flex-col items-center space-y-1 w-[23%]">
                             <section className="w-full">
                               <button className="bg-black rounded-sm px-5 py-4 text-white hover:bg-primary cursor-pointer w-full">
                                 Add to Cart
