@@ -6,7 +6,7 @@ import { MdClose } from "react-icons/md";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import toast from "react-hot-toast";
 import ProductCard from "../../components/ProductCard";
-import phImg from "../public/favicon.png";
+import phImg from "../../public/favicon.png";
 
 const ProductPage = ({
   productb,
