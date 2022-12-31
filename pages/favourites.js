@@ -111,7 +111,7 @@ const favourites = ({ userStatus }) => {
             </section>
 
             <section
-              className={`bg-[#F1F1F1] w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
+              className={`bg-[#F1F1F1] w-[100%] flex flex-col items-center justify-center scroll-smooth z-10 duration-500`}
             >
               <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8">
                 <h3 className="text-xl text-white">
@@ -126,7 +126,7 @@ const favourites = ({ userStatus }) => {
               >
                 {wishlist.length === 0 ? (
                   <section className="w-full rounded-md mt-6 mb-12 p-4 flex flex-col items-center justify-center">
-                    <h4 className="text-primary">
+                    <h4 className="text-primary text-center">
                       You have no item in your Favourites
                     </h4>
                     <Link href="/">
