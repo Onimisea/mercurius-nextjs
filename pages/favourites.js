@@ -152,7 +152,7 @@ const favourites = ({ userStatus }) => {
                           key={item.id}
                         >
                           <section className="flex items-start justify-between w-[100%] lg:w-[60%] lg3:w-[67%]">
-                            <section className="block w-[150px] h-[150px] p-1 mr-8">
+                            <section className="block w-[80px] h-[80px] md:w-[120px] md:h-[120px] md3:w-[150px] md3:h-[150px] p-1 mr-8">
                               <img
                                 src={fiUrl}
                                 alt={item.name}
@@ -185,7 +185,7 @@ const favourites = ({ userStatus }) => {
                             </section>
                           </section>
 
-                          <section className="flex flex-row items-center space-y-1 sm3:space-y-0 lg:space-y-1 w-[100%] lg:w-[30%] lg:flex-col lg3:w-[23%]">
+                          <section className="flex flex-col sm3:flex-row items-center space-y-1 sm3:space-y-0 lg:space-y-1 w-[100%] lg:w-[30%] lg:flex-col lg3:w-[23%]">
                             <section className="w-full">
                               <button
                                 className="bg-black rounded-sm px-5 py-4 text-white hover:bg-primary cursor-pointer w-full"
@@ -199,7 +199,7 @@ const favourites = ({ userStatus }) => {
                             </section>
                             <section className="w-full">
                               <button
-                                className="rounded-sm px-5 py-3 text-primary hover:text-black cursor-pointer w-full flex flex-col sm3:flex-row items-center justify-center"
+                                className="rounded-sm px-5 py-3 text-primary hover:text-black cursor-pointer w-full flex items-center justify-center"
                                 onClick={() => {
                                   removeFromWishlist(item);
                                   toast.error(
