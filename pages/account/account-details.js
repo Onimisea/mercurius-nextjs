@@ -17,9 +17,7 @@ import { useRouter } from "next/router";
 const AccountDetails = ({ userStatus }) => {
   const router = useRouter();
 
-  const {
-    setUserInfo,
-  } = useAppContext();
+  const { setUserInfo } = useAppContext();
 
   const handleSignOut = () => {
     window.localStorage.removeItem("UserData");
@@ -129,8 +127,15 @@ const AccountDetails = ({ userStatus }) => {
     }
   };
 
-  const dobArr = userStatus.dob.split("-")
-  const dob = `${dobArr[2]}/${dobArr[1]}/${dobArr[0]}`;
+  const [dob, setdob] = useState(null);
+
+  useEffect(() => {
+    if (userStatus && userStatus.dob) {
+      const dobArr = userStatus.dob.split("-");
+      const dob = `${dobArr[2]}/${dobArr[1]}/${dobArr[0]}`;
+      setdob(dob);
+    }
+  }, []);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -425,9 +430,7 @@ const AccountDetails = ({ userStatus }) => {
                       <input
                         type="text"
                         name="dob"
-                        placeholder={
-                          dob ? dob : "31/12/1975"
-                        }
+                        placeholder={dob ? dob : "31/12/1975"}
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }  focus:border-white focus:outline-white`}
