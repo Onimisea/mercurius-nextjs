@@ -111,7 +111,6 @@ const AccountDetails = ({ userStatus }) => {
             if (resData.errors) {
               toast.error(resData.errors[0]);
             } else {
-              console.log(resData);
               toast.success(resData.success);
               window.localStorage.setItem(
                 "UserData",
@@ -145,7 +144,8 @@ const AccountDetails = ({ userStatus }) => {
       {userStatus.error ? (
         <section className="w-full p-12 grid place-items-center text-center">
           <h4 className="text-xl text-primary text-center">
-            Please, complete your Account registration!
+            Please, complete your Account registration. Or Login with your
+            registered email address!
           </h4>
           <Link href="/register">
             <button
@@ -335,10 +335,11 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="phone"
-                        placeholder={userStatus.phone ? userStatus.phone.replace(
-                          "+234",
-                          ""
-                        ) : "801234568"}
+                        placeholder={
+                          userStatus.phone
+                            ? userStatus.phone.replace("+234", "")
+                            : "801234568"
+                        }
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }`}
@@ -384,7 +385,11 @@ const AccountDetails = ({ userStatus }) => {
                         })}
                         type="text"
                         name="gender"
-                        placeholder={userStatus.gender ? userStatus.gender : "Male or Female"}
+                        placeholder={
+                          userStatus.gender
+                            ? userStatus.gender
+                            : "Male or Female"
+                        }
                         className={`appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none ${
                           errors.gender &&
                           "border-2 border-red-500 text-red-500"
@@ -421,7 +426,9 @@ const AccountDetails = ({ userStatus }) => {
                       <input
                         type="text"
                         name="dob"
-                        placeholder={userStatus.dob ? userStatus.dob : "31/12/1975"}
+                        placeholder={
+                          userStatus.dob ? userStatus.dob : "31/12/1975"
+                        }
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone && "border-2 border-red-500 text-red-500"
                         }  focus:border-white focus:outline-white`}

@@ -31,10 +31,6 @@ const Checkout = ({ userStatus }) => {
     signOut({ callbackUrl: "/register" });
   };
 
-  // if (userStatus.error) {
-  //   console.log(userStatus.error);
-  // }
-
   const shippingCost = cart.length * 100;
   const salesTaxCost = cart.length * 10;
 
@@ -58,9 +54,15 @@ const Checkout = ({ userStatus }) => {
 
       {userStatus.error ? (
         <section className="w-full p-12 grid place-items-center text-center">
-          <h4 className="text-xl text-primary text-center">Please, complete your Account registration!</h4>
+          <h4 className="text-xl text-primary text-center">
+            Please, complete your Account registration. Or Login with your
+            registered email address!
+          </h4>
           <Link href="/register">
-            <button className="bg-black rounded-md mt-5 px-5 py-3 text-white hover:bg-primary cursor-pointer w-fit" onClick={handleSignOut}>
+            <button
+              className="bg-black rounded-md mt-5 px-5 py-3 text-white hover:bg-primary cursor-pointer w-fit"
+              onClick={handleSignOut}
+            >
               Register
             </button>
           </Link>

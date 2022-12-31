@@ -66,7 +66,8 @@ const favourites = ({ userStatus }) => {
       {userStatus.error ? (
         <section className="w-full p-12 grid place-items-center text-center">
           <h4 className="text-xl text-primary text-center">
-            Please, complete your Account registration!
+            Please, complete your Account registration. Or Login with your
+            registered email address!
           </h4>
           <Link href="/register">
             <button
