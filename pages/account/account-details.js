@@ -129,9 +129,8 @@ const AccountDetails = ({ userStatus }) => {
     }
   };
 
-  const [userProfile, setUserProfile] = useState(userStatus);
-
-  const handleChange = () => {};
+  const dobArr = userStatus.dob.split("-")
+  const dob = `${dobArr[2]}/${dobArr[1]}/${dobArr[0]}`;
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -427,7 +426,7 @@ const AccountDetails = ({ userStatus }) => {
                         type="text"
                         name="dob"
                         placeholder={
-                          userStatus.dob ? userStatus.dob : "31/12/1975"
+                          dob ? dob : "31/12/1975"
                         }
                         className={`form-control appearance-none rounded-sm py-3 pl-5 w-full placeholder-[#868686] pr-12 text-black outline-none transition ease-in-out ${
                           errors.phone && "border-2 border-red-500 text-red-500"
