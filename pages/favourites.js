@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
 import { getSession, useSession, signOut } from "next-auth/react";
-import { Sidebar } from "../components";
+import { Sidebar2 } from "../components";
 import { FiMenu, FiPackage, FiEdit } from "react-icons/fi";
 import { FaEnvelope, FaHeart } from "react-icons/fa";
 import { MdClose, MdInventory } from "react-icons/md";
@@ -85,7 +85,7 @@ const favourites = ({ userStatus }) => {
 
           <section className="w-full flex items-start justify-start mt-8">
             <section className="flex flex-col h-full items-start sticky top-0 left-0 mr-5 md:mr-7">
-              <section className="grid place-items-center sm2:hidden w-[40px] h-[40px] ml-1 font-bold duration-300 cursor-pointer">
+              <section className="grid place-items-center md:hidden w-[40px] h-[40px] ml-1 font-bold duration-300 cursor-pointer">
                 {asideOpen ? (
                   <MdClose
                     size={25}
@@ -104,9 +104,9 @@ const favourites = ({ userStatus }) => {
               <section
                 className={`bg-black ${
                   asideOpen ? "w-[175px] duration-300" : "w-[60px]"
-                } sm2:w-[200px] h-full px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
+                } md:w-[200px] h-full px-[15px] py-[20px] md:px-[20px] md:py-[35px] flex items-start justify-between relative duration-300`}
               >
-                <Sidebar links={sidebarLinks} asideOpen={asideOpen} />
+                <Sidebar2 links={sidebarLinks} asideOpen={asideOpen} />
               </section>
             </section>
 
@@ -148,7 +148,7 @@ const favourites = ({ userStatus }) => {
 
                       return (
                         <section
-                          className="w-full bg-white rounded-md p-4 flex flex-col lg:flex-row items-center justify-center lg:justify-between"
+                          className="w-full bg-white rounded-md p-4 flex flex-col space-y-2 lg:space-y-0 lg:flex-row items-center justify-center lg:justify-between"
                           key={item.id}
                         >
                           <section className="flex items-start justify-between w-[100%] lg:w-[60%] lg3:w-[67%]">
