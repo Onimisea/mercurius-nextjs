@@ -62,7 +62,10 @@ const Timer = ({ duration }) => {
         headers: { "Content-type": "application/json" },
       };
 
-      fetch("http://localhost:8000/api/inventory/f/disable/", options)
+      fetch(
+        "https://mercurius-api-production.up.railway.app/api/inventory/f/disable/",
+        options
+      )
         .then((res) => res.json())
         .then((resData) => {});
 
