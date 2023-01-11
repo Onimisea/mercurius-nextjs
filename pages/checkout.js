@@ -25,6 +25,9 @@ const Checkout = ({ userStatus }) => {
 
   const { data: session } = useSession();
 
+  console.log("session", session);
+  console.log("userStatus", userStatus);
+
   const handleSignOut = () => {
     window.localStorage.removeItem("UserData");
     setUserInfo(null);
