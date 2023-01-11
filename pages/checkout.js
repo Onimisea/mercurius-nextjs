@@ -305,27 +305,27 @@ export const getServerSideProps = async ({ req }) => {
         permanent: false,
       },
     };
+  } else {
+    let userStatus = {};
+
+    if (session.user) {
+      await fetch(
+        "https://mercurius-api-production.up.railway.app/api/users/verify/",
+        {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(session.user),
+        }
+      )
+        .then((res) => res.json())
+        .then((userStatusRes) => {
+          userStatus = userStatusRes;
+          return userStatus;
+        });
+    }
+
+    return {
+      props: { session, userStatus },
+    };
   }
-
-  let userStatus = {};
-
-  if (session.user) {
-    await fetch(
-      "https://mercurius-api-production.up.railway.app/api/users/verify/",
-      {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(session.user),
-      }
-    )
-      .then((res) => res.json())
-      .then((userStatusRes) => {
-        userStatus = userStatusRes;
-        return userStatus;
-      });
-  }
-
-  return {
-    props: { session, userStatus },
-  };
 };
