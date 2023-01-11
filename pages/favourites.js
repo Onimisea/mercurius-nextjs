@@ -44,8 +44,8 @@ const favourites = ({ userStatus }) => {
       icon: <FaEnvelope size={20} className="mr-2" />,
     },
     {
-      name: "Inventory",
-      url: "/inventory",
+      name: "Storehouse",
+      url: "/storehouse",
       icon: <MdInventory size={20} className="mr-2" />,
     },
     {
@@ -256,14 +256,11 @@ export const getServerSideProps = async ({ req }) => {
       },
     };
   } else {
-    await fetch(
-      "https://mercurius-api-production.up.railway.app/api/users/verify/",
-      {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(session.user),
-      }
-    )
+    await fetch("http://localhost:8000/api/users/verify/", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(session.user),
+    })
       .then((res) => res.json())
       .then((userStatusRes) => {
         userStatus = userStatusRes;

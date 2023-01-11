@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "../../../context/AppContext";
 import toast from "react-hot-toast";
 import { getSession, useSession, signOut } from "next-auth/react";
-import { Sidebar } from "../../components";
+import { Sidebar } from "../../../components";
 import { FiMenu, FiPackage, FiEdit } from "react-icons/fi";
 import { FaEnvelope, FaHeart } from "react-icons/fa";
 import { MdClose, MdInventory } from "react-icons/md";
 import { ImUser } from "react-icons/im";
 import { RiLogoutBoxFill } from "react-icons/ri";
+import { BsArrowLeft } from "react-icons/bs";
+import { useRouter } from "next/router";
 
-const account = ({ userStatus, defaultAddress }) => {
+const addresses = ({ userStatus, addresses, defaultAddress }) => {
+  const router = useRouter();
+
   const {
     appState: { cart },
     tabbed,
@@ -62,18 +66,26 @@ const account = ({ userStatus, defaultAddress }) => {
 
   const [asideOpen, setAsideOpen] = useState(false);
 
+  const deleteAddress = (addressId) => {
+    const options = {
+      method: "DELETE",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({ addressId: addressId }),
+    };
+
+    fetch(`http://localhost:8000/api/addresses/${addressId}/delete/`, options);
+    router.reload(window.location.pathname);
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined" || typeof window !== null) {
-      // if (window.localStorage.getItem("UserData")) {
-      //   console.log("From Backend", userStatus);
-      // }
     }
   }, []);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
       <Head>
-        <title>Mercurius | Account | Best Thrift Store in Nigeria</title>
+        <title>Mercurius | Addresses | Best Thrift Store in Nigeria</title>
       </Head>
 
       {userStatus.error ? (
@@ -130,106 +142,70 @@ const account = ({ userStatus, defaultAddress }) => {
               className={`bg-[#F1F1F1] w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
             >
               {/* whitespace-nowrap overflow-x-scroll scrollbar-none */}
-              <section className="w-full sticky top-0 left-0 bg-black px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8">
-                <h3 className="text-xl text-white">Account</h3>
+              <section className="w-full sticky top-0 left-0 bg-black text-white px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8 flex items-center justify-start z-30">
+                <Link href="/account">
+                  <BsArrowLeft
+                    size={25}
+                    className="p-0 m-0 mr-4 cursor-pointer hover:text-primary duration-300"
+                  />
+                </Link>
+                <h3 className="text-xl">Addresses</h3>
               </section>
 
               <section
-                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
+                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 z-20 ${
                   asideOpen ? "" : ""
                 } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
               >
-                <section className="w-full bg-white rounded-md p-4">
-                  <section className="flex items-start justify-between mb-6">
-                    <h3 className="text-lg text-black font-semibold">
-                      Account Details
-                    </h3>
-                    <Link
-                      href="/account/account-details"
-                      className="cursor-pointer hover:text-primary duration-300"
-                    >
-                      <FiEdit size={25} className="p-0 m-0" />
-                    </Link>
-                  </section>
-
-                  <section className="flex flex-col items-start text-[#868686] space-y-1 w-full">
-                    <p>{userStatus.fullname}</p>
-                    <p>{userStatus.email}</p>
-                    <p>{userStatus.phone}</p>
-                  </section>
+                <section className="w-full flex items-center justify-end">
+                  <Link href="/account/addresses/add-address">
+                    <button className="bg-black rounded-sm px-5 py-3 mb-4 text-white hover:bg-primary cursor-pointer w-fit">
+                      Add New Address
+                    </button>
+                  </Link>
                 </section>
-              </section>
 
-              <section
-                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
-                  asideOpen ? "" : ""
-                } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
-              >
-                <section className="w-full bg-white rounded-md p-4">
-                  <section className="flex items-start justify-between mb-6">
-                    <h3 className="text-lg text-black font-semibold">
-                      Shipping Address
-                    </h3>
-                    <Link
-                      href="/account/addresses"
-                      className="cursor-pointer hover:text-primary duration-300"
-                    >
-                      <FiEdit size={25} className="p-0 m-0" />
-                    </Link>
-                  </section>
+                {addresses.map((address) => {
+                  return (
+                    <section className="w-full" key={address.id}>
+                      <section className="w-full bg-white rounded-md p-4">
+                        <section className="flex items-start justify-between mb-6">
+                          <h3 className="text-lg text-black font-semibold">
+                            Address
+                          </h3>
+                          <Link
+                            href={`/account/addresses/update-address/${address.id}/`}
+                            className="cursor-pointer hover:text-primary duration-300"
+                          >
+                            <FiEdit size={25} className="p-0 m-0" />
+                          </Link>
+                        </section>
 
-                  {defaultAddress ? (
-                    <section className="flex flex-col items-start text-[#868686] space-y-1 w-full sm:w-[50%] md:w-[35%]">
-                      <p>
-                        No. {defaultAddress.house_no},{" "}
-                        {defaultAddress.street_name}, {defaultAddress.bus_stop},{" "}
-                        {defaultAddress.lga} {defaultAddress.postal_code},{" "}
-                        {defaultAddress.state}, {defaultAddress.country}.
-                      </p>
+                        <section className="flex flex-col items-start text-[#868686] space-y-1  w-full sm2:w-[50%] md3:w-[35%]">
+                          <p>
+                            No. {address.house_no}, {address.street_name},{" "}
+                            {address.bus_stop}, {address.lga}{" "}
+                            {address.postal_code}, {address.state},{" "}
+                            {address.country}.
+                          </p>
+                        </section>
+                      </section>
+
+                      <section className="w-full flex items-center justify-end mt-3">
+                        <button
+                          className="rounded-sm px-0 py-0 text-black hover:text-red-500 cursor-pointer w-fit flex items-center justify-center"
+                          onClick={() => {
+                            deleteAddress(address.id);
+                          }}
+                        >
+                          <span>Delete Address</span>
+                        </button>
+                      </section>
                     </section>
-                  ) : (
-                    <section className="flex flex-col items-start text-[#868686] space-y-1 w-full sm:w-[50%] md:w-[35%]">
-                      <p>No default shipping address set</p>
-                    </section>
-                  )}
-                </section>
-              </section>
+                  );
+                })}
 
-              <section
-                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
-                  asideOpen ? "" : ""
-                } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
-              >
-                <section className="w-full bg-white rounded-md p-4">
-                  <section className="flex items-start justify-between mb-0">
-                    <h3 className="text-lg text-black font-semibold">
-                      Change Password
-                    </h3>
-                    <Link
-                      href="/account/change-password"
-                      className="cursor-pointer hover:text-primary duration-300"
-                    >
-                      <FiEdit size={25} className="p-0 m-0" />
-                    </Link>
-                  </section>
-                </section>
-              </section>
-
-              <section
-                className={`w-full h-fit flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 ${
-                  asideOpen ? "" : ""
-                } overflow-x-hidden scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-primary scroll-smooth space-y-3 duration-500`}
-              >
-                <section className="w-full bg-white rounded-md p-4">
-                  <section className="flex items-start justify-between mb-0">
-                    <h3 className="text-lg text-black font-semibold">
-                      Select Currency
-                    </h3>
-
-                    <p className="text-primary">Nigeria (NGN)</p>
-                    {/* <FiEdit size={25} className="p-0 m-0" /> */}
-                  </section>
-                </section>
+                {/* end of address card */}
               </section>
             </section>
           </section>
@@ -239,7 +215,7 @@ const account = ({ userStatus, defaultAddress }) => {
   );
 };
 
-export default account;
+export default addresses;
 
 export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
@@ -272,30 +248,20 @@ export const getServerSideProps = async ({ req }) => {
     let defaultAddressArr = null;
     let defaultAddress = null;
 
-    if (allAddresses.length !== 0) {
-      addresses = allAddresses.filter(
+    if (allAddresses) {
+      addresses = await allAddresses.filter(
         (address) => address.user === userStatus.id
       );
-    } else {
-      addresses = null;
     }
 
-    if (addresses.length !== 0) {
+    if (addresses) {
       defaultAddressArr = await addresses.filter(
         (address) => address.is_default === true
       );
-    } else {
-      defaultAddressArr = null;
-    }
-
-    if (defaultAddressArr.length !== 0) {
-      defaultAddress = await defaultAddressArr[0];
-    } else {
-      defaultAddress = null;
     }
 
     return {
-      props: { session, userStatus, defaultAddress },
+      props: { session, userStatus, addresses },
     };
   }
 };

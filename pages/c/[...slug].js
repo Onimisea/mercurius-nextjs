@@ -26,9 +26,7 @@ export default function CategoryPage({}) {
 
   useEffect(() => {
     if (router.isReady) {
-      const categories = fetch(
-        "https://mercurius-api-production.up.railway.app/api/inventory/c/"
-      )
+      const categories = fetch("http://localhost:8000/api/inventory/c/")
         .then((res) => res.json())
         .then((catData) => {
           const cat = catData.filter(
@@ -53,9 +51,7 @@ export default function CategoryPage({}) {
           setAllLowerSub(allLowerSub);
         });
 
-      const products = fetch(
-        "https://mercurius-api-production.up.railway.app/api/inventory/"
-      )
+      const products = fetch("http://localhost:8000/api/inventory/")
         .then((res) => res.json())
         .then((prodData) => {
           const prodSubFilt = prodData.filter(
@@ -219,9 +215,9 @@ export default function CategoryPage({}) {
 export const getServerSideProps = async ({ req }) => {
   // const session = await getSession({ req });
 
-  const products = await fetch(
-    "https://mercurius-api-production.up.railway.app/api/inventory/"
-  ).then((res) => res.json());
+  const products = await fetch("http://localhost:8000/api/inventory/").then(
+    (res) => res.json()
+  );
 
   return {
     props: {

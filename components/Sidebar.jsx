@@ -15,9 +15,9 @@ const Sidebar = ({ links, asideOpen }) => {
   return (
     <section className="w-fit h-fit flex items-center justify-center">
       <ul className="p-0 m-0 flex flex-col items-center justify-center w-full space-y-4">
-        {links.map((ln) => {
+        {links.map((ln, index) => {
           return (
-            <li className="w-fit md:text-md flex flex-col items-start justify-start">
+            <li className="w-fit md:text-md flex flex-col items-start justify-start" key={index}>
               {ln.url !== null ? (
                 <Link
                   href={ln.url ? ln.url : "#"}

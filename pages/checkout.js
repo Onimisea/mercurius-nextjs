@@ -18,8 +18,9 @@ const Checkout = ({ userStatus }) => {
     tabbed,
     setTabbed,
     paymentPropsSts,
-    paymentPropsIs,
-    userInfo, setUserInfo,
+    userInfo,
+    setUserInfo,
+    totalAmountWithShippingNtax,
   } = useAppContext();
 
   const { data: session } = useSession();
@@ -36,6 +37,21 @@ const Checkout = ({ userStatus }) => {
 
   setShipping(shippingCost);
   setSalesTax(salesTaxCost);
+
+  const paymentPropsIs = {
+    email: userStatus.email,
+    amount: totalAmountWithShippingNtax,
+    metadata: {
+      name: userStatus.fullname,
+      phone: userStatus.phone,
+      paymentType: "Instant Shipping",
+    },
+    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_TEXTMODE_PUBLIC_KEY,
+    text: "Pay for Instant Shipping",
+    onSuccess: () =>
+      alert("Thanks for doing business with us! Come back soon!!"),
+    onClose: () => alert("Wait! You need this items, don't go!!!!"),
+  };
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
@@ -291,14 +307,11 @@ export const getServerSideProps = async ({ req }) => {
   let userStatus = {};
 
   if (session.user) {
-    await fetch(
-      "https://mercurius-api-production.up.railway.app/api/users/verify/",
-      {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(session.user),
-      }
-    )
+    await fetch("http://localhost:8000/api/users/verify/", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(session.user),
+    })
       .then((res) => res.json())
       .then((userStatusRes) => {
         userStatus = userStatusRes;

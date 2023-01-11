@@ -15,8 +15,7 @@ import { useRouter } from "next/router";
 const Login = ({}) => {
   const router = useRouter();
 
-  const { showPassword, setShowPassword, userInfo, setUserInfo } =
-    useAppContext();
+  const { showPassword, setShowPassword, setUserInfo } = useAppContext();
 
   const {
     register,
@@ -43,16 +42,25 @@ const Login = ({}) => {
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(data),
         };
-        const user = fetch(
-          "https://mercurius-api-production.up.railway.app/api/users/verify/",
-          options
-        )
+        const user = fetch("http://localhost:8000/api/users/verify/", options)
           .then((res) => res.json())
           .then((userData) => {
-            window.localStorage.setItem("UserData", JSON.stringify(userData));
-            setUserInfo(userData);
+            fetch("http://localhost:8000/api/users/login/", options)
+              .then((res2) => res2.json())
+              .then((userData2) => {
+                if (userData2.success) {
+                  toast.success(userData2.success);
+                  window.localStorage.setItem(
+                    "UserData",
+                    JSON.stringify(userData)
+                  );
+                  setUserInfo(userData);
+                  router.push(url ? url : "/");
+                } else {
+                  toast.error(userData2.error);
+                }
+              });
           });
-        router.push(url);
       } else {
         toast.error("Invalid email or password");
       }

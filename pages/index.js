@@ -11,7 +11,8 @@ import { useSession } from "next-auth/react";
 export default function Home({
   products,
   flashsale_timer,
-  flashsale_products, productTypes,
+  flashsale_products,
+  productTypes,
 }) {
   const {
     flashsaleProducts,
@@ -40,7 +41,7 @@ export default function Home({
     if (flashsale_products.length !== 0) {
       setFlashsaleProducts(flashsale_products);
     }
-    
+
     if (productTypes.length !== 0) {
       setProductTypes(productTypes);
     }
@@ -92,21 +93,24 @@ export default function Home({
   );
 }
 
+// Changing API endpoint from Railway's to localhost
+// https://mercurius-api-production.up.railway.app
+
 export const getServerSideProps = async ({ req }) => {
-  const products = await fetch(
-    "https://mercurius-api-production.up.railway.app/api/inventory/"
-  ).then((res) => res.json());
+  const products = await fetch("http://localhost:8000/api/inventory/").then(
+    (res) => res.json()
+  );
 
   const flashsale_timer = await fetch(
-    "https://mercurius-api-production.up.railway.app/api/inventory/f/"
+    "http://localhost:8000/api/inventory/f/"
   ).then((res) => res.json());
 
   const flashsale_products = await fetch(
-    "https://mercurius-api-production.up.railway.app/api/inventory/f/all/"
+    "http://localhost:8000/api/inventory/f/all/"
   ).then((res) => res.json());
 
   const productTypes = await fetch(
-    "https://mercurius-api-production.up.railway.app/api/inventory/pt/"
+    "http://localhost:8000/api/inventory/pt/"
   ).then((res) => res.json());
 
   return {
@@ -118,4 +122,3 @@ export const getServerSideProps = async ({ req }) => {
     },
   };
 };
-

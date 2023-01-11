@@ -212,20 +212,7 @@ export const AppProvider = ({ children }) => {
     // onClose: () => alert("Wait! You need this items, don't go!!!!"),
   };
 
-  const paymentPropsIs = {
-    // email: userInfo.email,
-    // amount: totalAmountWithShippingNtax,
-    // metadata: {
-    //   name: userInfo.fullname,
-    //   phone: userInfo.phone,
-    //   paymentType: "Instant Shipping",
-    // },
-    // publicKey: process.env.NEXT_PUBLIC_PAYSTACK_TEXTMODE_PUBLIC_KEY,
-    // text: "Pay for Instant Shipping",
-    // onSuccess: () =>
-    //   alert("Thanks for doing business with us! Come back soon!!"),
-    // onClose: () => alert("Wait! You need this items, don't go!!!!"),
-  };
+  
 
   // Select product size
   const selectSize = (item) => {
@@ -264,7 +251,6 @@ export const AppProvider = ({ children }) => {
         tabbed,
         setTabbed,
         paymentPropsSts,
-        paymentPropsIs,
         showPassword,
         setShowPassword,
         avatarMenuOpen,
@@ -282,7 +268,7 @@ export const AppProvider = ({ children }) => {
         setUserInfo,
         productTypes,
         setProductTypes,
-        selectSize,
+        selectSize, totalAmountWithShippingNtax
       }}
     >
       {children}

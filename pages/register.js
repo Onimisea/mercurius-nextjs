@@ -18,7 +18,7 @@ import toast from "react-hot-toast";
 import { getSession, signIn, signOut } from "next-auth/react";
 
 const Register = () => {
-  const { showPassword, setShowPassword, userInfo, setUserInfo } =
+  const { showPassword, setShowPassword, } =
     useAppContext();
 
   const router = useRouter();
@@ -46,11 +46,8 @@ const Register = () => {
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(data),
         };
-
-        await fetch(
-          "https://mercurius-api-production.up.railway.app/api/users/register/",
-          options
-        )
+        
+        await fetch("http://localhost:8000/api/users/register/", options)
           .then((res) => res.json())
           .then((resData) => {
             if (resData.errors) {

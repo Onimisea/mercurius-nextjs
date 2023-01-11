@@ -48,8 +48,8 @@ const AccountDetails = ({ userStatus }) => {
       icon: <FaEnvelope size={20} className="mr-2" />,
     },
     {
-      name: "Inventory",
-      url: "/inventory",
+      name: "Storehouse",
+      url: "/storehouse",
       icon: <MdInventory size={20} className="mr-2" />,
     },
     {
@@ -101,7 +101,7 @@ const AccountDetails = ({ userStatus }) => {
         };
 
         await fetch(
-          `https://mercurius-api-production.up.railway.app/api/users/update/${userStatus.id}/`,
+          `http://localhost:8000/api/users/update/${userStatus.id}/`,
           options
         )
           .then((res) => res.json())
@@ -198,7 +198,7 @@ const AccountDetails = ({ userStatus }) => {
               className={`bg-[#F1F1F1] w-[100%] flex flex-col items-center justify-center scroll-smooth duration-500`}
             >
               {/* Header */}
-              <section className="w-full sticky top-0 left-0 bg-black text-white px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8 flex items-center justify-start z-50">
+              <section className="w-full sticky top-0 left-0 bg-black text-white px-4 py-3 md:px-6 md:py-4 mb-5 md:mb-8 flex items-center justify-start z-30">
                 <Link href="/account">
                   <BsArrowLeft
                     size={25}
@@ -470,14 +470,11 @@ export const getServerSideProps = async ({ req }) => {
       },
     };
   } else {
-    await fetch(
-      "https://mercurius-api-production.up.railway.app/api/users/verify/",
-      {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(session.user),
-      }
-    )
+    await fetch("http://localhost:8000/api/users/verify/", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(session.user),
+    })
       .then((res) => res.json())
       .then((userStatusRes) => {
         userStatus = userStatusRes;
