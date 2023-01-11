@@ -101,7 +101,7 @@ const AccountDetails = ({ userStatus }) => {
         };
 
         await fetch(
-          `http://localhost:8000/api/users/update/${userStatus.id}/`,
+          `https://mercurius-api-production.up.railway.app/api/users/update/${userStatus.id}/`,
           options
         )
           .then((res) => res.json())
@@ -470,7 +470,7 @@ export const getServerSideProps = async ({ req }) => {
       },
     };
   } else {
-    await fetch("http://localhost:8000/api/users/verify/", {
+    await fetch("https://mercurius-api-production.up.railway.app/api/users/verify/", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(session.user),

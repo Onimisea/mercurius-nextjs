@@ -47,7 +47,10 @@ const Register = () => {
           body: JSON.stringify(data),
         };
         
-        await fetch("http://localhost:8000/api/users/register/", options)
+        await fetch(
+          "https://mercurius-api-production.up.railway.app/api/users/register/",
+          options
+        )
           .then((res) => res.json())
           .then((resData) => {
             if (resData.errors) {

@@ -42,10 +42,10 @@ const Login = ({}) => {
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(data),
         };
-        const user = fetch("http://localhost:8000/api/users/verify/", options)
+        const user = fetch("https://mercurius-api-production.up.railway.app/api/users/verify/", options)
           .then((res) => res.json())
           .then((userData) => {
-            fetch("http://localhost:8000/api/users/login/", options)
+            fetch("https://mercurius-api-production.up.railway.app/api/users/login/", options)
               .then((res2) => res2.json())
               .then((userData2) => {
                 if (userData2.success) {

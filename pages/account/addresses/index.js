@@ -73,7 +73,10 @@ const addresses = ({ userStatus, addresses, defaultAddress }) => {
       body: JSON.stringify({ addressId: addressId }),
     };
 
-    fetch(`http://localhost:8000/api/addresses/${addressId}/delete/`, options);
+    fetch(
+      `https://mercurius-api-production.up.railway.app/api/addresses/${addressId}/delete/`,
+      options
+    );
     router.reload(window.location.pathname);
   };
 
@@ -229,11 +232,14 @@ export const getServerSideProps = async ({ req }) => {
       },
     };
   } else {
-    await fetch("http://localhost:8000/api/users/verify/", {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(session.user),
-    })
+    await fetch(
+      "https://mercurius-api-production.up.railway.app/api/users/verify/",
+      {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(session.user),
+      }
+    )
       .then((res) => res.json())
       .then((userStatusRes) => {
         userStatus = userStatusRes;
@@ -241,7 +247,7 @@ export const getServerSideProps = async ({ req }) => {
       });
 
     const allAddresses = await fetch(
-      "http://localhost:8000/api/addresses/"
+      "https://mercurius-api-production.up.railway.app/api/addresses/"
     ).then((res) => res.json());
 
     let addresses = null;

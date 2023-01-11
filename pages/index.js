@@ -97,20 +97,20 @@ export default function Home({
 // https://mercurius-api-production.up.railway.app
 
 export const getServerSideProps = async ({ req }) => {
-  const products = await fetch("http://localhost:8000/api/inventory/").then(
+  const products = await fetch("https://mercurius-api-production.up.railway.app/api/inventory/").then(
     (res) => res.json()
   );
 
   const flashsale_timer = await fetch(
-    "http://localhost:8000/api/inventory/f/"
+    "https://mercurius-api-production.up.railway.app/api/inventory/f/"
   ).then((res) => res.json());
 
   const flashsale_products = await fetch(
-    "http://localhost:8000/api/inventory/f/all/"
+    "https://mercurius-api-production.up.railway.app/api/inventory/f/all/"
   ).then((res) => res.json());
 
   const productTypes = await fetch(
-    "http://localhost:8000/api/inventory/pt/"
+    "https://mercurius-api-production.up.railway.app/api/inventory/pt/"
   ).then((res) => res.json());
 
   return {

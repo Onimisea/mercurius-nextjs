@@ -284,9 +284,9 @@ const ProductPage = ({
 export default ProductPage;
 
 export const getStaticPaths = async () => {
-  const products = await fetch("http://localhost:8000/api/inventory/").then(
-    (res) => res.json()
-  );
+  const products = await fetch(
+    "https://mercurius-api-production.up.railway.app/api/inventory/"
+  ).then((res) => res.json());
 
   const paths = products.map((product) => {
     return {
@@ -303,9 +303,9 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params: { slug } }) => {
-  const products = await fetch("localhost:8000/api/inventory/").then((res) =>
-    res.json()
-  );
+  const products = await fetch(
+    "https://mercurius-api-production.up.railway.app/api/inventory/"
+  ).then((res) => res.json());
 
   const productArr = await products.filter((product) => product.slug === slug);
 

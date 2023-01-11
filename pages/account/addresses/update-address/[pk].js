@@ -49,7 +49,10 @@ const addresses = ({ userStatus, address }) => {
 
         console.log(data);
 
-        await fetch(`http://localhost:8000/api/addresses/${address.id}/update/`, options)
+        await fetch(
+          `https://mercurius-api-production.up.railway.app/api/addresses/${address.id}/update/`,
+          options
+        )
           .then((res) => res.json())
           .then((resData) => {
             if (resData.errors) {
@@ -569,11 +572,14 @@ export const getServerSideProps = async ({ req, params: { pk } }) => {
       },
     };
   } else {
-    await fetch("http://localhost:8000/api/users/verify/", {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(session.user),
-    })
+    await fetch(
+      "https://mercurius-api-production.up.railway.app/api/users/verify/",
+      {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(session.user),
+      }
+    )
       .then((res) => res.json())
       .then((userStatusRes) => {
         userStatus = userStatusRes;
@@ -585,7 +591,7 @@ export const getServerSideProps = async ({ req, params: { pk } }) => {
     let address = null;
 
     const allAddresses = await fetch(
-      "http://localhost:8000/api/addresses/"
+      "https://mercurius-api-production.up.railway.app/api/addresses/"
     ).then((res) => res.json());
 
     if (allAddresses.length !== 0) {

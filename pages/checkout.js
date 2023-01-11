@@ -307,11 +307,14 @@ export const getServerSideProps = async ({ req }) => {
   let userStatus = {};
 
   if (session.user) {
-    await fetch("http://localhost:8000/api/users/verify/", {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(session.user),
-    })
+    await fetch(
+      "https://mercurius-api-production.up.railway.app/api/users/verify/",
+      {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(session.user),
+      }
+    )
       .then((res) => res.json())
       .then((userStatusRes) => {
         userStatus = userStatusRes;

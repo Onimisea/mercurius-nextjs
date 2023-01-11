@@ -253,7 +253,7 @@ export const getServerSideProps = async ({ req }) => {
       },
     };
   } else {
-    await fetch("http://localhost:8000/api/users/verify/", {
+    await fetch("https://mercurius-api-production.up.railway.app/api/users/verify/", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(session.user),
@@ -265,7 +265,7 @@ export const getServerSideProps = async ({ req }) => {
       });
 
     const allAddresses = await fetch(
-      "http://localhost:8000/api/addresses/"
+      "https://mercurius-api-production.up.railway.app/api/addresses/"
     ).then((res) => res.json());
 
     let addresses = null;
