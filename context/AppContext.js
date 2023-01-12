@@ -195,24 +195,7 @@ export const AppProvider = ({ children }) => {
   const totalAmount = Math.round(totalPrice * 100);
   const totalAmountWithShippingNtax = Math.round(
     (totalPrice + shipping + salesTax) * 100
-  );
-
-  const paymentPropsSts = {
-    // email: userInfo.email,
-    // amount: totalAmount,
-    // metadata: {
-    //   name: userInfo.fullname,
-    //   phone: userInfo.phone,
-    //   paymentType: "Save To Storehouse",
-    // },
-    // publicKey: process.env.NEXT_PUBLIC_PAYSTACK_TEXTMODE_PUBLIC_KEY,
-    // text: "Pay for Storehouse",
-    // onSuccess: () =>
-    //   alert("Thanks for doing business with us! Come back soon!!"),
-    // onClose: () => alert("Wait! You need this items, don't go!!!!"),
-  };
-
-  
+  );  
 
   // Select product size
   const selectSize = (item) => {
@@ -229,6 +212,7 @@ export const AppProvider = ({ children }) => {
         appState,
         appStateDispatch,
         totalPrice,
+        totalAmount,
         setTotalPrice,
         totalQty,
         setTotalQty,
@@ -250,7 +234,6 @@ export const AppProvider = ({ children }) => {
         setIsFilterBoxOpen,
         tabbed,
         setTabbed,
-        paymentPropsSts,
         showPassword,
         setShowPassword,
         avatarMenuOpen,

@@ -10,6 +10,7 @@ const Checkout = ({ userStatus, defaultAddress }) => {
   const {
     appState: { cart },
     totalPrice,
+    totalAmount,
     shipping,
     setShipping,
     salesTax,
@@ -17,7 +18,6 @@ const Checkout = ({ userStatus, defaultAddress }) => {
     numbersWithCommas,
     tabbed,
     setTabbed,
-    paymentPropsSts,
     userInfo,
     setUserInfo,
     totalAmountWithShippingNtax,
@@ -35,21 +35,43 @@ const Checkout = ({ userStatus, defaultAddress }) => {
   const shippingCost = cart.length * 100;
   const salesTaxCost = cart.length * 10;
   const couponPercent = 0;
-  const couponAmountInit = (couponPercent / 100) * totalAmountWithShippingNtax
-  const couponAmount = totalAmountWithShippingNtax - couponAmountInit
+  const couponAmountInit = Math.round((couponPercent / 100) * totalPrice)
+  const couponAmount = Math.round(totalPrice - couponAmountInit)
+
+  const couponAmountInitPst = (couponPercent / 100) * totalPrice * 100
 
   setShipping(shippingCost);
   setSalesTax(salesTaxCost);
 
+  const paymentPropsSts = {
+    email: userStatus.email,
+    amount: totalAmount - couponAmountInitPst,
+    metadata: {
+      name: userStatus.fullname,
+      phone: userStatus.phone,
+      email: userStatus.email,
+      paymentType: "Storage",
+      totalAmount: totalAmount,
+      discount: couponAmount,
+      shippingAddress: defaultAddress,
+      cart: cart,
+    },
+    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_TEXTMODE_PUBLIC_KEY,
+    text: "Pay for Items",
+    onSuccess: () =>
+      alert("Thanks for doing business with us! Come back soon!"),
+    onClose: () => alert("Wait! You need these items, don't go!"),
+  };
+
   const paymentPropsIs = {
     email: userStatus.email,
-    amount: totalAmountWithShippingNtax,
+    amount: totalAmountWithShippingNtax - couponAmountInitPst,
     metadata: {
       name: userStatus.fullname,
       phone: userStatus.phone,
       email: userStatus.email,
       paymentType: "Instant Shipping",
-      totalPrice: totalPrice,
+      totalAmount: totalAmount,
       shippingFee: shipping,
       salesTax: salesTax,
       discount: couponAmount,
@@ -59,8 +81,8 @@ const Checkout = ({ userStatus, defaultAddress }) => {
     publicKey: process.env.NEXT_PUBLIC_PAYSTACK_TEXTMODE_PUBLIC_KEY,
     text: "Pay for Instant Shipping",
     onSuccess: () =>
-      alert("Thanks for doing business with us! Come back soon!!"),
-    onClose: () => alert("Wait! You need this items, don't go!!!!"),
+      alert("Thanks for doing business with us! Come back soon!"),
+    onClose: () => alert("Wait! You need these items, don't go!"),
   };
 
   return (
