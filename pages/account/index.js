@@ -178,7 +178,7 @@ const account = ({ userStatus, defaultAddress }) => {
                     </Link>
                   </section>
 
-                  {defaultAddress ? (
+                  {defaultAddress.length !== 0 ? (
                     <section className="flex flex-col items-start text-[#868686] space-y-1 w-full sm:w-[50%] md:w-[35%]">
                       <p>
                         No. {defaultAddress.house_no},{" "}
