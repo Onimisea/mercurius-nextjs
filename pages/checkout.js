@@ -6,7 +6,7 @@ import { PaystackButton } from "react-paystack";
 import toast from "react-hot-toast";
 import { getSession, useSession, signOut } from "next-auth/react";
 
-const Checkout = ({ userStatus }) => {
+const Checkout = ({ userStatus, address }) => {
   const {
     appState: { cart },
     totalPrice,
@@ -44,7 +44,13 @@ const Checkout = ({ userStatus }) => {
     metadata: {
       name: userStatus.fullname,
       phone: userStatus.phone,
+      email: userStatus.email,
       paymentType: "Instant Shipping",
+      cart: cart,
+      totalPrice: totalPrice,
+      shippingFee: shipping,
+      salesTax: salesTax,
+      shippingAddress: address,
     },
     publicKey: process.env.NEXT_PUBLIC_PAYSTACK_TEXTMODE_PUBLIC_KEY,
     text: "Pay for Instant Shipping",
@@ -321,8 +327,32 @@ export const getServerSideProps = async ({ req }) => {
         });
     }
 
+    let userAddressesArr = [];
+    let addressesArr = [];
+    let address = [];
+
+    const allAddresses = await fetch(
+      "https://mercurius-api-production.up.railway.app/api/addresses/"
+    ).then((res) => res.json());
+
+    if (allAddresses.length !== 0) {
+      userAddressesArr = await allAddresses.filter(
+        (address) => address.user === userStatus.id
+      );
+    }
+
+    if (userAddressesArr.length !== 0) {
+      addressesArr = await userAddressesArr.filter(
+        (address) => address.id.toString() === pk
+      );
+    }
+
+    if (addressesArr.length !== 0) {
+      address = await addressesArr[0];
+    }
+
     return {
-      props: { session, userStatus },
+      props: { session, userStatus, address },
     };
   }
 };
