@@ -34,6 +34,9 @@ const Checkout = ({ userStatus, defaultAddress }) => {
 
   const shippingCost = cart.length * 100;
   const salesTaxCost = cart.length * 10;
+  const couponPercent = 0;
+  const couponAmountInit = (couponPercent / 100) * totalAmountWithShippingNtax
+  const couponAmount = totalAmountWithShippingNtax - couponAmountInit
 
   setShipping(shippingCost);
   setSalesTax(salesTaxCost);
@@ -46,11 +49,12 @@ const Checkout = ({ userStatus, defaultAddress }) => {
       phone: userStatus.phone,
       email: userStatus.email,
       paymentType: "Instant Shipping",
-      cart: cart,
       totalPrice: totalPrice,
       shippingFee: shipping,
       salesTax: salesTax,
+      discount: couponAmount,
       shippingAddress: defaultAddress,
+      cart: cart,
     },
     publicKey: process.env.NEXT_PUBLIC_PAYSTACK_TEXTMODE_PUBLIC_KEY,
     text: "Pay for Instant Shipping",
