@@ -264,35 +264,35 @@ export const getServerSideProps = async ({ req }) => {
         return userStatus;
       });
 
-    const allAddresses = await fetch(
-      "https://mercurius-api-production.up.railway.app/api/addresses/"
-    ).then((res) => res.json());
+    // const allAddresses = await fetch(
+    //   "https://mercurius-api-production.up.railway.app/api/addresses/"
+    // ).then((res) => res.json());
 
-    let addresses = [];
-    let defaultAddressArr = [];
+    // let addresses = [];
+    // let defaultAddressArr = [];
     let defaultAddress = [];
 
-    if (allAddresses.length !== 0) {
-      addresses = allAddresses.filter(
-        (address) => address.user === userStatus.id
-      );
-    } else {
-      addresses = null;
-    }
+    // if (allAddresses.length !== 0) {
+    //   addresses = allAddresses.filter(
+    //     (address) => address.user === userStatus.id
+    //   );
+    // } else {
+    //   addresses = null;
+    // }
 
-    if (addresses.length !== 0) {
-      defaultAddressArr = await addresses.filter(
-        (address) => address.is_default === true
-      );
-    } else {
-      defaultAddressArr = null;
-    }
+    // if (addresses.length !== 0) {
+    //   defaultAddressArr = await addresses.filter(
+    //     (address) => address.is_default === true
+    //   );
+    // } else {
+    //   defaultAddressArr = null;
+    // }
 
-    if (defaultAddressArr.length !== 0) {
-      defaultAddress = await defaultAddressArr[0];
-    } else {
-      defaultAddress = null;
-    }
+    // if (defaultAddressArr.length !== 0) {
+    //   defaultAddress = await defaultAddressArr[0];
+    // } else {
+    //   defaultAddress = null;
+    // }
 
     return {
       props: { session, userStatus, defaultAddress },
