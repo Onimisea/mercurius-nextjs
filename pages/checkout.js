@@ -38,21 +38,19 @@ const Checkout = ({ userStatus, defaultAddress }) => {
   const couponAmountInit = Math.round((couponPercent / 100) * totalPrice)
   const couponAmount = Math.round(totalPrice - couponAmountInit)
 
-  const couponAmountInitPst = (couponPercent / 100) * totalPrice * 100
-
   setShipping(shippingCost);
   setSalesTax(salesTaxCost);
 
   const paymentPropsSts = {
     email: userStatus.email,
-    amount: totalAmount - couponAmountInitPst,
+    amount: totalAmount - couponAmountInit,
     metadata: {
       name: userStatus.fullname,
       phone: userStatus.phone,
       email: userStatus.email,
       paymentType: "Storage",
       totalAmount: totalAmount,
-      discount: couponAmount,
+      discount: couponAmountInit,
       shippingAddress: defaultAddress,
       cart: cart,
     },
@@ -65,7 +63,7 @@ const Checkout = ({ userStatus, defaultAddress }) => {
 
   const paymentPropsIs = {
     email: userStatus.email,
-    amount: totalAmountWithShippingNtax - couponAmountInitPst,
+    amount: totalAmountWithShippingNtax - couponAmountInit,
     metadata: {
       name: userStatus.fullname,
       phone: userStatus.phone,
