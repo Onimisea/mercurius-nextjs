@@ -327,8 +327,8 @@ export const getServerSideProps = async ({ req }) => {
         });
     }
 
+    let addresses = [];
     let userAddressesArr = [];
-    let addressesArr = [];
     let address = [];
 
     const allAddresses = await fetch(
@@ -341,14 +341,14 @@ export const getServerSideProps = async ({ req }) => {
       );
     }
 
-    if (userAddressesArr.length !== 0) {
-      addressesArr = await userAddressesArr.filter(
-        (address) => address.id.toString() === pk
+    if (addresses.length !== 0) {
+      defaultAddressArr = addresses.filter(
+        (address) => address.is_default === true
       );
     }
 
-    if (addressesArr.length !== 0) {
-      address = await addressesArr[0];
+    if (defaultAddressArr.length !== 0) {
+      address = await defaultAddressArr[0];
     }
 
     return {
