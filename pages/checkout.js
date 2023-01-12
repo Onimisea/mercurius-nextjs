@@ -45,6 +45,7 @@ const Checkout = ({ userStatus, defaultAddress }) => {
     email: userStatus.email,
     amount: totalAmount - couponAmountInit,
     metadata: {
+      user_id: userStatus.id,
       name: userStatus.fullname,
       phone: userStatus.phone,
       email: userStatus.email,
@@ -65,6 +66,7 @@ const Checkout = ({ userStatus, defaultAddress }) => {
     email: userStatus.email,
     amount: totalAmountWithShippingNtax - couponAmountInit,
     metadata: {
+      user_id: userStatus.id,
       name: userStatus.fullname,
       phone: userStatus.phone,
       email: userStatus.email,
