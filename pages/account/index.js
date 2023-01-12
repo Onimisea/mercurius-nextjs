@@ -268,9 +268,9 @@ export const getServerSideProps = async ({ req }) => {
       "https://mercurius-api-production.up.railway.app/api/addresses/"
     ).then((res) => res.json());
 
-    let addresses = null;
-    let defaultAddressArr = null;
-    let defaultAddress = null;
+    let addresses = [];
+    let defaultAddressArr = [];
+    let defaultAddress = [];
 
     if (allAddresses.length !== 0) {
       addresses = allAddresses.filter(
