@@ -586,9 +586,9 @@ export const getServerSideProps = async ({ req, params: { pk } }) => {
         return userStatus;
       });
 
-    let userAddressesArr = null;
-    let addressesArr = null;
-    let address = null;
+    let userAddressesArr = [];
+    let addressesArr = [];
+    let address = [];
 
     const allAddresses = await fetch(
       "https://mercurius-api-production.up.railway.app/api/addresses/"
